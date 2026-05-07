@@ -20,7 +20,7 @@ def get_journal_data_from_github():
     Fetch the latest data journal CSV from GitHub and return parsed rows.
     """
     try:
-        click.secho("Fetching data journal data from GitHub...", fg="green")
+        click.secho("Fetching data journal data from GitHub...", fg="blue")
         response = requests.get(CRAWL_URL)
         if response.status_code == 200:
             # Split raw text into rows, strip whitespace, split by comma
@@ -124,6 +124,45 @@ def enrich_journal_metadata(
     return enriched_journals_dict
 
 
+def process_journal_metadata(
+    crawl_csv: bool = False,
+    csv_fpath: Path | None = None,
+    output_dir: Path | None = Path("./data/json")
+) -> bool:
+    """
+    Core processing workflow for journal metadata.
+    """
+    # Create output_dir if it does not exist
+    ensure_dir(output_dir)
+
+    data = None
+    if crawl_csv:
+        data = get_journal_data_from_github()
+
+    if csv_fpath:
+        data = get_journal_data_from_csv(csv_fpath)
+
+    if data is None:
+        click.secho(
+            "→ No data source provided or data fetch failed.",
+            fg="red"
+        )
+        return False
+
+    # Parse and process journal data
+    journals_dict = parse_journal_data_csv(data)
+    json_data = transform_csv_to_json(journals_dict)
+    write_json_to_disk(json_data, output_dir / "data_journals.json")
+
+    enriched_journals_dict = enrich_journal_metadata(journals_dict)
+    write_json_to_disk(
+        enriched_journals_dict,
+        output_dir / "data_journals_enriched.json"
+    )
+
+    return True
+
+
 @click.command(no_args_is_help=False)
 @click.option(
     "--crawl_csv", "-c",
@@ -147,44 +186,17 @@ def enrich_journal_metadata(
 )
 def main(
     crawl_csv: bool = False,
-    csv_fpath: str | Path = None,
-    output_dir: str | Path = None,
+    csv_fpath: Path | None = None,
+    output_dir: Path | None = None,
 ):
     """
-    Main data processing function.
+    CLI wrapper for journal data processing.
     """
-    if output_dir:
-        output_dir = Path(output_dir)
-        ensure_dir(output_dir)
-    else:
-        output_dir = Path("./data/json")
-        ensure_dir(output_dir)
-
-    data = None
-    if crawl_csv:
-        data = get_journal_data_from_github()
-
-    if csv_fpath:
-        data = get_journal_data_from_csv(csv_fpath)
-
-    if data is None:
-        click.secho("→ No data source provided or data fetch failed.", fg="red")
-        return
-
-    # Parse CSV rows into journals dictionary
-    journals_dict = parse_journal_data_csv(data)
-
-    # Transform to JSON and save
-    json_data = transform_csv_to_json(journals_dict)
-    output_fpath = output_dir.joinpath("data_journals.json")
-    write_json_to_disk(json_data, output_fpath)
-
-    # Enrich journals_dict metadata
-    enriched_journals_dict = enrich_journal_metadata(journals_dict)
-
-    # Save enriched JSON
-    output_fpath = output_dir.joinpath("data_journals_enriched.json")
-    write_json_to_disk(enriched_journals_dict, output_fpath)
+    process_journal_metadata(
+        crawl_csv=crawl_csv,
+        csv_fpath=csv_fpath,
+        output_dir=output_dir
+    )
 
 
 if __name__ == "__main__":
