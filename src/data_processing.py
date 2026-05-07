@@ -8,28 +8,85 @@ from pathlib import Path
 CRAWL_URL = "https://raw.githubusercontent.com/MaxiKi/data-journals/refs/heads/main/data_journals_characteristics.csv"
 
 
-def ensure_dir():
-    pass
+def ensure_dir(dir_path: Path | str):
+    """
+    Create a target directory (and parent directories) if it does not exist.
+    """
+    Path(dir_path).mkdir(parents=True, exist_ok=True)
 
 
 def get_journal_data_from_github():
-    pass
+    """
+    Fetch the latest data journal CSV from GitHub and return parsed rows.
+    """
+    try:
+        click.secho("Fetching data journal data from GitHub...", fg="green")
+        response = requests.get(CRAWL_URL)
+        if response.status_code == 200:
+            # Split raw text into rows, strip whitespace, split by comma
+            data = []
+            for row in response.text.split("\n"):
+                if row.strip():
+                    clean_row = row.strip().replace("\r", "").split(",")
+                    data.append(clean_row)
+            return data
+        click.secho(
+            f"Failed to fetch data: HTTP {response.status_code}",
+            fg="red"
+        )
+        return None
+    except Exception as e:
+        click.secho(f"Error during data crawl: {e}", fg="red")
+        return None
 
 
-def get_journal_data_from_csv():
-    pass
+def get_journal_data_from_csv(csv_fpath: Path | str):
+    """
+    Read a local CSV file and return parsed rows.
+    """
+    csv_fpath = Path(csv_fpath)
+    if not csv_fpath.exists():
+        click.secho(f"→ Input filepath {csv_fpath} does not exist", fg="red")
+        return None
+    with open(csv_fpath, "r", encoding="utf-8") as file:
+        return list(csv.reader(file))
 
 
-def parse_journal_data_csv():
-    pass
+def parse_journal_data_csv(csv_rows: list[list[str]]):
+    """
+    Take raw CSV rows, skip the header row, and map to a structured
+    journals dictionary.
+    """
+    journals_dict = {}
+    for idx, row in enumerate(csv_rows):
+        if idx == 0:  # Skip header row
+            continue
+        if row:
+            journals_dict[idx] = {
+                "issn": row[0],
+                "journal_title": row[1],
+                "publisher": row[2],
+                "data_journal_type": row[3]
+            }
+    return journals_dict
 
 
-def transform_csv_to_json():
-    pass
+def transform_csv_to_json(journals_dict: dict):
+    """
+    Convert the parsed journals dictionary into a JSON-serializable structure.
+    """
+    return journals_dict
 
 
-def write_json_to_disk():
-    pass
+def write_json_to_disk(json_data: dict, output_fpath: Path | str):
+    """
+    Write JSON data to a specified file path with consistent formatting.
+    """
+    output_fpath = Path(output_fpath)
+    output_fpath.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_fpath, "w", encoding="utf-8") as file:
+        json.dump(json_data, file, indent=4)
+    click.secho(f"→ Saved JSON to {output_fpath}", fg="green")
 
 
 def enrich_journal_metadata(
@@ -98,63 +155,36 @@ def main(
     """
     if output_dir:
         output_dir = Path(output_dir)
-        if not output_dir.exists():
-            output_dir.mkdir(exist_ok=True, parents=True)
+        ensure_dir(output_dir)
+    else:
+        output_dir = Path("./data/json")
+        ensure_dir(output_dir)
 
+    data = None
     if crawl_csv:
-        try:
-            response = requests.get(CRAWL_URL)
-            if response.status_code == 200:
-                data_raw = response.text
-                data_raw = data_raw.split("\n")
-                data = []
-                for row in data_raw:
-                    row = row.strip().replace("\r", "")
-                    if row:
-                        data.append(row.split(","))
-        except Exception as e:
-            click.secho(f"Error during data crawl: {e}")
+        data = get_journal_data_from_github()
 
     if csv_fpath:
-        csv_fpath = Path(csv_fpath)
-        if not csv_fpath.exists():
-            click.secho(f"→ Input filepath {csv_fpath} does not exist",
-                        fg="red")
-            return
+        data = get_journal_data_from_csv(csv_fpath)
 
-        # Parse csv
-        with open(csv_fpath, "r", encoding="utf-8") as file:
-            data = csv.reader(file)
+    if data is None:
+        click.secho("→ No data source provided or data fetch failed.", fg="red")
+        return
 
-    # # Parse csv
-    # with open(csv_fpath, "r", encoding="utf-8") as file:
-    #     data = csv.reader(file)
+    # Parse CSV rows into journals dictionary
+    journals_dict = parse_journal_data_csv(data)
 
-    # Transform to json
-    journals_dict: dict[str] = {}
-    for idx, row in enumerate(data):
-        if idx == 0:  # Skip column headers
-            continue
-        if row:
-            journals_dict[idx] = {
-                "issn": row[0],
-                "journal_title": row[1],
-                "publisher": row[2],
-                "data_journal_type": row[3]
-            }
-
-    # Save json
-    output_fpath = Path(output_dir).joinpath("data_journals.json")
-    with open(output_fpath, "w", encoding="utf-8") as file:
-        json.dump(journals_dict, file, indent=4)
+    # Transform to JSON and save
+    json_data = transform_csv_to_json(journals_dict)
+    output_fpath = output_dir.joinpath("data_journals.json")
+    write_json_to_disk(json_data, output_fpath)
 
     # Enrich journals_dict metadata
     enriched_journals_dict = enrich_journal_metadata(journals_dict)
 
-    # Save json
-    output_fpath = Path(output_dir).joinpath("data_journals_enriched.json")
-    with open(output_fpath, "w", encoding="utf-8") as file:
-        json.dump(enriched_journals_dict, file, indent=4)
+    # Save enriched JSON
+    output_fpath = output_dir.joinpath("data_journals_enriched.json")
+    write_json_to_disk(enriched_journals_dict, output_fpath)
 
 
 if __name__ == "__main__":
