@@ -1,0 +1,485 @@
+# Blueprint for a data journal metadata record.
+#
+# Each field entry:
+#   key        – canonical field name used in the output JSON
+#   label      – human-readable display name
+#   description – what the field captures
+#   source     – where the value comes from:
+#                  generated  → computed at processing time (e.g. sequential id)
+#                  csv        → pulled from the upstream CSV (csv_column names the column)
+#                  doaj       → fetched from the DOAJ API (bibjson path in doaj_path)
+#                  default    → static default value defined here
+#   type       – expected data type (string | integer | boolean | list | dict | url | null)
+#   required   – whether the field must be present for a valid record
+#   default    – fallback value when the source yields nothing
+#   csv_column – (csv only) column name in the upstream CSV
+#   doaj_path  – (doaj only) dotted path into bibjson for documentation purposes
+
+fields:
+
+  # ── Core / generated ──────────────────────────────────────────────────────
+
+  - key: id
+    label: "ID"
+    description: "Sequential integer identifier assigned during processing."
+    source: generated
+    type: integer
+    required: true
+    default: null
+
+  # ── CSV-sourced fields ─────────────────────────────────────────────────────
+
+  - key: issn
+    label: "ISSN"
+    description: "Primary ISSN used as the lookup key."
+    source: csv
+    csv_column: issn
+    type: string
+    required: true
+    default: null
+
+  - key: journal_title
+    label: "Journal Title"
+    description: "Official journal title as listed in the source CSV."
+    source: csv
+    csv_column: journal_title
+    type: string
+    required: true
+    default: null
+
+  - key: publisher
+    label: "Publisher"
+    description: "Publisher name as listed in the source CSV."
+    source: csv
+    csv_column: publisher
+    type: string
+    required: false
+    default: null
+
+  - key: data_journal_type
+    label: "Data Journal Type"
+    description: "Classification of the data journal (e.g. standalone, overlay, section)."
+    source: csv
+    csv_column: data_journal_type
+    type: string
+    required: false
+    default: null
+
+  # ── DOAJ-sourced fields ────────────────────────────────────────────────────
+  # Populated by get_doaj_metadata() via the DOAJ API (https://doaj.org/api/).
+  # All paths are relative to bibjson of the first result.
+
+  ## Identifiers & basic metadata
+
+  - key: eissn
+    label: "eISSN"
+    description: "Electronic ISSN from DOAJ."
+    source: doaj
+    doaj_path: "eissn"
+    type: string
+    required: false
+    default: null
+
+  - key: pissn
+    label: "pISSN"
+    description: "Print ISSN from DOAJ."
+    source: doaj
+    doaj_path: "pissn"
+    type: string
+    required: false
+    default: null
+
+  - key: title
+    label: "Title (DOAJ)"
+    description: "Journal title as stored in DOAJ."
+    source: doaj
+    doaj_path: "title"
+    type: string
+    required: false
+    default: null
+
+  - key: language
+    label: "Languages"
+    description: "List of publication languages (ISO 639-1 codes)."
+    source: doaj
+    doaj_path: "language"
+    type: list
+    required: false
+    default: []
+
+  - key: oa_start
+    label: "OA Start Year"
+    description: "Year the journal became open access."
+    source: doaj
+    doaj_path: "oa_start"
+    type: integer
+    required: false
+    default: null
+
+  - key: boai
+    label: "BOAI Compliant"
+    description: "Whether the journal complies with the Budapest Open Access Initiative definition."
+    source: doaj
+    doaj_path: "boai"
+    type: boolean
+    required: false
+    default: null
+
+  - key: publication_time_weeks
+    label: "Publication Time (weeks)"
+    description: "Average time from submission to publication in weeks."
+    source: doaj
+    doaj_path: "publication_time_weeks"
+    type: integer
+    required: false
+    default: null
+
+  - key: keywords
+    label: "Keywords"
+    description: "Author-supplied or editor-assigned keywords for the journal."
+    source: doaj
+    doaj_path: "keywords"
+    type: list
+    required: false
+    default: []
+
+  ## Subjects / research fields
+
+  - key: research_field
+    label: "Research Fields"
+    description: "List of subject terms describing the journal's scope."
+    source: doaj
+    doaj_path: "subject[].term"
+    type: list
+    required: false
+    default: []
+
+  - key: subject_codes
+    label: "Subject Codes"
+    description: "Full subject objects including term, classification code, and scheme (e.g. LCC)."
+    source: doaj
+    doaj_path: "subject[]"
+    type: list
+    required: false
+    default: []
+
+  ## Publisher & institution
+
+  - key: publisher_name
+    label: "Publisher Name (DOAJ)"
+    description: "Publisher name as recorded in DOAJ."
+    source: doaj
+    doaj_path: "publisher.name"
+    type: string
+    required: false
+    default: null
+
+  - key: publisher_country
+    label: "Publisher Country"
+    description: "Country of the publisher (ISO 3166-1 alpha-2)."
+    source: doaj
+    doaj_path: "publisher.country"
+    type: string
+    required: false
+    default: null
+
+  - key: institution_name
+    label: "Institution Name"
+    description: "Sponsoring institution name, if applicable."
+    source: doaj
+    doaj_path: "institution.name"
+    type: string
+    required: false
+    default: null
+
+  - key: institution_country
+    label: "Institution Country"
+    description: "Country of the sponsoring institution (ISO 3166-1 alpha-2)."
+    source: doaj
+    doaj_path: "institution.country"
+    type: string
+    required: false
+    default: null
+
+  ## Editorial process
+
+  - key: review_process
+    label: "Review Process"
+    description: "Peer review types used by the journal (e.g. double blind, open peer review)."
+    source: doaj
+    doaj_path: "editorial.review_process"
+    type: list
+    required: false
+    default: []
+
+  - key: review_url
+    label: "Review Process URL"
+    description: "URL describing the journal's peer review process."
+    source: doaj
+    doaj_path: "editorial.review_url"
+    type: url
+    required: false
+    default: null
+
+  - key: board_url
+    label: "Editorial Board URL"
+    description: "URL listing the editorial board members."
+    source: doaj
+    doaj_path: "editorial.board_url"
+    type: url
+    required: false
+    default: null
+
+  ## Licensing
+
+  - key: license_types
+    label: "License Types"
+    description: "List of Creative Commons or other license type identifiers (e.g. CC BY, CC BY-NC)."
+    source: doaj
+    doaj_path: "license[].type"
+    type: list
+    required: false
+    default: []
+
+  - key: license_details
+    label: "License Details"
+    description: "Full license objects including BY/NC/ND/SA flags and URL."
+    source: doaj
+    doaj_path: "license[]"
+    type: list
+    required: false
+    default: []
+
+  ## Article Processing Charges (APC)
+
+  - key: apc_has
+    label: "Has APC"
+    description: "Whether the journal charges article processing charges."
+    source: doaj
+    doaj_path: "apc.has_apc"
+    type: boolean
+    required: false
+    default: null
+
+  - key: apc_max
+    label: "APC Maximum"
+    description: "Maximum APC fee(s) as a list of {price, currency} objects."
+    source: doaj
+    doaj_path: "apc.max"
+    type: list
+    required: false
+    default: []
+
+  - key: apc_url
+    label: "APC URL"
+    description: "URL with details about the journal's APC policy."
+    source: doaj
+    doaj_path: "apc.url"
+    type: url
+    required: false
+    default: null
+
+  - key: other_charges
+    label: "Has Other Charges"
+    description: "Whether the journal charges fees beyond APCs (e.g. submission fees)."
+    source: doaj
+    doaj_path: "other_charges.has_other_charges"
+    type: boolean
+    required: false
+    default: null
+
+  ## Waiver policy
+
+  - key: waiver_has
+    label: "Has Waiver"
+    description: "Whether the journal offers APC waivers."
+    source: doaj
+    doaj_path: "waiver.has_waiver"
+    type: boolean
+    required: false
+    default: null
+
+  - key: waiver_url
+    label: "Waiver URL"
+    description: "URL with details about the journal's waiver policy."
+    source: doaj
+    doaj_path: "waiver.url"
+    type: url
+    required: false
+    default: null
+
+  ## Preservation
+
+  - key: preservation_has
+    label: "Has Preservation"
+    description: "Whether the journal participates in a digital preservation scheme."
+    source: doaj
+    doaj_path: "preservation.has_preservation"
+    type: boolean
+    required: false
+    default: null
+
+  - key: preservation_services
+    label: "Preservation Services"
+    description: "List of preservation services used (e.g. CLOCKSS, Portico)."
+    source: doaj
+    doaj_path: "preservation.service"
+    type: list
+    required: false
+    default: []
+
+  - key: preservation_url
+    label: "Preservation URL"
+    description: "URL with details about the journal's preservation policy."
+    source: doaj
+    doaj_path: "preservation.url"
+    type: url
+    required: false
+    default: null
+
+  ## Persistent Identifiers (PIDs)
+
+  - key: pid_schemes
+    label: "PID Schemes"
+    description: "Persistent identifier schemes supported for articles (e.g. DOI, Handle)."
+    source: doaj
+    doaj_path: "pid_scheme.scheme"
+    type: list
+    required: false
+    default: []
+
+  ## Plagiarism detection
+
+  - key: plagiarism_detection
+    label: "Plagiarism Detection"
+    description: "Whether the journal uses plagiarism detection software."
+    source: doaj
+    doaj_path: "plagiarism.detection"
+    type: boolean
+    required: false
+    default: null
+
+  - key: plagiarism_url
+    label: "Plagiarism Detection URL"
+    description: "URL describing the journal's plagiarism detection policy."
+    source: doaj
+    doaj_path: "plagiarism.url"
+    type: url
+    required: false
+    default: null
+
+  ## Copyright
+
+  - key: copyright_author_retains
+    label: "Author Retains Copyright"
+    description: "Whether authors retain copyright of published articles."
+    source: doaj
+    doaj_path: "copyright.author_retains"
+    type: boolean
+    required: false
+    default: null
+
+  - key: copyright_url
+    label: "Copyright URL"
+    description: "URL describing the journal's copyright policy."
+    source: doaj
+    doaj_path: "copyright.url"
+    type: url
+    required: false
+    default: null
+
+  ## Deposit policy
+
+  - key: deposit_policy_has
+    label: "Has Deposit Policy"
+    description: "Whether the journal has a defined self-archiving / deposit policy."
+    source: doaj
+    doaj_path: "deposit_policy.has_policy"
+    type: boolean
+    required: false
+    default: null
+
+  - key: deposit_policy_services
+    label: "Deposit Policy Services"
+    description: "Repositories or registries where the deposit policy is recorded (e.g. Sherpa/RoMEO)."
+    source: doaj
+    doaj_path: "deposit_policy.service"
+    type: list
+    required: false
+    default: []
+
+  - key: deposit_policy_url
+    label: "Deposit Policy URL"
+    description: "URL with details about the journal's deposit/self-archiving policy."
+    source: doaj
+    doaj_path: "deposit_policy.url"
+    type: url
+    required: false
+    default: null
+
+  ## Article-level metadata
+
+  - key: article_license_display
+    label: "Article License Display"
+    description: "How the license is displayed on article pages (e.g. on article, on website)."
+    source: doaj
+    doaj_path: "article.license_display"
+    type: list
+    required: false
+    default: []
+
+  - key: article_license_example_url
+    label: "Article License Example URL"
+    description: "URL of an example article showing license display."
+    source: doaj
+    doaj_path: "article.license_display_example_url"
+    type: url
+    required: false
+    default: null
+
+  ## Reference / external links
+
+  - key: ref_journal
+    label: "Journal Homepage"
+    description: "URL of the journal's homepage."
+    source: doaj
+    doaj_path: "ref.journal"
+    type: url
+    required: false
+    default: null
+
+  - key: ref_aims_scope
+    label: "Aims & Scope URL"
+    description: "URL of the journal's aims and scope page."
+    source: doaj
+    doaj_path: "ref.aims_scope"
+    type: url
+    required: false
+    default: null
+
+  - key: ref_oa_statement
+    label: "OA Statement URL"
+    description: "URL of the journal's open access statement."
+    source: doaj
+    doaj_path: "ref.oa_statement"
+    type: url
+    required: false
+    default: null
+
+  - key: ref_author_instructions
+    label: "Author Instructions URL"
+    description: "URL of the journal's author guidelines / instructions for authors."
+    source: doaj
+    doaj_path: "ref.author_instructions"
+    type: url
+    required: false
+    default: null
+
+  - key: ref_license_terms
+    label: "License Terms URL"
+    description: "URL of the journal's full license terms page."
+    source: doaj
+    doaj_path: "ref.license_terms"
+    type: url
+    required: false
+    default: null
