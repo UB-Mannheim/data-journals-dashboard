@@ -1,39 +1,26 @@
 # Blueprint for a data journal metadata record.
-#
-# Each field entry:
-#   key        – canonical field name used in the output JSON
-#   label      – human-readable display name
-#   description – what the field captures
-#   source     – where the value comes from:
-#                  generated  → computed at processing time (e.g. sequential id)
-#                  csv        → pulled from the upstream CSV (csv_column names the column)
-#                  doaj       → fetched from the DOAJ API (bibjson path in doaj_path)
-#                  default    → static default value defined here
-#   type       – expected data type (string | integer | boolean | list | dict | url | null)
-#   required   – whether the field must be present for a valid record
-#   default    – fallback value when the source yields nothing
-#   csv_column – (csv only) column name in the upstream CSV
-#   doaj_path  – (doaj only) dotted path into bibjson for documentation purposes
 
 fields:
 
-  # ── Core / generated ──────────────────────────────────────────────────────
+  # CORE METADATA
+  
+  ## The core metadata fields originate from this publication and GitHub repository: 
+  ## Publication: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7082126
+  ## GitHub repository: https://github.com/MaxiKi/data-journals
 
   - key: id
     label: "ID"
-    description: "Sequential integer identifier assigned during processing."
+    description: "Sequential integer id for each data journal assigned during processing."
     source: generated
     type: integer
     required: true
     default: null
 
-  # ── CSV-sourced fields ─────────────────────────────────────────────────────
-
   - key: issn
     label: "ISSN"
     description: "Primary ISSN used as the lookup key."
     source: csv
-    csv_column: issn
+    csv_column: ISSN
     type: string
     required: true
     default: null
@@ -53,21 +40,29 @@ fields:
     source: csv
     csv_column: publisher
     type: string
-    required: false
+    required: true
+    default: null
+
+  - key: url
+    label: "URL"
+    description: "URL link to the journal's website."
+    source: csv
+    csv_column: URL
+    type: string
+    required: true
     default: null
 
   - key: data_journal_type
     label: "Data Journal Type"
-    description: "Classification of the data journal (e.g. standalone, overlay, section)."
+    description: "Classification of the data journal: pure or mixed."
     source: csv
     csv_column: data_journal_type
     type: string
-    required: false
+    required: true
     default: null
 
-  # ── DOAJ-sourced fields ────────────────────────────────────────────────────
-  # Populated by get_doaj_metadata() via the DOAJ API (https://doaj.org/api/).
-  # All paths are relative to bibjson of the first result.
+
+  # DOAJ.ORG METADATA VIA THE DOAJ API (https://doaj.org/api/)
 
   ## Identifiers & basic metadata
 
@@ -85,15 +80,6 @@ fields:
     description: "Print ISSN from DOAJ."
     source: doaj
     doaj_path: "pissn"
-    type: string
-    required: false
-    default: null
-
-  - key: title
-    label: "Title (DOAJ)"
-    description: "Journal title as stored in DOAJ."
-    source: doaj
-    doaj_path: "title"
     type: string
     required: false
     default: null
@@ -145,7 +131,7 @@ fields:
 
   ## Subjects / research fields
 
-  - key: research_field
+  - key: research_fields
     label: "Research Fields"
     description: "List of subject terms describing the journal's scope."
     source: doaj
@@ -237,15 +223,6 @@ fields:
     description: "List of Creative Commons or other license type identifiers (e.g. CC BY, CC BY-NC)."
     source: doaj
     doaj_path: "license[].type"
-    type: list
-    required: false
-    default: []
-
-  - key: license_details
-    label: "License Details"
-    description: "Full license objects including BY/NC/ND/SA flags and URL."
-    source: doaj
-    doaj_path: "license[]"
     type: list
     required: false
     default: []

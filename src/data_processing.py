@@ -8,12 +8,26 @@ from pathlib import Path
 
 
 CRAWL_URL = "https://raw.githubusercontent.com/MaxiKi/data-journals/refs/heads/main/data_journals_characteristics.csv"
+METADATA_SCHEMA_PATH = Path("journal_metadata_schema/schema.yaml")
 RAW_CSV_PATH = Path("data/raw/data_journals.csv")
 PROCESSED_YAML_PATH = Path("data/processed/data_journals.yaml")
 
 
 def ensure_dir(dir_path: Path | str):
     Path(dir_path).mkdir(parents=True, exist_ok=True)
+
+
+def load_schema(schema_path: Path) -> list[dict]:
+    """
+    Load the journal metadata schema and return the list of field definitions.
+    """
+    try:
+        with open(schema_path, 'r', encoding='utf-8') as file:
+            schema = yaml.safe_load(file)
+        return schema.get('fields', [])
+    except Exception as e:
+        click.secho(f"Error loading schema from {schema_path}: {e}", fg="red")
+        return []
 
 
 def get_journal_data_from_github() -> list[list[str]] | None:
@@ -24,7 +38,7 @@ def get_journal_data_from_github() -> list[list[str]] | None:
         click.secho("Fetching data journal data from GitHub...", fg="blue")
         response = requests.get(CRAWL_URL)
         response.raise_for_status()
-        return list(csv.reader(io.StringIO(response.text)))
+        return list(csv.reader(io.StringIO(response.text.strip())))
     except Exception as e:
         click.secho(f"Error during data crawl: {e}", fg="red")
         return None
@@ -53,160 +67,155 @@ def save_csv_to_disk(rows: list[list[str]], fpath: Path):
     click.secho(f"Saved raw CSV → {fpath}", fg="green")
 
 
-def parse_csv_rows(rows: list[list[str]]) -> list[dict]:
+def parse_csv_rows_with_schema(
+    rows: list[list[str]],
+    schema_fields: list[dict]
+) -> list[dict]:
     """
-    Convert CSV rows (header + data) to list of dicts with sequential id.
+    Convert CSV rows to list of dicts, only including fields defined in
+    schema with source 'csv' or 'generated'.
     """
     if not rows:
         return []
-    header = rows[0]
+
+    # Get CSV fields from schema
+    header = [col.strip() for col in rows[0]]
+    csv_fields = [f for f in schema_fields if f['source'] == 'csv']
+    csv_col_to_key = {f['csv_column'].strip(): f['key'] for f in csv_fields}
+
+    # Get generated fields from schema (id)
+    generated_fields = [f for f in schema_fields if f['source'] == 'generated']
+    
     journals = []
     for idx, row in enumerate(rows[1:], start=1):
-        record = {"id": idx}
+        # Add generated fields first (id)
+        record = {}
+        for gf in generated_fields:
+            if gf['key'] == 'id':
+                record['id'] = idx
+            else:
+                record[gf['key']] = gf.get('default')
+
+        # Map CSV columns
         for col, val in zip(header, row):
-            record[col.strip()] = val.strip()
+            col_clean = col.strip()
+            if col_clean in csv_col_to_key:
+                key = csv_col_to_key[col_clean]
+                record[key] = val.strip()
         journals.append(record)
+
     return journals
 
 
-def get_doaj_metadata(issn: str, timeout: int = 20) -> dict:
+def extract_doaj_value(bibjson: dict, doaj_path: str, default):
     """
-    Query DOAJ API and extract all bibjson fields.
+    Extract a value from a DOAJ bibjson dict using a doaj_path expression.
+
+    Supported patterns:
+      "eissn"             → bibjson["eissn"]
+      "publisher.name"    → bibjson["publisher"]["name"]
+      "subject[]"         → bibjson["subject"]  (full list)
+      "subject[].term"    → [s["term"] for s in bibjson["subject"]]
     """
-    doaj_api_url = f"https://doaj.org/api/search/journals/issn:{issn}"
-    try:
-        response = requests.get(doaj_api_url, timeout=timeout)
-        response.raise_for_status()
-        results = response.json().get("results", [])
-        if not results:
-            return {}
+    # Example: subject[] and subject[].term
+    if "[]" in doaj_path:
+        bracket_index = doaj_path.index("[]")
+        list_key = doaj_path[:bracket_index]  # subject
+        nested_key = doaj_path[bracket_index + 2:].lstrip(".")  # term
+        nested_items = bibjson.get(list_key, [])
+        
+        print(list_key)
+        print(nested_key)
+        print(nested_items)
 
-        # Get bibjson data (contains relevant metadata)
-        b = results[0].get("bibjson", {})
+        if not isinstance(nested_items, list):
+            return default
 
-        # Get research fields and subjects
-        research_field = []
-        for subject in b.get("subject", []):
-            if "term" in subject:
-                research_field.append(subject["term"])
-                subject_codes = {
-                    "term": subject["term"],
-                    "code": subject.get("code"),
-                    "scheme": subject.get("scheme")
-                }
+        if nested_key:
+            nested_values = []
+            for item in nested_items:
+                if isinstance(item, dict) and item.get(nested_key) is not None:
+                    nested_values.append(item[nested_key])
+            print(nested_values)
+            return nested_values
 
-        # Return complete metadata for current ISSN
-        return {
-            # Identifiers
-            "eissn": b.get("eissn"),
-            "pissn": b.get("pissn"),
-            "title": b.get("title"),
-            "language": b.get("language", []),
-            "oa_start": b.get("oa_start"),
-            "boai": b.get("boai"),
-            "publication_time_weeks": b.get("publication_time_weeks"),
-            "keywords": b.get("keywords", []),
+        return nested_items or default
 
-            # Subjects and research fields
-            "research_field": research_field,
-            "subject_codes": subject_codes,
+    # Example: publisher.name
+    if "." in doaj_path:
+        obj = bibjson
+        for part in doaj_path.split("."):
+            if not isinstance(obj, dict):
+                return default
 
-            # Publisher & institution
-            "publisher_name": b.get("publisher", {}).get("name"),
-            "publisher_country": b.get("publisher", {}).get("country"),
-            "institution_name": b.get("institution", {}).get("name"),
-            "institution_country": b.get("institution", {}).get("country"),
+            obj = obj.get(part)
+            if obj is None:
+                return default
+        return obj
 
-            # Editorial
-            "review_process": b.get("editorial", {}).get("review_process", []),
-            "review_url": b.get("editorial", {}).get("review_url"),
-            "board_url": b.get("editorial", {}).get("board_url"),
-
-            # Licensing
-            "license_types": [l["type"] for l in b.get("license", [])],
-            "license_details": b.get("license", []),
-
-            # APC
-            "apc_has": b.get("apc", {}).get("has_apc"),
-            "apc_max": b.get("apc", {}).get("max", []),
-            "apc_url": b.get("apc", {}).get("url"),
-            "other_charges": b.get("other_charges", {}).get(
-                "has_other_charges"
-            ),
-
-            # Waiver
-            "waiver_has": b.get("waiver", {}).get("has_waiver"),
-            "waiver_url": b.get("waiver", {}).get("url"),
-
-            # Preservation
-            "preservation_has": b.get("preservation", {}).get(
-                "has_preservation"
-            ),
-            "preservation_services": b.get("preservation", {}).get(
-                "service", []
-            ),
-            "preservation_url": b.get("preservation", {}).get("url"),
-
-            # PIDs
-            "pid_schemes": b.get("pid_scheme", {}).get("scheme", []),
-
-            # Plagiarism detection
-            "plagiarism_detection": b.get("plagiarism", {}).get("detection"),
-            "plagiarism_url": b.get("plagiarism", {}).get("url"),
-
-            # Copyright
-            "copyright_author_retains": b.get("copyright", {}).get(
-                "author_retains"
-            ),
-            "copyright_url": b.get("copyright", {}).get("url"),
-
-            # Deposit policy
-            "deposit_policy_has": b.get("deposit_policy", {}).get(
-                "has_policy"
-            ),
-            "deposit_policy_services": b.get("deposit_policy", {}).get(
-                "service", []
-            ),
-            "deposit_policy_url": b.get("deposit_policy", {}).get("url"),
-
-            # Article licenses
-            "article_license_display": b.get("article", {}).get(
-                "license_display", []
-            ),
-            "article_license_example_url": b.get("article", {}).get(
-                "license_display_example_url"
-            ),
-
-            # Refs
-            "ref_journal": b.get("ref", {}).get("journal"),
-            "ref_aims_scope": b.get("ref", {}).get("aims_scope"),
-            "ref_oa_statement": b.get("ref", {}).get("oa_statement"),
-            "ref_author_instructions": b.get("ref", {}).get(
-                "author_instructions"
-            ),
-            "ref_license_terms": b.get("ref", {}).get("license_terms"),
-        }
-    except Exception as e:
-        click.secho(f"Error fetching DOAJ metadata for {issn}: {e}", fg="red")
-    return {}
+    # Example: plain key like "eissn" etc.
+    val = bibjson.get(doaj_path)
+    return val if val is not None else default
 
 
-def enrich_journal_metadata(journals: list[dict]) -> list[dict]:
+def enrich_journals_with_doaj(
+    journals: list[dict],
+    schema_fields: list[dict] | None = None,
+    max_num: int = None,
+    timeout: int = 20,
+    sleep: float = 0.5
+) -> list[dict]:
     """
-    Enrich each journal dict with DOAJ metadata.
+    Enrich each journal dict with DOAJ metadata, optionally filtered by schema.
     """
+    doaj_schema_fields = [f for f in (schema_fields or []) if f['source'] == 'doaj']
+
     enriched = []
     total = len(journals)
     for i, journal in enumerate(journals, start=1):
-        issn = journal.get("ISSN", "")
-        if issn:
+        if i > max_num:
+            break
+
+        issn = journal.get("issn", "") or journal.get("ISSN", "")
+        if not issn:
+            enriched.append(journal)
+            continue
+
+        click.secho(
+            f"[{i}/{total}] Adding metadata from doaj.org to {issn}...",
+            fg="blue"
+        )
+        try:
+            doaj_api_url = f"https://doaj.org/api/search/journals/issn:{issn}"
+            response = requests.get(doaj_api_url, timeout=timeout)
+            response.raise_for_status()
+            results = response.json().get("results", [])
+            if not results:
+                click.secho(f"  No DOAJ entry found for {issn}.", fg="yellow")
+                enriched.append(journal)
+                time.sleep(sleep)
+                continue
+
+            # Get bibjson metadata section from response
+            bibjson = results[0].get("bibjson", {})
+
+            # Parse bibjson based on schema.yaml
+            doaj_metadata = {}
+            for field in doaj_schema_fields:                
+                result = extract_doaj_value(
+                    bibjson, field["doaj_path"], field.get("default")
+                )
+                doaj_metadata[field["key"]] = result
+            enriched.append({**journal, **doaj_metadata})
+            time.sleep(sleep)
+
+        except Exception as e:
             click.secho(
-                f"[{i}/{total}] Adding metadata from doaj.org to {issn}...",
-                fg="blue"
+                f"Error getting metadata from doaj.org for ISSN {issn}: {e}",
+                fg="red"
             )
-            doaj = get_doaj_metadata(issn)
-            enriched.append({**journal, **doaj})
-            time.sleep(0.5)
+            enriched.append(journal)
+
     return enriched
 
 
@@ -225,42 +234,6 @@ def write_yaml_to_disk(journals: list[dict], fpath: Path):
     click.secho(f"Saved enriched YAML → {fpath}", fg="green")
 
 
-def create_journal_content_for_hugo(
-    data_journals_fpath: Path,
-    content_dir: Path
-) -> None:
-    """
-    Enrich the journals.yaml data with DOAJ metadata and generate
-    Hugo content files.
-    """
-    with open(data_journals_fpath) as file:
-        data = yaml.safe_load(file)
-
-    for journal in data["journals"]:
-        issn = journal["issn"]
-        print(f"Processing {issn}...")
-
-        doaj = get_doaj_metadata(issn)
-        journal.update(doaj)
-        time.sleep(0.5)
-
-        issn_slug = issn.replace("-", "")
-        filepath = content_dir / f"{issn_slug}.md"
-
-        front_matter = yaml.dump(
-            {**journal},
-            allow_unicode=True,
-            sort_keys=False,
-            default_flow_style=False
-        )
-        filepath.write_text(f"---\n{front_matter}---\n")
-
-    with open(data_journals_fpath, "w") as f:
-        yaml.dump(data, f, allow_unicode=True, sort_keys=False)
-
-    print(f"Done. Generated {len(data['journals'])} journal pages.")
-
-
 def process_journal_metadata(
     crawl_csv: bool = False,
     csv_fpath: Path | None = None,
@@ -269,6 +242,17 @@ def process_journal_metadata(
     """
     Core processing workflow: fetch → save CSV → parse → enrich → save YAML.
     """
+    # Load metadata schema
+    schema_fields = None
+    if schema_path:
+        schema_path = Path(schema_path)
+        if schema_path.exists():
+            schema_fields = load_schema(schema_path)
+    else:
+        click.secho(f"Schema does not exist: {schema_path}. Aborting.",
+                    fg="yellow")
+        return False
+
     # Step 1: load raw CSV rows
     rows = None
     if crawl_csv:
@@ -277,65 +261,19 @@ def process_journal_metadata(
         rows = get_journal_data_from_csv(csv_fpath)
 
     if rows is None:
-        click.secho(
-            "→ No data source provided or data fetch failed.",
-            fg="red"
-        )
+        click.secho("→ No data source provided or data fetch failed.",
+                    fg="red")
         return False
 
     # Step 2: save raw CSV
     save_csv_to_disk(rows, RAW_CSV_PATH)
 
     # Step 3: parse rows → list of dicts
-    journals = parse_csv_rows(rows)
+    journals = parse_csv_rows_with_schema(rows, schema_fields)
     click.secho(f"Parsed {len(journals)} journals.", fg="blue")
 
     # Step 4: enrich with DOAJ metadata
-    enriched = enrich_journal_metadata(journals)
+    enriched_journals = enrich_journals_with_doaj(journals, schema_fields, max_num=1)
 
     # Step 5: save enriched YAML
-    write_yaml_to_disk(enriched, PROCESSED_YAML_PATH)
-    
-    # Step 6: Create hugo content files
-
-    return True
-
-
-@click.command(no_args_is_help=True)
-@click.option(
-    "--crawl_csv", "-c",
-    is_flag=True,
-    default=False,
-    help="Crawl the data journal metadata from GitHub.",
-)
-@click.option(
-    "--csv_fpath", "-f",
-    type=click.Path(path_type=Path),
-    default=None,
-    show_default=False,
-    help="Load and parse a local CSV with data journal metadata.",
-)
-@click.option(
-    "--schema_path", "-s",
-    type=click.Path(path_type=Path),
-    default=None,
-    show_default=False,
-    help="Path to the journal metadata schema YAML file.",
-)
-def main(
-    crawl_csv: bool = False,
-    csv_fpath: Path | None = None,
-    schema_path: Path | None = None,
-):
-    """
-    Process data journal metadata: fetch CSV, enrich with DOAJ, save YAML.
-    """
-    process_journal_metadata(
-        crawl_csv=crawl_csv,
-        csv_fpath=csv_fpath,
-        schema_path=schema_path,
-    )
-
-
-if __name__ == "__main__":
-    main()
+    write_yaml_to_disk(enriched_journals, PROCESSED_YAML_PATH)

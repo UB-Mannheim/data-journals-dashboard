@@ -11,4 +11,7 @@ dependencies = [
 ]
 
 [project.scripts]
-dj = "data_processing:main"
+dj = "cli:main"
+
+[tool.uv]
+package = true
