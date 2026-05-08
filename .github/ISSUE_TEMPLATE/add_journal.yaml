@@ -1,0 +1,16 @@
+name: Add Data Journal
+body:
+  - type: input
+    id: issn
+    label: ISSN
+    validations:
+      required: true
+  - type: input
+    id: journal_title
+    label: Journal Title
+  - type: input
+    id: publisher
+    label: Publisher
+  - type: input
+    id: url
+    label: URL
