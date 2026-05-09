@@ -1,5 +1,6 @@
-- issn: 2374-5417
-  journal_title: Cool Big Journal
+journal:
+- issn: 2324-5417
+  journal_title: Another Test Journal
   publisher: Taylor & Francis
   url: https://www.tandfonline.com/journals/tbed20
-  data_journal_type: pure
+  data_journal_type: mixed

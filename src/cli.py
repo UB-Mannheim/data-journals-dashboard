@@ -85,24 +85,6 @@ def process_all(schema_path: Path, max_num: int | None):
     help="Path to a single-journal file (.csv, .yaml, .json).",
 )
 @click.option(
-    "--csv_string",
-    type=str,
-    default=None,
-    help="Journal data as a raw CSV string.",
-)
-@click.option(
-    "--yaml_string",
-    type=str,
-    default=None,
-    help="Journal data as a raw YAML string.",
-)
-@click.option(
-    "--json_string",
-    type=str,
-    default=None,
-    help="Journal data as a raw JSON string.",
-)
-@click.option(
     "--schema_path", "-s",
     type=click.Path(path_type=Path),
     default="journal_metadata_schema/schema.yaml",
@@ -111,9 +93,6 @@ def process_all(schema_path: Path, max_num: int | None):
 )
 def process_single(
     input_fpath: Path | None,
-    csv_string: str | None,
-    yaml_string: str | None,
-    json_string: str | None,
     schema_path: Path,
 ):
     """
@@ -121,9 +100,6 @@ def process_single(
     """
     process_single_journal(
         input_fpath=input_fpath,
-        csv_string=csv_string,
-        yaml_string=yaml_string,
-        json_string=json_string,
         schema_path=schema_path,
     )
 

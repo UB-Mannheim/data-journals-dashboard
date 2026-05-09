@@ -232,9 +232,6 @@ def write_yaml_to_disk(journals: list[dict], fpath: Path):
 
 def process_single_journal(
     input_fpath: str | Path = None,
-    csv_string: str = None,
-    yaml_string: str = None,
-    json_string: str = None,
     schema_path: Path | str | None = METADATA_SCHEMA_PATH,
 ) -> bool:
     """
@@ -251,48 +248,11 @@ def process_single_journal(
 
     # Step 1: Parse input → dict with schema keys
     journal = None
-
-    # csv string
-    if csv_string is not None:
-        rows = list(csv.reader(io.StringIO(csv_string.strip())))
-        if not rows:
-            click.secho("Empty CSV string.", fg="red")
-            return False
-
-        # Detect if first row is a header
-        known_columns = {f['csv_column'] for f in core_metadata}
-        if rows[0][0].strip() not in known_columns:
-            header = [f['csv_column'] for f in core_metadata]
-            rows = [header] + rows
-
-        parsed = parse_csv_rows_with_schema(rows, schema_fields)
-        if not parsed:
-            click.secho("Failed to parse CSV string.", fg="red")
-            return False
-
-        journal = parsed[0]
-
-    # yaml string
-    elif yaml_string is not None:
-        data = yaml.safe_load(yaml_string)
-        journal = (
-            data['journals'][0] if isinstance(data, dict)
-            and 'journals' in data else data
-        )
-
-    # json string
-    elif json_string is not None:
-        data = json.loads(json_string)
-        journal = (
-            data['journals'][0] if isinstance(data, dict)
-            and 'journals' in data else data
-        )
-
-    # Load filepaths (csv, yaml, json)
-    elif input_fpath is not None:
+    if input_fpath is not None:
         fpath = Path(input_fpath)
         suffix = fpath.suffix.lower()
 
+        # csv
         if suffix == '.csv':
             rows = get_journal_data_from_csv(fpath)
             if not rows:
@@ -303,21 +263,16 @@ def process_single_journal(
                 return False
             journal = parsed[0]
 
+        # yaml
         elif suffix in ('.yaml', '.yml'):
             with open(fpath, 'r', encoding='utf-8') as f:
                 data = yaml.safe_load(f)
-            journal = (
-                data['journals'][0] if isinstance(data, dict)
-                and 'journals' in data else data
-            )
-
-        elif suffix == '.json':
-            with open(fpath, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            journal = (
-                data['journals'][0] if isinstance(data, dict)
-                and 'journals' in data else data
-            )
+            if isinstance(data, dict) and 'journal' in data:
+                journal = data['journal'][0]
+            elif isinstance(data, list):
+                journal = data[0]
+            else:
+                journal = data
 
         else:
             click.secho(f"Unsupported file type: {suffix}", fg="red")
@@ -354,9 +309,11 @@ def process_single_journal(
         return False
 
     # Assign next available ID
-    journal['id'] = max(
-        (j.get('id', 0) for j in existing_journals), default=0
-    ) + 1
+    journal['id'] = max((j.get('id', 0) for j in existing_journals),
+                        default=0) + 1
+
+    # Sort journal keys
+    journal = {"id": journal.pop("id"), **journal}
 
     # Step 4: DOAJ enrichment
     journal = enrich_journals_with_doaj([journal], schema_fields)[0]
