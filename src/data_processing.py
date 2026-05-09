@@ -5,13 +5,12 @@ import click
 import requests
 import yaml
 from pathlib import Path
-import json
 
 
 CRAWL_URL = "https://raw.githubusercontent.com/MaxiKi/data-journals/refs/heads/main/data_journals_characteristics.csv"
 METADATA_SCHEMA_PATH = Path("journal_metadata_schema/schema.yaml")
-RAW_CSV_PATH = Path("data/raw/data_journals.csv")
-PROCESSED_YAML_PATH = Path("data/processed/data_journals.yaml")
+RAW_JOURNAL_METADATA_PATH = Path("data/raw/data_journals.csv")
+PROCESSED_JOURNAL_METADATA_PATH = Path("data/processed/data_journals.yaml")
 
 
 def ensure_dir(dir_path: Path | str):
@@ -230,6 +229,28 @@ def write_yaml_to_disk(journals: list[dict], fpath: Path):
     click.secho(f"Saved enriched YAML → {fpath}", fg="green")
 
 
+def load_existing_journals() -> list[dict]:
+    """
+    Load existing journals from the processed YAML file.
+    Returns an empty list if the file doesn't exist or is empty.
+    """
+    if PROCESSED_JOURNAL_METADATA_PATH.exists():
+        with open(PROCESSED_JOURNAL_METADATA_PATH, 'r', encoding='utf-8') as f:
+            existing_data = yaml.safe_load(f)
+        if existing_data:
+            return existing_data.get('journals', [])
+    return []
+
+
+def is_duplicate_journal(journal: dict, existing_journals: list[dict]) -> bool:
+    """
+    Check if a journal already exists in the processed YAML based on ISSN.
+    Returns True if duplicate, False otherwise.
+    """
+    issn = journal.get('issn', '')
+    return any(j.get('issn') == issn for j in existing_journals)
+
+
 def process_single_journal(
     input_fpath: str | Path = None,
     schema_path: Path | str | None = METADATA_SCHEMA_PATH,
@@ -291,19 +312,11 @@ def process_single_journal(
         return False
 
     # Step 3: Duplicate check
-    existing_journals = []
-    if PROCESSED_YAML_PATH.exists():
-        with open(PROCESSED_YAML_PATH, 'r', encoding='utf-8') as f:
-            existing_data = yaml.safe_load(f)
-        if existing_data:
-            existing_journals = existing_data.get('journals', [])
-        else:
-            []
-
-    issn = journal.get('issn', '')
-    if any(j.get('issn') == issn for j in existing_journals):
+    existing_journals = load_existing_journals()
+    if is_duplicate_journal(journal, existing_journals):
         click.secho(
-            f"Journal with ISSN {issn} already exists. Aborting.",
+            f"Journal with ISSN {journal.get('issn', '')} already exists "
+            "in collection. Aborting.",
             fg="yellow"
         )
         return False
@@ -320,14 +333,14 @@ def process_single_journal(
 
     # Step 5: Append and write
     existing_journals.append(journal)
-    write_yaml_to_disk(existing_journals, PROCESSED_YAML_PATH)
+    write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
 
     return True
 
 
 def process_all_journals(
+    input_fpath: Path = RAW_JOURNAL_METADATA_PATH,
     schema_path: Path | str | None = None,
-    max_num: int | None = None,
 ) -> bool:
     """
     Core processing workflow: fetch → save CSV → parse → enrich → save YAML.
@@ -345,11 +358,11 @@ def process_all_journals(
 
     # Step 1: Load collected raw journal metadata
     rows = None
-    if not RAW_CSV_PATH.exists():
+    if not input_fpath.exists():
         rows = get_journal_data_from_github()
-        save_csv_to_disk(rows, RAW_CSV_PATH)
+        save_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
     else:
-        rows = get_journal_data_from_csv(RAW_CSV_PATH)
+        rows = get_journal_data_from_csv(input_fpath)
 
     if rows is None:
         click.secho("→ No data source provided or data fetch failed.",
@@ -360,8 +373,31 @@ def process_all_journals(
     journals = parse_csv_rows_with_schema(rows, schema_fields)
     click.secho(f"Parsed {len(journals)} journals.", fg="blue")
 
-    # Step 3: enrich with DOAJ metadata
-    enriched_journals = enrich_journals_with_doaj(journals, schema_fields, max_num=max_num)
+    # Step 3: Filter out duplicates
+    existing_journals = load_existing_journals()
+    new_journals = []
+    for journal in journals:
+        if is_duplicate_journal(journal, existing_journals):
+            click.secho(
+                f"Journal with ISSN {journal.get('issn', '')} already exists "
+                "in collection. Aborting.",
+                fg="yellow"
+            )
+        else:
+            new_journals.append(journal)
+    journals = new_journals
 
-    # Step 4: save enriched YAML
-    write_yaml_to_disk(enriched_journals, PROCESSED_YAML_PATH)
+    # Assign sequential IDs to new journals
+    max_existing_id = max(
+        (j.get('id', 0) for j in existing_journals), default=0
+    )
+    for idx, journal in enumerate(journals, start=1):
+        journal['id'] = max_existing_id + idx
+
+    # Step 4: enrich with DOAJ metadata
+    enriched_journals = enrich_journals_with_doaj(journals, schema_fields)
+    
+    # Step 5: Append enriched journals and save YAML
+    if enriched_journals:
+        existing_journals.append(enriched_journals)
+        write_yaml_to_disk(enriched_journals, PROCESSED_JOURNAL_METADATA_PATH)

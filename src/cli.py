@@ -7,7 +7,8 @@ from data_processing import (
     save_csv_to_disk,
     process_all_journals,
     process_single_journal,
-    RAW_CSV_PATH,
+    METADATA_SCHEMA_PATH,
+    RAW_JOURNAL_METADATA_PATH,
 )
 
 
@@ -44,7 +45,7 @@ def collect(github: bool, csv_fpath: Path | None):
     else:
         raise click.UsageError("Provide --github or --csv_fpath.")
     if rows:
-        save_csv_to_disk(rows, RAW_CSV_PATH)
+        save_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
 
 
 @cli.group("process", no_args_is_help=True)
@@ -58,23 +59,31 @@ def process():
 
 @process.command("all", no_args_is_help=False)
 @click.option(
+    "--input_fpath", "-f",
+    type=click.Path(path_type=Path),
+    default=RAW_JOURNAL_METADATA_PATH,
+    show_default=True,
+    help="Path to the journal metadata CSV file.",
+)
+@click.option(
     "--schema_path", "-s",
     type=click.Path(path_type=Path),
-    default="journal_metadata_schema/schema.yaml",
+    default=METADATA_SCHEMA_PATH,
     show_default=True,
     help="Path to the journal metadata schema YAML file.",
 )
-@click.option(
-    "--max_num", "-m",
-    type=int,
-    default=None,
-    help="Maximum number of journals to process.",
-)
-def process_all(schema_path: Path, max_num: int | None):
+def process_all(
+    input_fpath: Path,
+    schema_path: Path,
+):
     """
     Process all journals in one go.
     """
-    process_all_journals(schema_path=schema_path, max_num=max_num,)
+    if not input_fpath.exists():
+        click.secho("No input provided. Aborting.", fg="red")
+        return
+
+    process_all_journals(input_fpath=input_fpath, schema_path=schema_path)
 
 
 @process.command("single", no_args_is_help=True)
@@ -98,10 +107,10 @@ def process_single(
     """
     Process a single journal.
     """
-    process_single_journal(
-        input_fpath=input_fpath,
-        schema_path=schema_path,
-    )
+    if not input_fpath.exists():
+        click.secho("No input provided. Aborting.", fg="red")
+
+    process_single_journal(input_fpath=input_fpath, schema_path=schema_path)
 
 
 if __name__ == "__main__":
