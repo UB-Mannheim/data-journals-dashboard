@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [project.scripts]
-dj = "cli:main"
+dj = "cli:cli"
 
 [tool.uv]
 package = true
