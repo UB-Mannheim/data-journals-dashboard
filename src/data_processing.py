@@ -218,11 +218,20 @@ def write_yaml_to_disk(journals: list[dict], fpath: Path):
     """
     Write enriched journal records to a YAML file.
     """
+    class _IgnoreAliases(yaml.Dumper):
+        """
+        Class overwrite for pyyaml to prevent the inclusion of object aliases
+        ("&id001 []") during write execution for identical objects.
+        """
+        def ignore_aliases(self, _data):
+            return True
+
     ensure_dir(fpath.parent)
     with open(fpath, "w", encoding="utf-8") as file:
         yaml.dump(
             {"journals": journals},
             file,
+            Dumper=_IgnoreAliases,
             allow_unicode=True,
             sort_keys=False
         )
