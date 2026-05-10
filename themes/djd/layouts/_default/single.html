@@ -10,16 +10,16 @@
 
   <div class="journal-details">
     <div class="detail-section">
+      {{ if .Params.journal_url }}
+      <p>{{ with index $d "url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Journal Homepage:</strong> <a href="{{ .Params.journal_url }}" target="_blank">{{ .Params.journal_url }}</a></p>
+      {{ end }}
+
       {{ if .Params.publisher }}
       <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ .Params.publisher }}</p>
       {{ end }}
 
       {{ if .Params.data_journal_type }}
       <p>{{ with index $d "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Data Journal Type:</strong> {{ .Params.data_journal_type }}</p>
-      {{ end }}
-
-      {{ if .Params.journal_url }}
-      <p>{{ with index $d "url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Journal URL:</strong> <a href="{{ .Params.journal_url }}" target="_blank">{{ .Params.journal_url }}</a></p>
       {{ end }}
     </div>
 
@@ -114,10 +114,10 @@
     </div>
     {{ end }}
 
+    {{ if .Params.ref_journal }}
     <div class="detail-section">
       <h3>Additional Links</h3>
       <ul>
-        {{ if .Params.ref_journal }}
         <li>{{ with index $d "ref_journal" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_journal }}" target="_blank">Journal Homepage</a></li>
         {{ end }}
         {{ if .Params.ref_aims_scope }}

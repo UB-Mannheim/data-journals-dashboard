@@ -1,5 +1,15 @@
 /* Data Journal Dashboard Theme Styles */
 
+/* Border colors for journal cards */
+:root {
+  --journal-border-1: #4A90E2;
+  --journal-border-2: #50C878;
+  --journal-border-3: #9B59B6;
+  --journal-border-4: #1ABC9C;
+  --journal-border-5: #E67E22;
+  --journal-border-6: #E74C3C;
+}
+
 /* Base layout */
 body {
   margin: 0;
@@ -93,13 +103,33 @@ body {
 
 .journal-card {
   background: #fff;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--journal-border-1);
   border-radius: 14px;
   padding: 1.25rem;
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.journal-card:nth-child(6n+2) {
+  border-color: var(--journal-border-2);
+}
+
+.journal-card:nth-child(6n+3) {
+  border-color: var(--journal-border-3);
+}
+
+.journal-card:nth-child(6n+4) {
+  border-color: var(--journal-border-4);
+}
+
+.journal-card:nth-child(6n+5) {
+  border-color: var(--journal-border-5);
+}
+
+.journal-card:nth-child(6n+6) {
+  border-color: var(--journal-border-6);
 }
 
 .journal-card:hover {
@@ -114,7 +144,7 @@ body {
 
 .journal-card h3 a {
   color: #212529;
-  text-decoration: none;
+  text-decoration: underline wavy skyblue;
 }
 
 .journal-card h3 a:hover {
