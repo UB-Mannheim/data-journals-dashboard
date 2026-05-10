@@ -9,6 +9,7 @@ from data_processing import (
     process_single_journal,
     METADATA_SCHEMA_PATH,
     RAW_JOURNAL_METADATA_PATH,
+    PROCESSED_JOURNAL_METADATA_PATH,
 )
 
 
@@ -111,6 +112,70 @@ def process_single(
         click.secho("No input provided. Aborting.", fg="red")
 
     process_single_journal(input_fpath=input_fpath, schema_path=schema_path)
+
+
+@cli.group("hugo", no_args_is_help=True)
+def hugo():
+    """
+    Generate Hugo static site content from processed journal data.
+    """
+    pass
+
+
+@hugo.command("generate", no_args_is_help=False)
+@click.option(
+    "--input_fpath", "-f",
+    type=click.Path(path_type=Path),
+    default=PROCESSED_JOURNAL_METADATA_PATH,
+    show_default=True,
+    help="Path to the processed journal YAML file.",
+)
+@click.option(
+    "--output_dir", "-o",
+    type=click.Path(path_type=Path),
+    default=Path("."),
+    show_default=True,
+    help="Hugo site root directory.",
+)
+@click.option(
+    "--schema_path", "-s",
+    type=click.Path(path_type=Path),
+    default=METADATA_SCHEMA_PATH,
+    show_default=True,
+    help="Path to the journal metadata schema YAML file.",
+)
+def hugo_generate(input_fpath: Path, output_dir: Path, schema_path: Path):
+    """
+    Generate Hugo-compatible markdown files from processed journal data.
+    """
+    from hugo_transform import create_journal_content_for_hugo, generate_field_descriptions_data
+
+    if not input_fpath.exists():
+        click.secho(f"Input file not found: {input_fpath}", fg="red")
+        return
+
+    count = create_journal_content_for_hugo(input_fpath, output_dir / "content/journals")
+    generate_field_descriptions_data(schema_path, output_dir)
+    click.secho(f"Generated {count} journal pages for Hugo.", fg="green")
+
+
+@hugo.command("init", no_args_is_help=False)
+@click.option(
+    "--output_dir", "-o",
+    type=click.Path(path_type=Path),
+    default=Path("."),
+    show_default=True,
+    help="Output directory for Hugo site structure.",
+)
+def hugo_init(output_dir: Path):
+    """
+    Initialize Hugo site configuration and templates.
+    """
+    from hugo_transform import generate_hugo_site_config, generate_hugo_archetype
+
+    generate_hugo_site_config(output_dir)
+    generate_hugo_archetype(output_dir)
+    click.secho("Hugo site structure initialized.", fg="green")
 
 
 if __name__ == "__main__":

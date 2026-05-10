@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    {{ partial "sidebar.html" . }}
+    <main class="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+  <script>
+    function filterJournals() {
+      const searchInput = document.getElementById('search-input');
+      const typeSelect = document.getElementById('type-filter');
+      const publisherSelect = document.getElementById('publisher-filter');
+      const keywordInput = document.getElementById('keyword-filter');
+      const fieldInput = document.getElementById('field-filter');
+
+      const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+      const selectedType = typeSelect ? typeSelect.value : '';
+      const selectedPublisher = publisherSelect ? publisherSelect.value : '';
+      const keywordTerm = keywordInput ? keywordInput.value.toLowerCase() : '';
+      const fieldTerm = fieldInput ? fieldInput.value.toLowerCase() : '';
+
+      document.querySelectorAll('.journal-card').forEach(card => {
+        const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
+        const publisher = card.dataset.publisher ? card.dataset.publisher.toLowerCase() : '';
+        const type = card.dataset.type ? card.dataset.type.toLowerCase() : '';
+        const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
+        const fields = card.dataset.fields ? card.dataset.fields.toLowerCase() : '';
+
+        const matchesSearch = !searchTerm || title.includes(searchTerm) || publisher.includes(searchTerm) || keywords.includes(searchTerm) || fields.includes(searchTerm);
+        const matchesType = !selectedType || type === selectedType.toLowerCase();
+        const matchesPublisher = !selectedPublisher || publisher === selectedPublisher.toLowerCase();
+        const matchesKeyword = !keywordTerm || keywords.includes(keywordTerm);
+        const matchesField = !fieldTerm || fields.includes(fieldTerm);
+
+        card.style.display = (matchesSearch && matchesType && matchesPublisher && matchesKeyword && matchesField) ? '' : 'none';
+      });
+    }
+
+    // Attach event listeners after DOM loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterInputs = document.querySelectorAll('.filter-input');
+      filterInputs.forEach(input => {
+        input.addEventListener('input', filterJournals);
+        input.addEventListener('change', filterJournals);
+      });
+    });
+  </script>
+</body>
+</html>

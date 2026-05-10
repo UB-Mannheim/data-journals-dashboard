@@ -1,0 +1,136 @@
+{{ define "main" }}
+{{- $d := hugo.Data.field_descriptions -}}
+<article class="journal-single">
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ if .Params.issn }}
+    <p>{{ with index $d "issn" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>ISSN:</strong> {{ .Params.issn }}</p>
+    {{ end }}
+  </header>
+
+  <div class="journal-details">
+    <div class="detail-section">
+      {{ if .Params.publisher }}
+      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ .Params.publisher }}</p>
+      {{ end }}
+
+      {{ if .Params.data_journal_type }}
+      <p>{{ with index $d "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Data Journal Type:</strong> {{ .Params.data_journal_type }}</p>
+      {{ end }}
+
+      {{ if .Params.journal_url }}
+      <p>{{ with index $d "url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Journal URL:</strong> <a href="{{ .Params.journal_url }}" target="_blank">{{ .Params.journal_url }}</a></p>
+      {{ end }}
+    </div>
+
+    {{ if .Params.keywords }}
+    <div class="detail-section">
+      <h3>{{ with index $d "keywords" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Keywords</h3>
+      <ul class="tags">
+        {{ range .Params.keywords }}
+        <li><a href="/keywords/{{ . | urlize }}">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if .Params.research_fields }}
+    <div class="detail-section">
+      <h3>{{ with index $d "research_fields" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Research Fields</h3>
+      <ul class="tags">
+        {{ range .Params.research_fields }}
+        <li><a href="/fields/{{ . | urlize }}">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if .Params.license_types }}
+    <div class="detail-section">
+      <h3>{{ with index $d "license_types" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}License Types</h3>
+      <ul class="tags">
+        {{ range .Params.license_types }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    <div class="detail-section">
+      <h3>{{ with index $d "apc_has" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Article Processing Charges</h3>
+      {{ if .Params.apc_has }}
+      <p><strong>APC:</strong> Yes</p>
+      {{ if .Params.apc_price_range }}
+      <p><strong>Price Range:</strong> {{ .Params.apc_price_range }}{{ with index $d "apc_max" }} <span class="tooltip" data-tip="{{ . }}">?</span>{{ end }}</p>
+      {{ end }}
+      {{ if .Params.apc_url }}
+      <p><a href="{{ .Params.apc_url }}" target="_blank">APC Details</a></p>
+      {{ end }}
+      {{ else }}
+      <p><strong>APC:</strong> No</p>
+      {{ end }}
+    </div>
+
+    {{ if .Params.preservation_services }}
+    <div class="detail-section">
+      <h3>{{ with index $d "preservation_services" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Preservation Services</h3>
+      <ul class="tags">
+        {{ range .Params.preservation_services }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if .Params.boai }}
+    <div class="detail-section">
+      <p>{{ with index $d "boai" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>BOAI Compliant:</strong> {{ .Params.boai }}</p>
+    </div>
+    {{ end }}
+
+    {{ if .Params.oa_start }}
+    <div class="detail-section">
+      <p>{{ with index $d "oa_start" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>OA Start Year:</strong> {{ .Params.oa_start }}</p>
+    </div>
+    {{ end }}
+
+    {{ if .Params.publication_time_weeks }}
+    <div class="detail-section">
+      <p>{{ with index $d "publication_time_weeks" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publication Time:</strong> {{ .Params.publication_time_weeks }} weeks</p>
+    </div>
+    {{ end }}
+
+    {{ if .Params.review_process }}
+    <div class="detail-section">
+      <h3>{{ with index $d "review_process" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Review Process</h3>
+      <ul>
+        {{ range .Params.review_process }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      {{ if .Params.review_url }}
+      <p><a href="{{ .Params.review_url }}" target="_blank">Review Process Details</a></p>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <div class="detail-section">
+      <h3>Additional Links</h3>
+      <ul>
+        {{ if .Params.ref_journal }}
+        <li>{{ with index $d "ref_journal" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_journal }}" target="_blank">Journal Homepage</a></li>
+        {{ end }}
+        {{ if .Params.ref_aims_scope }}
+        <li>{{ with index $d "ref_aims_scope" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_aims_scope }}" target="_blank">Aims & Scope</a></li>
+        {{ end }}
+        {{ if .Params.ref_author_instructions }}
+        <li>{{ with index $d "ref_author_instructions" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_author_instructions }}" target="_blank">Author Instructions</a></li>
+        {{ end }}
+        {{ if .Params.ref_oa_statement }}
+        <li>{{ with index $d "ref_oa_statement" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_oa_statement }}" target="_blank">OA Statement</a></li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</article>
+{{ end }}

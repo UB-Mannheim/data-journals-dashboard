@@ -1,0 +1,38 @@
+<aside class="sidebar">
+  <h2><a href="{{ .Site.BaseURL }}">Data Journals Dashboard</a></h2>
+  
+  <div class="filter-group">
+    <label for="search-input">Search</label>
+    <input type="text" id="search-input" class="filter-input" placeholder="Search all fields...">
+  </div>
+
+  <div class="filter-group">
+    <label for="type-filter">Data Journal Type</label>
+    <select id="type-filter" class="filter-input">
+      <option value="">All Types</option>
+      {{ range $name, $pages := .Site.Taxonomies.types }}
+      <option value="{{ $name }}">{{ $name }}</option>
+      {{ end }}
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="publisher-filter">Publisher</label>
+    <select id="publisher-filter" class="filter-input">
+      <option value="">All Publishers</option>
+      {{ range $name, $pages := .Site.Taxonomies.publishers }}
+      <option value="{{ $name }}">{{ $name }}</option>
+      {{ end }}
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="keyword-filter">Keyword</label>
+    <input type="text" id="keyword-filter" class="filter-input" placeholder="Filter by keyword...">
+  </div>
+
+  <div class="filter-group">
+    <label for="field-filter">Research Field</label>
+    <input type="text" id="field-filter" class="filter-input" placeholder="Filter by field...">
+  </div>
+</aside>

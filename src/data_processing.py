@@ -389,7 +389,7 @@ def process_all_journals(
         if is_duplicate_journal(journal, existing_journals):
             click.secho(
                 f"Journal with ISSN {journal.get('issn', '')} already exists "
-                "in collection. Aborting.",
+                "in collection. Skipping.",
                 fg="yellow"
             )
         else:
@@ -408,5 +408,8 @@ def process_all_journals(
     
     # Step 5: Append enriched journals and save YAML
     if enriched_journals:
-        existing_journals.append(enriched_journals)
-        write_yaml_to_disk(enriched_journals, PROCESSED_JOURNAL_METADATA_PATH)
+        existing_journals.extend(enriched_journals)
+        write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
+        return True
+    
+    return False

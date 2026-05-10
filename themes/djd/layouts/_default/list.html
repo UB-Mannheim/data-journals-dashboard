@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <header class="site-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <div class="journal-grid" id="journal-list">
+    {{ range .Pages }}
+    <div class="journal-card" 
+         data-title="{{ .Title }}" 
+         data-publisher="{{ .Params.publisher }}"
+         data-type="{{ .Params.data_journal_type }}"
+         data-keywords="{{ .Params.keywords | jsonify }}"
+         data-fields="{{ .Params.research_fields | jsonify }}">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ if .Params.publisher }}
+      <p class="meta"><strong>Publisher:</strong> {{ .Params.publisher }}</p>
+      {{ end }}
+      {{ if .Params.data_journal_type }}
+      <p class="meta"><strong>Data Journal Type:</strong> {{ .Params.data_journal_type }}</p>
+      {{ end }}
+      {{ if .Params.keywords }}
+      <p class="meta"><strong>Keywords:</strong> {{ delimit .Params.keywords ", " }}</p>
+      {{ end }}
+      {{ if .Params.research_fields }}
+      <p class="meta"><strong>Research Fields:</strong> {{ delimit .Params.research_fields ", " }}</p>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+{{ end }}
