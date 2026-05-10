@@ -11,7 +11,7 @@
   <div class="journal-details">
     <div class="detail-section">
       {{ if .Params.journal_url }}
-      <p>{{ with index $d "url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Journal Homepage:</strong> <a href="{{ .Params.journal_url }}" target="_blank">{{ .Params.journal_url }}</a></p>
+      <p>{{ with index $d "url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Homepage:</strong> <a href="{{ .Params.journal_url }}" target="_blank">{{ .Params.journal_url }}</a></p>
       {{ end }}
 
       {{ if .Params.publisher }}

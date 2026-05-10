@@ -13,7 +13,12 @@ from data_processing import (
 )
 
 
-@click.group(no_args_is_help=True)
+class OrderedGroup(click.Group):
+    def list_commands(self, ctx: click.Context) -> list[str]:
+        return list(["collect", "process", "hugo"])
+
+
+@click.group(cls=OrderedGroup, no_args_is_help=True)
 def cli():
     """
     Data Journal Dashboard CLI Helper.

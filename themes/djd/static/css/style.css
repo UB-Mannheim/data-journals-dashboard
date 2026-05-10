@@ -110,6 +110,9 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .journal-card:nth-child(6n+2) {
@@ -140,14 +143,17 @@ body {
 .journal-card h3 {
   margin: 0 0 0.75rem 0;
   font-size: 1.1rem;
-}
-
-.journal-card h3 a {
   color: #212529;
-  text-decoration: underline wavy skyblue;
+  text-decoration: underline wavy var(--journal-border-1);
 }
 
-.journal-card h3 a:hover {
+.journal-card:nth-child(6n+2) h3 { text-decoration-color: var(--journal-border-2); }
+.journal-card:nth-child(6n+3) h3 { text-decoration-color: var(--journal-border-3); }
+.journal-card:nth-child(6n+4) h3 { text-decoration-color: var(--journal-border-4); }
+.journal-card:nth-child(6n+5) h3 { text-decoration-color: var(--journal-border-5); }
+.journal-card:nth-child(6n+6) h3 { text-decoration-color: var(--journal-border-6); }
+
+.journal-card:hover h3 {
   color: #007bff;
 }
 
