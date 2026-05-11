@@ -1,7 +1,8 @@
 baseURL = ""
+locale = "en-us"
 title = "Data Journal Dashboard"
 theme = "djd"
-dataDir = "hugo-data"
+DataDir = "hugo-data"
 
 [params]
   description = "Search and filter data journals by type, publisher, APC, and more"
@@ -14,10 +15,6 @@ dataDir = "hugo-data"
   research_fields = "research_fields"
   license_types = "licenses"
   preservation_services = "preservation"
-
-[pagination]
-  paginate = 12
-  paginatePath = "page"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

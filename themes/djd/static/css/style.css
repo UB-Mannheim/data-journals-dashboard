@@ -1,15 +1,5 @@
 /* Data Journal Dashboard Theme Styles */
 
-/* Border colors for journal cards */
-:root {
-  --journal-border-1: #4A90E2;
-  --journal-border-2: #50C878;
-  --journal-border-3: #9B59B6;
-  --journal-border-4: #1ABC9C;
-  --journal-border-5: #E67E22;
-  --journal-border-6: #E74C3C;
-}
-
 /* Base layout */
 body {
   margin: 0;
@@ -25,7 +15,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 280px;
+  width: 250px;
   background: #fff;
   border-right: 1px solid #dee2e6;
   padding: 1.5rem;
@@ -33,6 +23,7 @@ body {
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  box-shadow: 4px 0 8px -4px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h2,
@@ -56,7 +47,6 @@ body {
 
 .filter-group {
   margin-bottom: 1.5rem;
-  margin-right: 1.5rem;
 }
 
 .filter-group label {
@@ -73,6 +63,7 @@ body {
   border: 1px solid #ced4da;
   border-radius: 8px;
   font-size: 0.95rem;
+  box-sizing: border-box;
 }
 
 /* Main content */
@@ -100,6 +91,17 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Border colors for journal cards */
+:root {
+  --journal-border-1: #4A90E2;
+  --journal-border-2: #50C878;
+  --journal-border-3: #9B59B6;
+  --journal-border-4: #1ABC9C;
+  --journal-border-5: #E67E22;
+  --journal-border-6: #E74C3C;
 }
 
 .journal-card {

@@ -129,9 +129,10 @@ def generate_hugo_site_config(output_dir: Path) -> None:
     Generate Hugo config.toml with taxonomies for filtering.
     """
     config_content = """baseURL = ""
-languageCode = "en-us"
+locale = "en-us"
 title = "Data Journal Dashboard"
 theme = "djd"
+DataDir = "hugo-data"
 
 [params]
   description = "Search and filter data journals by type, publisher, APC, and more"
@@ -145,10 +146,6 @@ theme = "djd"
   license_types = "licenses"
   preservation_services = "preservation"
 
-[pagination]
-  paginate = 12
-  paginatePath = "page"
-
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
@@ -158,11 +155,11 @@ theme = "djd"
     style = "github"
 """
 
-    config_dir = output_dir / "config"
+    config_dir = output_dir
     config_dir.mkdir(parents=True, exist_ok=True)
 
-    (config_dir / "config.toml").write_text(config_content)
-    print(f"Generated Hugo config at {config_dir / 'config.toml'}")
+    (config_dir / "hugo.toml").write_text(config_content)
+    print(f"Generated Hugo config at {config_dir / 'hugo.toml'}")
 
 
 def generate_field_descriptions_data(schema_fpath: Path, output_dir: Path) -> None:
@@ -211,7 +208,7 @@ Hugo will use front matter from the YAML source.
 */}}
 """
 
-    archetype_dir = output_dir / "archetypes"
+    archetype_dir = output_dir / "themes" / "djd" / "archetypes"
     archetype_dir.mkdir(parents=True, exist_ok=True)
 
     (archetype_dir / "default.md").write_text(archetype_content)
