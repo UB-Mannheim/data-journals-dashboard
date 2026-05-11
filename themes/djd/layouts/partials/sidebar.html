@@ -20,8 +20,10 @@
     <label for="publisher-filter">Publisher</label>
     <select id="publisher-filter" class="filter-input" onchange="navigateToPublisher(this.value)">
       <option value="">All Publishers</option>
-      {{ range $name, $pages := .Site.Taxonomies.publisher }}
-      <option value="{{ $name }}">{{ $name }}</option>
+      {{ with $.Site.GetPage "/publisher" }}
+      {{ range .Pages }}
+      <option value="{{ .RelPermalink }}">{{ .Title }}</option>
+      {{ end }}
       {{ end }}
     </select>
   </div>
