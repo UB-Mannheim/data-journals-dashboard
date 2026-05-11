@@ -14,9 +14,17 @@
     </main>
   </div>
   <script>
-    function navigateToType(value) {
+    function navigateToDataJournalType(value) {
       if (value) {
         window.location.href = '/data_journal_type/' + value + '/';
+      } else {
+        window.location.href = '/';
+      }
+    }
+
+    function navigateToPublisher(value) {
+      if (value) {
+        window.location.href = '/publisher/' + value + '/';
       } else {
         window.location.href = '/';
       }

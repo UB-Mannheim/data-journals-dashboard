@@ -8,7 +8,7 @@
 
   <div class="filter-group">
     <label for="type-filter">Data Journal Type</label>
-    <select id="type-filter" class="filter-input" onchange="navigateToType(this.value)">
+    <select id="type-filter" class="filter-input" onchange="navigateToDataJournalType(this.value)">
       <option value="">All Types</option>
       {{ range $name, $pages := .Site.Taxonomies.data_journal_type }}
       <option value="{{ $name | urlize }}">{{ $name }}</option>
@@ -18,9 +18,9 @@
 
   <div class="filter-group">
     <label for="publisher-filter">Publisher</label>
-    <select id="publisher-filter" class="filter-input">
+    <select id="publisher-filter" class="filter-input" onchange="navigateToPublisher(this.value)">
       <option value="">All Publishers</option>
-      {{ range $name, $pages := .Site.Taxonomies.publishers }}
+      {{ range $name, $pages := .Site.Taxonomies.publisher }}
       <option value="{{ $name }}">{{ $name }}</option>
       {{ end }}
     </select>

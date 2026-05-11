@@ -139,7 +139,7 @@ theme = "djd"
 
 [taxonomies]
   data_journal_type = "data_journal_type"
-  publisher = "publishers"
+  publisher = "publisher"
   keywords = "keywords"
   research_fields = "research_fields"
   license_types = "licenses"
