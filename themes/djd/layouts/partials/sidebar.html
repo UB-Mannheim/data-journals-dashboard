@@ -8,21 +8,26 @@
 
   <div class="filter-group">
     <label for="type-filter">Data Journal Type</label>
+    {{ $currentType := "" }}
+    {{ if strings.HasPrefix .RelPermalink "/data_journal_type/" }}
+      {{ $currentType = path.Base .RelPermalink }}
+    {{ end }}
     <select id="type-filter" class="filter-input" onchange="navigateToDataJournalType(this.value)">
-      <option value="">All Types</option>
+      <option value=""{{ if not $currentType }} selected{{ end }}>All Types</option>
       {{ range $name, $pages := .Site.Taxonomies.data_journal_type }}
-      <option value="{{ $name | urlize }}">{{ $name }}</option>
+      <option value="{{ $name | urlize }}"{{ if eq $currentType ($name | urlize) }} selected{{ end }}>{{ $name }}</option>
       {{ end }}
     </select>
   </div>
 
   <div class="filter-group">
     <label for="publisher-filter">Publisher</label>
+    {{ $currentPublisher := .RelPermalink }}
     <select id="publisher-filter" class="filter-input" onchange="navigateToPublisher(this.value)">
-      <option value="">All Publishers</option>
+      <option value=""{{ if not (strings.HasPrefix $currentPublisher "/publisher/") }} selected{{ end }}>All Publishers</option>
       {{ with $.Site.GetPage "/publisher" }}
       {{ range .Pages }}
-      <option value="{{ .RelPermalink }}">{{ .Title }}</option>
+      <option value="{{ .RelPermalink }}"{{ if eq $currentPublisher .RelPermalink }} selected{{ end }}>{{ .Title }}</option>
       {{ end }}
       {{ end }}
     </select>
