@@ -1,4 +1,4 @@
-baseURL = "https://datajournals.org"
+baseURL = "https://github.com/tsmdt/data-journal-dashboard"
 title = "Data Journal Dashboard"
 theme = "djd"
 dataDir = "hugo-data"
@@ -8,7 +8,7 @@ dataDir = "hugo-data"
   author = "Data Journal Dashboard"
 
 [taxonomies]
-  data_journal_type = "types"
+  data_journal_type = "data_journal_type"
   publisher = "publishers"
   keywords = "keywords"
   research_fields = "research_fields"

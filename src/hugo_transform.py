@@ -53,11 +53,11 @@ def create_journal_content_for_hugo(
 
         # Add data_journal_type as taxonomy if present
         if journal.get("data_journal_type"):
-            front_matter["data_journal_type"] = journal["data_journal_type"]
+            front_matter["data_journal_type"] = [journal["data_journal_type"]]
 
         # Add publisher as taxonomy
         if journal.get("publisher"):
-            front_matter["publisher"] = journal["publisher"]
+            front_matter["publisher"] = [journal["publisher"]]
 
         # Add keywords as taxonomy (list)
         if journal.get("keywords"):
@@ -128,7 +128,7 @@ def generate_hugo_site_config(output_dir: Path) -> None:
     """
     Generate Hugo config.toml with taxonomies for filtering.
     """
-    config_content = """baseURL = "http://128.0.0.1"
+    config_content = """baseURL = "https://github.com/tsmdt/data-journal-dashboard"
 languageCode = "en-us"
 title = "Data Journal Dashboard"
 theme = "djd"
@@ -138,7 +138,7 @@ theme = "djd"
   author = "Data Journal Dashboard"
 
 [taxonomies]
-  data_journal_type = "types"
+  data_journal_type = "data_journal_type"
   publisher = "publishers"
   keywords = "keywords"
   research_fields = "research_fields"

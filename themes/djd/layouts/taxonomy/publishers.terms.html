@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <header class="site-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <div class="tags-list">
+    {{ range $name, $pages := .Site.Taxonomies.publishers }}
+    <a href="/publishers/{{ $name | urlize }}" class="tag">{{ $name }} ({{ len $pages }})</a>
+    {{ end }}
+  </div>
+{{ end }}

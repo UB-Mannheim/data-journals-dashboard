@@ -4,8 +4,8 @@
   </header>
 
   <div class="tags-list">
-    {{ range $name, $pages := .Site.Taxonomies.fields }}
-    <a href="/fields/{{ $name | urlize }}" class="tag">{{ $name }} ({{ len $pages }})</a>
+    {{ range $name, $pages := .Site.Taxonomies.types }}
+    <a href="/types/{{ $name | urlize }}" class="tag">{{ $name }} ({{ len $pages }})</a>
     {{ end }}
   </div>
 {{ end }}

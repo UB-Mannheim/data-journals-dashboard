@@ -10,7 +10,7 @@
     <label for="type-filter">Data Journal Type</label>
     <select id="type-filter" class="filter-input">
       <option value="">All Types</option>
-      {{ range $name, $pages := .Site.Taxonomies.types }}
+      {{ range $name, $pages := .Site.Taxonomies.data_journal_type }}
       <option value="{{ $name }}">{{ $name }}</option>
       {{ end }}
     </select>
