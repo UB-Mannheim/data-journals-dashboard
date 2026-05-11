@@ -1,4 +1,4 @@
-baseURL = "https://github.com/tsmdt/data-journal-dashboard"
+baseURL = ""
 title = "Data Journal Dashboard"
 theme = "djd"
 dataDir = "hugo-data"

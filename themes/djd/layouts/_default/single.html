@@ -15,11 +15,11 @@
       {{ end }}
 
       {{ if .Params.publisher }}
-      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ .Params.publisher }}</p>
+      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
       {{ end }}
 
       {{ if .Params.data_journal_type }}
-      <p>{{ with index $d "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Data Journal Type:</strong> {{ .Params.data_journal_type }}</p>
+      <p>{{ with index $d "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Data Journal Type:</strong> {{ index .Params.data_journal_type 0 }}</p>
       {{ end }}
     </div>
 

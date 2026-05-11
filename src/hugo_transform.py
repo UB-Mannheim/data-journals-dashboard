@@ -128,7 +128,7 @@ def generate_hugo_site_config(output_dir: Path) -> None:
     """
     Generate Hugo config.toml with taxonomies for filtering.
     """
-    config_content = """baseURL = "https://github.com/tsmdt/data-journal-dashboard"
+    config_content = """baseURL = ""
 languageCode = "en-us"
 title = "Data Journal Dashboard"
 theme = "djd"

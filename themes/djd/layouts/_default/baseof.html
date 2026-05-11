@@ -14,6 +14,14 @@
     </main>
   </div>
   <script>
+    function navigateToType(value) {
+      if (value) {
+        window.location.href = '/data_journal_type/' + value + '/';
+      } else {
+        window.location.href = '/';
+      }
+    }
+
     function filterJournals() {
       const searchInput = document.getElementById('search-input');
       const typeSelect = document.getElementById('type-filter');
@@ -48,6 +56,8 @@
     document.addEventListener('DOMContentLoaded', function() {
       const filterInputs = document.querySelectorAll('.filter-input');
       filterInputs.forEach(input => {
+        // Skip type-filter as it handles navigation via onchange
+        if (input.id === 'type-filter') return;
         input.addEventListener('input', filterJournals);
         input.addEventListener('change', filterJournals);
       });
