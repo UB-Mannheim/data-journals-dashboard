@@ -1,6 +1,10 @@
 {{ define "main" }}
+  <div class="taxonomy-header">
+    <p>There are <strong>{{ len .Site.RegularPages }} data journals</strong> in the collection. Try searching or filtering by keyword or research field.</p>
+  </div>
+
   <div class="journal-grid" id="journal-list">
-    {{ range .Site.RegularPages }}
+    {{ range where .Site.RegularPages ".Params.issn" "!=" nil }}
     <a class="journal-card" href="{{ .RelPermalink }}"
        data-title="{{ .Title }}"
        data-publisher="{{ .Params.publisher }}"

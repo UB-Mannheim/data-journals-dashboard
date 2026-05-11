@@ -153,13 +153,18 @@ def hugo_generate(input_fpath: Path, output_dir: Path, schema_path: Path):
     """
     Generate Hugo-compatible markdown files from processed journal data.
     """
-    from hugo_transform import create_journal_content_for_hugo, generate_field_descriptions_data
+    from hugo_transform import (
+        create_journal_content_for_hugo,
+        generate_field_descriptions_data
+    )
 
     if not input_fpath.exists():
         click.secho(f"Input file not found: {input_fpath}", fg="red")
         return
 
-    count = create_journal_content_for_hugo(input_fpath, output_dir / "content/journals")
+    count = create_journal_content_for_hugo(
+        input_fpath, output_dir / "content/journals"
+    )
     generate_field_descriptions_data(schema_path, output_dir)
     click.secho(f"Generated {count} journal pages for Hugo.", fg="green")
 
@@ -176,7 +181,10 @@ def hugo_init(output_dir: Path):
     """
     Initialize Hugo site configuration and templates.
     """
-    from hugo_transform import generate_hugo_site_config, generate_hugo_archetype
+    from hugo_transform import (
+        generate_hugo_site_config,
+        generate_hugo_archetype
+    )
 
     generate_hugo_site_config(output_dir)
     generate_hugo_archetype(output_dir)

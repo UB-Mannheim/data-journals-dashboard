@@ -6,7 +6,7 @@ DataDir = "hugo-data"
 
 [params]
   description = "Search and filter data journals by type, publisher, APC, and more"
-  author = "Data Journal Dashboard"
+  author = "Thomas Schmidt"
 
 [taxonomies]
   data_journal_type = "data_journal_type"
