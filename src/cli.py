@@ -1,4 +1,5 @@
 import click
+from datetime import datetime
 from pathlib import Path
 
 from data_processing import (
@@ -185,8 +186,9 @@ def hugo_init(output_dir: Path):
         generate_hugo_site_config,
         generate_hugo_archetype
     )
-
-    generate_hugo_site_config(output_dir)
+    
+    timestamp = f"v{datetime.now().strftime("%Y-%m-%d")}"
+    generate_hugo_site_config(output_dir, version=timestamp)
     generate_hugo_archetype(output_dir)
     click.secho("Hugo site structure initialized.", fg="green")
 

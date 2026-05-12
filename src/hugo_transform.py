@@ -69,7 +69,7 @@ def create_journal_content_for_hugo(
 
         # Add license_types as taxonomy (list)
         if journal.get("license_types"):
-            front_matter["license_types"] = journal["license_types"]
+            front_matter["license_types"] = [t for t in journal["license_types"]]
 
         # Flatten APC info for easier template access
         if journal.get("apc_has") is not None:
@@ -124,11 +124,11 @@ def create_journal_content_for_hugo(
     return generated_count
 
 
-def generate_hugo_site_config(output_dir: Path) -> None:
+def generate_hugo_site_config(output_dir: Path, version: str) -> None:
     """
     Generate Hugo config.toml with taxonomies for filtering.
     """
-    config_content = """baseURL = ""
+    config_content = f"""baseURL = ""
 locale = "en-us"
 title = "Data Journal Dashboard"
 theme = "djd"
@@ -136,15 +136,16 @@ DataDir = "hugo-data"
 
 [params]
   description = "Search and filter data journals by type, publisher, APC, and more"
-  author = "Data Journal Dashboard"
+  author = {{ name = "Thomas Schmidt", email = "thomas.schmidt@uni-mannheim.de" }}
+  version = "{version}"
 
 [taxonomies]
   data_journal_type = "data_journal_type"
   publisher = "publisher"
   keywords = "keywords"
   research_fields = "research_fields"
-  license_types = "licenses"
-  preservation_services = "preservation"
+  license_types = "license_types"
+  preservation_services = "preservation_services"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

@@ -1,6 +1,17 @@
 {{ define "main" }}
   <div class="taxonomy-header">
-    <p>There are <strong>{{ len .Site.RegularPages }} data journals</strong> in the collection. Try searching or filtering by keyword or research field.</p>
+    <p style="display: flex; align-items: center;">
+      <span><strong>{{ len .Site.RegularPages }} data journals</strong> in the collection.</span>
+      <span style="margin-left: auto; display: flex; gap: 16px; align-items: center;">
+        <a href="/about"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="About">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="8"/>
+          <line x1="12" y1="12" x2="12" y2="16"/>
+        </svg></a>
+        <a href="https://github.com/tsmdt/data-journal-dashboard/" target="_blank"><img src="/logos/GitHub_Invertocat_Black.svg" width="24" height="24"></img></a>
+        <span>{{ site.Params.version }}</span>
+      </span>
+    </p>
   </div>
 
   <div class="journal-grid" id="journal-list">

@@ -50,7 +50,7 @@
       <h3>{{ with index $d "license_types" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}License Types</h3>
       <ul class="tags">
         {{ range .Params.license_types }}
-        <li>{{ . }}</li>
+        <li><a href="/license_types/{{ . | urlize }}">{{ . }}</a></li>
         {{ end }}
       </ul>
     </div>
