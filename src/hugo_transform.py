@@ -174,7 +174,7 @@ def generate_field_descriptions_data(schema_fpath: Path, output_dir: Path) -> No
     selected_keys = [
         "data_journal_type", "oa_start", "boai", "publication_time_weeks",
         "subject_codes", "review_process", "apc_has", "waiver_has",
-        "preservation_has","plagiarism_detection", "copyright_author_retains",
+        "preservation_has", "plagiarism_detection", "copyright_author_retains",
         "deposit_policy_has",
     ]
     descriptions = {

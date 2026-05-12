@@ -405,11 +405,11 @@ def process_all_journals(
 
     # Step 4: enrich with DOAJ metadata
     enriched_journals = enrich_journals_with_doaj(journals, schema_fields)
-    
+
     # Step 5: Append enriched journals and save YAML
     if enriched_journals:
         existing_journals.extend(enriched_journals)
         write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
         return True
-    
+
     return False
