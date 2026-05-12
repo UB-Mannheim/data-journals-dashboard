@@ -54,7 +54,7 @@ fields:
 
   - key: data_journal_type
     label: "Data Journal Type"
-    description: "Classification of the data journal: pure or mixed. A description of the rationale for the classification is available at https://doi.org/10.5281/zenodo.7082126"
+    description: "Type of the data journal: Either pure (journal has a strong focus on publishing data papers) or mixed (journal also publishes other publication types)"
     source: csv
     csv_column: data_journal_type
     type: string

@@ -14,10 +14,10 @@
        data-fields="{{ .Params.research_fields | jsonify }}">
     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
     {{ if .Params.publisher }}
-    <p class="meta"><strong>Publisher:</strong> {{ .Params.publisher }}</p>
+    <p class="meta"><strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
     {{ end }}
     {{ if .Params.data_journal_type }}
-    <p class="meta"><strong>Type:</strong> {{ .Params.data_journal_type }}</p>
+    <p class="meta"><strong>Type:</strong> {{ index .Params.data_journal_type 0 }}</p>
     {{ end }}
     {{ if .Params.keywords }}
     <p class="meta"><strong>Keywords:</strong> {{ delimit .Params.keywords ", " }}</p>

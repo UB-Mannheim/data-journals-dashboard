@@ -3,7 +3,7 @@
   
   <div class="filter-group">
     <label for="search-input">Search</label>
-    <input type="text" id="search-input" class="filter-input" placeholder="Search all fields...">
+    <input type="text" id="search-input" class="filter-input" placeholder="Search the collection ...">
   </div>
 
   <div class="filter-group">
@@ -23,7 +23,7 @@
   <div class="filter-group">
     <label for="publisher-filter">Publisher</label>
     {{ $currentPublisher := .RelPermalink }}
-    <select id="publisher-filter" class="filter-input" onchange="navigateToPublisher(this.value)">
+    <select id="publisher-filter" class="filter-input" onchange="navigateToDropDownEntry(this.value)">
       <option value=""{{ if not (strings.HasPrefix $currentPublisher "/publisher/") }} selected{{ end }}>All Publishers</option>
       {{ with $.Site.GetPage "/publisher" }}
       {{ range .Pages }}
@@ -34,16 +34,29 @@
   </div>
 
   <div class="filter-group">
-    <label for="keyword-filter">Keyword</label>
-    <input type="text" id="keyword-filter" class="filter-input" placeholder="Filter by keyword...">
+    <label for="license-filter">License Type</label>
+    {{ $currentLicense := .RelPermalink }}
+    <select id="license-filter" class="filter-input" onchange="navigateToDropDownEntry(this.value)">
+      <option value=""{{ if not (strings.HasPrefix $currentLicense "/license_types/") }} selected{{ end }}>All License Types</option>
+      {{ with $.Site.GetPage "/license_types" }}
+      {{ range .Pages }}
+      <option value="{{ .RelPermalink }}"{{ if eq $currentLicense .RelPermalink }} selected{{ end }}>{{ .Title }}</option>
+      {{ end }}
+      {{ end }}
+    </select>
   </div>
 
   <div class="filter-group">
-    <label for="field-filter">Research Field</label>
-    <input type="text" id="field-filter" class="filter-input" placeholder="Filter by field...">
+    <label for="reasearch-field-filter">Research Fields</label>
+    {{ $currentResearchField := .RelPermalink }}
+    <select id="reasearch-field-filter" class="filter-input" onchange="navigateToDropDownEntry(this.value)">
+      <option value=""{{ if not (strings.HasPrefix $currentResearchField "/research_fields/") }} selected{{ end }}>All Research Fields</option>
+      {{ with $.Site.GetPage "/research_fields" }}
+      {{ range .Pages }}
+      <option value="{{ .RelPermalink }}"{{ if eq $currentResearchField  .RelPermalink }} selected{{ end }}>{{ .Title }}</option>
+      {{ end }}
+      {{ end }}
+    </select>
   </div>
 
-  <div class="links-group">
-    
-  </div>
 </aside>
