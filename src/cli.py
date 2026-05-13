@@ -186,7 +186,7 @@ def hugo_init(output_dir: Path):
         generate_hugo_site_config,
         generate_hugo_archetype
     )
-    
+
     timestamp = f"v{datetime.now().strftime("%Y-%m-%d")}"
     generate_hugo_site_config(output_dir, version=timestamp)
     generate_hugo_archetype(output_dir)
