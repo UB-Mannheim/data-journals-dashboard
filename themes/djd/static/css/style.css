@@ -19,7 +19,6 @@ body {
   background: #fff;
   border-right: 1px solid #dee2e6;
   padding: 1.5rem;
-  padding-top: 2.6rem;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -31,7 +30,7 @@ body {
 .sidebar h2 a,
 .sidebar h2 a:visited {
   margin-top: 0;
-  font-size: 2.3rem;
+  font-size: 2.7rem;
   font-weight: bold;
   background: linear-gradient(120deg, red, orange, blue, indigo, violet);
   -webkit-background-clip: text;
@@ -107,7 +106,7 @@ body {
 
 .journal-card {
   background: #fff;
-  border: 5px double var(--journal-border-1);
+  border: 4px double var(--journal-border-1);
   border-radius: 14px;
   padding: 1.25rem;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -153,7 +152,7 @@ body {
   text-decoration: underline wavy var(--journal-border-1);
 }
 
-.journal-card:nth-child(6n+2) h3 { text-decoration-color: var(--journal-border-2); }
+.journal-card:nth-child(6n+2) h3 { text-decoration-color: var(--journal-border-2);}
 .journal-card:nth-child(6n+3) h3 { text-decoration-color: var(--journal-border-3); }
 .journal-card:nth-child(6n+4) h3 { text-decoration-color: var(--journal-border-4); }
 .journal-card:nth-child(6n+5) h3 { text-decoration-color: var(--journal-border-5); }
