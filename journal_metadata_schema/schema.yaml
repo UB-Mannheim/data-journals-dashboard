@@ -61,6 +61,18 @@ fields:
     required: true
     default: null
 
+  # ADDITIONAL METADATA
+
+  ## Dashboard metadata for filtering purposes
+
+  - key: is_active
+    description: "Indicates whether the data journal is currently active and publishing new papers or has ceased/paused publication."
+    source: csv
+    csv_column: is_active
+    type: boolean
+    required: true
+    default: null
+
 
   # DOAJ.ORG METADATA VIA THE DOAJ API (https://doaj.org/api/)
 
