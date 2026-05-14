@@ -289,22 +289,15 @@ body {
 
 /* Code Blocks and Snippets */
 .about-content pre {
-  /* line-height: 1.8rem; */
   padding: 0.5rem;
   border-radius: 8px;
 }
-
-/* .about-content pre code {
-  line-height: 1.8rem;
-  padding: 0.5rem;
-} */
 
 .about-content code {
   color: seagreen;
   font-size: 11pt;
   line-height: 1.8rem;
   border-radius: 8px;
-  /* padding: 0.5rem; */
 }
 
 /* Responsive */

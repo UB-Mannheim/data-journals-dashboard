@@ -55,6 +55,14 @@
 
         card.style.display = (matchesSearch && matchesDataJournalType && matchesPublisher && matchesResearchField && matchesLicenseType) ? '' : 'none';
       });
+
+      // Update journal count on index.html if filters are applied
+      const total = document.querySelectorAll('.journal-card').length;
+      const visible = document.querySelectorAll('.journal-card:not([style*="display: none"])').length;
+      const countEl = document.getElementById('journal-count');
+      if (countEl) {
+        countEl.textContent = visible < total ? `${visible}` : total;
+      }
     }
 
     function resetFilters() {

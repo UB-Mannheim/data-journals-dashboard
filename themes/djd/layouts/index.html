@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div class="taxonomy-header">
     <p style="display: flex; align-items: center;">
-      <span><strong>{{ len (where .Site.RegularPages ".Params.issn" "!=" nil) }} data journals</strong> in the collection.</span>
+      <span><span id="journal-count">{{ len (where .Site.RegularPages ".Params.issn" "!=" nil) }}</span> data journal(s) available</span>
       <span style="margin-left: auto; display: flex; gap: 16px; align-items: center;">
         <a href="/about"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="About">
           <circle cx="12" cy="12" r="10"/>
