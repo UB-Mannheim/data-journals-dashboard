@@ -67,11 +67,11 @@ body {
 }
 
 .reset-filters-btn {
-  width: 130px;
+  width: 70px;
   height: 36px;
   margin-top: 0.2rem;
   padding: 0.5rem;
-  background: navy;
+  background: #2f00b0;
   color: #fff;
   border: none;
   border-radius: 8px;

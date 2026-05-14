@@ -29,18 +29,6 @@
   </div>
 
   <div class="filter-group">
-    <label for="license-filter">License Type</label>
-    <select id="license-filter" class="filter-input">
-      <option value="">All License Types</option>
-      {{ with $.Site.GetPage "/license_types" }}
-      {{ range .Pages }}
-      <option value="{{ .Title }}">{{ .Title }}</option>
-      {{ end }}
-      {{ end }}
-    </select>
-  </div>
-
-  <div class="filter-group">
     <label for="reasearch-field-filter">Research Fields</label>
     <select id="reasearch-field-filter" class="filter-input">
       <option value="">All Research Fields</option>
@@ -53,7 +41,19 @@
   </div>
 
   <div class="filter-group">
-    <button class="reset-filters-btn" onclick="resetFilters()">Reset Filters</button>
+    <label for="license-filter">License Type</label>
+    <select id="license-filter" class="filter-input">
+      <option value="">All License Types</option>
+      {{ with $.Site.GetPage "/license_types" }}
+      {{ range .Pages }}
+      <option value="{{ .Title }}">{{ .Title }}</option>
+      {{ end }}
+      {{ end }}
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <button class="reset-filters-btn" onclick="resetFilters()">Reset</button>
   </div>
 
 </aside>
