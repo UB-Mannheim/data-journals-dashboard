@@ -57,6 +57,15 @@
       });
     }
 
+    function resetFilters() {
+      document.getElementById('search-input').value = '';
+      document.getElementById('type-filter').value = '';
+      document.getElementById('publisher-filter').value = '';
+      document.getElementById('reasearch-field-filter').value = '';
+      document.getElementById('license-filter').value = '';
+      filterJournals();
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.filter-input').forEach(input => {
         input.addEventListener('input', filterJournals);
