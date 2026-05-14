@@ -234,16 +234,16 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1em;
-  height: 1em;
-  background: #6c757d;
+  width: 1.3em;
+  height: 1.3em;
+  background: olivedrab;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 100%;
   font-size: 0.7rem;
   font-weight: bold;
   cursor: help;
   vertical-align: middle;
-  margin-left: 0.3rem;
+  top: -0.15em;
   flex-shrink: 0;
 }
 

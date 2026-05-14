@@ -1,6 +1,6 @@
 <aside class="sidebar">
   <h2 align="left"><a href="{{ .Site.BaseURL }}">Data Journals Dashboard</a></h2>
-  
+
   <div class="filter-group">
     <label for="search-input">Search</label>
     <input type="text" id="search-input" class="filter-input" placeholder="Search the collection ...">
@@ -8,26 +8,21 @@
 
   <div class="filter-group">
     <label for="type-filter">Data Journal Type</label>
-    {{ $currentType := "" }}
-    {{ if strings.HasPrefix .RelPermalink "/data_journal_type/" }}
-      {{ $currentType = path.Base .RelPermalink }}
-    {{ end }}
-    <select id="type-filter" class="filter-input" onchange="navigateToDataJournalType(this.value)">
-      <option value=""{{ if not $currentType }} selected{{ end }}>All Types</option>
+    <select id="type-filter" class="filter-input">
+      <option value="">All Types</option>
       {{ range $name, $pages := .Site.Taxonomies.data_journal_type }}
-      <option value="{{ $name | urlize }}"{{ if eq $currentType ($name | urlize) }} selected{{ end }}>{{ $name }}</option>
+      <option value="{{ $name }}">{{ $name }}</option>
       {{ end }}
     </select>
   </div>
 
   <div class="filter-group">
     <label for="publisher-filter">Publisher</label>
-    {{ $currentPublisher := .RelPermalink }}
-    <select id="publisher-filter" class="filter-input" onchange="navigateToDropDownEntry(this.value)">
-      <option value=""{{ if not (strings.HasPrefix $currentPublisher "/publisher/") }} selected{{ end }}>All Publishers</option>
+    <select id="publisher-filter" class="filter-input">
+      <option value="">All Publishers</option>
       {{ with $.Site.GetPage "/publisher" }}
       {{ range .Pages }}
-      <option value="{{ .RelPermalink }}"{{ if eq $currentPublisher .RelPermalink }} selected{{ end }}>{{ .Title }}</option>
+      <option value="{{ .Title }}">{{ .Title }}</option>
       {{ end }}
       {{ end }}
     </select>
@@ -35,12 +30,11 @@
 
   <div class="filter-group">
     <label for="license-filter">License Type</label>
-    {{ $currentLicense := .RelPermalink }}
-    <select id="license-filter" class="filter-input" onchange="navigateToDropDownEntry(this.value)">
-      <option value=""{{ if not (strings.HasPrefix $currentLicense "/license_types/") }} selected{{ end }}>All License Types</option>
+    <select id="license-filter" class="filter-input">
+      <option value="">All License Types</option>
       {{ with $.Site.GetPage "/license_types" }}
       {{ range .Pages }}
-      <option value="{{ .RelPermalink }}"{{ if eq $currentLicense .RelPermalink }} selected{{ end }}>{{ .Title }}</option>
+      <option value="{{ .Title }}">{{ .Title }}</option>
       {{ end }}
       {{ end }}
     </select>
@@ -48,12 +42,11 @@
 
   <div class="filter-group">
     <label for="reasearch-field-filter">Research Fields</label>
-    {{ $currentResearchField := .RelPermalink }}
-    <select id="reasearch-field-filter" class="filter-input" onchange="navigateToDropDownEntry(this.value)">
-      <option value=""{{ if not (strings.HasPrefix $currentResearchField "/research_fields/") }} selected{{ end }}>All Research Fields</option>
+    <select id="reasearch-field-filter" class="filter-input">
+      <option value="">All Research Fields</option>
       {{ with $.Site.GetPage "/research_fields" }}
       {{ range .Pages }}
-      <option value="{{ .RelPermalink }}"{{ if eq $currentResearchField  .RelPermalink }} selected{{ end }}>{{ .Title }}</option>
+      <option value="{{ .Title }}">{{ .Title }}</option>
       {{ end }}
       {{ end }}
     </select>

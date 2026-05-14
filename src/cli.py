@@ -32,13 +32,7 @@ def cli():
     "--github", "-g",
     is_flag=True,
     default=False,
-    help="Fetch data journal metadata CSV from GitHub.",
-)
-@click.option(
-    "--csv_fpath", "-f",
-    type=click.Path(path_type=Path),
-    default=None,
-    help="Load a local CSV with data journal metadata.",
+    help="Fetch data journal metadata CSV from https://github.com/MaxiKi/data-journals.",
 )
 def collect(github: bool, csv_fpath: Path | None):
     """
@@ -47,10 +41,8 @@ def collect(github: bool, csv_fpath: Path | None):
     """
     if github:
         rows = get_journal_data_from_github()
-    elif csv_fpath:
-        rows = get_journal_data_from_csv(csv_fpath)
     else:
-        raise click.UsageError("Provide --github or --csv_fpath.")
+        raise click.UsageError("Provide --github")
     if rows:
         save_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
 
@@ -66,7 +58,7 @@ def process():
 
 @process.command("all", no_args_is_help=False)
 @click.option(
-    "--input_fpath", "-f",
+    "--input_fpath", "-i",
     type=click.Path(path_type=Path),
     default=RAW_JOURNAL_METADATA_PATH,
     show_default=True,

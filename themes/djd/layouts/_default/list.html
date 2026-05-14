@@ -7,10 +7,11 @@
     {{ range .Pages }}
     <div class="journal-card" 
          data-title="{{ .Title }}" 
-         data-publisher="{{ .Params.publisher }}"
-         data-type="{{ .Params.data_journal_type }}"
+         data-publisher="{{ .Params.publisher | jsonify }}"
+         data-data-journal-type="{{ .Params.data_journal_type | jsonify }}"
          data-keywords="{{ .Params.keywords | jsonify }}"
-         data-fields="{{ .Params.research_fields | jsonify }}">
+         data-research-fields="{{ .Params.research_fields | jsonify }}"
+         data-license-types="{{ .Params.license_types | jsonify }}">
       <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
       {{ if .Params.publisher }}
       <p class="meta"><strong>Publisher:</strong> {{ .Params.publisher }}</p>

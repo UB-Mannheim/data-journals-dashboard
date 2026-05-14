@@ -7,8 +7,8 @@ from datetime import datetime
 def sanitize_filename(title: str) -> str:
     """Convert title to safe filename by removing/escaping special chars."""
     # Remove or replace problematic characters
-    safe = re.sub(r'[^\w\s-]', '', title.lower())
-    safe = re.sub(r'[\s_]+', '-', safe)
+    safe = re.sub(r"[^\w\s-]", "", title.lower())
+    safe = re.sub(r"[\s_]+", "-", safe)
     return safe[:50]  # Limit length
 
 
@@ -42,6 +42,7 @@ def create_journal_content_for_hugo(
         title = journal.get("journal_title", "Untitled")
         title_slug = sanitize_filename(title)
         filepath = content_dir / f"{issn_slug}-{title_slug}.md"
+        is_active = journal.get("is_active", "active")
 
         # Build front matter with essential Hugo fields
         front_matter = {
@@ -49,6 +50,7 @@ def create_journal_content_for_hugo(
             "date": datetime.now().strftime("%Y-%m-%d"),
             "draft": False,
             "issn": issn,
+            "is_active": is_active
         }
 
         # Add data_journal_type as taxonomy if present
@@ -79,7 +81,7 @@ def create_journal_content_for_hugo(
             apc_prices = []
             for apc in journal["apc_max"]:
                 if isinstance(apc, dict) and apc.get("price"):
-                    apc_prices.append(f"{apc['price']} {apc.get('currency', '')}")
+                    apc_prices.append(f"{apc["price"]} {apc.get("currency", "")}")
             if apc_prices:
                 front_matter["apc_price_range"] = ", ".join(apc_prices)
 
@@ -94,18 +96,18 @@ def create_journal_content_for_hugo(
         # Add all other fields as flat key-value pairs
         for key, value in journal.items():
             if key not in front_matter and value is not None:
-                # Rename 'url' to avoid collision with Hugo's reserved page URL key
+                # Rename "url" to avoid collision with Hugo"s reserved page URL key
                 out_key = "journal_url" if key == "url" else key
                 front_matter[out_key] = value
 
         # Generate content body
         content_lines = [f"# {title}", ""]
         if journal.get("url"):
-            content_lines.append(f"**Journal URL**: [{journal['url']}]({journal['url']})")
+            content_lines.append(f"**Journal URL**: [{journal["url"]}]({journal["url"]})")
         if journal.get("publisher"):
-            content_lines.append(f"**Publisher**: {journal['publisher']}")
+            content_lines.append(f"**Publisher**: {journal["publisher"]}")
         if journal.get("data_journal_type"):
-            content_lines.append(f"**Type**: {journal['data_journal_type']}")
+            content_lines.append(f"**Type**: {journal["data_journal_type"]}")
         content_lines.append("")
 
         # Write the markdown file
@@ -145,7 +147,6 @@ DataDir = "hugo-data"
   keywords = "keywords"
   research_fields = "research_fields"
   license_types = "license_types"
-  preservation_services = "preservation_services"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -160,7 +161,7 @@ DataDir = "hugo-data"
     config_dir.mkdir(parents=True, exist_ok=True)
 
     (config_dir / "hugo.toml").write_text(config_content)
-    print(f"Generated Hugo config at {config_dir / 'hugo.toml'}")
+    print(f"Generated Hugo config at {config_dir / "hugo.toml"}")
 
 
 def generate_field_descriptions_data(schema_fpath: Path, output_dir: Path) -> None:
@@ -175,7 +176,7 @@ def generate_field_descriptions_data(schema_fpath: Path, output_dir: Path) -> No
         "data_journal_type", "oa_start", "boai", "publication_time_weeks",
         "subject_codes", "review_process", "apc_has", "waiver_has",
         "preservation_has", "plagiarism_detection", "copyright_author_retains",
-        "deposit_policy_has",
+        "deposit_policy_has", "is_active",
     ]
     descriptions = {
         field["key"]: field["description"]
@@ -190,7 +191,7 @@ def generate_field_descriptions_data(schema_fpath: Path, output_dir: Path) -> No
     with open(data_dir / "field_descriptions.yaml", "w") as f:
         yaml.dump(descriptions, f, allow_unicode=True, sort_keys=True)
 
-    print(f"Generated field descriptions data at {data_dir / 'field_descriptions.yaml'}")
+    print(f"Generated field descriptions data at {data_dir / "field_descriptions.yaml"}")
 
 
 def generate_hugo_archetype(output_dir: Path) -> None:
@@ -213,4 +214,4 @@ Hugo will use front matter from the YAML source.
     archetype_dir.mkdir(parents=True, exist_ok=True)
 
     (archetype_dir / "default.md").write_text(archetype_content)
-    print(f"Generated Hugo archetype at {archetype_dir / 'default.md'}")
+    print(f"Generated Hugo archetype at {archetype_dir / "default.md"}")

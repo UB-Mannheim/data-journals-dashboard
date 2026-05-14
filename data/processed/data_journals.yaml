@@ -5,6 +5,7 @@ journals:
   publisher: Taylor & Francis
   url: https://www.tandfonline.com/journals/tbed20
   data_journal_type: mixed
+  is_active: true
   eissn: 2574-5417
   pissn: 2096-4471
   language:
@@ -78,10 +79,11 @@ journals:
   ref_license_terms: https://authorservices.taylorandfrancis.com/publishing-open-access/open-access-cost-finder/
 - id: 2
   issn: 1809-127X
-  journal_title: Pensoft
-  publisher: Check List
+  journal_title: Check List
+  publisher: Pensoft
   url: https://checklist.pensoft.net/
   data_journal_type: pure
+  is_active: true
   eissn: 1809-127X
   pissn: null
   language:
@@ -139,10 +141,11 @@ journals:
   ref_license_terms: https://checklist.pensoft.net/about#CopyrightNotice
 - id: 3
   issn: 1698-0476
-  journal_title: Museu de Ciéncies Naturals de Barcelona
-  publisher: Arxius de Miscel·lània Zoològica
+  journal_title: Arxius de Miscel·lània Zoològica
+  publisher: Museu de Ciències Naturals de Barcelona
   url: https://museucienciesjournals.cat/en/amz
   data_journal_type: pure
+  is_active: true
   eissn: 1698-0476
   pissn: null
   language:
@@ -209,12 +212,14 @@ journals:
   publisher: Centers for Disease Control and Preventions (CDC)
   url: https://www.cdc.gov/nchs/products/databriefs.htm
   data_journal_type: pure
+  is_active: true
 - id: 5
   issn: 1758-0463
   journal_title: 'Database: The Journal of Biological Databases and Curation'
   publisher: Oxford University Press
   url: https://academic.oup.com/database
   data_journal_type: pure
+  is_active: true
   eissn: 1758-0463
   pissn: null
   language:
@@ -287,6 +292,7 @@ journals:
   publisher: BGI and Oxford University Press
   url: https://gigabytejournal.com/
   data_journal_type: pure
+  is_active: true
   eissn: 2709-4715
   pissn: null
   language:
@@ -353,6 +359,7 @@ journals:
   publisher: F1000Research
   url: https://gatesopenresearch.org/
   data_journal_type: mixed
+  is_active: true
   eissn: 2572-4754
   pissn: null
   language:
@@ -417,6 +424,7 @@ journals:
   publisher: F1000Research
   url: https://open-research-europe.ec.europa.eu/
   data_journal_type: mixed
+  is_active: true
   eissn: 2732-5121
   pissn: null
   language:
@@ -486,6 +494,7 @@ journals:
   publisher: Institut für Dokumentologie und Editorik
   url: https://ride.i-d-e.de/
   data_journal_type: pure
+  is_active: true
   eissn: 2363-4952
   pissn: null
   language:
@@ -557,6 +566,7 @@ journals:
   publisher: Ubiquity Press
   url: https://openhumanitiesdata.metajnl.com/
   data_journal_type: pure
+  is_active: true
   eissn: 2059-481X
   pissn: null
   language:
@@ -626,6 +636,7 @@ journals:
   publisher: Frontiers
   url: https://www.frontiersin.org/journals/marine-science
   data_journal_type: mixed
+  is_active: true
   eissn: 2296-7745
   pissn: null
   language:
@@ -695,6 +706,7 @@ journals:
   publisher: Springer Nature
   url: https://www.nature.com/hgv/
   data_journal_type: mixed
+  is_active: true
   eissn: 2054-345X
   pissn: null
   language:
@@ -765,14 +777,16 @@ journals:
   issn: 2032-6378
   journal_title: Journal of Astronomical Data
   publisher: Vrije Universiteit Brussel
-  url: http://journalofastronomicaldata.be/
+  url: https://journalofastronomicaldata.be/jad.htm
   data_journal_type: pure
+  is_active: true
 - id: 14
   issn: 1297-966X
   journal_title: Annals of Forest Science
   publisher: BioMed Central (Springer Nature)
   url: https://annforsci.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1297-966X
   pissn: 1286-4560
   language:
@@ -844,12 +858,14 @@ journals:
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables
   data_journal_type: pure
+  is_active: true
 - id: 16
   issn: 1314-2828
   journal_title: Biodiversity Data Journal
   publisher: Pensoft Publishers
   url: https://bdj.pensoft.net/
   data_journal_type: mixed
+  is_active: true
   eissn: 1314-2828
   pissn: null
   language:
@@ -915,6 +931,7 @@ journals:
   publisher: Regional Euro-Asian Biological Invasions Centre
   url: https://www.reabic.net/journals/bir/
   data_journal_type: mixed
+  is_active: true
   eissn: 2242-1300
   pissn: null
   language:
@@ -983,6 +1000,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bsd.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2042-6410
   pissn: null
   language:
@@ -1057,6 +1075,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcanesthesiol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2253
   pissn: null
   language:
@@ -1126,6 +1145,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcbioinformatics.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2105
   pissn: null
   language:
@@ -1198,6 +1218,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcbiol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1741-7007
   pissn: null
   language:
@@ -1266,6 +1287,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcbiotechnol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6750
   pissn: null
   language:
@@ -1332,6 +1354,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmccancer.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2407
   pissn: null
   language:
@@ -1399,6 +1422,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmccardiovascdisord.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2261
   pissn: null
   language:
@@ -1468,6 +1492,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcchem.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2661-801X
   pissn: null
   language:
@@ -1536,6 +1561,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmccomplementmedtherapies.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6882
   pissn: null
   language:
@@ -1603,8 +1629,9 @@ journals:
   issn: 1472-6785
   journal_title: BMC Ecology
   publisher: BioMed Central (Springer Nature)
-  url: https://bmcbiotechnol.biomedcentral.com/
+  url: https://bmcecol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: false
   eissn: 1472-6785
   pissn: null
   language:
@@ -1676,6 +1703,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcemergmed.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-227X
   pissn: null
   language:
@@ -1751,6 +1779,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcendocrdisord.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6823
   pissn: null
   language:
@@ -1819,6 +1848,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcecolevol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2148
   pissn: null
   language:
@@ -1890,6 +1920,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcgastroenterol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-230X
   pissn: null
   language:
@@ -1958,6 +1989,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcgenomdata.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2156
   pissn: null
   language:
@@ -2027,6 +2059,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcgenomics.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2164
   pissn: null
   language:
@@ -2101,6 +2134,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcgeriatr.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2318
   pissn: null
   language:
@@ -2170,6 +2204,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmchealthservres.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6963
   pissn: null
   language:
@@ -2240,6 +2275,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcimmunol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2172
   pissn: null
   language:
@@ -2308,6 +2344,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcinfectdis.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2334
   pissn: null
   language:
@@ -2376,6 +2413,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmededuc.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6920
   pissn: null
   language:
@@ -2449,6 +2487,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmedethics.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6939
   pissn: null
   language:
@@ -2516,6 +2555,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmedgenomics.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1755-8794
   pissn: null
   language:
@@ -2590,6 +2630,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmedimaging.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2342
   pissn: null
   language:
@@ -2659,6 +2700,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmedinformdecismak.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6947
   pissn: null
   language:
@@ -2726,6 +2768,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmedresmethodol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2288
   pissn: null
   language:
@@ -2795,6 +2838,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmedicine.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1741-7015
   pissn: null
   language:
@@ -2867,6 +2911,7 @@ journals:
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmicrobiol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2180
   pissn: null
   language:
@@ -2929,79 +2974,12 @@ journals:
   ref_author_instructions: https://bmcmicrobiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmicrobiol.biomedcentral.com/submission-guidelines/copyright
 - id: 46
-  issn: 1471-2121
-  journal_title: BMC Molecular and Cell Biology
-  publisher: BioMed Central (Springer Nature)
-  url: https://bmcmolcellbiol.biomedcentral.com/
-  data_journal_type: mixed
-  eissn: 1471-2121
-  pissn: null
-  language:
-  - EN
-  oa_start: 2000
-  boai: true
-  publication_time_weeks: 21
-  keywords:
-  - cell biology
-  research_fields:
-  - Cytology
-  subject_codes:
-  - code: QH573-671
-    scheme: LCC
-    term: Cytology
-  publisher_name: BMC
-  publisher_country: GB
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://bmcmolcellbiol.biomedcentral.com/about
-  board_url: https://bmcmolcellbiol.biomedcentral.com/about/editorial-board
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 2150
-    currency: EUR
-  - price: 2590
-    currency: USD
-  - price: 1850
-    currency: GBP
-  apc_url: https://link.springer.com/journal/12860/how-to-publish-with-us#Fees%20and%20funding
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - LOCKSS
-  - PMC
-  - Portico
-  preservation_url: https://www.biomedcentral.com/getpublished/indexing-archiving-and-access-to-data
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.biomedcentral.com/getpublished/editorial-policies
-  copyright_author_retains: true
-  copyright_url: https://www.biomedcentral.com/about/policies/license-agreement
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/2413?from=single_hit
-  article_license_display:
-  - Embed
-  article_license_example_url: https://bmcmolcellbiol.biomedcentral.com/articles/10.1186/s12860-016-0080-1
-  ref_journal: https://bmcmolcellbiol.biomedcentral.com/
-  ref_aims_scope: https://bmcmolcellbiol.biomedcentral.com/about
-  ref_oa_statement: https://bmcmolcellbiol.biomedcentral.com/about
-  ref_author_instructions: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines
-  ref_license_terms: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines/copyright
-- id: 47
   issn: 2661-8850
   journal_title: BMC Molecular and Cell Biology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmolcellbiol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2661-8850
   pissn: null
   language:
@@ -3064,12 +3042,13 @@ journals:
   ref_oa_statement: https://bmcmolcellbiol.biomedcentral.com/about
   ref_author_instructions: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines/copyright
-- id: 48
+- id: 47
   issn: 1471-2474
   journal_title: BMC Musculoskeletal Disorders
   publisher: BioMed Central (Springer Nature)
   url: https://bmcmusculoskeletdisord.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2474
   pissn: null
   language:
@@ -3131,12 +3110,13 @@ journals:
   ref_oa_statement: https://bmcmusculoskeletdisord.biomedcentral.com/about
   ref_author_instructions: https://bmcmusculoskeletdisord.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmusculoskeletdisord.biomedcentral.com/submission-guidelines/copyright
-- id: 49
+- id: 48
   issn: 1471-2369
   journal_title: BMC Nephrology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcnephrol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2369
   pissn: null
   language:
@@ -3199,12 +3179,13 @@ journals:
   ref_oa_statement: http://bmcnephrol.biomedcentral.com/about
   ref_author_instructions: https://bmcnephrol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcnephrol.biomedcentral.com/submission-guidelines/copyright
-- id: 50
+- id: 49
   issn: 1471-2377
   journal_title: BMC Neurology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcneurol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2377
   pissn: null
   language:
@@ -3267,12 +3248,13 @@ journals:
   ref_oa_statement: http://bmcneurol.biomedcentral.com/about
   ref_author_instructions: https://bmcneurol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcneurol.biomedcentral.com/submission-guidelines/copyright
-- id: 51
+- id: 50
   issn: 1471-2202
   journal_title: BMC Neuroscience
   publisher: BioMed Central (Springer Nature)
   url: https://bmcneurosci.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2202
   pissn: null
   language:
@@ -3339,12 +3321,13 @@ journals:
   ref_oa_statement: http://bmcneurosci.biomedcentral.com/about
   ref_author_instructions: https://bmcneurosci.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcneurosci.biomedcentral.com/submission-guidelines/copyright
-- id: 52
+- id: 51
   issn: 1472-6955
   journal_title: BMC Nursing
   publisher: BioMed Central (Springer Nature)
   url: https://bmcnurs.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6955
   pissn: null
   language:
@@ -3406,12 +3389,13 @@ journals:
   ref_oa_statement: http://bmcnurs.biomedcentral.com/about
   ref_author_instructions: https://bmcnurs.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcnurs.biomedcentral.com/submission-guidelines/copyright
-- id: 53
+- id: 52
   issn: 1471-2415
   journal_title: BMC Ophthalmology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcophthalmol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2415
   pissn: null
   language:
@@ -3474,12 +3458,13 @@ journals:
   ref_oa_statement: http://bmcophthalmol.biomedcentral.com/about
   ref_author_instructions: https://bmcophthalmol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcophthalmol.biomedcentral.com/submission-guidelines/copyright
-- id: 54
+- id: 53
   issn: 1472-6831
   journal_title: BMC Oral Health
   publisher: BioMed Central (Springer Nature)
   url: https://bmcoralhealth.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6831
   pissn: null
   language:
@@ -3542,12 +3527,13 @@ journals:
   ref_oa_statement: http://bmcoralhealth.biomedcentral.com/about
   ref_author_instructions: https://bmcoralhealth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcoralhealth.biomedcentral.com/submission-guidelines/copyright
-- id: 55
+- id: 54
   issn: 1472-684X
   journal_title: BMC Palliative Care
   publisher: BioMed Central (Springer Nature)
   url: https://bmcpalliatcare.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-684X
   pissn: null
   language:
@@ -3611,12 +3597,13 @@ journals:
   ref_oa_statement: http://bmcpalliatcare.biomedcentral.com/about
   ref_author_instructions: https://bmcpalliatcare.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpalliatcare.biomedcentral.com/submission-guidelines/copyright
-- id: 56
+- id: 55
   issn: 1471-2431
   journal_title: BMC Pediatrics
   publisher: BioMed Central (Springer Nature)
-  url: https://bmcpediatr.biomedcentral.com/submission-guidelines/preparing-your-manuscript
+  url: https://link.springer.com/journal/12887
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2431
   pissn: null
   language:
@@ -3678,12 +3665,13 @@ journals:
   ref_oa_statement: https://bmcpediatr.biomedcentral.com/about
   ref_author_instructions: https://bmcpediatr.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpediatr.biomedcentral.com/submission-guidelines/copyright
-- id: 57
+- id: 56
   issn: 2050-6511
   journal_title: BMC Pharmacology and Toxicology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcpharmacoltoxicol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2050-6511
   pissn: null
   language:
@@ -3755,12 +3743,13 @@ journals:
   ref_oa_statement: http://bmcpharmacoltoxicol.biomedcentral.com/about
   ref_author_instructions: https://bmcpharmacoltoxicol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpharmacoltoxicol.biomedcentral.com/submission-guidelines/copyright
-- id: 58
+- id: 57
   issn: 1471-2229
   journal_title: BMC Plant Biology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcplantbiol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2229
   pissn: null
   language:
@@ -3822,12 +3811,13 @@ journals:
   ref_oa_statement: http://bmcplantbiol.biomedcentral.com/about
   ref_author_instructions: https://bmcplantbiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcplantbiol.biomedcentral.com/submission-guidelines/copyright
-- id: 59
+- id: 58
   issn: 1471-2393
   journal_title: BMC Pregnancy and Childbirth
   publisher: BioMed Central (Springer Nature)
   url: https://bmcpregnancychildbirth.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2393
   pissn: null
   language:
@@ -3891,12 +3881,13 @@ journals:
   ref_oa_statement: http://bmcpregnancychildbirth.biomedcentral.com/about
   ref_author_instructions: https://bmcpregnancychildbirth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpregnancychildbirth.biomedcentral.com/submission-guidelines/copyright
-- id: 60
+- id: 59
   issn: 1471-2296
   journal_title: BMC Primary Care
   publisher: BioMed Central (Springer Nature)
   url: https://bmcprimcare.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2296
   pissn: null
   language:
@@ -3961,12 +3952,13 @@ journals:
   ref_oa_statement: https://bmcprimcare.biomedcentral.com/about
   ref_author_instructions: https://bmcprimcare.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcprimcare.biomedcentral.com/submission-guidelines/copyright
-- id: 61
+- id: 60
   issn: 1471-244X
   journal_title: BMC Psychiatry
   publisher: BioMed Central (Springer Nature)
   url: https://bmcpsychiatry.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-244X
   pissn: null
   language:
@@ -4029,12 +4021,13 @@ journals:
   ref_oa_statement: http://bmcpsychiatry.biomedcentral.com/about
   ref_author_instructions: https://bmcpsychiatry.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpsychiatry.biomedcentral.com/submission-guidelines/copyright
-- id: 62
+- id: 61
   issn: 2050-7283
   journal_title: BMC Psychology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcpsychology.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2050-7283
   pissn: null
   language:
@@ -4101,12 +4094,13 @@ journals:
   ref_oa_statement: http://www.biomedcentral.com/bmcpsychol/about/#openaccess
   ref_author_instructions: https://www.biomedcentral.com/bmcpsychol/authors/instructions
   ref_license_terms: https://bmcpsychology.biomedcentral.com/submission-guidelines/copyright
-- id: 63
+- id: 62
   issn: 1471-2458
   journal_title: BMC Public Health
   publisher: BioMed Central (Springer Nature)
   url: https://bmcpublichealth.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2458
   pissn: null
   language:
@@ -4169,12 +4163,13 @@ journals:
   ref_oa_statement: https://bmcpublichealth.biomedcentral.com/about
   ref_author_instructions: https://bmcpublichealth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpublichealth.biomedcentral.com/submission-guidelines/copyright
-- id: 64
+- id: 63
   issn: 1471-2466
   journal_title: BMC Pulmonary Medicine
   publisher: BioMed Central (Springer Nature)
   url: https://bmcpulmmed.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2466
   pissn: null
   language:
@@ -4236,12 +4231,13 @@ journals:
   ref_oa_statement: http://bmcpulmmed.biomedcentral.com/about
   ref_author_instructions: https://bmcpulmmed.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpulmmed.biomedcentral.com/submission-guidelines/copyright
-- id: 65
+- id: 64
   issn: 1756-0500
   journal_title: BMC Research Notes
   publisher: BioMed Central (Springer Nature)
   url: https://bmcresnotes.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1756-0500
   pissn: null
   language:
@@ -4315,12 +4311,13 @@ journals:
   ref_oa_statement: https://bmcresnotes.biomedcentral.com/about
   ref_author_instructions: https://bmcresnotes.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcresnotes.biomedcentral.com/submission-guidelines/copyright
-- id: 66
+- id: 65
   issn: 2052-1847
   journal_title: BMC Sports Science Medicine and Rehabilitation
   publisher: BioMed Central (Springer Nature)
   url: https://bmcsportsscimedrehabil.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2052-1847
   pissn: null
   language:
@@ -4386,12 +4383,13 @@ journals:
   ref_oa_statement: http://bmcsportsscimedrehabil.biomedcentral.com/about
   ref_author_instructions: https://bmcsportsscimedrehabil.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcsportsscimedrehabil.biomedcentral.com/submission-guidelines/copyright
-- id: 67
+- id: 66
   issn: 1471-2482
   journal_title: BMC Surgery
   publisher: BioMed Central (Springer Nature)
   url: https://bmcsurg.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2482
   pissn: null
   language:
@@ -4453,12 +4451,13 @@ journals:
   ref_oa_statement: http://bmcsurg.biomedcentral.com/about
   ref_author_instructions: https://bmcsurg.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcsurg.biomedcentral.com/submission-guidelines/copyright
-- id: 68
+- id: 67
   issn: 1471-2490
   journal_title: BMC Urology
   publisher: BioMed Central (Springer Nature)
   url: https://bmcurol.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1471-2490
   pissn: null
   language:
@@ -4520,12 +4519,13 @@ journals:
   ref_oa_statement: http://bmcurol.biomedcentral.com/about
   ref_author_instructions: https://bmcurol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcurol.biomedcentral.com/submission-guidelines/copyright
-- id: 69
+- id: 68
   issn: 1746-6148
   journal_title: BMC Veterinary Research
   publisher: BioMed Central (Springer Nature)
   url: https://bmcvetres.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1746-6148
   pissn: null
   language:
@@ -4590,12 +4590,13 @@ journals:
   ref_oa_statement: http://bmcvetres.biomedcentral.com/about
   ref_author_instructions: https://bmcvetres.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcvetres.biomedcentral.com/submission-guidelines/copyright
-- id: 70
+- id: 69
   issn: 1472-6874
   journal_title: BMC Women s Health
   publisher: BioMed Central (Springer Nature)
   url: https://bmcwomenshealth.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1472-6874
   pissn: null
   language:
@@ -4665,12 +4666,13 @@ journals:
   ref_oa_statement: http://bmcwomenshealth.biomedcentral.com/about
   ref_author_instructions: https://bmcwomenshealth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcwomenshealth.biomedcentral.com/submission-guidelines/copyright
-- id: 71
+- id: 70
   issn: 2056-3132
   journal_title: BMC Zoology
   publisher: BioMed Central (Springer Nature)
   url: https://bmczool.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2056-3132
   pissn: null
   language:
@@ -4735,12 +4737,13 @@ journals:
   ref_oa_statement: https://bmczool.biomedcentral.com/about
   ref_author_instructions: https://bmczool.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmczool.biomedcentral.com/submission-guidelines/copyright
-- id: 72
+- id: 71
   issn: 1999-3110
   journal_title: Botanical Studies
   publisher: Springer Open (Springer Nature)
   url: https://as-botanicalstudies.springeropen.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1999-3110
   pissn: 1817-406X
   language:
@@ -4806,12 +4809,13 @@ journals:
   ref_oa_statement: http://as-botanicalstudies.springeropen.com/about
   ref_author_instructions: https://as-botanicalstudies.springeropen.com/submission-guidelines
   ref_license_terms: https://as-botanicalstudies.springeropen.com/submission-guidelines/copyright
-- id: 73
+- id: 72
   issn: 2045-3701
   journal_title: Cell & Bioscience
   publisher: BioMed Central (Springer Nature)
   url: https://cellandbioscience.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2045-3701
   pissn: null
   language:
@@ -4888,18 +4892,20 @@ journals:
   ref_oa_statement: https://cellandbioscience.biomedcentral.com/about
   ref_author_instructions: https://cellandbioscience.biomedcentral.com/submission-guidelines
   ref_license_terms: https://cellandbioscience.biomedcentral.com/submission-guidelines/copyright
-- id: 74
+- id: 73
   issn: 2405-8300
   journal_title: Chemical Data Collections
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/chemical-data-collections
   data_journal_type: pure
-- id: 75
+  is_active: true
+- id: 74
   issn: 2045-709X
   journal_title: Chiropractic & Manual Therapies
   publisher: BioMed Central (Springer Nature)
   url: https://chiromt.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2045-709X
   pissn: null
   language:
@@ -4973,12 +4979,13 @@ journals:
   ref_oa_statement: https://chiromt.biomedcentral.com/about
   ref_author_instructions: https://chiromt.biomedcentral.com/submission-guidelines
   ref_license_terms: https://chiromt.biomedcentral.com/submission-guidelines/copyright
-- id: 76
+- id: 75
   issn: 1278-3366
   journal_title: Cybergeo
   publisher: OpenEdition
   url: https://journals.openedition.org/cybergeo/
   data_journal_type: mixed
+  is_active: true
   eissn: 1278-3366
   pissn: null
   language:
@@ -5037,12 +5044,13 @@ journals:
   ref_oa_statement: https://journals.openedition.org/cybergeo/?page=informations
   ref_author_instructions: https://journals.openedition.org/cybergeo/5021
   ref_license_terms: https://journals.openedition.org/cybergeo/?page=informations
-- id: 77
+- id: 76
   issn: 2306-5729
   journal_title: Data
   publisher: MDPI
   url: https://www.mdpi.com/journal/data
   data_journal_type: mixed
+  is_active: true
   eissn: 2306-5729
   pissn: null
   language:
@@ -5101,12 +5109,13 @@ journals:
   ref_oa_statement: http://www.mdpi.com/journal/data/about
   ref_author_instructions: http://www.mdpi.com/journal/data/instructions
   ref_license_terms: http://www.mdpi.com/journal/data/about
-- id: 78
+- id: 77
   issn: 2352-3409
   journal_title: Data in Brief
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/data-in-brief
   data_journal_type: pure
+  is_active: true
   eissn: 2352-3409
   pissn: null
   language:
@@ -5172,12 +5181,13 @@ journals:
   ref_oa_statement: http://www.elsevier.com/journals/data-in-brief/2352-3409/open-access-journal
   ref_author_instructions: https://www.sciencedirect.com/journal/data-in-brief/publish/guide-for-authors
   ref_license_terms: https://www.sciencedirect.com/science/journal/23523409/publish/open-access-options
-- id: 79
+- id: 78
   issn: 1683-1470
   journal_title: Data Science Journal
   publisher: Ubiquity Press
   url: https://datascience.codata.org/
   data_journal_type: mixed
+  is_active: true
   eissn: 1683-1470
   pissn: null
   language:
@@ -5235,84 +5245,13 @@ journals:
   ref_oa_statement: https://datascience.codata.org/about
   ref_author_instructions: https://datascience.codata.org/about/submissions
   ref_license_terms: http://datascience.codata.org/about/submissions/
-- id: 80
-  issn: 1758-0463
-  journal_title: Database
-  publisher: Oxford University Press
-  url: https://academic.oup.com/database
-  data_journal_type: mixed
-  eissn: 1758-0463
-  pissn: null
-  language:
-  - EN
-  oa_start: 2009
-  boai: true
-  publication_time_weeks: 23
-  keywords:
-  - biological data
-  - biocuration
-  - ontology
-  - databases
-  - biology
-  research_fields:
-  - Computer applications to medicine. Medical informatics
-  - Biology (General)
-  subject_codes:
-  - code: R858-859.7
-    scheme: LCC
-    term: Computer applications to medicine. Medical informatics
-  - code: QH301-705.5
-    scheme: LCC
-    term: Biology (General)
-  publisher_name: Oxford University Press
-  publisher_country: GB
-  institution_name: The International Society for Biocuration
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://academic.oup.com/database/pages/instructions_for_authors
-  board_url: https://academic.oup.com/database/pages/Editorial_Board
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 2598
-    currency: USD
-  apc_url: https://academic.oup.com/database/pages/instructions_for_authors
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://academic.oup.com/journals/pages/librarians/developing_countries/participating_countries
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - LOCKSS
-  - PMC
-  - Portico
-  preservation_url: https://academic.oup.com/journals/pages/librarians/librarian_faqs/digital_preservation
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://academic.oup.com/database/pages/instructions_for_authors
-  copyright_author_retains: false
-  copyright_url: https://academic.oup.com/journals/pages/open_access/licences
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/324
-  article_license_display:
-  - Embed
-  article_license_example_url: https://academic.oup.com/database/article/3053444/Carotenoids-Database-structures-chemical
-  ref_journal: https://academic.oup.com/database
-  ref_aims_scope: https://academic.oup.com/database/pages/About
-  ref_oa_statement: https://academic.oup.com/database/pages/instructions_for_authors
-  ref_author_instructions: https://academic.oup.com/database/pages/instructions_for_authors
-  ref_license_terms: https://academic.oup.com/database/pages/instructions_for_authors
-- id: 81
+- id: 79
   issn: 1866-3516
   journal_title: Earth System Science Data
   publisher: Copernicus
   url: https://www.earth-system-science-data.net/
   data_journal_type: pure
+  is_active: true
   eissn: 1866-3516
   pissn: 1866-3508
   language:
@@ -5378,24 +5317,27 @@ journals:
   ref_oa_statement: https://www.earth-system-science-data.net/policies/publication_policy.html
   ref_author_instructions: https://www.earth-system-science-data.net/submission.html
   ref_license_terms: https://www.earth-system-science-data.net/policies/licence_and_copyright.html
-- id: 82
+- id: 80
   issn: 1440-1703
   journal_title: Ecological Research
   publisher: Blackwell Publishing (Wiley)
   url: https://esj-journals.onlinelibrary.wiley.com/journal/14401703
   data_journal_type: mixed
-- id: 83
+  is_active: true
+- id: 81
   issn: 1939-9170
   journal_title: Ecology
   publisher: John Wiley & Sons (Wiley)
   url: https://esajournals.onlinelibrary.wiley.com/journal/19399170
   data_journal_type: mixed
-- id: 84
+  is_active: true
+- id: 82
   issn: 2639-5916
   journal_title: Ecosystems and People
   publisher: Taylor & Francis
   url: https://www.tandfonline.com/journals/tbsm22
   data_journal_type: mixed
+  is_active: true
   eissn: 2639-5916
   pissn: 2639-5908
   language:
@@ -5465,12 +5407,13 @@ journals:
   ref_oa_statement: https://www.tandfonline.com/action/authorSubmission?journalCode=TBSM&page=instructions
   ref_author_instructions: https://www.tandfonline.com/action/authorSubmission?journalCode=TBSM&page=instructions
   ref_license_terms: https://authorservices.taylorandfrancis.com/copyright-and-you/
-- id: 85
+- id: 83
   issn: 2050-084X
   journal_title: eLife
   publisher: eLife Sciences Publications
   url: https://elifesciences.org/
   data_journal_type: mixed
+  is_active: true
   eissn: 2050-084X
   pissn: null
   language:
@@ -5538,12 +5481,13 @@ journals:
   ref_oa_statement: https://elifesciences.org/terms
   ref_author_instructions: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html
   ref_license_terms: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html#policies
-- id: 86
+- id: 84
   issn: 2041-9139
   journal_title: EvoDevo
   publisher: BioMed Central (Springer Nature)
   url: https://evodevojournal.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2041-9139
   pissn: null
   language:
@@ -5608,12 +5552,13 @@ journals:
   ref_oa_statement: https://evodevojournal.biomedcentral.com/about
   ref_author_instructions: https://evodevojournal.biomedcentral.com/submission-guidelines
   ref_license_terms: https://evodevojournal.biomedcentral.com/submission-guidelines/copyright
-- id: 87
+- id: 85
   issn: 2046-1402
   journal_title: F1000Research
-  publisher: F1000 Research
+  publisher: F1000Research
   url: https://f1000research.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2046-1402
   pissn: null
   language:
@@ -5681,12 +5626,13 @@ journals:
   ref_oa_statement: https://f1000research.com/about
   ref_author_instructions: https://f1000research.com/for-authors/publish-your-research
   ref_license_terms: https://f1000research.com/about
-- id: 88
+- id: 86
   issn: 2197-5620
   journal_title: Forest Ecosystems
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/forest-ecosystems
   data_journal_type: mixed
+  is_active: true
   eissn: 2197-5620
   pissn: 2095-6355
   language:
@@ -5748,18 +5694,20 @@ journals:
   ref_oa_statement: https://www.keaipublishing.com/en/journals/forest-ecosystems/open-access-journal/
   ref_author_instructions: https://www.keaipublishing.com/en/journals/forest-ecosystems/guide-for-authors/
   ref_license_terms: https://www.keaipublishing.com/en/journals/forest-ecosystems/open-access-journal/
-- id: 89
+- id: 87
   issn: 2312-6604
   journal_title: Freshwater Metadata Journal
   publisher: University of Natural Resources and Life Sciences Vienna
   url: http://data.freshwaterbiodiversity.eu/fmj/
   data_journal_type: pure
-- id: 90
+  is_active: true
+- id: 88
   issn: 1756-994X
   journal_title: Genome Medicine
   publisher: BioMed Central (Springer Nature)
   url: https://genomemedicine.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1756-994X
   pissn: null
   language:
@@ -5831,12 +5779,13 @@ journals:
   ref_oa_statement: https://genomemedicine.biomedcentral.com/about
   ref_author_instructions: https://genomemedicine.biomedcentral.com/submission-guidelines
   ref_license_terms: https://genomemedicine.biomedcentral.com/submission-guidelines/copyright
-- id: 91
+- id: 89
   issn: 2049-6060
   journal_title: Geoscience Data Journal
   publisher: Blackwell Publishing (Wiley)
   url: https://rmets.onlinelibrary.wiley.com/journal/20496060
   data_journal_type: pure
+  is_active: true
   eissn: 2049-6060
   pissn: null
   language:
@@ -5906,12 +5855,13 @@ journals:
   ref_oa_statement: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/about/open-access-license-and-copyright
   ref_author_instructions: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/about/author-guidelines
   ref_license_terms: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/about/open-access-license-and-copyright
-- id: 92
+- id: 90
   issn: 1991-9603
   journal_title: Geoscientific Model Development
   publisher: Copernicus
   url: https://www.geoscientific-model-development.net/
   data_journal_type: pure
+  is_active: true
   eissn: 1991-9603
   pissn: 1991-959X
   language:
@@ -5973,12 +5923,13 @@ journals:
   ref_oa_statement: https://www.geoscientific-model-development.net/home.html
   ref_author_instructions: https://www.geoscientific-model-development.net/submission.html
   ref_license_terms: https://www.geoscientific-model-development.net/policies/licence_and_copyright.html
-- id: 93
+- id: 91
   issn: 2047-217X
   journal_title: GigaScience
   publisher: Oxford University Press
   url: https://academic.oup.com/gigascience
   data_journal_type: mixed
+  is_active: true
   eissn: 2047-217X
   pissn: null
   language:
@@ -6040,12 +5991,13 @@ journals:
   ref_oa_statement: https://academic.oup.com/gigascience/pages/charges_licensing_and_self_archiving
   ref_author_instructions: https://academic.oup.com/gigascience/pages/instructions_to_authors
   ref_license_terms: https://academic.oup.com/gigascience/pages/charges_licensing_and_self_archiving
-- id: 94
+- id: 92
   issn: 2194-7899
   journal_title: Health & Justice
   publisher: BioMed Central (Springer Nature)
   url: https://healthandjusticejournal.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2194-7899
   pissn: null
   language:
@@ -6117,12 +6069,13 @@ journals:
   ref_oa_statement: https://healthandjusticejournal.biomedcentral.com/about
   ref_author_instructions: https://healthandjusticejournal.biomedcentral.com/submission-guidelines
   ref_license_terms: https://healthandjusticejournal.biomedcentral.com/submission-guidelines/copyright
-- id: 95
+- id: 93
   issn: 1479-7364
   journal_title: Human Genomics
   publisher: BioMed Central (Springer Nature)
   url: https://humgenomics.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1479-7364
   pissn: null
   language:
@@ -6188,24 +6141,27 @@ journals:
   ref_oa_statement: https://humgenomics.biomedcentral.com/about
   ref_author_instructions: https://humgenomics.biomedcentral.com/submission-guidelines
   ref_license_terms: https://humgenomics.biomedcentral.com/submission-guidelines/copyright
-- id: 96
+- id: 94
   issn: 2110-7017
   journal_title: International Economics
   publisher: Elsevier
   url: https://www.journals.elsevier.com/international-economics
   data_journal_type: mixed
-- id: 97
+  is_active: true
+- id: 95
   issn: 1464-3685
   journal_title: International Journal of Epidemiology
   publisher: Oxford University Press
-  url: https://academic.oup.com/ije/pages/About
+  url: https://academic.oup.com/ije
   data_journal_type: mixed
-- id: 98
+  is_active: true
+- id: 96
   issn: 2196-2804
   journal_title: International Journal of Food Contamination
   publisher: BioMed Central (Springer Nature)
   url: https://foodcontaminationjournal.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2196-2804
   pissn: null
   language:
@@ -6268,12 +6224,13 @@ journals:
   ref_oa_statement: https://foodsafetyandrisk.biomedcentral.com/about
   ref_author_instructions: https://foodsafetyandrisk.biomedcentral.com/submission-guidelines
   ref_license_terms: https://www.biomedcentral.com/about/policies/license-agreement
-- id: 99
+- id: 97
   issn: 1363-5387
   journal_title: Internet Archaeology
   publisher: Council for British Archaeology
   url: https://intarch.ac.uk/
   data_journal_type: mixed
+  is_active: true
   eissn: 1363-5387
   pissn: null
   language:
@@ -6330,12 +6287,13 @@ journals:
   ref_oa_statement: https://intarch.ac.uk/about/index.html
   ref_author_instructions: https://intarch.ac.uk/authors/
   ref_license_terms: https://intarch.ac.uk/about/index.html
-- id: 100
+- id: 98
   issn: 2046-0481
   journal_title: Irish Veterinary Journal
   publisher: BioMed Central (Springer Nature)
   url: https://irishvetjournal.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2046-0481
   pissn: null
   language:
@@ -6400,12 +6358,13 @@ journals:
   ref_oa_statement: https://irishvetjournal.biomedcentral.com/about
   ref_author_instructions: https://irishvetjournal.biomedcentral.com/submission-guidelines
   ref_license_terms: https://irishvetjournal.biomedcentral.com/submission-guidelines/copyright
-- id: 101
+- id: 99
   issn: 2414-3146
   journal_title: IUCrData
   publisher: International Union of Crystallography
   url: https://iucrdata.iucr.org/x/
   data_journal_type: pure
+  is_active: true
   eissn: 2414-3146
   pissn: null
   language:
@@ -6465,12 +6424,13 @@ journals:
   ref_oa_statement: https://iucrdata.iucr.org/services/oa/openaccess_x.html
   ref_author_instructions: https://iucrdata.iucr.org/x/services/notesforauthors.html
   ref_license_terms: https://iucrdata.iucr.org/services/oa/oalicenceshort.html
-- id: 102
+- id: 100
   issn: 2191-5040
   journal_title: Journal of Applied Volcanology
   publisher: BioMed Central (Springer Nature)
   url: https://appliedvolc.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2191-5040
   pissn: null
   language:
@@ -6538,12 +6498,13 @@ journals:
   ref_oa_statement: https://appliedvolc.biomedcentral.com/about
   ref_author_instructions: https://appliedvolc.biomedcentral.com/submission-guidelines
   ref_license_terms: https://appliedvolc.biomedcentral.com/submission-guidelines/copyright
-- id: 103
+- id: 101
   issn: 2041-1480
   journal_title: Journal of Biomedical Semantics
   publisher: BioMed Central (Springer Nature)
   url: https://jbiomedsem.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2041-1480
   pissn: null
   language:
@@ -6611,18 +6572,20 @@ journals:
   ref_oa_statement: https://jbiomedsem.biomedcentral.com/about
   ref_author_instructions: https://jbiomedsem.biomedcentral.com/submission-guidelines
   ref_license_terms: https://jbiomedsem.biomedcentral.com/submission-guidelines/copyright
-- id: 104
+- id: 102
   issn: 1520-5134
   journal_title: Journal of Chemical & Engineering Data
   publisher: American Chemical Society
   url: https://pubs.acs.org/journal/jceaax
   data_journal_type: pure
-- id: 105
+  is_active: true
+- id: 103
   issn: 1758-2946
   journal_title: Journal of Cheminformatics
   publisher: BioMed Central (Springer Nature)
   url: https://jcheminf.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1758-2946
   pissn: null
   language:
@@ -6693,18 +6656,20 @@ journals:
   ref_oa_statement: https://jcheminf.biomedcentral.com/about
   ref_author_instructions: https://jcheminf.biomedcentral.com/submission-guidelines
   ref_license_terms: https://jcheminf.springeropen.com/submission-guidelines/copyright
-- id: 106
+- id: 104
   issn: 1537-2537
   journal_title: Journal of Environmental Quality
   publisher: John Wiley & Sons (Wiley)
   url: https://acsess.onlinelibrary.wiley.com/journal/15372537
   data_journal_type: mixed
-- id: 107
+  is_active: true
+- id: 105
   issn: 1745-6673
   journal_title: Journal of Occupational Medicine and Toxicology
   publisher: BioMed Central (Springer Nature)
   url: https://occup-med.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1745-6673
   pissn: null
   language:
@@ -6769,12 +6734,13 @@ journals:
   ref_oa_statement: https://occup-med.biomedcentral.com/about
   ref_author_instructions: https://occup-med.biomedcentral.com/submission-guidelines
   ref_license_terms: https://occup-med.biomedcentral.com/submission-guidelines/copyright
-- id: 108
+- id: 106
   issn: 2049-1565
   journal_title: Journal of Open Archaeology Data
   publisher: Ubiquity Press
   url: https://openarchaeologydata.metajnl.com/
   data_journal_type: pure
+  is_active: true
   eissn: 2049-1565
   pissn: null
   language:
@@ -6834,12 +6800,13 @@ journals:
   ref_oa_statement: http://openarchaeologydata.metajnl.com/about/
   ref_author_instructions: https://openarchaeologydata.metajnl.com/about/submissions
   ref_license_terms: https://openarchaeologydata.metajnl.com/about/submissions
-- id: 109
+- id: 107
   issn: 2050-9863
   journal_title: Journal of Open Psychology Data
   publisher: Ubiquity Press
   url: https://openpsychologydata.metajnl.com/
   data_journal_type: pure
+  is_active: true
   eissn: 2050-9863
   pissn: null
   language:
@@ -6898,12 +6865,13 @@ journals:
   ref_oa_statement: http://openpsychologydata.metajnl.com/about/editorialPolicies#openAccessPolicy
   ref_author_instructions: http://openpsychologydata.metajnl.com/about/submissions#authorGuidelines
   ref_license_terms: http://openpsychologydata.metajnl.com/about/editorialPolicies#openAccessPolicy
-- id: 110
+- id: 108
   issn: 2049-9647
   journal_title: Journal of Open Research Software
   publisher: Ubiquity Press
   url: https://openresearchsoftware.metajnl.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2049-9647
   pissn: null
   language:
@@ -6961,18 +6929,20 @@ journals:
   ref_oa_statement: https://openresearchsoftware.metajnl.com/about/
   ref_author_instructions: https://openresearchsoftware.metajnl.com/about/submissions/
   ref_license_terms: https://openresearchsoftware.metajnl.com/about/submissions/
-- id: 111
+- id: 109
   issn: 1529-7845
   journal_title: Journal of Physical and Chemical Reference Data
   publisher: American Institute of Physics
   url: https://aip.scitation.org/jpr/info/focus
   data_journal_type: pure
-- id: 112
+  is_active: true
+- id: 110
   issn: 1550-2783
   journal_title: Journal of the International Society of Sports Nutrition
   publisher: Taylor & Francis
   url: https://www.tandfonline.com/journals/rssn20
   data_journal_type: mixed
+  is_active: true
   eissn: 1550-2783
   pissn: null
   language:
@@ -7041,12 +7011,13 @@ journals:
   ref_oa_statement: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
   ref_author_instructions: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
   ref_license_terms: https://authorservices.taylorandfrancis.com/publishing-open-access/open-access-cost-finder/?category=all&journal=rssn&fulloa=1&openselect=1&notavailable=1&dove=1&routledge=1&tandf=1&numberofresultsperpage=5&pagenumber=1
-- id: 113
+- id: 111
   issn: 2534-9708
   journal_title: Metabarcoding and Metagenomics
   publisher: Pensoft Publishers
   url: https://mbmg.pensoft.net/
   data_journal_type: mixed
+  is_active: true
   eissn: 2534-9708
   pissn: null
   language:
@@ -7109,12 +7080,13 @@ journals:
   ref_oa_statement: https://mbmg.pensoft.net/about#OpenAccessPolicy
   ref_author_instructions: https://mbmg.pensoft.net/about#AuthorGuidelines
   ref_license_terms: https://mbmg.pensoft.net/about#Copyright
-- id: 114
+- id: 112
   issn: 2578-9430
   journal_title: microPublication Biology
   publisher: Caltech Library
   url: https://www.micropublication.org/
   data_journal_type: pure
+  is_active: true
   eissn: 2578-9430
   pissn: null
   language:
@@ -7172,12 +7144,13 @@ journals:
   ref_oa_statement: https://www.micropublication.org/about/editorial-policies/publishing-information
   ref_author_instructions: https://www.micropublication.org/about/for-authors/
   ref_license_terms: https://www.micropublication.org/about/editorial-policies/publishing-information
-- id: 115
+- id: 113
   issn: 1943-7706
   journal_title: Molecular Plant - Microbe Interactions
   publisher: APS Publications
   url: https://apsjournals.apsnet.org/journal/mpmi
   data_journal_type: mixed
+  is_active: true
   eissn: 1943-7706
   pissn: 0894-0282
   language:
@@ -7241,12 +7214,13 @@ journals:
   ref_oa_statement: https://apsjournals.apsnet.org/page/mpmi/about
   ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
   ref_license_terms: https://apsjournals.apsnet.org/page/authorinformation#submitting
-- id: 116
+- id: 114
   issn: 2051-3933
   journal_title: Movement Ecology
   publisher: BioMed Central (Springer Nature)
   url: https://movementecologyjournal.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2051-3933
   pissn: null
   language:
@@ -7313,12 +7287,13 @@ journals:
   ref_oa_statement: https://movementecologyjournal.biomedcentral.com/about
   ref_author_instructions: https://movementecologyjournal.biomedcentral.com/submission-guidelines
   ref_license_terms: https://movementecologyjournal.biomedcentral.com/submission-guidelines/copyright
-- id: 117
+- id: 115
   issn: 1314-4049
   journal_title: MycoKeys
   publisher: Pensoft Publishers
   url: https://mycokeys.pensoft.net/
   data_journal_type: mixed
+  is_active: true
   eissn: 1314-4049
   pissn: 1314-4057
   language:
@@ -7376,12 +7351,13 @@ journals:
   ref_oa_statement: http://mycokeys.pensoft.net/about#Open-Access-Policy
   ref_author_instructions: http://mycokeys.pensoft.net/about#Author-Guidelines
   ref_license_terms: http://mycokeys.pensoft.net/about#Copyright-Notice
-- id: 118
+- id: 116
   issn: 1314-3301
   journal_title: Nature Conservation
   publisher: Pensoft Publishers
   url: https://natureconservation.pensoft.net/
   data_journal_type: mixed
+  is_active: true
   eissn: 1314-3301
   pissn: 1314-6947
   language:
@@ -7444,12 +7420,13 @@ journals:
   ref_oa_statement: http://natureconservation.pensoft.net/about#Open-Access-Policy
   ref_author_instructions: http://natureconservation.pensoft.net/about#Author-Guidelines
   ref_license_terms: http://natureconservation.pensoft.net/about#Copyright-Notice
-- id: 119
+- id: 117
   issn: 1314-2488
   journal_title: NeoBiota
   publisher: Pensoft Publishers
   url: https://neobiota.pensoft.net/
   data_journal_type: mixed
+  is_active: true
   eissn: 1314-2488
   pissn: 1619-0033
   language:
@@ -7505,24 +7482,27 @@ journals:
   ref_oa_statement: http://neobiota.pensoft.net/about#Open-Access-Policy
   ref_author_instructions: http://neobiota.pensoft.net/about#Author-Guidelines
   ref_license_terms: http://neobiota.pensoft.net/
-- id: 120
+- id: 118
   issn: 1559-0089
   journal_title: Neuroinformatics
   publisher: Springer (Springer Nature)
   url: https://www.springer.com/journal/12021/
   data_journal_type: mixed
-- id: 121
+  is_active: true
+- id: 119
   issn: 0090-3752
   journal_title: Nuclear Data Sheets
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/nuclear-data-sheets
   data_journal_type: pure
-- id: 122
+  is_active: true
+- id: 120
   issn: 1362-4962
   journal_title: Nucleic Acids Research
   publisher: Oxford University Press
   url: https://academic.oup.com/nar
   data_journal_type: mixed
+  is_active: true
   eissn: 1362-4962
   pissn: 0305-1048
   language:
@@ -7588,12 +7568,13 @@ journals:
   ref_oa_statement: https://academic.oup.com/nar/pages/Open_Access_Initiative
   ref_author_instructions: https://academic.oup.com/nar/pages/General_Instructions
   ref_license_terms: https://academic.oup.com/nar/pages/author-guidelines#section-10
-- id: 123
+- id: 121
   issn: 2367-8194
   journal_title: One Ecosystem
   publisher: Pensoft Publishers
   url: https://oneecosystem.pensoft.net/
   data_journal_type: mixed
+  is_active: true
   eissn: 2367-8194
   pissn: null
   language:
@@ -7654,36 +7635,41 @@ journals:
   ref_oa_statement: https://oneecosystem.pensoft.net/about#OpenAccessPolicy
   ref_author_instructions: https://oneecosystem.pensoft.net/about#Howit
   ref_license_terms: https://oneecosystem.pensoft.net/about#LicenseandCopyrightAgreement
-- id: 124
+- id: 122
   issn: 2352-6378
   journal_title: Open Data Journal for Agricultural Research
   publisher: Wageningen University & Research Library
   url: https://odjar.org/index
   data_journal_type: pure
-- id: 125
+  is_active: true
+- id: 123
   issn: 2363-7501
   journal_title: Open Geospatial Data Software and Standards
   publisher: Springer Open (Springer Nature)
   url: https://opengeospatialdata.springeropen.com/
   data_journal_type: mixed
-- id: 126
+  is_active: false
+- id: 124
   issn: 2054-7102
   journal_title: Open Health Data
   publisher: Ubiquity Press
   url: https://openhealthdata.metajnl.com/
   data_journal_type: pure
-- id: 127
+  is_active: false
+- id: 125
   issn: 2056-5542
   journal_title: Open Journal of Bioresources
   publisher: Ubiquity Press
   url: https://openbioresources.metajnl.com/
   data_journal_type: pure
-- id: 128
+  is_active: false
+- id: 126
   issn: 2471-2906
   journal_title: Phytobiomes Journal
   publisher: APS Publications
   url: https://apsjournals.apsnet.org/journal/pbiomes
   data_journal_type: mixed
+  is_active: true
   eissn: 2471-2906
   pissn: null
   language:
@@ -7754,12 +7740,13 @@ journals:
   ref_oa_statement: https://apsjournals.apsnet.org/page/aboutphytobiomes
   ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
   ref_license_terms: https://apsjournals.apsnet.org/page/authorinformation#submitting
-- id: 129
+- id: 127
   issn: 1314-2003
   journal_title: PhytoKeys
   publisher: Pensoft Publishers
   url: https://phytokeys.pensoft.net/
   data_journal_type: mixed
+  is_active: true
   eissn: 1314-2003
   pissn: 1314-2011
   language:
@@ -7818,30 +7805,34 @@ journals:
   ref_oa_statement: http://jhr.pensoft.net/about#OpenAccessPolicy
   ref_author_instructions: http://phytokeys.pensoft.net/about
   ref_license_terms: http://jhr.pensoft.net/about#CopyrightNotice
-- id: 130
+- id: 128
   issn: 1943-7684
   journal_title: Phytopathology
   publisher: APS Publications
   url: https://apsjournals.apsnet.org/journal/phyto
   data_journal_type: mixed
-- id: 131
+  is_active: true
+- id: 129
   issn: 1471-9053
   journal_title: Plant and Cell Physiology
   publisher: Oxford University Press
   url: https://academic.oup.com/pcp
   data_journal_type: mixed
-- id: 132
+  is_active: true
+- id: 130
   issn: 1943-7692
   journal_title: Plant Disease
   publisher: APS Publications
   url: https://apsjournals.apsnet.org/journal/pdis
   data_journal_type: mixed
-- id: 133
+  is_active: true
+- id: 131
   issn: 1746-4811
   journal_title: Plant Methods
   publisher: BioMed Central (Springer Nature)
   url: https://plantmethods.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1746-4811
   pissn: null
   language:
@@ -7910,12 +7901,13 @@ journals:
   ref_oa_statement: https://plantmethods.biomedcentral.com/about
   ref_author_instructions: https://plantmethods.biomedcentral.com/submission-guidelines
   ref_license_terms: https://plantmethods.biomedcentral.com/submission-guidelines/copyright
-- id: 134
+- id: 132
   issn: 2452-3666
   journal_title: Research Data Journal for the Humanities and Social Sciences
   publisher: Brill
   url: https://brill.com/view/journals/rdj/rdj-overview.xml
   data_journal_type: pure
+  is_active: true
   eissn: 2452-3666
   pissn: null
   language:
@@ -7975,12 +7967,13 @@ journals:
   ref_oa_statement: https://researchdatajournal.org/policies
   ref_author_instructions: https://researchdatajournal.org/about/submissions
   ref_license_terms: https://researchdatajournal.org/policies
-- id: 135
+- id: 133
   issn: 2367-7163
   journal_title: Research Ideas and Outcomes
   publisher: Pensoft Publishers
   url: https://riojournal.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 2367-7163
   pissn: null
   language:
@@ -8039,12 +8032,13 @@ journals:
   ref_oa_statement: http://rio.pensoft.net/about#RIO-Policies
   ref_author_instructions: http://rio.pensoft.net/about#ForAuthors
   ref_license_terms: http://rio.pensoft.net/about
-- id: 136
+- id: 134
   issn: 2052-4463
   journal_title: Scientific Data
   publisher: Springer Nature
   url: https://www.nature.com/sdata/
   data_journal_type: mixed
+  is_active: true
   eissn: 2052-4463
   pissn: null
   language:
@@ -8107,12 +8101,13 @@ journals:
   ref_oa_statement: https://www.nature.com/sdata/about/oa
   ref_author_instructions: https://www.nature.com/sdata/publish/submission-guidelines
   ref_license_terms: https://www.nature.com/sdata/open-access
-- id: 137
+- id: 135
   issn: 1747-597X
   journal_title: Substance Abuse Treatment Prevention and Policy
   publisher: BioMed Central (Springer Nature)
   url: https://substanceabusepolicy.biomedcentral.com/
   data_journal_type: mixed
+  is_active: true
   eissn: 1747-597X
   pissn: null
   language:
@@ -8180,12 +8175,13 @@ journals:
   ref_oa_statement: https://substanceabusepolicy.biomedcentral.com/about
   ref_author_instructions: https://substanceabusepolicy.biomedcentral.com/submission-guidelines
   ref_license_terms: https://substanceabusepolicy.biomedcentral.com/submission-guidelines/copyright
-- id: 138
+- id: 136
   issn: 1538-4365
   journal_title: The Astrophysical Journal Supplement Series
   publisher: IOP
   url: https://journals.aas.org/astrophysical-supplement-series/
   data_journal_type: pure
+  is_active: true
   eissn: 1538-4365
   pissn: 0067-0049
   language:
@@ -8245,24 +8241,27 @@ journals:
   ref_oa_statement: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
   ref_author_instructions: https://journals.aas.org/author-resources/
   ref_license_terms: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
-- id: 139
+- id: 137
   issn: 1741-3176
   journal_title: The International Journal of Robotics Research
   publisher: SAGE Publishing
   url: https://journals.sagepub.com/home/IJR
   data_journal_type: mixed
-- id: 140
+  is_active: true
+- id: 138
   issn: 1365-313X
   journal_title: The Plant Journal
   publisher: Blackwell Publishing (Wiley)
   url: https://onlinelibrary.wiley.com/journal/1365313x
   data_journal_type: mixed
-- id: 141
+  is_active: true
+- id: 139
   issn: 2578-2703
   journal_title: The Plant Phenome Journal
   publisher: John Wiley & Sons (Wiley)
   url: https://acsess.onlinelibrary.wiley.com/journal/25782703
   data_journal_type: mixed
+  is_active: true
   eissn: 2578-2703
   pissn: null
   language:
@@ -8327,18 +8326,20 @@ journals:
   ref_oa_statement: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
   ref_author_instructions: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
   ref_license_terms: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
-- id: 142
+- id: 140
   issn: 2603-431X
   journal_title: Viticulture Data Journal
   publisher: Pensoft Publishers
   url: https://vdj.pensoft.net/
   data_journal_type: pure
-- id: 143
+  is_active: true
+- id: 141
   issn: 2398-502X
   journal_title: Wellcome Open Research
-  publisher: F1000 Research
+  publisher: F1000Research
   url: https://wellcomeopenresearch.org/
   data_journal_type: mixed
+  is_active: true
   eissn: 2398-502X
   pissn: null
   language:

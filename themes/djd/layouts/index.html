@@ -1,7 +1,7 @@
 {{ define "main" }}
   <div class="taxonomy-header">
     <p style="display: flex; align-items: center;">
-      <span><strong>{{ len .Site.RegularPages }} data journals</strong> in the collection.</span>
+      <span><strong>{{ len (where .Site.RegularPages ".Params.issn" "!=" nil) }} data journals</strong> in the collection.</span>
       <span style="margin-left: auto; display: flex; gap: 16px; align-items: center;">
         <a href="/about"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="About">
           <circle cx="12" cy="12" r="10"/>
@@ -17,11 +17,12 @@
   <div class="journal-grid" id="journal-list">
     {{ range where .Site.RegularPages ".Params.issn" "!=" nil }}
     <a class="journal-card" href="{{ .RelPermalink }}"
-       data-title="{{ .Title }}"
-       data-publisher="{{ .Params.publisher }}"
-       data-type="{{ .Params.data_journal_type }}"
-       data-keywords="{{ .Params.keywords | jsonify }}"
-       data-fields="{{ .Params.research_fields | jsonify }}">
+        data-title="{{ .Title }}" 
+        data-publisher="{{ .Params.publisher | jsonify }}"
+        data-data-journal-type="{{ .Params.data_journal_type | jsonify }}"
+        data-keywords="{{ .Params.keywords | jsonify }}"
+        data-research-fields="{{ .Params.research_fields | jsonify }}"
+        data-license-types="{{ .Params.license_types | jsonify }}">
       <h3>{{ .Title }}</h3>
       {{ if .Params.publisher }}
       <p class="meta"><strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>

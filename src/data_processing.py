@@ -22,9 +22,9 @@ def load_schema(schema_path: Path) -> list[dict]:
     Load the journal metadata schema and return the list of field definitions.
     """
     try:
-        with open(schema_path, 'r', encoding='utf-8') as file:
+        with open(schema_path, "r", encoding="utf-8") as file:
             schema = yaml.safe_load(file)
-        return schema.get('fields', [])
+        return schema.get("fields", [])
     except Exception as e:
         click.secho(f"Error loading schema from {schema_path}: {e}", fg="red")
         return []
@@ -67,41 +67,61 @@ def save_csv_to_disk(rows: list[list[str]], fpath: Path):
     click.secho(f"Saved raw CSV → {fpath}", fg="green")
 
 
+def _coerce_value(val: str, field_type: str):
+    """
+    Cast a CSV string value to the type declared in the schema.
+    """
+    if field_type == "boolean":
+        if val.lower() == "true":
+            return True
+        if val.lower() == "false":
+            return False
+        return None
+    if field_type == "integer":
+        try:
+            return int(val)
+        except (ValueError, TypeError):
+            return None
+    return val
+
+
 def parse_csv_rows_with_schema(
     rows: list[list[str]],
     schema_fields: list[dict]
 ) -> list[dict]:
     """
     Convert CSV rows to list of dicts, only including fields defined in
-    schema with source 'csv' or 'generated'.
+    schema with source "csv" or "generated".
     """
     if not rows:
         return []
 
     # Get CSV fields from schema
     header = [col.strip() for col in rows[0]]
-    csv_fields = [f for f in schema_fields if f['source'] == 'csv']
-    csv_col_to_key = {f['csv_column'].strip(): f['key'] for f in csv_fields}
+    csv_fields = [f for f in schema_fields if f["source"] == "csv"]
+    csv_col_to_field = {f["csv_column"].strip(): f for f in csv_fields}
 
     # Get generated fields from schema (id)
-    generated_fields = [f for f in schema_fields if f['source'] == 'generated']
+    generated_fields = [f for f in schema_fields if f["source"] == "generated"]
 
     journals = []
     for idx, row in enumerate(rows[1:], start=1):
         # Add generated fields first (id)
         record = {}
         for gf in generated_fields:
-            if gf['key'] == 'id':
-                record['id'] = idx
+            if gf["key"] == "id":
+                record["id"] = idx
             else:
-                record[gf['key']] = gf.get('default')
+                record[gf["key"]] = gf.get("default")
 
         # Map CSV columns
         for col, val in zip(header, row):
             col_clean = col.strip()
-            if col_clean in csv_col_to_key:
-                key = csv_col_to_key[col_clean]
-                record[key] = val.strip()
+            if col_clean in csv_col_to_field:
+                field = csv_col_to_field[col_clean]
+                record[field["key"]] = _coerce_value(
+                    val.strip(), field.get("type", "string")
+                )
         journals.append(record)
 
     return journals
@@ -163,7 +183,7 @@ def enrich_journals_with_doaj(
     """
     Enrich each journal dict with DOAJ metadata, optionally filtered by schema.
     """
-    doaj_schema_fields = [f for f in (schema_fields or []) if f['source'] == 'doaj']
+    doaj_schema_fields = [f for f in (schema_fields or []) if f["source"] == "doaj"]
 
     enriched = []
     total = len(journals)
@@ -241,13 +261,13 @@ def write_yaml_to_disk(journals: list[dict], fpath: Path):
 def load_existing_journals() -> list[dict]:
     """
     Load existing journals from the processed YAML file.
-    Returns an empty list if the file doesn't exist or is empty.
+    Returns an empty list if the file doesn"t exist or is empty.
     """
     if PROCESSED_JOURNAL_METADATA_PATH.exists():
-        with open(PROCESSED_JOURNAL_METADATA_PATH, 'r', encoding='utf-8') as f:
+        with open(PROCESSED_JOURNAL_METADATA_PATH, "r", encoding="utf-8") as f:
             existing_data = yaml.safe_load(f)
         if existing_data:
-            return existing_data.get('journals', [])
+            return existing_data.get("journals", [])
     return []
 
 
@@ -256,8 +276,8 @@ def is_duplicate_journal(journal: dict, existing_journals: list[dict]) -> bool:
     Check if a journal already exists in the processed YAML based on ISSN.
     Returns True if duplicate, False otherwise.
     """
-    issn = journal.get('issn', '')
-    return any(j.get('issn') == issn for j in existing_journals)
+    issn = journal.get("issn", "")
+    return any(j.get("issn") == issn for j in existing_journals)
 
 
 def process_single_journal(
@@ -274,7 +294,7 @@ def process_single_journal(
         click.secho("Failed to load schema. Aborting.", fg="red")
         return False
 
-    core_metadata = [f for f in schema_fields if f['source'] == 'csv']
+    core_metadata = [f for f in schema_fields if f["source"] == "csv"]
 
     # Step 1: Parse input → dict with schema keys
     journal = None
@@ -283,7 +303,7 @@ def process_single_journal(
         suffix = fpath.suffix.lower()
 
         # csv
-        if suffix == '.csv':
+        if suffix == ".csv":
             rows = get_journal_data_from_csv(fpath)
             if not rows:
                 return False
@@ -294,11 +314,11 @@ def process_single_journal(
             journal = parsed[0]
 
         # yaml
-        elif suffix in ('.yaml', '.yml'):
-            with open(fpath, 'r', encoding='utf-8') as f:
+        elif suffix in (".yaml", ".yml"):
+            with open(fpath, "r", encoding="utf-8") as f:
                 data = yaml.safe_load(f)
-            if isinstance(data, dict) and 'journal' in data:
-                journal = data['journal'][0]
+            if isinstance(data, dict) and "journal" in data:
+                journal = data["journal"][0]
             elif isinstance(data, list):
                 journal = data[0]
             else:
@@ -313,25 +333,25 @@ def process_single_journal(
 
     # Step 2: Validate required fields
     missing = [
-        f['key'] for f in core_metadata
-        if f.get('required') and not journal.get(f['key'])
+        f["key"] for f in core_metadata
+        if f.get("required") and not journal.get(f["key"])
     ]
     if missing:
-        click.secho(f"Missing required fields: {', '.join(missing)}", fg="red")
+        click.secho(f"Missing required fields: {", ".join(missing)}", fg="red")
         return False
 
     # Step 3: Duplicate check
     existing_journals = load_existing_journals()
     if is_duplicate_journal(journal, existing_journals):
         click.secho(
-            f"Journal with ISSN {journal.get('issn', '')} already exists "
+            f"Journal with ISSN {journal.get("issn", "")} already exists "
             "in collection. Aborting.",
             fg="yellow"
         )
         return False
 
     # Assign next available ID
-    journal['id'] = max((j.get('id', 0) for j in existing_journals),
+    journal["id"] = max((j.get("id", 0) for j in existing_journals),
                         default=0) + 1
 
     # Sort journal keys
@@ -388,7 +408,7 @@ def process_all_journals(
     for journal in journals:
         if is_duplicate_journal(journal, existing_journals):
             click.secho(
-                f"Journal with ISSN {journal.get('issn', '')} already exists "
+                f"Journal with ISSN {journal.get("issn", "")} already exists "
                 "in collection. Skipping.",
                 fg="yellow"
             )
@@ -398,10 +418,10 @@ def process_all_journals(
 
     # Assign sequential IDs to new journals
     max_existing_id = max(
-        (j.get('id', 0) for j in existing_journals), default=0
+        (j.get("id", 0) for j in existing_journals), default=0
     )
     for idx, journal in enumerate(journals, start=1):
-        journal['id'] = max_existing_id + idx
+        journal["id"] = max_existing_id + idx
 
     # Step 4: enrich with DOAJ metadata
     enriched_journals = enrich_journals_with_doaj(journals, schema_fields)

@@ -14,58 +14,51 @@
     </main>
   </div>
   <script>
-    function navigateToDataJournalType(value) {
-      if (value) {
-        window.location.href = '/data_journal_type/' + value + '/';
-      } else {
-        window.location.href = '/';
-      }
-    }
-
-    function navigateToDropDownEntry(value) {
-      if (value) {
-        window.location.href = value;
-      } else {
-        window.location.href = '/';
-      }
+    function parseAttr(val) {
+      try { return JSON.parse(val).map(v => String(v).toLowerCase()); } catch { return val ? [val.toLowerCase()] : []; }
     }
 
     function filterJournals() {
       const searchInput = document.getElementById('search-input');
-      const typeSelect = document.getElementById('type-filter');
+      const dataJournalTypeSelect = document.getElementById('type-filter');
       const publisherSelect = document.getElementById('publisher-filter');
-      const keywordInput = document.getElementById('keyword-filter');
-      const fieldInput = document.getElementById('field-filter');
+      const researchFieldSelect = document.getElementById('reasearch-field-filter');
+      const licenseTypeSelect = document.getElementById('license-filter');
 
       const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-      const selectedType = typeSelect ? typeSelect.value : '';
-      const selectedPublisher = publisherSelect ? publisherSelect.value : '';
-      const keywordTerm = keywordInput ? keywordInput.value.toLowerCase() : '';
-      const fieldTerm = fieldInput ? fieldInput.value.toLowerCase() : '';
+      const selectedDataJournalType = dataJournalTypeSelect ? dataJournalTypeSelect.value.toLowerCase() : '';
+      const selectedPublisher = publisherSelect ? publisherSelect.value.toLowerCase() : '';
+      const selectedResearchField = researchFieldSelect ? researchFieldSelect.value.toLowerCase() : '';
+      const selectedLicenseType = licenseTypeSelect ? licenseTypeSelect.value.toLowerCase() : '';
 
       document.querySelectorAll('.journal-card').forEach(card => {
         const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
-        const publisher = card.dataset.publisher ? card.dataset.publisher.toLowerCase() : '';
-        const type = card.dataset.type ? card.dataset.type.toLowerCase() : '';
         const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
-        const fields = card.dataset.fields ? card.dataset.fields.toLowerCase() : '';
 
-        const matchesSearch = !searchTerm || title.includes(searchTerm) || publisher.includes(searchTerm) || keywords.includes(searchTerm) || fields.includes(searchTerm);
-        const matchesType = !selectedType || type === selectedType.toLowerCase();
-        const matchesPublisher = !selectedPublisher || publisher === selectedPublisher.toLowerCase();
-        const matchesKeyword = !keywordTerm || keywords.includes(keywordTerm);
-        const matchesField = !fieldTerm || fields.includes(fieldTerm);
+        const publisherArr = parseAttr(card.dataset.publisher);
+        const dataJournalTypeArr = parseAttr(card.dataset.dataJournalType);
+        const researchFieldsArr = parseAttr(card.dataset.researchFields);
+        const licenseTypesArr = parseAttr(card.dataset.licenseTypes);
 
-        card.style.display = (matchesSearch && matchesType && matchesPublisher && matchesKeyword && matchesField) ? '' : 'none';
+        const matchesSearch = !searchTerm ||
+          title.includes(searchTerm) ||
+          keywords.includes(searchTerm) ||
+          publisherArr.some(v => v.includes(searchTerm)) ||
+          dataJournalTypeArr.some(v => v.includes(searchTerm)) ||
+          researchFieldsArr.some(v => v.includes(searchTerm)) ||
+          licenseTypesArr.some(v => v.includes(searchTerm));
+
+        const matchesDataJournalType = !selectedDataJournalType || dataJournalTypeArr.includes(selectedDataJournalType);
+        const matchesPublisher = !selectedPublisher || publisherArr.includes(selectedPublisher);
+        const matchesResearchField = !selectedResearchField || researchFieldsArr.some(v => v.includes(selectedResearchField));
+        const matchesLicenseType = !selectedLicenseType || licenseTypesArr.includes(selectedLicenseType);
+
+        card.style.display = (matchesSearch && matchesDataJournalType && matchesPublisher && matchesResearchField && matchesLicenseType) ? '' : 'none';
       });
     }
 
-    // Attach event listeners after DOM loads
     document.addEventListener('DOMContentLoaded', function() {
-      const filterInputs = document.querySelectorAll('.filter-input');
-      filterInputs.forEach(input => {
-        // Skip type-filter as it handles navigation via onchange
-        if (input.id === 'type-filter') return;
+      document.querySelectorAll('.filter-input').forEach(input => {
         input.addEventListener('input', filterJournals);
         input.addEventListener('change', filterJournals);
       });
