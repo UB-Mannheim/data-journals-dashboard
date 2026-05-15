@@ -87,7 +87,7 @@ def process_all(
 
 @process.command("single", no_args_is_help=True)
 @click.option(
-    "--input_fpath", "-f",
+    "--input_fpath", "-i",
     type=click.Path(path_type=Path),
     default=None,
     help="Path to a single-journal file (.csv, .yaml, .json).",
@@ -122,7 +122,7 @@ def hugo():
 
 @hugo.command("generate", no_args_is_help=False)
 @click.option(
-    "--input_fpath", "-f",
+    "--input_fpath", "-i",
     type=click.Path(path_type=Path),
     default=PROCESSED_JOURNAL_METADATA_PATH,
     show_default=True,

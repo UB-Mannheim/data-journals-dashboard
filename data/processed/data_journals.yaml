@@ -2264,6 +2264,44 @@ journals:
   url: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables
   data_journal_type: pure
   is_active: true
+  eissn: 1090-2090
+  pissn: 0092-640X
+  language:
+  - EN
+  publication_time_weeks: 16
+  keywords:
+  - energy levels
+  - interaction cross-sections
+  - spectroscopy
+  - transition probabilities
+  - wavefunctions
+  - x rays
+  research_fields:
+  - Nuclear and particle physics. Atomic energy. Radioactivity
+  subject_codes:
+  - code: QC770-798
+    scheme: LCC
+    term: Nuclear and particle physics. Atomic energy. Radioactivity
+  publisher_country: GB
+  institution_country: CN
+  review_process:
+  - Anonymous peer review
+  review_url: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/guide-for-authors#about-the-journal-peer-review
+  board_url: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/about/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 3230
+    currency: USD
+  apc_url: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/open-access-options
+  ref_journal: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables
+  ref_aims_scope: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/about/aims-and-scope
+  ref_oa_statement: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/open-access-options
+  ref_author_instructions: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/guide-for-authors
 - id: 47
   issn: 1314-2828
   journal_title: Biodiversity Data Journal
