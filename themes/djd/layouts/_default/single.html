@@ -15,7 +15,11 @@
       {{ end }}
 
       {{ if .Params.publisher }}
-      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
+      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ index .Params.publisher 0 }}{{ if .Params.publisher_country }} • <strong>Country:</strong> {{ .Params.publisher_country }}{{ end }}</p>
+      {{ end }}
+      
+      {{ if .Params.institution_name }}
+      <p>{{ with index $d "institution_name" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Associated Institution:</strong> {{ .Params.institution_name }}</p>
       {{ end }}
 
       {{ if .Params.data_journal_type }}
@@ -67,9 +71,14 @@
       {{ if .Params.apc_price_range }}
       <p><strong>Price Range:</strong> {{ .Params.apc_price_range }}{{ with index $d "apc_max" }} <span class="tooltip" data-tip="{{ . }}">?</span>{{ end }}</p>
       {{ end }}
+      <ul>
       {{ if .Params.apc_url }}
-      <p><a href="{{ .Params.apc_url }}" target="_blank">APC Details</a></p>
+      <li><a href="{{ .Params.apc_url }}" target="_blank">APC Details</a></li>
       {{ end }}
+      {{ if .Params.waiver_has }}
+      <li><a href="{{ .Params.waiver_url }}" target="_blank">APC Waiver Details</a></li>
+      {{ end }}
+      </ul>
     </div>
     {{ end }}
 
@@ -130,6 +139,9 @@
         {{ end }}
         {{ if .Params.ref_oa_statement }}
         <li>{{ with index $d "ref_oa_statement" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_oa_statement }}" target="_blank">OA Statement</a></li>
+        {{ end }}
+        {{ if .Params.plagiarism_url }}
+        <li>{{ with index $d "plagiarism_url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.plagiarism_url }}" target="_blank">Plagiarism Statement</a></li>
         {{ end }}
       </ul>
     </div>

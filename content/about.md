@@ -10,7 +10,7 @@ Last update: 2026-05-11
 
 ## Introduction
 
-The Data Journals Dashboard provides easy access to a collection of data journals first compiled by **Kindling M. and Strecker, D.** and published in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
+The Data Journals Dashboard provides easy access to a collection of data journals first compiled by **Kindling, M. and Strecker, D.** and published in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
 
 To find out more about the concept of data journals refer to this page by the [University Libraries of Western Michigan University](https://libguides.wmich.edu/datasci/datajournals).
 
@@ -36,7 +36,7 @@ All metadata is licensed under CC 0**
 
 ### Limitations
 
-The metadata for a majority of data journals is augmented via the DOAJ API. In cases where an `ISSN` is not present in the directory the corresponding data journal in the dashboard will only provide limited metdata, consisting of these core elements that originate from the [primary dataset](#primary-dataset):
+The metadata for a majority of data journals is augmented via the DOAJ API. In cases where an `ISSN` is not present in the directory the corresponding data journal in the dashboard will only provide limited metdata, consisting of these core elements:
 
 ```bash
 - ISSN
@@ -58,9 +58,8 @@ pass
 
 ```yaml
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
 type: software
-title: "Data Journal Dashboard"
+title: "Data Journals Dashboard"
 version: v2026-05-12
 date-released: "2026-05-12"
 url: "https://tsmdt.github.io/data-journals-dashboard/"

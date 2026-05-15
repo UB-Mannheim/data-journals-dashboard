@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.Language.Locale }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <title>{{ .Title }}</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -14,8 +14,34 @@
     </main>
   </div>
   <script>
+    const FILTER_LABELS = {
+      'type-filter':            'Data Journal Type',
+      'publisher-filter':       'Publisher',
+      'reasearch-field-filter': 'Research Field',
+      'license-filter':         'License',
+    };
+
     function parseAttr(val) {
       try { return JSON.parse(val).map(v => String(v).toLowerCase()); } catch { return val ? [val.toLowerCase()] : []; }
+    }
+
+    function renderFilterTags() {
+      const container = document.getElementById('active-filters');
+      if (!container) return;
+      const tags = [];
+      for (const [id, label] of Object.entries(FILTER_LABELS)) {
+        const el = document.getElementById(id);
+        if (el && el.value) {
+          tags.push(`<span class="filter-tag" onclick="removeFilter('${id}')" role="button" aria-label="Remove ${label} filter">${label}: ${el.value}</span>`);
+        }
+      }
+      container.innerHTML = tags.join('');
+      container.style.display = tags.length ? 'flex' : 'none';
+    }
+
+    function removeFilter(id) {
+      const el = document.getElementById(id);
+      if (el) { el.value = ''; filterJournals(); }
     }
 
     function filterJournals() {
@@ -34,7 +60,6 @@
       document.querySelectorAll('.journal-card').forEach(card => {
         const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
         const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
-
         const publisherArr = parseAttr(card.dataset.publisher);
         const dataJournalTypeArr = parseAttr(card.dataset.dataJournalType);
         const researchFieldsArr = parseAttr(card.dataset.researchFields);
@@ -63,6 +88,8 @@
       if (countEl) {
         countEl.textContent = visible < total ? `${visible}` : total;
       }
+
+      renderFilterTags();
     }
 
     function resetFilters() {

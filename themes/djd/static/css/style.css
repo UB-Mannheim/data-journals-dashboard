@@ -208,19 +208,28 @@ body {
 }
 
 .tags li {
-  background: #e9ecef;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  padding: 6px 10px;
+  border-radius: 8px;
   font-size: 0.85rem;
+  display: inline-flex;
+  font-size: 0.9rem;
+  align-items: center;
+  gap: 6px;
+  background: lavender;
+  cursor: pointer;
 }
 
 .tags li a {
-  color: #495057;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
+.tags li:hover {
+  background: #ccccff;
+}
+
 .tags li a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Taxonomy list page */
@@ -327,9 +336,38 @@ body {
   .main-content {
     padding: 1rem;
   }
-  
+
   .site-header {
     margin: -1rem -1rem 1rem -1rem;
     padding: 1.5rem;
   }
+}
+
+.filter-tag {
+  display: inline-flex;
+  font-size: 0.95rem;
+  align-items: center;
+  gap: 6px;
+  background: lavender;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filter-tag:hover { background: #ccccff; }
+
+.taxonomy-header a svg {
+  transition: stroke;
+}
+
+.taxonomy-header a:hover svg {
+  stroke: rgb(156, 156, 156);
+}
+
+.taxonomy-header a img {
+  transition: filter;
+}
+
+.taxonomy-header a:hover img {
+  filter: invert(75%);
 }
