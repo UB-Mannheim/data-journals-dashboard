@@ -15,6 +15,7 @@ fields:
     type: integer
     required: true
     default: null
+    schema_level: core
 
   - key: issn
     label: "ISSN"
@@ -24,6 +25,7 @@ fields:
     type: string
     required: true
     default: null
+    schema_level: core
 
   - key: journal_title
     label: "Journal Title"
@@ -33,6 +35,7 @@ fields:
     type: string
     required: true
     default: null
+    schema_level: core
 
   - key: publisher
     label: "Publisher"
@@ -42,6 +45,7 @@ fields:
     type: string
     required: true
     default: null
+    schema_level: core
 
   - key: url
     label: "URL"
@@ -51,6 +55,7 @@ fields:
     type: string
     required: true
     default: null
+    schema_level: core
 
   - key: data_journal_type
     label: "Data Journal Type"
@@ -60,6 +65,7 @@ fields:
     type: string
     required: true
     default: null
+    schema_level: core
 
   # ADDITIONAL METADATA
 
@@ -72,6 +78,7 @@ fields:
     type: boolean
     required: true
     default: null
+    schema_level: plus
 
 
   # DOAJ.ORG METADATA VIA THE DOAJ API (https://doaj.org/api/)
@@ -86,6 +93,7 @@ fields:
     type: string
     required: false
     default: null
+    schema_level: doaj
 
   - key: pissn
     label: "pISSN"
@@ -95,6 +103,7 @@ fields:
     type: string
     required: false
     default: null
+    schema_level: doaj
 
   - key: language
     label: "Languages"
@@ -104,6 +113,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   - key: oa_start
     label: "OA Start Year"
@@ -113,6 +123,7 @@ fields:
     type: integer
     required: false
     default: null
+    schema_level: doaj
 
   - key: boai
     label: "BOAI Compliant"
@@ -122,6 +133,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   - key: publication_time_weeks
     label: "Publication Time (weeks)"
@@ -131,6 +143,7 @@ fields:
     type: integer
     required: false
     default: null
+    schema_level: doaj
 
   - key: keywords
     label: "Keywords"
@@ -140,6 +153,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   ## Subjects / research fields
 
@@ -151,6 +165,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   - key: subject_codes
     label: "Subject Codes"
@@ -160,6 +175,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   ## Publisher & institution
 
@@ -171,6 +187,7 @@ fields:
     type: string
     required: false
     default: null
+    schema_level: doaj
 
   - key: publisher_country
     label: "Publisher Country"
@@ -180,6 +197,7 @@ fields:
     type: string
     required: false
     default: null
+    schema_level: doaj
 
   - key: institution_name
     label: "Institution Name"
@@ -189,6 +207,7 @@ fields:
     type: string
     required: false
     default: null
+    schema_level: doaj
 
   - key: institution_country
     label: "Institution Country"
@@ -198,6 +217,7 @@ fields:
     type: string
     required: false
     default: null
+    schema_level: doaj
 
   ## Editorial process
 
@@ -209,6 +229,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   - key: review_url
     label: "Review Process URL"
@@ -218,6 +239,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   - key: board_url
     label: "Editorial Board URL"
@@ -227,6 +249,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   ## Licensing
 
@@ -238,6 +261,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   ## Article Processing Charges (APC)
 
@@ -249,6 +273,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   - key: apc_max
     label: "APC Maximum"
@@ -258,6 +283,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   - key: apc_url
     label: "APC URL"
@@ -267,6 +293,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   - key: other_charges
     label: "Has Other Charges"
@@ -276,6 +303,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   ## Waiver policy
 
@@ -287,6 +315,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   - key: waiver_url
     label: "Waiver URL"
@@ -296,6 +325,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   ## Preservation
 
@@ -307,6 +337,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   - key: preservation_services
     label: "Preservation Services"
@@ -316,6 +347,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   - key: preservation_url
     label: "Preservation URL"
@@ -325,6 +357,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   ## Persistent Identifiers (PIDs)
 
@@ -336,6 +369,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   ## Plagiarism detection
 
@@ -347,6 +381,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   - key: plagiarism_url
     label: "Plagiarism Detection URL"
@@ -356,6 +391,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   ## Copyright
 
@@ -367,6 +403,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   - key: copyright_url
     label: "Copyright URL"
@@ -376,6 +413,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   ## Deposit policy
 
@@ -387,6 +425,7 @@ fields:
     type: boolean
     required: false
     default: null
+    schema_level: doaj
 
   - key: deposit_policy_services
     label: "Deposit Policy Services"
@@ -396,6 +435,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   - key: deposit_policy_url
     label: "Deposit Policy URL"
@@ -405,6 +445,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   ## Article-level metadata
 
@@ -416,6 +457,7 @@ fields:
     type: list
     required: false
     default: []
+    schema_level: doaj
 
   - key: article_license_example_url
     label: "Article License Example URL"
@@ -425,6 +467,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   ## Reference / external links
 
@@ -436,6 +479,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   - key: ref_aims_scope
     label: "Aims & Scope URL"
@@ -445,6 +489,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   - key: ref_oa_statement
     label: "OA Statement URL"
@@ -454,6 +499,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   - key: ref_author_instructions
     label: "Author Instructions URL"
@@ -463,6 +509,7 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj
 
   - key: ref_license_terms
     label: "License Terms URL"
@@ -472,3 +519,4 @@ fields:
     type: url
     required: false
     default: null
+    schema_level: doaj

@@ -234,7 +234,7 @@ def enrich_journals_with_doaj(
     return enriched
 
 
-def write_yaml_to_disk(journals: list[dict], fpath: Path):
+def write_yaml_to_disk(journals: list[dict], fpath: Path, verbose: bool = True):
     """
     Write enriched journal records to a YAML file.
     """
@@ -255,7 +255,8 @@ def write_yaml_to_disk(journals: list[dict], fpath: Path):
             allow_unicode=True,
             sort_keys=False
         )
-    click.secho(f"Saved enriched YAML → {fpath}", fg="green")
+    if verbose:
+        click.secho(f"Saved enriched YAML → {fpath}", fg="green")
 
 
 def load_existing_journals() -> list[dict]:
@@ -271,13 +272,50 @@ def load_existing_journals() -> list[dict]:
     return []
 
 
-def is_duplicate_journal(journal: dict, existing_journals: list[dict]) -> bool:
+def is_duplicate_journal(
+    journal: dict,
+    existing_journals: list[dict]
+) -> tuple[bool, str]:
     """
-    Check if a journal already exists in the processed YAML based on ISSN.
-    Returns True if duplicate, False otherwise.
+    Check if a journal already exists in the processed YAML based on the core
+    metadata schema fields (except for the generated id). Returns True if
+    duplicate, False otherwise.
     """
-    issn = journal.get("issn", "")
-    return any(j.get("issn") == issn for j in existing_journals)
+    schema = load_schema(METADATA_SCHEMA_PATH)
+    schema_core = [
+        f["key"] for f in schema
+        if f["schema_level"] == "core" and f.get("source") != "generated"
+    ]
+
+    # Get only core metadata fields for current journal
+    journal_core = {
+        key: journal[key] for key in schema_core if key in journal
+    }
+    for existing_journal in existing_journals:
+        if existing_journal.get("issn") == journal_core.get("issn", ""):
+            existing_journal_core = {
+                key: existing_journal[key]
+                for key in schema_core if key in existing_journal
+            }
+            if not journal_core == existing_journal_core:
+                return False, existing_journal.get("id", "")
+            else:
+                return True, ""
+    return False, ""
+
+
+def replace_existing_journal(
+    existing_journals: list[dict],
+    existing_id: str | int
+) -> list[dict]:
+    """
+    Remove the journal with existing_id, re-index remaining entries, and
+    return the updated list.
+    """
+    existing_journals = [e for e in existing_journals if e["id"] != existing_id]
+    for idx, e in enumerate(existing_journals, start=1):
+        e["id"] = idx
+    return existing_journals
 
 
 def process_single_journal(
@@ -342,7 +380,8 @@ def process_single_journal(
 
     # Step 3: Duplicate check
     existing_journals = load_existing_journals()
-    if is_duplicate_journal(journal, existing_journals):
+    is_duplicate, existing_id = is_duplicate_journal(journal, existing_journals)
+    if is_duplicate:
         click.secho(
             f"Journal with ISSN {journal.get("issn", "")} already exists "
             "in collection. Aborting.",
@@ -350,9 +389,12 @@ def process_single_journal(
         )
         return False
 
+    # Remove existing journal (same ISSN) with different core fields
+    if existing_id:
+        existing_journals = replace_existing_journal(existing_journals, existing_id)
+
     # Assign next available ID
-    journal["id"] = max((j.get("id", 0) for j in existing_journals),
-                        default=0) + 1
+    journal["id"] = max((j.get("id", 0) for j in existing_journals), default=0) + 1
 
     # Sort journal keys
     journal = {"id": journal.pop("id"), **journal}
@@ -406,13 +448,22 @@ def process_all_journals(
     existing_journals = load_existing_journals()
     new_journals = []
     for journal in journals:
-        if is_duplicate_journal(journal, existing_journals):
+        is_duplicate, existing_id = is_duplicate_journal(
+            journal, existing_journals
+        )
+        if is_duplicate:
             click.secho(
                 f"Journal with ISSN {journal.get("issn", "")} already exists "
                 "in collection. Skipping.",
                 fg="yellow"
             )
         else:
+            # Remove existing journal (same ISSN) with different core fields
+            if existing_id:
+                existing_journals = replace_existing_journal(
+                    existing_journals, existing_id
+                )
+            # Append the new journal
             new_journals.append(journal)
     journals = new_journals
 

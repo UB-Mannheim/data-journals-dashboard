@@ -50,7 +50,7 @@ def create_journal_content_for_hugo(
             "date": datetime.now().strftime("%Y-%m-%d"),
             "draft": False,
             "issn": issn,
-            "is_active": is_active
+            "is_active": "yes" if is_active else "no"
         }
 
         # Add data_journal_type as taxonomy if present
@@ -91,7 +91,7 @@ def create_journal_content_for_hugo(
 
         # Add BOAI compliance
         if journal.get("boai") is not None:
-            front_matter["boai"] = journal["boai"]
+            front_matter["boai"] = "yes" if journal["boai"] else "no"
 
         # Add all other fields as flat key-value pairs
         for key, value in journal.items():
@@ -132,7 +132,7 @@ def generate_hugo_site_config(output_dir: Path, version: str) -> None:
     """
     config_content = f"""baseURL = ""
 locale = "en-us"
-title = "Data Journal Dashboard"
+title = "Data Journals Dashboard"
 theme = "djd"
 DataDir = "hugo-data"
 
@@ -149,7 +149,7 @@ DataDir = "hugo-data"
   license_types = "license_types"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
 
 [markup]

@@ -1,13 +1,13 @@
 baseURL = ""
 locale = "en-us"
-title = "Data Journal Dashboard"
+title = "Data Journals Dashboard"
 theme = "djd"
 DataDir = "hugo-data"
 
 [params]
   description = "Search and filter data journals by type, publisher, APC, and more"
   author = { name = "Thomas Schmidt", email = "thomas.schmidt@uni-mannheim.de" }
-  version = "v2026-05-13"
+  version = "v2026-05-15"
 
 [taxonomies]
   data_journal_type = "data_journal_type"
@@ -17,7 +17,7 @@ DataDir = "hugo-data"
   license_types = "license_types"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
 
 [markup]
