@@ -7553,6 +7553,8 @@ journals:
   url: https://www.journals.elsevier.com/international-economics
   data_journal_type: mixed
   is_active: true
+  language:
+  - EN
   publication_time_weeks: 43
   keywords:
   - international trade
