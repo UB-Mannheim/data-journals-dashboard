@@ -78,21 +78,505 @@ journals:
   ref_author_instructions: https://www.tandfonline.com/action/authorSubmission?journalCode=TBED&page=instructions
   ref_license_terms: https://authorservices.taylorandfrancis.com/publishing-open-access/open-access-cost-finder/
 - id: 2
-  issn: 1809-127X
-  journal_title: Check List
-  publisher: Pensoft
-  url: https://checklist.pensoft.net/
-  data_journal_type: pure
+  issn: 1550-2783
+  journal_title: Journal of the International Society of Sports Nutrition
+  publisher: Taylor & Francis
+  url: https://www.tandfonline.com/journals/rssn20
+  data_journal_type: mixed
   is_active: true
-  eissn: 1809-127X
+  eissn: 1550-2783
   pissn: null
   language:
   - EN
-  oa_start: 2006
+  oa_start: 2004
   boai: true
-  publication_time_weeks: 12
+  publication_time_weeks: 14
   keywords:
-  - taxonomy
+  - sports nutrition
+  - sports science
+  research_fields:
+  - Nutrition. Foods and food supply
+  - Sports medicine
+  subject_codes:
+  - code: TX341-641
+    scheme: LCC
+    term: Nutrition. Foods and food supply
+  - code: RC1200-1245
+    scheme: LCC
+    term: Sports medicine
+  publisher_name: Taylor & Francis Group
+  publisher_country: GB
+  institution_name: International Society of Sports Nutrition
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
+  board_url: https://www.tandfonline.com/action/journalInformation?show=editorialBoard&journalCode=rssn20
+  license_types:
+  - CC BY
+  - CC BY-NC
+  apc_has: true
+  apc_max:
+  - price: 2520
+    currency: EUR
+  - price: 2630
+    currency: USD
+  - price: 2100
+    currency: GBP
+  apc_url: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://authorservices.taylorandfrancis.com/publishing-open-access/requesting-an-apc-waiver/
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - LOCKSS
+  - PMC
+  - Portico
+  preservation_url: https://librarianresources.taylorandfrancis.com/collection/title-by-title/
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
+  copyright_author_retains: false
+  copyright_url: https://authorservices.taylorandfrancis.com/publishing-your-research/moving-through-production/copyright-for-journal-authors
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/2630
+  article_license_display:
+  - Embed
+  article_license_example_url: https://www.tandfonline.com/action/showCopyRight?scroll=top&doi=10.1080%2F15502783.2022.2041988
+  ref_journal: https://www.tandfonline.com/journals/rssn
+  ref_aims_scope: https://www.tandfonline.com/action/journalInformation?show=aimsScope&journalCode=rssn20
+  ref_oa_statement: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
+  ref_author_instructions: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
+  ref_license_terms: https://authorservices.taylorandfrancis.com/publishing-open-access/open-access-cost-finder/?category=all&journal=rssn&fulloa=1&openselect=1&notavailable=1&dove=1&routledge=1&tandf=1&numberofresultsperpage=5&pagenumber=1
+- id: 3
+  issn: 2534-9708
+  journal_title: Metabarcoding and Metagenomics
+  publisher: Pensoft Publishers
+  url: https://mbmg.pensoft.net/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2534-9708
+  pissn: null
+  language:
+  - EN
+  oa_start: 2017
+  boai: true
+  publication_time_weeks: 8
+  keywords:
+  - dna-based species identification
+  - metabarcoding
+  - biomonitoring
+  - metagenomics
+  - bioinformatics
+  - environmental assessment
+  research_fields:
+  - Ecology
+  subject_codes:
+  - code: QH540-549.5
+    scheme: LCC
+    term: Ecology
+  publisher_name: Pensoft Publishers
+  publisher_country: BG
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://mbmg.pensoft.net/about#PeerReview
+  board_url: https://mbmg.pensoft.net/board/
+  license_types:
+  - CC BY
+  - CC0
+  apc_has: true
+  apc_max:
+  - price: 650
+    currency: EUR
+  apc_url: https://mbmg.pensoft.net/about#ArticleProcessingCharges
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://mbmg.pensoft.net/about#DiscountsandWaivers
+  preservation_has: true
+  preservation_services:
+  - LOCKSS
+  - Portico
+  preservation_url: https://portal.issn.org/resource/ISSN/2534-9708#
+  pid_schemes:
+  - DOI
+  plagiarism_detection: false
+  plagiarism_url: ''
+  copyright_author_retains: true
+  copyright_url: https://mbmg.pensoft.net/about#LicenseandCopyrightAgreement
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/33134
+  article_license_display:
+  - Embed
+  article_license_example_url: https://mbmg.pensoft.net/article/13709/list/8/
+  ref_journal: https://mbmg.pensoft.net/
+  ref_aims_scope: https://mbmg.pensoft.net/about#FocusandScope
+  ref_oa_statement: https://mbmg.pensoft.net/about#OpenAccessPolicy
+  ref_author_instructions: https://mbmg.pensoft.net/about#AuthorGuidelines
+  ref_license_terms: https://mbmg.pensoft.net/about#Copyright
+- id: 4
+  issn: 2578-9430
+  journal_title: microPublication Biology
+  publisher: Caltech Library
+  url: https://www.micropublication.org/
+  data_journal_type: pure
+  is_active: true
+  eissn: 2578-9430
+  pissn: null
+  language:
+  - EN
+  oa_start: 2016
+  boai: true
+  publication_time_weeks: 3
+  keywords:
+  - biological sciences
+  - model organisms
+  - biological data
+  research_fields:
+  - Biology (General)
+  subject_codes:
+  - code: QH301-705.5
+    scheme: LCC
+    term: Biology (General)
+  publisher_name: Caltech Library
+  publisher_country: US
+  institution_name: California Institute of Technology
+  institution_country: US
+  review_process:
+  - Open peer review
+  review_url: https://www.micropublication.org/about/for-authors/#peer-review-process
+  board_url: https://www.micropublication.org/about/editorial-policies/micropublication-biology-editorial-board/
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 350
+    currency: USD
+  apc_url: https://www.micropublication.org/about/for-authors/
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://www.micropublication.org/about/for-authors/
+  preservation_has: true
+  preservation_services:
+  - PMC
+  - Portico
+  preservation_url: https://www.ncbi.nlm.nih.gov/pmc/journals/3859/
+  pid_schemes:
+  - DOI
+  plagiarism_detection: false
+  plagiarism_url: null
+  copyright_author_retains: true
+  copyright_url: https://www.micropublication.org/about/for-authors/
+  deposit_policy_has: false
+  deposit_policy_services: []
+  deposit_policy_url: null
+  article_license_display:
+  - Embed
+  article_license_example_url: https://www.micropublication.org/lear_2018_mec-17_unc-119.html
+  ref_journal: https://www.micropublication.org
+  ref_aims_scope: https://www.micropublication.org/about/
+  ref_oa_statement: https://www.micropublication.org/about/editorial-policies/publishing-information
+  ref_author_instructions: https://www.micropublication.org/about/for-authors/
+  ref_license_terms: https://www.micropublication.org/about/editorial-policies/publishing-information
+- id: 5
+  issn: 1943-7706
+  journal_title: Molecular Plant - Microbe Interactions
+  publisher: APS Publications
+  url: https://apsjournals.apsnet.org/journal/mpmi
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1943-7706
+  pissn: 0894-0282
+  language:
+  - EN
+  oa_start: 2021
+  boai: true
+  publication_time_weeks: 4
+  keywords:
+  - molecular biology
+  - biochemistry
+  - plant-microbe interactions
+  research_fields:
+  - Microbiology
+  - Botany
+  subject_codes:
+  - code: QR1-502
+    scheme: LCC
+    term: Microbiology
+  - code: QK1-989
+    scheme: LCC
+    term: Botany
+  publisher_name: The American Phytopathological Society
+  publisher_country: US
+  institution_name: ISMPMI
+  institution_country: US
+  review_process:
+  - Anonymous peer review
+  review_url: http://apsjournals.apsnet.org/page/authorinformation#submitting
+  board_url: https://apsjournals.apsnet.org/page/mpmi/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  - CC0
+  apc_has: true
+  apc_max:
+  - price: 3000
+    currency: USD
+  apc_url: https://apsjournals.apsnet.org/page/authorinformation#apc
+  other_charges: true
+  waiver_has: true
+  waiver_url: https://apsjournals.apsnet.org/page/authorinformation#apc
+  preservation_has: true
+  preservation_services:
+  - Portico
+  preservation_url: https://apsjournals.apsnet.org/page/authorinformation#archiving
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://apsjournals.apsnet.org/page/plagiarism_statement
+  copyright_author_retains: true
+  copyright_url: https://apsjournals.apsnet.org/page/authorinformation#submitting
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/10349
+  article_license_display:
+  - Embed
+  article_license_example_url: https://apsjournals.apsnet.org/doi/10.1094/MPMI-08-20-0239-IA
+  ref_journal: https://apsjournals.apsnet.org/journal/mpmi
+  ref_aims_scope: https://apsjournals.apsnet.org/page/mpmi/about
+  ref_oa_statement: https://apsjournals.apsnet.org/page/mpmi/about
+  ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
+  ref_license_terms: https://apsjournals.apsnet.org/page/authorinformation#submitting
+- id: 6
+  issn: 2051-3933
+  journal_title: Movement Ecology
+  publisher: BioMed Central (Springer Nature)
+  url: https://movementecologyjournal.biomedcentral.com/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2051-3933
+  pissn: null
+  language:
+  - EN
+  oa_start: 2014
+  boai: true
+  publication_time_weeks: 23
+  keywords:
+  - animal behaviour
+  - biogeography
+  - environmental sciences
+  - evolutionary biology
+  - mathematical ecology
+  - organism movement
+  research_fields:
+  - Biology (General)
+  subject_codes:
+  - code: QH301-705.5
+    scheme: LCC
+    term: Biology (General)
+  publisher_name: BMC
+  publisher_country: GB
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://movementecologyjournal.biomedcentral.com/about
+  board_url: https://movementecologyjournal.biomedcentral.com/about/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  apc_has: true
+  apc_max:
+  - price: 2390
+    currency: EUR
+  - price: 2890
+    currency: USD
+  - price: 2090
+    currency: GBP
+  apc_url: https://link.springer.com/journal/40462/how-to-publish-with-us#Fees%20and%20funding
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - LOCKSS
+  preservation_url: https://www.biomedcentral.com/about/archive
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.biomedcentral.com/about /editorialpolicies#DuplicatePublication
+  copyright_author_retains: false
+  copyright_url: https://movementecologyjournal.biomedcentral.com/submission-guidelines/copyright
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/27829
+  article_license_display:
+  - Embed
+  article_license_example_url: https://movementecologyjournal.biomedcentral.com/articles/10.1186/s40462-022-00359-w
+  ref_journal: https://movementecologyjournal.biomedcentral.com
+  ref_aims_scope: https://movementecologyjournal.biomedcentral.com/about
+  ref_oa_statement: https://movementecologyjournal.biomedcentral.com/about
+  ref_author_instructions: https://movementecologyjournal.biomedcentral.com/submission-guidelines
+  ref_license_terms: https://movementecologyjournal.biomedcentral.com/submission-guidelines/copyright
+- id: 7
+  issn: 1314-4049
+  journal_title: MycoKeys
+  publisher: Pensoft Publishers
+  url: https://mycokeys.pensoft.net/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1314-4049
+  pissn: 1314-4057
+  language:
+  - EN
+  oa_start: 2011
+  boai: true
+  publication_time_weeks: 6
+  keywords:
+  - mycology
+  - fungal biology
+  research_fields:
+  - Botany
+  subject_codes:
+  - code: QK1-989
+    scheme: LCC
+    term: Botany
+  publisher_name: Pensoft Publishers
+  publisher_country: BG
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Peer review
+  review_url: http://mycokeys.pensoft.net/about
+  board_url: http://mycokeys.pensoft.net/board
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 950
+    currency: EUR
+  apc_url: https://mycokeys.pensoft.net/about#ArticleProcessingCharges
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://mycokeys.pensoft.net/about#DiscountsandWaivers
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - Portico
+  preservation_url: https://portal.issn.org/resource/ISSN/1314-4049
+  pid_schemes:
+  - DOI
+  plagiarism_detection: false
+  plagiarism_url: ''
+  copyright_author_retains: true
+  copyright_url: http://mycokeys.pensoft.net/about#Copyright-Notice
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/21378
+  article_license_display:
+  - Embed
+  article_license_example_url: http://mycokeys.pensoft.net/articles.php?id=6670&display_type=list&element_type=1
+  ref_journal: http://mycokeys.pensoft.net/
+  ref_aims_scope: http://mycokeys.pensoft.net/about
+  ref_oa_statement: http://mycokeys.pensoft.net/about#Open-Access-Policy
+  ref_author_instructions: http://mycokeys.pensoft.net/about#Author-Guidelines
+  ref_license_terms: http://mycokeys.pensoft.net/about#Copyright-Notice
+- id: 8
+  issn: 1314-3301
+  journal_title: Nature Conservation
+  publisher: Pensoft Publishers
+  url: https://natureconservation.pensoft.net/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1314-3301
+  pissn: 1314-6947
+  language:
+  - EN
+  oa_start: 2012
+  boai: true
+  publication_time_weeks: 6
+  keywords:
+  - conservation biology
+  - applied ecology
+  - nature conservation
+  - habitat conservation
+  research_fields:
+  - Ecology
+  - General. Including nature conservation, geographical distribution
+  subject_codes:
+  - code: QH540-549.5
+    scheme: LCC
+    term: Ecology
+  - code: QH1-199.5
+    scheme: LCC
+    term: General. Including nature conservation, geographical distribution
+  publisher_name: Pensoft Publishers
+  publisher_country: BG
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Peer review
+  review_url: http://natureconservation.pensoft.net/about
+  board_url: http://natureconservation.pensoft.net/browse_journal_groups.php?journal_id=10&grp_id=117
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 950
+    currency: EUR
+  apc_url: https://natureconservation.pensoft.net/about#Article-Processing-Charges
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://natureconservation.pensoft.net/about#DiscountsandWaivers
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  preservation_url: http://natureconservation.pensoft.net/
+  pid_schemes:
+  - DOI
+  plagiarism_detection: false
+  plagiarism_url: null
+  copyright_author_retains: true
+  copyright_url: http://natureconservation.pensoft.net/about#Copyright-Notice
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: null
+  article_license_display:
+  - Embed
+  article_license_example_url: http://natureconservation.pensoft.net/articles.php?id=5625
+  ref_journal: http://natureconservation.pensoft.net/
+  ref_aims_scope: http://natureconservation.pensoft.net/about
+  ref_oa_statement: http://natureconservation.pensoft.net/about#Open-Access-Policy
+  ref_author_instructions: http://natureconservation.pensoft.net/about#Author-Guidelines
+  ref_license_terms: http://natureconservation.pensoft.net/about#Copyright-Notice
+- id: 9
+  issn: 1314-2488
+  journal_title: NeoBiota
+  publisher: Pensoft Publishers
+  url: https://neobiota.pensoft.net/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1314-2488
+  pissn: 1619-0033
+  language:
+  - EN
+  oa_start: 2011
+  boai: true
+  publication_time_weeks: 6
+  keywords:
+  - biological invasions
   research_fields:
   - Biology (General)
   subject_codes:
@@ -105,41 +589,962 @@ journals:
   institution_country: null
   review_process:
   - Peer review
-  review_url: https://checklist.pensoft.net/about#PeerReviewProcess
-  board_url: https://checklist.pensoft.net/board/
+  review_url: http://neobiota.pensoft.net/about#Editorial-Policies
+  board_url: http://neobiota.pensoft.net/board
   license_types:
   - CC BY
   apc_has: true
   apc_max:
-  - price: 250
+  - price: 950
     currency: EUR
-  apc_url: https://checklist.pensoft.net/about#ArticleProcessingCharges
+  apc_url: https://neobiota.pensoft.net/about#ArticleProcessingCharges
   other_charges: false
   waiver_has: true
-  waiver_url: https://checklist.pensoft.net/about#DiscountsandWaivers
+  waiver_url: https://neobiota.pensoft.net/about#DiscountsandWaivers
   preservation_has: true
   preservation_services:
   - CLOCKSS
-  preservation_url: https://portal.issn.org/resource/ISSN/1809-127X#
+  preservation_url: http://neobiota.pensoft.net/
+  pid_schemes:
+  - DOI
+  plagiarism_detection: false
+  plagiarism_url: null
+  copyright_author_retains: true
+  copyright_url: http://neobiota.pensoft.net/about#Copyright-Notice
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: null
+  article_license_display:
+  - Embed
+  article_license_example_url: http://neobiota.pensoft.net/articles.php?id=5437
+  ref_journal: http://neobiota.pensoft.net/
+  ref_aims_scope: http://neobiota.pensoft.net/about#Focus-and-Scope
+  ref_oa_statement: http://neobiota.pensoft.net/about#Open-Access-Policy
+  ref_author_instructions: http://neobiota.pensoft.net/about#Author-Guidelines
+  ref_license_terms: http://neobiota.pensoft.net/
+- id: 10
+  issn: 1559-0089
+  journal_title: Neuroinformatics
+  publisher: Springer (Springer Nature)
+  url: https://www.springer.com/journal/12021/
+  data_journal_type: mixed
+  is_active: true
+- id: 11
+  issn: 0090-3752
+  journal_title: Nuclear Data Sheets
+  publisher: Elsevier
+  url: https://www.sciencedirect.com/journal/nuclear-data-sheets
+  data_journal_type: pure
+  is_active: true
+- id: 12
+  issn: 1362-4962
+  journal_title: Nucleic Acids Research
+  publisher: Oxford University Press
+  url: https://academic.oup.com/nar
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1362-4962
+  pissn: 0305-1048
+  language:
+  - EN
+  oa_start: 2005
+  boai: true
+  publication_time_weeks: 7
+  keywords:
+  - dna
+  - biochemistry
+  - computational biology
+  - genomics
+  - molecular biology
+  - rna
+  research_fields:
+  - Genetics
+  subject_codes:
+  - code: QH426-470
+    scheme: LCC
+    term: Genetics
+  publisher_name: Oxford University Press
+  publisher_country: GB
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://academic.oup.com/nar/pages/referee_info
+  board_url: https://academic.oup.com/nar/pages/Editorial_Board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  apc_has: true
+  apc_max:
+  - price: 4192
+    currency: USD
+  apc_url: https://academic.oup.com/nar/pages/author-guidelines#section-10
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://academic.oup.com/nar/pages/Open_Access_Initiative
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - LOCKSS
+  - PMC
+  - Portico
+  - Scholars Portal
+  preservation_url: https://academic.oup.com/journals/pages/librarians/digital_preservation
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://academic.oup.com/nar/pages/Policies
+  copyright_author_retains: false
+  copyright_url: https://academic.oup.com/nar/pages/Open_Access_Initiative#NAR%20Open%20Access%20License%20Agreement
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/1383
+  article_license_display:
+  - Embed
+  article_license_example_url: https://academic.oup.com/nar/article/45/1/54/2605711/Combining-transcription-factor-binding-affinities
+  ref_journal: https://academic.oup.com/nar
+  ref_aims_scope: https://academic.oup.com/nar/pages/Criteria_Scope
+  ref_oa_statement: https://academic.oup.com/nar/pages/Open_Access_Initiative
+  ref_author_instructions: https://academic.oup.com/nar/pages/General_Instructions
+  ref_license_terms: https://academic.oup.com/nar/pages/author-guidelines#section-10
+- id: 13
+  issn: 2367-8194
+  journal_title: One Ecosystem
+  publisher: Pensoft Publishers
+  url: https://oneecosystem.pensoft.net/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2367-8194
+  pissn: null
+  language:
+  - EN
+  oa_start: 2016
+  boai: true
+  publication_time_weeks: 12
+  keywords:
+  - ecology & conservation
+  - environmental policies and law
+  - ecosystem services
+  - waste and water management
+  - sustainable land and urban development
+  - environmental impact assessment
+  research_fields:
+  - Ecology
+  subject_codes:
+  - code: QH540-549.5
+    scheme: LCC
+    term: Ecology
+  publisher_name: Pensoft Publishers
+  publisher_country: BG
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://oneecosystem.pensoft.net/about#PeerReview
+  board_url: https://oneecosystem.pensoft.net/board/
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 550
+    currency: EUR
+  apc_url: https://oneecosystem.pensoft.net/about#ArticleProcessingCharges
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://oneecosystem.pensoft.net/about#DiscountsandWaivers
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  preservation_url: https://oneecosystem.pensoft.net/about#AboutPensoft
+  pid_schemes:
+  - DOI
+  plagiarism_detection: false
+  plagiarism_url: null
+  copyright_author_retains: true
+  copyright_url: https://oneecosystem.pensoft.net/about#LicenseandCopyrightAgreement
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: null
+  article_license_display:
+  - Embed
+  article_license_example_url: https://oneecosystem.pensoft.net/browse_journal_articles.php?journal_name=oneecosystem&journal_id=52&p=0
+  ref_journal: https://oneecosystem.pensoft.net/
+  ref_aims_scope: https://oneecosystem.pensoft.net/about#FocusandScope
+  ref_oa_statement: https://oneecosystem.pensoft.net/about#OpenAccessPolicy
+  ref_author_instructions: https://oneecosystem.pensoft.net/about#Howit
+  ref_license_terms: https://oneecosystem.pensoft.net/about#LicenseandCopyrightAgreement
+- id: 14
+  issn: 2352-6378
+  journal_title: Open Data Journal for Agricultural Research
+  publisher: Wageningen University & Research Library
+  url: https://odjar.org/index
+  data_journal_type: pure
+  is_active: true
+- id: 15
+  issn: 2363-7501
+  journal_title: Open Geospatial Data Software and Standards
+  publisher: Springer Open (Springer Nature)
+  url: https://opengeospatialdata.springeropen.com/
+  data_journal_type: mixed
+  is_active: false
+- id: 16
+  issn: 2054-7102
+  journal_title: Open Health Data
+  publisher: Ubiquity Press
+  url: https://openhealthdata.metajnl.com/
+  data_journal_type: pure
+  is_active: false
+- id: 17
+  issn: 2056-5542
+  journal_title: Open Journal of Bioresources
+  publisher: Ubiquity Press
+  url: https://openbioresources.metajnl.com/
+  data_journal_type: pure
+  is_active: false
+- id: 18
+  issn: 2471-2906
+  journal_title: Phytobiomes Journal
+  publisher: APS Publications
+  url: https://apsjournals.apsnet.org/journal/pbiomes
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2471-2906
+  pissn: null
+  language:
+  - EN
+  oa_start: 2017
+  boai: true
+  publication_time_weeks: 4
+  keywords:
+  - systems biology
+  - plant systems
+  - ecosystems processes
+  - plant health
+  - plant productivity
+  research_fields:
+  - Plant culture
+  - Microbial ecology
+  - Plant ecology
+  subject_codes:
+  - code: SB1-1110
+    scheme: LCC
+    term: Plant culture
+  - code: QR100-130
+    scheme: LCC
+    term: Microbial ecology
+  - code: QK900-989
+    scheme: LCC
+    term: Plant ecology
+  publisher_name: The American Phytopathological Society
+  publisher_country: US
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://apsjournals.apsnet.org/page/authorinformation#submitting
+  board_url: https://apsjournals.apsnet.org/page/aboutphytobiomes#edboard
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  - CC0
+  - Publisher's own license
+  apc_has: true
+  apc_max:
+  - price: 1660
+    currency: USD
+  apc_url: https://apsjournals.apsnet.org/page/authorinformation#apc
+  other_charges: true
+  waiver_has: false
+  waiver_url: null
+  preservation_has: true
+  preservation_services:
+  - Portico
+  preservation_url: https://apsjournals.apsnet.org/page/authorinformation#archiving
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://apsjournals.apsnet.org/page/authorinformation#plagiarism
+  copyright_author_retains: false
+  copyright_url: https://apsjournals.apsnet.org/page/pbiomes/about
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/38263
+  article_license_display:
+  - Embed
+  article_license_example_url: https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-02-20-0019-R
+  ref_journal: https://apsjournals.apsnet.org/journal/pbiomes
+  ref_aims_scope: https://apsjournals.apsnet.org/page/pbiomes/about
+  ref_oa_statement: https://apsjournals.apsnet.org/page/aboutphytobiomes
+  ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
+  ref_license_terms: https://apsjournals.apsnet.org/page/authorinformation#submitting
+- id: 19
+  issn: 1314-2003
+  journal_title: PhytoKeys
+  publisher: Pensoft Publishers
+  url: https://phytokeys.pensoft.net/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1314-2003
+  pissn: 1314-2011
+  language:
+  - EN
+  oa_start: 2010
+  boai: true
+  publication_time_weeks: 6
+  keywords:
+  - systematic botany
+  - plants phylogeny
+  - plant taxonomy
+  research_fields:
+  - Botany
+  subject_codes:
+  - code: QK1-989
+    scheme: LCC
+    term: Botany
+  publisher_name: Pensoft Publishers
+  publisher_country: BG
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Peer review
+  review_url: http://phytokeys.pensoft.net/about
+  board_url: http://phytokeys.pensoft.net/board
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 780
+    currency: EUR
+  apc_url: https://phytokeys.pensoft.net/about#ArticleProcessingCharges
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://phytokeys.pensoft.net/about#DiscountsandWaivers
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - PMC
+  preservation_url: http://phytokeys.pensoft.net/
   pid_schemes:
   - DOI
   plagiarism_detection: false
   plagiarism_url: ''
   copyright_author_retains: true
-  copyright_url: https://checklist.pensoft.net/about#CopyrightNotice
+  copyright_url: http://jhr.pensoft.net/about#Copyright-Notice
   deposit_policy_has: true
   deposit_policy_services:
   - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/33141
+  deposit_policy_url: null
   article_license_display:
   - Embed
-  article_license_example_url: https://checklist.pensoft.net/articles
-  ref_journal: https://checklist.pensoft.net/
-  ref_aims_scope: https://checklist.pensoft.net/about
-  ref_oa_statement: https://checklist.pensoft.net/about#OpenAccessPolicy
-  ref_author_instructions: https://checklist.pensoft.net/about#AuthorsGuidelines
-  ref_license_terms: https://checklist.pensoft.net/about#CopyrightNotice
-- id: 3
+  article_license_example_url: http://phytokeys.pensoft.net/articles.php?id=5339
+  ref_journal: http://phytokeys.pensoft.net/
+  ref_aims_scope: http://phytokeys.pensoft.net/about
+  ref_oa_statement: http://jhr.pensoft.net/about#OpenAccessPolicy
+  ref_author_instructions: http://phytokeys.pensoft.net/about
+  ref_license_terms: http://jhr.pensoft.net/about#CopyrightNotice
+- id: 20
+  issn: 1943-7684
+  journal_title: Phytopathology
+  publisher: APS Publications
+  url: https://apsjournals.apsnet.org/journal/phyto
+  data_journal_type: mixed
+  is_active: true
+- id: 21
+  issn: 1471-9053
+  journal_title: Plant and Cell Physiology
+  publisher: Oxford University Press
+  url: https://academic.oup.com/pcp
+  data_journal_type: mixed
+  is_active: true
+- id: 22
+  issn: 1943-7692
+  journal_title: Plant Disease
+  publisher: APS Publications
+  url: https://apsjournals.apsnet.org/journal/pdis
+  data_journal_type: mixed
+  is_active: true
+- id: 23
+  issn: 1746-4811
+  journal_title: Plant Methods
+  publisher: BioMed Central (Springer Nature)
+  url: https://plantmethods.biomedcentral.com/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1746-4811
+  pissn: null
+  language:
+  - EN
+  oa_start: 2005
+  boai: true
+  publication_time_weeks: 11
+  keywords:
+  - plant biology
+  - cell biology
+  - plant genomics
+  research_fields:
+  - Plant culture
+  - Biology (General)
+  subject_codes:
+  - code: SB1-1110
+    scheme: LCC
+    term: Plant culture
+  - code: QH301-705.5
+    scheme: LCC
+    term: Biology (General)
+  publisher_name: BMC
+  publisher_country: GB
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://plantmethods.biomedcentral.com/about
+  board_url: https://plantmethods.biomedcentral.com/about/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  apc_has: true
+  apc_max:
+  - price: 2690
+    currency: EUR
+  - price: 3190
+    currency: USD
+  - price: 2390
+    currency: GBP
+  apc_url: https://link.springer.com/journal/13007/how-to-publish-with-us#Fees%20and%20funding
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - PMC
+  - Portico
+  preservation_url: https://www.biomedcentral.com/getpublished/indexing-archiving-and-access-to-data/journal-archiving
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.biomedcentral.com/getpublished/editorial-policies#misconduct
+  copyright_author_retains: false
+  copyright_url: https://plantmethods.biomedcentral.com/submission-guidelines/copyright
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/2654
+  article_license_display:
+  - Embed
+  article_license_example_url: https://plantmethods.biomedcentral.com/articles/10.1186/s13007-022-00884-0
+  ref_journal: https://plantmethods.biomedcentral.com
+  ref_aims_scope: https://plantmethods.biomedcentral.com/about
+  ref_oa_statement: https://plantmethods.biomedcentral.com/about
+  ref_author_instructions: https://plantmethods.biomedcentral.com/submission-guidelines
+  ref_license_terms: https://plantmethods.biomedcentral.com/submission-guidelines/copyright
+- id: 24
+  issn: 2452-3666
+  journal_title: Research Data Journal for the Humanities and Social Sciences
+  publisher: International Institute of Social History (Netherlands)
+  url: https://researchdatajournal.org/
+  data_journal_type: pure
+  is_active: true
+  eissn: 2452-3666
+  pissn: null
+  language:
+  - EN
+  oa_start: 2016
+  boai: true
+  publication_time_weeks: 32
+  keywords:
+  - research data
+  - social history
+  - economic history
+  - language and literature
+  - audio-visual media
+  - archeology
+  research_fields:
+  - Social Sciences
+  subject_codes:
+  - code: H
+    scheme: LCC
+    term: Social Sciences
+  publisher_name: International Institute of Social History
+  publisher_country: NL
+  institution_name: Consortium of European Social Science Data Archives
+  institution_country: 'NO'
+  review_process:
+  - Double anonymous peer review
+  review_url: https://researchdatajournal.org/policies
+  board_url: https://researchdatajournal.org/about/editorialTeam
+  license_types:
+  - CC BY
+  apc_has: false
+  apc_max: []
+  apc_url: https://researchdatajournal.org/policies
+  other_charges: false
+  waiver_has: false
+  waiver_url: null
+  preservation_has: true
+  preservation_services:
+  - PKP PN
+  - Portico
+  preservation_url: https://researchdatajournal.org/policies
+  pid_schemes:
+  - DOI
+  plagiarism_detection: false
+  plagiarism_url: null
+  copyright_author_retains: true
+  copyright_url: https://researchdatajournal.org/policies
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Publisher site
+  deposit_policy_url: https://researchdatajournal.org/policies
+  article_license_display:
+  - Embed
+  article_license_example_url: https://researchdatajournal.org/article/view/22818/24380
+  ref_journal: https://researchdatajournal.org/
+  ref_aims_scope: https://researchdatajournal.org//editorial-statute
+  ref_oa_statement: https://researchdatajournal.org/policies
+  ref_author_instructions: https://researchdatajournal.org/about/submissions
+  ref_license_terms: https://researchdatajournal.org/policies
+- id: 25
+  issn: 2367-7163
+  journal_title: Research Ideas and Outcomes
+  publisher: Pensoft Publishers
+  url: https://riojournal.com/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2367-7163
+  pissn: null
+  language:
+  - EN
+  oa_start: 2015
+  boai: true
+  publication_time_weeks: 2
+  keywords:
+  - research cycles
+  - research ideas
+  research_fields:
+  - Science
+  subject_codes:
+  - code: Q
+    scheme: LCC
+    term: Science
+  publisher_name: Pensoft Publishers
+  publisher_country: BG
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Post-publication peer review
+  - Open peer review
+  review_url: http://rio.pensoft.net/about#ForReviewers
+  board_url: http://rio.pensoft.net/board
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 299
+    currency: EUR
+  apc_url: https://riojournal.com/about#PublicationCharges
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://riojournal.com/about#PromotionsandWaivers
+  preservation_has: true
+  preservation_services:
+  - Portico
+  preservation_url: http://rio.pensoft.net/about#RIO-Policies
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: http://rio.pensoft.net/about#RIO-Policies
+  copyright_author_retains: true
+  copyright_url: http://rio.pensoft.net/about
+  deposit_policy_has: true
+  deposit_policy_services:
+  - https://riojournal.com/about?journal_name=rio#ForAuthors
+  - Open Policy Finder
+  deposit_policy_url: null
+  article_license_display:
+  - Embed
+  article_license_example_url: https://riojournal.com/article/47042/list/8/
+  ref_journal: http://rio.pensoft.net
+  ref_aims_scope: http://rio.pensoft.net/about#Our-Mission
+  ref_oa_statement: http://rio.pensoft.net/about#RIO-Policies
+  ref_author_instructions: http://rio.pensoft.net/about#ForAuthors
+  ref_license_terms: http://rio.pensoft.net/about
+- id: 26
+  issn: 2052-4463
+  journal_title: Scientific Data
+  publisher: Springer Nature
+  url: https://www.nature.com/sdata/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2052-4463
+  pissn: null
+  language:
+  - EN
+  oa_start: 2014
+  boai: true
+  publication_time_weeks: 16
+  keywords:
+  - metadata
+  - scientific data
+  research_fields:
+  - Science
+  subject_codes:
+  - code: Q
+    scheme: LCC
+    term: Science
+  publisher_name: Nature Portfolio
+  publisher_country: GB
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://www.nature.com/sdata/policies/editorial-and-publishing-policies#publication-criteria
+  board_url: https://www.nature.com/sdata/about/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  apc_has: true
+  apc_max:
+  - price: 2390
+    currency: EUR
+  - price: 2690
+    currency: USD
+  - price: 2150
+    currency: GBP
+  apc_url: https://www.nature.com/sdata/about/oa
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
+  preservation_has: true
+  preservation_services:
+  - PMC
+  - Portico
+  preservation_url: https://www.nature.com/openresearch/about-open-access/policies-journals/#Digital_preservation
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.nature.com/sdata/policies/editorial-and-publishing-policies#plagiarism
+  copyright_author_retains: false
+  copyright_url: https://www.nature.com/sdata/open-access
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/29449?from=single_hit
+  article_license_display:
+  - Embed
+  article_license_example_url: https://www.nature.com/articles/sdata201448
+  ref_journal: https://www.nature.com/sdata/
+  ref_aims_scope: https://www.nature.com/sdata/publish/for-authors#aims-scope
+  ref_oa_statement: https://www.nature.com/sdata/about/oa
+  ref_author_instructions: https://www.nature.com/sdata/publish/submission-guidelines
+  ref_license_terms: https://www.nature.com/sdata/open-access
+- id: 27
+  issn: 1747-597X
+  journal_title: Substance Abuse Treatment Prevention and Policy
+  publisher: BioMed Central (Springer Nature)
+  url: https://substanceabusepolicy.biomedcentral.com/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 1747-597X
+  pissn: null
+  language:
+  - EN
+  oa_start: 2006
+  boai: true
+  publication_time_weeks: 19
+  keywords:
+  - substance abuse
+  research_fields:
+  - Public aspects of medicine
+  - Social pathology. Social and public welfare. Criminology
+  subject_codes:
+  - code: RA1-1270
+    scheme: LCC
+    term: Public aspects of medicine
+  - code: HV1-9960
+    scheme: LCC
+    term: Social pathology. Social and public welfare. Criminology
+  publisher_name: BMC
+  publisher_country: GB
+  institution_name: Iowa Consortium for Substance Abuse Research and Evaluation
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://substanceabusepolicy.biomedcentral.com/about
+  board_url: https://substanceabusepolicy.biomedcentral.com/about/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  apc_has: true
+  apc_max:
+  - price: 2790
+    currency: EUR
+  - price: 3190
+    currency: USD
+  - price: 2390
+    currency: GBP
+  apc_url: https://link.springer.com/journal/13011/how-to-publish-with-us#Fees%20and%20funding
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - LOCKSS
+  - PMC
+  - Portico
+  preservation_url: https://www.biomedcentral.com/getpublished/indexing-archiving-and-access-to-data/journal-archiving
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.biomedcentral.com/getpublished/editorial-policies
+  copyright_author_retains: false
+  copyright_url: https://substanceabusepolicy.biomedcentral.com/submission-guidelines/copyright
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/2670
+  article_license_display:
+  - Embed
+  article_license_example_url: https://substanceabusepolicy.biomedcentral.com/articles/10.1186/s13011-016-0082-1
+  ref_journal: https://substanceabusepolicy.biomedcentral.com/
+  ref_aims_scope: https://substanceabusepolicy.biomedcentral.com/about
+  ref_oa_statement: https://substanceabusepolicy.biomedcentral.com/about
+  ref_author_instructions: https://substanceabusepolicy.biomedcentral.com/submission-guidelines
+  ref_license_terms: https://substanceabusepolicy.biomedcentral.com/submission-guidelines/copyright
+- id: 28
+  issn: 1538-4365
+  journal_title: The Astrophysical Journal Supplement Series
+  publisher: IOP
+  url: https://journals.aas.org/astrophysical-supplement-series/
+  data_journal_type: pure
+  is_active: true
+  eissn: 1538-4365
+  pissn: 0067-0049
+  language:
+  - EN
+  oa_start: 2022
+  boai: true
+  publication_time_weeks: 26
+  keywords:
+  - astronomy
+  - astrophysics
+  research_fields:
+  - Astrophysics
+  subject_codes:
+  - code: QB460-466
+    scheme: LCC
+    term: Astrophysics
+  publisher_name: IOP Publishing
+  publisher_country: GB
+  institution_name: American Astronomical Society
+  institution_country: US
+  review_process:
+  - Peer review
+  - Anonymous peer review
+  - Double anonymous peer review
+  review_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#peer
+  board_url: https://journals.aas.org/editorial/
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 4681
+    currency: USD
+  apc_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#charges
+  other_charges: true
+  waiver_has: true
+  waiver_url: https://journals.aas.org/waivers/
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - Portico
+  preservation_url: https://publishingsupport.iopscience.iop.org/questions/digital-preservation-policy/
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://journals.aas.org/submission/
+  copyright_author_retains: true
+  copyright_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/6403
+  article_license_display:
+  - Embed
+  article_license_example_url: https://iopscience.iop.org/article/10.3847/1538-4365/ac3131
+  ref_journal: https://iopscience.iop.org/journal/0067-0049
+  ref_aims_scope: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#aim
+  ref_oa_statement: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
+  ref_author_instructions: https://journals.aas.org/author-resources/
+  ref_license_terms: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
+- id: 29
+  issn: 1741-3176
+  journal_title: The International Journal of Robotics Research
+  publisher: SAGE Publishing
+  url: https://journals.sagepub.com/home/IJR
+  data_journal_type: mixed
+  is_active: true
+- id: 30
+  issn: 1365-313X
+  journal_title: The Plant Journal
+  publisher: Blackwell Publishing (Wiley)
+  url: https://onlinelibrary.wiley.com/journal/1365313x
+  data_journal_type: mixed
+  is_active: true
+- id: 31
+  issn: 2578-2703
+  journal_title: The Plant Phenome Journal
+  publisher: John Wiley & Sons (Wiley)
+  url: https://acsess.onlinelibrary.wiley.com/journal/25782703
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2578-2703
+  pissn: null
+  language:
+  - EN
+  oa_start: 2018
+  boai: true
+  publication_time_weeks: 31
+  keywords:
+  - plant breeding
+  - plant genetics
+  - plant phenome
+  - phenotype linkage
+  research_fields:
+  - Plant culture
+  subject_codes:
+  - code: SB1-1110
+    scheme: LCC
+    term: Plant culture
+  publisher_name: Wiley
+  publisher_country: US
+  institution_name: American Society of Agronomy; Crop Science Society of America
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
+  board_url: https://acsess.onlinelibrary.wiley.com/journal/25782703/editorial-board/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  apc_has: true
+  apc_max:
+  - price: 3470
+    currency: USD
+  - price: 2700
+    currency: GBP
+  - price: 3030
+    currency: EUR
+  apc_url: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://authorservices.wiley.com/open-research/open-access/for-authors/waivers-and-discounts.html
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - Portico
+  preservation_url: https://onlinelibrary.wiley.com/library-info/resources/preservation
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
+  copyright_author_retains: false
+  copyright_url: https://authors.wiley.com/author-resources/Journal-Authors/licensing/licensing-info-faqs.html
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/45244
+  article_license_display:
+  - Embed
+  article_license_example_url: https://acsess.onlinelibrary.wiley.com/doi/full/10.1002/ppj2.20008
+  ref_journal: https://acsess.onlinelibrary.wiley.com/journal/25782703
+  ref_aims_scope: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/productinformation
+  ref_oa_statement: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
+  ref_author_instructions: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
+  ref_license_terms: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
+- id: 32
+  issn: 2603-431X
+  journal_title: Viticulture Data Journal
+  publisher: Pensoft Publishers
+  url: https://vdj.pensoft.net/
+  data_journal_type: pure
+  is_active: true
+- id: 33
+  issn: 2398-502X
+  journal_title: Wellcome Open Research
+  publisher: F1000Research
+  url: https://wellcomeopenresearch.org/
+  data_journal_type: mixed
+  is_active: true
+  eissn: 2398-502X
+  pissn: null
+  language:
+  - EN
+  oa_start: 2016
+  boai: true
+  publication_time_weeks: 1
+  keywords:
+  - translational research
+  - clinical research
+  - clinical trials
+  research_fields:
+  - Medicine
+  - Science
+  subject_codes:
+  - code: R
+    scheme: LCC
+    term: Medicine
+  - code: Q
+    scheme: LCC
+    term: Science
+  publisher_name: Wellcome
+  publisher_country: GB
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Post-publication peer review
+  - Open peer review
+  review_url: https://wellcomeopenresearch.org/about/policies#post-pub-peer-review
+  board_url: https://wellcomeopenresearch.org/advisors
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 1014
+    currency: GBP
+  apc_url: https://wellcomeopenresearch.org/for-authors/article-processing-charges
+  other_charges: false
+  waiver_has: false
+  waiver_url: null
+  preservation_has: true
+  preservation_services:
+  - PMC
+  - Portico
+  preservation_url: https://wellcomeopenresearch.org/about/policies#permcontent
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://wellcomeopenresearch.org/about/policies#originality
+  copyright_author_retains: true
+  copyright_url: https://wellcomeopenresearch.org/about/policies#licenses
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: null
+  article_license_display:
+  - Embed
+  article_license_example_url: https://wellcomeopenresearch.org/articles/1-1
+  ref_journal: https://wellcomeopenresearch.org/
+  ref_aims_scope: https://wellcomeopenresearch.org/about
+  ref_oa_statement: https://wellcomeopenresearch.org/about
+  ref_author_instructions: https://wellcomeopenresearch.org/for-authors/publish-your-research
+  ref_license_terms: https://wellcomeopenresearch.org/about/policies#licenses
+- id: 34
   issn: 1698-0476
   journal_title: Arxius de Miscel·lània Zoològica
   publisher: Museu de Ciències Naturals de Barcelona
@@ -206,14 +1611,14 @@ journals:
   ref_oa_statement: http://amz.museucienciesjournals.cat/editorial-policy/?lang=en
   ref_author_instructions: http://amz.museucienciesjournals.cat/authors-guidelines/?lang=en
   ref_license_terms: http://amz.museucienciesjournals.cat/editorial-policy/?lang=en
-- id: 4
+- id: 35
   issn: 1941-4927
   journal_title: NCHS Data Briefs
   publisher: Centers for Disease Control and Preventions (CDC)
   url: https://www.cdc.gov/nchs/products/databriefs.htm
   data_journal_type: pure
   is_active: true
-- id: 5
+- id: 36
   issn: 1758-0463
   journal_title: 'Database: The Journal of Biological Databases and Curation'
   publisher: Oxford University Press
@@ -286,7 +1691,7 @@ journals:
   ref_oa_statement: https://academic.oup.com/database/pages/instructions_for_authors
   ref_author_instructions: https://academic.oup.com/database/pages/instructions_for_authors
   ref_license_terms: https://academic.oup.com/database/pages/instructions_for_authors
-- id: 6
+- id: 37
   issn: 2709-4715
   journal_title: Gigabyte
   publisher: BGI and Oxford University Press
@@ -353,7 +1758,7 @@ journals:
   ref_oa_statement: https://gigabytejournal.com/open-access-and-apc
   ref_author_instructions: https://gigabytejournal.com/information-for-authors
   ref_license_terms: https://gigabytejournal.com/open-access-and-apc
-- id: 7
+- id: 38
   issn: 2572-4754
   journal_title: Gates Open Research
   publisher: F1000Research
@@ -418,7 +1823,7 @@ journals:
   ref_oa_statement: https://gatesopenresearch.org/about/policies#licenses
   ref_author_instructions: https://gatesopenresearch.org/for-authors/article-guidelines
   ref_license_terms: https://gatesopenresearch.org/about/policies#licenses
-- id: 8
+- id: 39
   issn: 2732-5121
   journal_title: Open Research Europe
   publisher: F1000Research
@@ -488,7 +1893,7 @@ journals:
   ref_oa_statement: https://open-research-europe.ec.europa.eu/about/policies
   ref_author_instructions: https://open-research-europe.ec.europa.eu/for-authors/publish-your-research/
   ref_license_terms: https://open-research-europe.ec.europa.eu/about/policies#licenses
-- id: 9
+- id: 40
   issn: 2363-4952
   journal_title: RIDE - A review journal for digital editions and resources
   publisher: Institut für Dokumentologie und Editorik
@@ -560,7 +1965,7 @@ journals:
   ref_oa_statement: https://ride.i-d-e.de/publishing-policies/
   ref_author_instructions: https://ride.i-d-e.de/reviewers/submission-guidelines/
   ref_license_terms: https://ride.i-d-e.de/publishing-policies/
-- id: 10
+- id: 41
   issn: 2059-481X
   journal_title: Journal of Open Humanities Data
   publisher: Ubiquity Press
@@ -630,7 +2035,7 @@ journals:
   ref_oa_statement: https://openhumanitiesdata.metajnl.com/about/#open-access-policy
   ref_author_instructions: https://openhumanitiesdata.metajnl.com/about/submissions/
   ref_license_terms: https://openhumanitiesdata.metajnl.com/about/submissions#copyright-notice
-- id: 11
+- id: 42
   issn: 2296-7745
   journal_title: Frontiers in Marine Science
   publisher: Frontiers
@@ -700,7 +2105,7 @@ journals:
   ref_oa_statement: https://www.frontiersin.org/journals/marine-science/about#about-open
   ref_author_instructions: https://www.frontiersin.org/journals/marine-science/for-authors/author-guidelines
   ref_license_terms: https://www.frontiersin.org/journals/marine-science/about#about-open
-- id: 12
+- id: 43
   issn: 2054-345X
   journal_title: Human Genome Variation
   publisher: Springer Nature
@@ -773,14 +2178,14 @@ journals:
   ref_oa_statement: http://www.nature.com/hgv/open-access
   ref_author_instructions: https://www.nature.com/authorguide/hgv/hgv-gta.pdf
   ref_license_terms: https://www.nature.com/hgv/open-access
-- id: 13
+- id: 44
   issn: 2032-6378
   journal_title: Journal of Astronomical Data
   publisher: Vrije Universiteit Brussel
   url: https://journalofastronomicaldata.be/jad.htm
   data_journal_type: pure
   is_active: true
-- id: 14
+- id: 45
   issn: 1297-966X
   journal_title: Annals of Forest Science
   publisher: BioMed Central (Springer Nature)
@@ -852,14 +2257,14 @@ journals:
   ref_oa_statement: https://annforsci.biomedcentral.com/about
   ref_author_instructions: https://annforsci.biomedcentral.com/submission-guidelines
   ref_license_terms: https://annforsci.biomedcentral.com/submission-guidelines/copyright
-- id: 15
+- id: 46
   issn: 0092-640X
   journal_title: Atomic Data and Nuclear Data Tables
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables
   data_journal_type: pure
   is_active: true
-- id: 16
+- id: 47
   issn: 1314-2828
   journal_title: Biodiversity Data Journal
   publisher: Pensoft Publishers
@@ -925,7 +2330,7 @@ journals:
   ref_oa_statement: http://bdj.pensoft.net/about#Publication-Ethics-and-Malpractice-Statement
   ref_author_instructions: http://bdj.pensoft.net/about#For-authors
   ref_license_terms: http://bdj.pensoft.net/about#Licenses-and-Copyright
-- id: 17
+- id: 48
   issn: 2242-1300
   journal_title: BioInvasions Records
   publisher: Regional Euro-Asian Biological Invasions Centre
@@ -994,7 +2399,7 @@ journals:
   ref_oa_statement: http://www.reabic.net/journals/bir/About.aspx
   ref_author_instructions: http://www.reabic.net/journals/bir/Submission.aspx
   ref_license_terms: http://www.reabic.net/journals/bir/About.aspx
-- id: 18
+- id: 49
   issn: 2042-6410
   journal_title: Biology of Sex Differences
   publisher: BioMed Central (Springer Nature)
@@ -1069,7 +2474,7 @@ journals:
   ref_oa_statement: http://bsd.biomedcentral.com/about
   ref_author_instructions: https://bsd.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bsd.biomedcentral.com/submission-guidelines/copyright
-- id: 19
+- id: 50
   issn: 1471-2253
   journal_title: BMC Anesthesiology
   publisher: BioMed Central (Springer Nature)
@@ -1139,7 +2544,7 @@ journals:
   ref_oa_statement: https://bmcanesthesiol.biomedcentral.com/about
   ref_author_instructions: https://bmcanesthesiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcanesthesiol.biomedcentral.com/submission-guidelines/copyright
-- id: 20
+- id: 51
   issn: 1471-2105
   journal_title: BMC Bioinformatics
   publisher: BioMed Central (Springer Nature)
@@ -1212,7 +2617,7 @@ journals:
   ref_oa_statement: http://bmcbioinformatics.biomedcentral.com/about
   ref_author_instructions: https://bmcbioinformatics.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcbioinformatics.biomedcentral.com/submission-guidelines/copyright
-- id: 21
+- id: 52
   issn: 1741-7007
   journal_title: BMC Biology
   publisher: BioMed Central (Springer Nature)
@@ -1281,7 +2686,7 @@ journals:
   ref_oa_statement: http://bmcbiol.biomedcentral.com/about
   ref_author_instructions: https://bmcbiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcbiol.biomedcentral.com/submission-guidelines/copyright
-- id: 22
+- id: 53
   issn: 1472-6750
   journal_title: BMC Biotechnology
   publisher: BioMed Central (Springer Nature)
@@ -1348,7 +2753,7 @@ journals:
   ref_oa_statement: https://bmcbiotechnol.biomedcentral.com/about
   ref_author_instructions: https://bmcbiotechnol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcbiotechnol.biomedcentral.com/submission-guidelines/copyright
-- id: 23
+- id: 54
   issn: 1471-2407
   journal_title: BMC Cancer
   publisher: BioMed Central (Springer Nature)
@@ -1416,7 +2821,7 @@ journals:
   ref_oa_statement: https://bmccancer.biomedcentral.com/about
   ref_author_instructions: https://bmccancer.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmccancer.biomedcentral.com/submission-guidelines/copyright
-- id: 24
+- id: 55
   issn: 1471-2261
   journal_title: BMC Cardiovascular Disorders
   publisher: BioMed Central (Springer Nature)
@@ -1486,7 +2891,7 @@ journals:
   ref_oa_statement: https://bmccardiovascdisord.biomedcentral.com/about
   ref_author_instructions: https://bmccardiovascdisord.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmccardiovascdisord.biomedcentral.com/submission-guidelines/copyright
-- id: 25
+- id: 56
   issn: 2661-801X
   journal_title: BMC Chemistry
   publisher: BioMed Central (Springer Nature)
@@ -1555,7 +2960,7 @@ journals:
   ref_oa_statement: https://bmcchem.biomedcentral.com/about
   ref_author_instructions: https://bmcchem.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcchem.biomedcentral.com/submission-guidelines/copyright
-- id: 26
+- id: 57
   issn: 1472-6882
   journal_title: BMC Complementary and Alternative Medicine
   publisher: BioMed Central (Springer Nature)
@@ -1625,7 +3030,7 @@ journals:
   ref_oa_statement: https://bmccomplementmedtherapies.biomedcentral.com/about
   ref_author_instructions: https://bmccomplementmedtherapies.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmccomplementmedtherapies.biomedcentral.com/submission-guidelines/copyright
-- id: 27
+- id: 58
   issn: 1472-6785
   journal_title: BMC Ecology
   publisher: BioMed Central (Springer Nature)
@@ -1697,7 +3102,7 @@ journals:
   ref_oa_statement: https://bmcecolevol.biomedcentral.com/about
   ref_author_instructions: https://bmcecolevol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://www.biomedcentral.com/about/policies/license-agreement
-- id: 28
+- id: 59
   issn: 1471-227X
   journal_title: BMC Emergency Medicine
   publisher: BioMed Central (Springer Nature)
@@ -1773,7 +3178,7 @@ journals:
   ref_oa_statement: http://bmcemergmed.biomedcentral.com/about
   ref_author_instructions: https://bmcemergmed.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcemergmed.biomedcentral.com/submission-guidelines/copyright
-- id: 29
+- id: 60
   issn: 1472-6823
   journal_title: BMC Endocrine Disorders
   publisher: BioMed Central (Springer Nature)
@@ -1842,7 +3247,7 @@ journals:
   ref_oa_statement: https://bmcendocrdisord.biomedcentral.com/about
   ref_author_instructions: https://bmcendocrdisord.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcendocrdisord.biomedcentral.com/submission-guidelines/copyright
-- id: 30
+- id: 61
   issn: 1471-2148
   journal_title: BMC Evolutionary Biology
   publisher: BioMed Central (Springer Nature)
@@ -1914,7 +3319,7 @@ journals:
   ref_oa_statement: https://bmcevolbiol.biomedcentral.com/about
   ref_author_instructions: https://bmcevolbiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://www.biomedcentral.com/about/policies/license-agreement
-- id: 31
+- id: 62
   issn: 1471-230X
   journal_title: BMC Gastroenterology
   publisher: BioMed Central (Springer Nature)
@@ -1983,7 +3388,7 @@ journals:
   ref_oa_statement: https://bmcgastroenterol.biomedcentral.com/about
   ref_author_instructions: https://bmcgastroenterol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcgastroenterol.biomedcentral.com/submission-guidelines/copyright
-- id: 32
+- id: 63
   issn: 1471-2156
   journal_title: BMC Genomic Data
   publisher: BioMed Central (Springer Nature)
@@ -2053,7 +3458,7 @@ journals:
   ref_oa_statement: https://bmcgenomdata.biomedcentral.com/about
   ref_author_instructions: https://bmcgenomdata.biomedcentral.com/submission-guidelines/
   ref_license_terms: https://bmcgenomdata.biomedcentral.com/submission-guidelines/copyright
-- id: 33
+- id: 64
   issn: 1471-2164
   journal_title: BMC Genomics
   publisher: BioMed Central (Springer Nature)
@@ -2128,7 +3533,7 @@ journals:
   ref_oa_statement: http://bmcgenomics.biomedcentral.com/about
   ref_author_instructions: https://bmcgenomics.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcgenomics.biomedcentral.com/submission-guidelines/copyright
-- id: 34
+- id: 65
   issn: 1471-2318
   journal_title: BMC Geriatrics
   publisher: BioMed Central (Springer Nature)
@@ -2198,7 +3603,7 @@ journals:
   ref_oa_statement: https://bmcgeriatr.biomedcentral.com/about
   ref_author_instructions: https://bmcgeriatr.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcgeriatr.biomedcentral.com/submission-guidelines/copyright
-- id: 35
+- id: 66
   issn: 1472-6963
   journal_title: BMC Health Services Research
   publisher: BioMed Central (Springer Nature)
@@ -2269,7 +3674,7 @@ journals:
   ref_oa_statement: http://bmchealthservres.biomedcentral.com/about
   ref_author_instructions: https://bmchealthservres.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmchealthservres.biomedcentral.com/submission-guidelines/copyright
-- id: 36
+- id: 67
   issn: 1471-2172
   journal_title: BMC Immunology
   publisher: BioMed Central (Springer Nature)
@@ -2338,7 +3743,7 @@ journals:
   ref_oa_statement: https://bmcimmunol.biomedcentral.com/about
   ref_author_instructions: https://bmcimmunol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcimmunol.biomedcentral.com/submission-guidelines/copyright
-- id: 37
+- id: 68
   issn: 1471-2334
   journal_title: BMC Infectious Diseases
   publisher: BioMed Central (Springer Nature)
@@ -2407,7 +3812,7 @@ journals:
   ref_oa_statement: https://bmcinfectdis.biomedcentral.com/about
   ref_author_instructions: https://bmcinfectdis.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcinfectdis.biomedcentral.com/submission-guidelines/copyright
-- id: 38
+- id: 69
   issn: 1472-6920
   journal_title: BMC Medical Education
   publisher: BioMed Central (Springer Nature)
@@ -2481,7 +3886,7 @@ journals:
   ref_oa_statement: https://bmcmededuc.biomedcentral.com/about
   ref_author_instructions: https://bmcmededuc.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmededuc.biomedcentral.com/submission-guidelines/copyright
-- id: 39
+- id: 70
   issn: 1472-6939
   journal_title: BMC Medical Ethics
   publisher: BioMed Central (Springer Nature)
@@ -2549,7 +3954,7 @@ journals:
   ref_oa_statement: https://bmcmedethics.biomedcentral.com/about
   ref_author_instructions: https://bmcmedethics.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmedethics.biomedcentral.com/submission-guidelines/copyright
-- id: 40
+- id: 71
   issn: 1755-8794
   journal_title: BMC Medical Genomics
   publisher: BioMed Central (Springer Nature)
@@ -2624,7 +4029,7 @@ journals:
   ref_oa_statement: https://bmcmedgenomics.biomedcentral.com/about
   ref_author_instructions: https://bmcmedgenomics.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmedgenomics.biomedcentral.com/submission-guidelines/copyright
-- id: 41
+- id: 72
   issn: 1471-2342
   journal_title: BMC Medical Imaging
   publisher: BioMed Central (Springer Nature)
@@ -2694,7 +4099,7 @@ journals:
   ref_oa_statement: http://bmcmedimaging.biomedcentral.com/about
   ref_author_instructions: https://bmcmedimaging.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmedimaging.biomedcentral.com/submission-guidelines/copyright
-- id: 42
+- id: 73
   issn: 1472-6947
   journal_title: BMC Medical Informatics and Decision Making
   publisher: BioMed Central (Springer Nature)
@@ -2762,7 +4167,7 @@ journals:
   ref_oa_statement: http://bmcmedinformdecismak.biomedcentral.com/about
   ref_author_instructions: https://bmcmedinformdecismak.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmedinformdecismak.biomedcentral.com/submission-guidelines/copyright
-- id: 43
+- id: 74
   issn: 1471-2288
   journal_title: BMC Medical Research Methodology
   publisher: BioMed Central (Springer Nature)
@@ -2832,7 +4237,7 @@ journals:
   ref_oa_statement: http://bmcmedresmethodol.biomedcentral.com/about
   ref_author_instructions: https://bmcmedresmethodol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmedresmethodol.biomedcentral.com/submission-guidelines/copyright
-- id: 44
+- id: 75
   issn: 1741-7015
   journal_title: BMC Medicine
   publisher: BioMed Central (Springer Nature)
@@ -2905,7 +4310,7 @@ journals:
   ref_oa_statement: http://bmcmedicine.biomedcentral.com/about
   ref_author_instructions: https://bmcmedicine.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmedicine.biomedcentral.com/submission-guidelines/copyright
-- id: 45
+- id: 76
   issn: 1471-2180
   journal_title: BMC Microbiology
   publisher: BioMed Central (Springer Nature)
@@ -2973,7 +4378,7 @@ journals:
   ref_oa_statement: http://bmcmicrobiol.biomedcentral.com/about
   ref_author_instructions: https://bmcmicrobiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmicrobiol.biomedcentral.com/submission-guidelines/copyright
-- id: 46
+- id: 77
   issn: 2661-8850
   journal_title: BMC Molecular and Cell Biology
   publisher: BioMed Central (Springer Nature)
@@ -3042,7 +4447,7 @@ journals:
   ref_oa_statement: https://bmcmolcellbiol.biomedcentral.com/about
   ref_author_instructions: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines/copyright
-- id: 47
+- id: 78
   issn: 1471-2474
   journal_title: BMC Musculoskeletal Disorders
   publisher: BioMed Central (Springer Nature)
@@ -3110,7 +4515,7 @@ journals:
   ref_oa_statement: https://bmcmusculoskeletdisord.biomedcentral.com/about
   ref_author_instructions: https://bmcmusculoskeletdisord.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcmusculoskeletdisord.biomedcentral.com/submission-guidelines/copyright
-- id: 48
+- id: 79
   issn: 1471-2369
   journal_title: BMC Nephrology
   publisher: BioMed Central (Springer Nature)
@@ -3179,7 +4584,7 @@ journals:
   ref_oa_statement: http://bmcnephrol.biomedcentral.com/about
   ref_author_instructions: https://bmcnephrol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcnephrol.biomedcentral.com/submission-guidelines/copyright
-- id: 49
+- id: 80
   issn: 1471-2377
   journal_title: BMC Neurology
   publisher: BioMed Central (Springer Nature)
@@ -3248,7 +4653,7 @@ journals:
   ref_oa_statement: http://bmcneurol.biomedcentral.com/about
   ref_author_instructions: https://bmcneurol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcneurol.biomedcentral.com/submission-guidelines/copyright
-- id: 50
+- id: 81
   issn: 1471-2202
   journal_title: BMC Neuroscience
   publisher: BioMed Central (Springer Nature)
@@ -3321,7 +4726,7 @@ journals:
   ref_oa_statement: http://bmcneurosci.biomedcentral.com/about
   ref_author_instructions: https://bmcneurosci.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcneurosci.biomedcentral.com/submission-guidelines/copyright
-- id: 51
+- id: 82
   issn: 1472-6955
   journal_title: BMC Nursing
   publisher: BioMed Central (Springer Nature)
@@ -3389,7 +4794,7 @@ journals:
   ref_oa_statement: http://bmcnurs.biomedcentral.com/about
   ref_author_instructions: https://bmcnurs.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcnurs.biomedcentral.com/submission-guidelines/copyright
-- id: 52
+- id: 83
   issn: 1471-2415
   journal_title: BMC Ophthalmology
   publisher: BioMed Central (Springer Nature)
@@ -3458,7 +4863,7 @@ journals:
   ref_oa_statement: http://bmcophthalmol.biomedcentral.com/about
   ref_author_instructions: https://bmcophthalmol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcophthalmol.biomedcentral.com/submission-guidelines/copyright
-- id: 53
+- id: 84
   issn: 1472-6831
   journal_title: BMC Oral Health
   publisher: BioMed Central (Springer Nature)
@@ -3527,7 +4932,7 @@ journals:
   ref_oa_statement: http://bmcoralhealth.biomedcentral.com/about
   ref_author_instructions: https://bmcoralhealth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcoralhealth.biomedcentral.com/submission-guidelines/copyright
-- id: 54
+- id: 85
   issn: 1472-684X
   journal_title: BMC Palliative Care
   publisher: BioMed Central (Springer Nature)
@@ -3597,7 +5002,7 @@ journals:
   ref_oa_statement: http://bmcpalliatcare.biomedcentral.com/about
   ref_author_instructions: https://bmcpalliatcare.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpalliatcare.biomedcentral.com/submission-guidelines/copyright
-- id: 55
+- id: 86
   issn: 1471-2431
   journal_title: BMC Pediatrics
   publisher: BioMed Central (Springer Nature)
@@ -3665,7 +5070,7 @@ journals:
   ref_oa_statement: https://bmcpediatr.biomedcentral.com/about
   ref_author_instructions: https://bmcpediatr.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpediatr.biomedcentral.com/submission-guidelines/copyright
-- id: 56
+- id: 87
   issn: 2050-6511
   journal_title: BMC Pharmacology and Toxicology
   publisher: BioMed Central (Springer Nature)
@@ -3743,7 +5148,7 @@ journals:
   ref_oa_statement: http://bmcpharmacoltoxicol.biomedcentral.com/about
   ref_author_instructions: https://bmcpharmacoltoxicol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpharmacoltoxicol.biomedcentral.com/submission-guidelines/copyright
-- id: 57
+- id: 88
   issn: 1471-2229
   journal_title: BMC Plant Biology
   publisher: BioMed Central (Springer Nature)
@@ -3811,7 +5216,7 @@ journals:
   ref_oa_statement: http://bmcplantbiol.biomedcentral.com/about
   ref_author_instructions: https://bmcplantbiol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcplantbiol.biomedcentral.com/submission-guidelines/copyright
-- id: 58
+- id: 89
   issn: 1471-2393
   journal_title: BMC Pregnancy and Childbirth
   publisher: BioMed Central (Springer Nature)
@@ -3881,7 +5286,7 @@ journals:
   ref_oa_statement: http://bmcpregnancychildbirth.biomedcentral.com/about
   ref_author_instructions: https://bmcpregnancychildbirth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpregnancychildbirth.biomedcentral.com/submission-guidelines/copyright
-- id: 59
+- id: 90
   issn: 1471-2296
   journal_title: BMC Primary Care
   publisher: BioMed Central (Springer Nature)
@@ -3952,7 +5357,7 @@ journals:
   ref_oa_statement: https://bmcprimcare.biomedcentral.com/about
   ref_author_instructions: https://bmcprimcare.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcprimcare.biomedcentral.com/submission-guidelines/copyright
-- id: 60
+- id: 91
   issn: 1471-244X
   journal_title: BMC Psychiatry
   publisher: BioMed Central (Springer Nature)
@@ -4021,7 +5426,7 @@ journals:
   ref_oa_statement: http://bmcpsychiatry.biomedcentral.com/about
   ref_author_instructions: https://bmcpsychiatry.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpsychiatry.biomedcentral.com/submission-guidelines/copyright
-- id: 61
+- id: 92
   issn: 2050-7283
   journal_title: BMC Psychology
   publisher: BioMed Central (Springer Nature)
@@ -4094,7 +5499,7 @@ journals:
   ref_oa_statement: http://www.biomedcentral.com/bmcpsychol/about/#openaccess
   ref_author_instructions: https://www.biomedcentral.com/bmcpsychol/authors/instructions
   ref_license_terms: https://bmcpsychology.biomedcentral.com/submission-guidelines/copyright
-- id: 62
+- id: 93
   issn: 1471-2458
   journal_title: BMC Public Health
   publisher: BioMed Central (Springer Nature)
@@ -4163,7 +5568,7 @@ journals:
   ref_oa_statement: https://bmcpublichealth.biomedcentral.com/about
   ref_author_instructions: https://bmcpublichealth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpublichealth.biomedcentral.com/submission-guidelines/copyright
-- id: 63
+- id: 94
   issn: 1471-2466
   journal_title: BMC Pulmonary Medicine
   publisher: BioMed Central (Springer Nature)
@@ -4231,7 +5636,7 @@ journals:
   ref_oa_statement: http://bmcpulmmed.biomedcentral.com/about
   ref_author_instructions: https://bmcpulmmed.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcpulmmed.biomedcentral.com/submission-guidelines/copyright
-- id: 64
+- id: 95
   issn: 1756-0500
   journal_title: BMC Research Notes
   publisher: BioMed Central (Springer Nature)
@@ -4311,7 +5716,7 @@ journals:
   ref_oa_statement: https://bmcresnotes.biomedcentral.com/about
   ref_author_instructions: https://bmcresnotes.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcresnotes.biomedcentral.com/submission-guidelines/copyright
-- id: 65
+- id: 96
   issn: 2052-1847
   journal_title: BMC Sports Science Medicine and Rehabilitation
   publisher: BioMed Central (Springer Nature)
@@ -4383,7 +5788,7 @@ journals:
   ref_oa_statement: http://bmcsportsscimedrehabil.biomedcentral.com/about
   ref_author_instructions: https://bmcsportsscimedrehabil.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcsportsscimedrehabil.biomedcentral.com/submission-guidelines/copyright
-- id: 66
+- id: 97
   issn: 1471-2482
   journal_title: BMC Surgery
   publisher: BioMed Central (Springer Nature)
@@ -4451,7 +5856,7 @@ journals:
   ref_oa_statement: http://bmcsurg.biomedcentral.com/about
   ref_author_instructions: https://bmcsurg.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcsurg.biomedcentral.com/submission-guidelines/copyright
-- id: 67
+- id: 98
   issn: 1471-2490
   journal_title: BMC Urology
   publisher: BioMed Central (Springer Nature)
@@ -4519,7 +5924,7 @@ journals:
   ref_oa_statement: http://bmcurol.biomedcentral.com/about
   ref_author_instructions: https://bmcurol.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcurol.biomedcentral.com/submission-guidelines/copyright
-- id: 68
+- id: 99
   issn: 1746-6148
   journal_title: BMC Veterinary Research
   publisher: BioMed Central (Springer Nature)
@@ -4590,7 +5995,7 @@ journals:
   ref_oa_statement: http://bmcvetres.biomedcentral.com/about
   ref_author_instructions: https://bmcvetres.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcvetres.biomedcentral.com/submission-guidelines/copyright
-- id: 69
+- id: 100
   issn: 1472-6874
   journal_title: BMC Women s Health
   publisher: BioMed Central (Springer Nature)
@@ -4666,7 +6071,7 @@ journals:
   ref_oa_statement: http://bmcwomenshealth.biomedcentral.com/about
   ref_author_instructions: https://bmcwomenshealth.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmcwomenshealth.biomedcentral.com/submission-guidelines/copyright
-- id: 70
+- id: 101
   issn: 2056-3132
   journal_title: BMC Zoology
   publisher: BioMed Central (Springer Nature)
@@ -4737,7 +6142,7 @@ journals:
   ref_oa_statement: https://bmczool.biomedcentral.com/about
   ref_author_instructions: https://bmczool.biomedcentral.com/submission-guidelines
   ref_license_terms: https://bmczool.biomedcentral.com/submission-guidelines/copyright
-- id: 71
+- id: 102
   issn: 1999-3110
   journal_title: Botanical Studies
   publisher: Springer Open (Springer Nature)
@@ -4809,7 +6214,7 @@ journals:
   ref_oa_statement: http://as-botanicalstudies.springeropen.com/about
   ref_author_instructions: https://as-botanicalstudies.springeropen.com/submission-guidelines
   ref_license_terms: https://as-botanicalstudies.springeropen.com/submission-guidelines/copyright
-- id: 72
+- id: 103
   issn: 2045-3701
   journal_title: Cell & Bioscience
   publisher: BioMed Central (Springer Nature)
@@ -4892,14 +6297,14 @@ journals:
   ref_oa_statement: https://cellandbioscience.biomedcentral.com/about
   ref_author_instructions: https://cellandbioscience.biomedcentral.com/submission-guidelines
   ref_license_terms: https://cellandbioscience.biomedcentral.com/submission-guidelines/copyright
-- id: 73
+- id: 104
   issn: 2405-8300
   journal_title: Chemical Data Collections
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/chemical-data-collections
   data_journal_type: pure
   is_active: true
-- id: 74
+- id: 105
   issn: 2045-709X
   journal_title: Chiropractic & Manual Therapies
   publisher: BioMed Central (Springer Nature)
@@ -4979,7 +6384,7 @@ journals:
   ref_oa_statement: https://chiromt.biomedcentral.com/about
   ref_author_instructions: https://chiromt.biomedcentral.com/submission-guidelines
   ref_license_terms: https://chiromt.biomedcentral.com/submission-guidelines/copyright
-- id: 75
+- id: 106
   issn: 1278-3366
   journal_title: Cybergeo
   publisher: OpenEdition
@@ -5044,7 +6449,7 @@ journals:
   ref_oa_statement: https://journals.openedition.org/cybergeo/?page=informations
   ref_author_instructions: https://journals.openedition.org/cybergeo/5021
   ref_license_terms: https://journals.openedition.org/cybergeo/?page=informations
-- id: 76
+- id: 107
   issn: 2306-5729
   journal_title: Data
   publisher: MDPI
@@ -5109,7 +6514,7 @@ journals:
   ref_oa_statement: http://www.mdpi.com/journal/data/about
   ref_author_instructions: http://www.mdpi.com/journal/data/instructions
   ref_license_terms: http://www.mdpi.com/journal/data/about
-- id: 77
+- id: 108
   issn: 2352-3409
   journal_title: Data in Brief
   publisher: Elsevier
@@ -5181,7 +6586,7 @@ journals:
   ref_oa_statement: http://www.elsevier.com/journals/data-in-brief/2352-3409/open-access-journal
   ref_author_instructions: https://www.sciencedirect.com/journal/data-in-brief/publish/guide-for-authors
   ref_license_terms: https://www.sciencedirect.com/science/journal/23523409/publish/open-access-options
-- id: 78
+- id: 109
   issn: 1683-1470
   journal_title: Data Science Journal
   publisher: Ubiquity Press
@@ -5245,7 +6650,7 @@ journals:
   ref_oa_statement: https://datascience.codata.org/about
   ref_author_instructions: https://datascience.codata.org/about/submissions
   ref_license_terms: http://datascience.codata.org/about/submissions/
-- id: 79
+- id: 110
   issn: 1866-3516
   journal_title: Earth System Science Data
   publisher: Copernicus
@@ -5317,21 +6722,21 @@ journals:
   ref_oa_statement: https://www.earth-system-science-data.net/policies/publication_policy.html
   ref_author_instructions: https://www.earth-system-science-data.net/submission.html
   ref_license_terms: https://www.earth-system-science-data.net/policies/licence_and_copyright.html
-- id: 80
+- id: 111
   issn: 1440-1703
   journal_title: Ecological Research
   publisher: Blackwell Publishing (Wiley)
   url: https://esj-journals.onlinelibrary.wiley.com/journal/14401703
   data_journal_type: mixed
   is_active: true
-- id: 81
+- id: 112
   issn: 1939-9170
   journal_title: Ecology
   publisher: John Wiley & Sons (Wiley)
   url: https://esajournals.onlinelibrary.wiley.com/journal/19399170
   data_journal_type: mixed
   is_active: true
-- id: 82
+- id: 113
   issn: 2639-5916
   journal_title: Ecosystems and People
   publisher: Taylor & Francis
@@ -5407,7 +6812,7 @@ journals:
   ref_oa_statement: https://www.tandfonline.com/action/authorSubmission?journalCode=TBSM&page=instructions
   ref_author_instructions: https://www.tandfonline.com/action/authorSubmission?journalCode=TBSM&page=instructions
   ref_license_terms: https://authorservices.taylorandfrancis.com/copyright-and-you/
-- id: 83
+- id: 114
   issn: 2050-084X
   journal_title: eLife
   publisher: eLife Sciences Publications
@@ -5481,7 +6886,7 @@ journals:
   ref_oa_statement: https://elifesciences.org/terms
   ref_author_instructions: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html
   ref_license_terms: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html#policies
-- id: 84
+- id: 115
   issn: 2041-9139
   journal_title: EvoDevo
   publisher: BioMed Central (Springer Nature)
@@ -5552,7 +6957,7 @@ journals:
   ref_oa_statement: https://evodevojournal.biomedcentral.com/about
   ref_author_instructions: https://evodevojournal.biomedcentral.com/submission-guidelines
   ref_license_terms: https://evodevojournal.biomedcentral.com/submission-guidelines/copyright
-- id: 85
+- id: 116
   issn: 2046-1402
   journal_title: F1000Research
   publisher: F1000Research
@@ -5626,7 +7031,7 @@ journals:
   ref_oa_statement: https://f1000research.com/about
   ref_author_instructions: https://f1000research.com/for-authors/publish-your-research
   ref_license_terms: https://f1000research.com/about
-- id: 86
+- id: 117
   issn: 2197-5620
   journal_title: Forest Ecosystems
   publisher: Elsevier
@@ -5694,14 +7099,14 @@ journals:
   ref_oa_statement: https://www.keaipublishing.com/en/journals/forest-ecosystems/open-access-journal/
   ref_author_instructions: https://www.keaipublishing.com/en/journals/forest-ecosystems/guide-for-authors/
   ref_license_terms: https://www.keaipublishing.com/en/journals/forest-ecosystems/open-access-journal/
-- id: 87
+- id: 118
   issn: 2312-6604
   journal_title: Freshwater Metadata Journal
   publisher: University of Natural Resources and Life Sciences Vienna
   url: http://data.freshwaterbiodiversity.eu/fmj/
   data_journal_type: pure
   is_active: true
-- id: 88
+- id: 119
   issn: 1756-994X
   journal_title: Genome Medicine
   publisher: BioMed Central (Springer Nature)
@@ -5779,7 +7184,7 @@ journals:
   ref_oa_statement: https://genomemedicine.biomedcentral.com/about
   ref_author_instructions: https://genomemedicine.biomedcentral.com/submission-guidelines
   ref_license_terms: https://genomemedicine.biomedcentral.com/submission-guidelines/copyright
-- id: 89
+- id: 120
   issn: 2049-6060
   journal_title: Geoscience Data Journal
   publisher: Blackwell Publishing (Wiley)
@@ -5855,7 +7260,7 @@ journals:
   ref_oa_statement: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/about/open-access-license-and-copyright
   ref_author_instructions: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/about/author-guidelines
   ref_license_terms: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/about/open-access-license-and-copyright
-- id: 90
+- id: 121
   issn: 1991-9603
   journal_title: Geoscientific Model Development
   publisher: Copernicus
@@ -5923,7 +7328,7 @@ journals:
   ref_oa_statement: https://www.geoscientific-model-development.net/home.html
   ref_author_instructions: https://www.geoscientific-model-development.net/submission.html
   ref_license_terms: https://www.geoscientific-model-development.net/policies/licence_and_copyright.html
-- id: 91
+- id: 122
   issn: 2047-217X
   journal_title: GigaScience
   publisher: Oxford University Press
@@ -5991,7 +7396,7 @@ journals:
   ref_oa_statement: https://academic.oup.com/gigascience/pages/charges_licensing_and_self_archiving
   ref_author_instructions: https://academic.oup.com/gigascience/pages/instructions_to_authors
   ref_license_terms: https://academic.oup.com/gigascience/pages/charges_licensing_and_self_archiving
-- id: 92
+- id: 123
   issn: 2194-7899
   journal_title: Health & Justice
   publisher: BioMed Central (Springer Nature)
@@ -6069,7 +7474,7 @@ journals:
   ref_oa_statement: https://healthandjusticejournal.biomedcentral.com/about
   ref_author_instructions: https://healthandjusticejournal.biomedcentral.com/submission-guidelines
   ref_license_terms: https://healthandjusticejournal.biomedcentral.com/submission-guidelines/copyright
-- id: 93
+- id: 124
   issn: 1479-7364
   journal_title: Human Genomics
   publisher: BioMed Central (Springer Nature)
@@ -6141,21 +7546,21 @@ journals:
   ref_oa_statement: https://humgenomics.biomedcentral.com/about
   ref_author_instructions: https://humgenomics.biomedcentral.com/submission-guidelines
   ref_license_terms: https://humgenomics.biomedcentral.com/submission-guidelines/copyright
-- id: 94
+- id: 125
   issn: 2110-7017
   journal_title: International Economics
   publisher: Elsevier
   url: https://www.journals.elsevier.com/international-economics
   data_journal_type: mixed
   is_active: true
-- id: 95
+- id: 126
   issn: 1464-3685
   journal_title: International Journal of Epidemiology
   publisher: Oxford University Press
   url: https://academic.oup.com/ije
   data_journal_type: mixed
   is_active: true
-- id: 96
+- id: 127
   issn: 2196-2804
   journal_title: International Journal of Food Contamination
   publisher: BioMed Central (Springer Nature)
@@ -6224,7 +7629,7 @@ journals:
   ref_oa_statement: https://foodsafetyandrisk.biomedcentral.com/about
   ref_author_instructions: https://foodsafetyandrisk.biomedcentral.com/submission-guidelines
   ref_license_terms: https://www.biomedcentral.com/about/policies/license-agreement
-- id: 97
+- id: 128
   issn: 1363-5387
   journal_title: Internet Archaeology
   publisher: Council for British Archaeology
@@ -6287,7 +7692,7 @@ journals:
   ref_oa_statement: https://intarch.ac.uk/about/index.html
   ref_author_instructions: https://intarch.ac.uk/authors/
   ref_license_terms: https://intarch.ac.uk/about/index.html
-- id: 98
+- id: 129
   issn: 2046-0481
   journal_title: Irish Veterinary Journal
   publisher: BioMed Central (Springer Nature)
@@ -6358,7 +7763,7 @@ journals:
   ref_oa_statement: https://irishvetjournal.biomedcentral.com/about
   ref_author_instructions: https://irishvetjournal.biomedcentral.com/submission-guidelines
   ref_license_terms: https://irishvetjournal.biomedcentral.com/submission-guidelines/copyright
-- id: 99
+- id: 130
   issn: 2414-3146
   journal_title: IUCrData
   publisher: International Union of Crystallography
@@ -6424,7 +7829,7 @@ journals:
   ref_oa_statement: https://iucrdata.iucr.org/services/oa/openaccess_x.html
   ref_author_instructions: https://iucrdata.iucr.org/x/services/notesforauthors.html
   ref_license_terms: https://iucrdata.iucr.org/services/oa/oalicenceshort.html
-- id: 100
+- id: 131
   issn: 2191-5040
   journal_title: Journal of Applied Volcanology
   publisher: BioMed Central (Springer Nature)
@@ -6498,7 +7903,7 @@ journals:
   ref_oa_statement: https://appliedvolc.biomedcentral.com/about
   ref_author_instructions: https://appliedvolc.biomedcentral.com/submission-guidelines
   ref_license_terms: https://appliedvolc.biomedcentral.com/submission-guidelines/copyright
-- id: 101
+- id: 132
   issn: 2041-1480
   journal_title: Journal of Biomedical Semantics
   publisher: BioMed Central (Springer Nature)
@@ -6572,14 +7977,14 @@ journals:
   ref_oa_statement: https://jbiomedsem.biomedcentral.com/about
   ref_author_instructions: https://jbiomedsem.biomedcentral.com/submission-guidelines
   ref_license_terms: https://jbiomedsem.biomedcentral.com/submission-guidelines/copyright
-- id: 102
+- id: 133
   issn: 1520-5134
   journal_title: Journal of Chemical & Engineering Data
   publisher: American Chemical Society
   url: https://pubs.acs.org/journal/jceaax
   data_journal_type: pure
   is_active: true
-- id: 103
+- id: 134
   issn: 1758-2946
   journal_title: Journal of Cheminformatics
   publisher: BioMed Central (Springer Nature)
@@ -6656,14 +8061,14 @@ journals:
   ref_oa_statement: https://jcheminf.biomedcentral.com/about
   ref_author_instructions: https://jcheminf.biomedcentral.com/submission-guidelines
   ref_license_terms: https://jcheminf.springeropen.com/submission-guidelines/copyright
-- id: 104
+- id: 135
   issn: 1537-2537
   journal_title: Journal of Environmental Quality
   publisher: John Wiley & Sons (Wiley)
   url: https://acsess.onlinelibrary.wiley.com/journal/15372537
   data_journal_type: mixed
   is_active: true
-- id: 105
+- id: 136
   issn: 1745-6673
   journal_title: Journal of Occupational Medicine and Toxicology
   publisher: BioMed Central (Springer Nature)
@@ -6734,7 +8139,7 @@ journals:
   ref_oa_statement: https://occup-med.biomedcentral.com/about
   ref_author_instructions: https://occup-med.biomedcentral.com/submission-guidelines
   ref_license_terms: https://occup-med.biomedcentral.com/submission-guidelines/copyright
-- id: 106
+- id: 137
   issn: 2049-1565
   journal_title: Journal of Open Archaeology Data
   publisher: Ubiquity Press
@@ -6800,7 +8205,7 @@ journals:
   ref_oa_statement: http://openarchaeologydata.metajnl.com/about/
   ref_author_instructions: https://openarchaeologydata.metajnl.com/about/submissions
   ref_license_terms: https://openarchaeologydata.metajnl.com/about/submissions
-- id: 107
+- id: 138
   issn: 2050-9863
   journal_title: Journal of Open Psychology Data
   publisher: Ubiquity Press
@@ -6865,7 +8270,7 @@ journals:
   ref_oa_statement: http://openpsychologydata.metajnl.com/about/editorialPolicies#openAccessPolicy
   ref_author_instructions: http://openpsychologydata.metajnl.com/about/submissions#authorGuidelines
   ref_license_terms: http://openpsychologydata.metajnl.com/about/editorialPolicies#openAccessPolicy
-- id: 108
+- id: 139
   issn: 2049-9647
   journal_title: Journal of Open Research Software
   publisher: Ubiquity Press
@@ -6929,1477 +8334,72 @@ journals:
   ref_oa_statement: https://openresearchsoftware.metajnl.com/about/
   ref_author_instructions: https://openresearchsoftware.metajnl.com/about/submissions/
   ref_license_terms: https://openresearchsoftware.metajnl.com/about/submissions/
-- id: 109
+- id: 140
   issn: 1529-7845
   journal_title: Journal of Physical and Chemical Reference Data
   publisher: American Institute of Physics
   url: https://aip.scitation.org/jpr/info/focus
   data_journal_type: pure
   is_active: true
-- id: 110
-  issn: 1550-2783
-  journal_title: Journal of the International Society of Sports Nutrition
-  publisher: Taylor & Francis
-  url: https://www.tandfonline.com/journals/rssn20
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1550-2783
-  pissn: null
-  language:
-  - EN
-  oa_start: 2004
-  boai: true
-  publication_time_weeks: 14
-  keywords:
-  - sports nutrition
-  - sports science
-  research_fields:
-  - Nutrition. Foods and food supply
-  - Sports medicine
-  subject_codes:
-  - code: TX341-641
-    scheme: LCC
-    term: Nutrition. Foods and food supply
-  - code: RC1200-1245
-    scheme: LCC
-    term: Sports medicine
-  publisher_name: Taylor & Francis Group
-  publisher_country: GB
-  institution_name: International Society of Sports Nutrition
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
-  board_url: https://www.tandfonline.com/action/journalInformation?show=editorialBoard&journalCode=rssn20
-  license_types:
-  - CC BY
-  - CC BY-NC
-  apc_has: true
-  apc_max:
-  - price: 2520
-    currency: EUR
-  - price: 2630
-    currency: USD
-  - price: 2100
-    currency: GBP
-  apc_url: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://authorservices.taylorandfrancis.com/publishing-open-access/requesting-an-apc-waiver/
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - LOCKSS
-  - PMC
-  - Portico
-  preservation_url: https://librarianresources.taylorandfrancis.com/collection/title-by-title/
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
-  copyright_author_retains: false
-  copyright_url: https://authorservices.taylorandfrancis.com/publishing-your-research/moving-through-production/copyright-for-journal-authors
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/2630
-  article_license_display:
-  - Embed
-  article_license_example_url: https://www.tandfonline.com/action/showCopyRight?scroll=top&doi=10.1080%2F15502783.2022.2041988
-  ref_journal: https://www.tandfonline.com/journals/rssn
-  ref_aims_scope: https://www.tandfonline.com/action/journalInformation?show=aimsScope&journalCode=rssn20
-  ref_oa_statement: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
-  ref_author_instructions: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
-  ref_license_terms: https://authorservices.taylorandfrancis.com/publishing-open-access/open-access-cost-finder/?category=all&journal=rssn&fulloa=1&openselect=1&notavailable=1&dove=1&routledge=1&tandf=1&numberofresultsperpage=5&pagenumber=1
-- id: 111
-  issn: 2534-9708
-  journal_title: Metabarcoding and Metagenomics
+- id: 141
+  issn: 1809-127X
+  journal_title: Check List
   publisher: Pensoft Publishers
-  url: https://mbmg.pensoft.net/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2534-9708
-  pissn: null
-  language:
-  - EN
-  oa_start: 2017
-  boai: true
-  publication_time_weeks: 8
-  keywords:
-  - dna-based species identification
-  - metabarcoding
-  - biomonitoring
-  - metagenomics
-  - bioinformatics
-  - environmental assessment
-  research_fields:
-  - Ecology
-  subject_codes:
-  - code: QH540-549.5
-    scheme: LCC
-    term: Ecology
-  publisher_name: Pensoft Publishers
-  publisher_country: BG
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://mbmg.pensoft.net/about#PeerReview
-  board_url: https://mbmg.pensoft.net/board/
-  license_types:
-  - CC BY
-  - CC0
-  apc_has: true
-  apc_max:
-  - price: 650
-    currency: EUR
-  apc_url: https://mbmg.pensoft.net/about#ArticleProcessingCharges
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://mbmg.pensoft.net/about#DiscountsandWaivers
-  preservation_has: true
-  preservation_services:
-  - LOCKSS
-  - Portico
-  preservation_url: https://portal.issn.org/resource/ISSN/2534-9708#
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: ''
-  copyright_author_retains: true
-  copyright_url: https://mbmg.pensoft.net/about#LicenseandCopyrightAgreement
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/33134
-  article_license_display:
-  - Embed
-  article_license_example_url: https://mbmg.pensoft.net/article/13709/list/8/
-  ref_journal: https://mbmg.pensoft.net/
-  ref_aims_scope: https://mbmg.pensoft.net/about#FocusandScope
-  ref_oa_statement: https://mbmg.pensoft.net/about#OpenAccessPolicy
-  ref_author_instructions: https://mbmg.pensoft.net/about#AuthorGuidelines
-  ref_license_terms: https://mbmg.pensoft.net/about#Copyright
-- id: 112
-  issn: 2578-9430
-  journal_title: microPublication Biology
-  publisher: Caltech Library
-  url: https://www.micropublication.org/
+  url: https://checklist.pensoft.net/
   data_journal_type: pure
   is_active: true
-  eissn: 2578-9430
-  pissn: null
-  language:
-  - EN
-  oa_start: 2016
-  boai: true
-  publication_time_weeks: 3
-  keywords:
-  - biological sciences
-  - model organisms
-  - biological data
-  research_fields:
-  - Biology (General)
-  subject_codes:
-  - code: QH301-705.5
-    scheme: LCC
-    term: Biology (General)
-  publisher_name: Caltech Library
-  publisher_country: US
-  institution_name: California Institute of Technology
-  institution_country: US
-  review_process:
-  - Open peer review
-  review_url: https://www.micropublication.org/about/for-authors/#peer-review-process
-  board_url: https://www.micropublication.org/about/editorial-policies/micropublication-biology-editorial-board/
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 350
-    currency: USD
-  apc_url: https://www.micropublication.org/about/for-authors/
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://www.micropublication.org/about/for-authors/
-  preservation_has: true
-  preservation_services:
-  - PMC
-  - Portico
-  preservation_url: https://www.ncbi.nlm.nih.gov/pmc/journals/3859/
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: null
-  copyright_author_retains: true
-  copyright_url: https://www.micropublication.org/about/for-authors/
-  deposit_policy_has: false
-  deposit_policy_services: []
-  deposit_policy_url: null
-  article_license_display:
-  - Embed
-  article_license_example_url: https://www.micropublication.org/lear_2018_mec-17_unc-119.html
-  ref_journal: https://www.micropublication.org
-  ref_aims_scope: https://www.micropublication.org/about/
-  ref_oa_statement: https://www.micropublication.org/about/editorial-policies/publishing-information
-  ref_author_instructions: https://www.micropublication.org/about/for-authors/
-  ref_license_terms: https://www.micropublication.org/about/editorial-policies/publishing-information
-- id: 113
-  issn: 1943-7706
-  journal_title: Molecular Plant - Microbe Interactions
-  publisher: APS Publications
-  url: https://apsjournals.apsnet.org/journal/mpmi
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1943-7706
-  pissn: 0894-0282
-  language:
-  - EN
-  oa_start: 2021
-  boai: true
-  publication_time_weeks: 4
-  keywords:
-  - molecular biology
-  - biochemistry
-  - plant-microbe interactions
-  research_fields:
-  - Microbiology
-  - Botany
-  subject_codes:
-  - code: QR1-502
-    scheme: LCC
-    term: Microbiology
-  - code: QK1-989
-    scheme: LCC
-    term: Botany
-  publisher_name: The American Phytopathological Society
-  publisher_country: US
-  institution_name: ISMPMI
-  institution_country: US
-  review_process:
-  - Anonymous peer review
-  review_url: http://apsjournals.apsnet.org/page/authorinformation#submitting
-  board_url: https://apsjournals.apsnet.org/page/mpmi/editorial-board
-  license_types:
-  - CC BY
-  - CC BY-NC-ND
-  - CC0
-  apc_has: true
-  apc_max:
-  - price: 3000
-    currency: USD
-  apc_url: https://apsjournals.apsnet.org/page/authorinformation#apc
-  other_charges: true
-  waiver_has: true
-  waiver_url: https://apsjournals.apsnet.org/page/authorinformation#apc
-  preservation_has: true
-  preservation_services:
-  - Portico
-  preservation_url: https://apsjournals.apsnet.org/page/authorinformation#archiving
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://apsjournals.apsnet.org/page/plagiarism_statement
-  copyright_author_retains: true
-  copyright_url: https://apsjournals.apsnet.org/page/authorinformation#submitting
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/10349
-  article_license_display:
-  - Embed
-  article_license_example_url: https://apsjournals.apsnet.org/doi/10.1094/MPMI-08-20-0239-IA
-  ref_journal: https://apsjournals.apsnet.org/journal/mpmi
-  ref_aims_scope: https://apsjournals.apsnet.org/page/mpmi/about
-  ref_oa_statement: https://apsjournals.apsnet.org/page/mpmi/about
-  ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
-  ref_license_terms: https://apsjournals.apsnet.org/page/authorinformation#submitting
-- id: 114
-  issn: 2051-3933
-  journal_title: Movement Ecology
-  publisher: BioMed Central (Springer Nature)
-  url: https://movementecologyjournal.biomedcentral.com/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2051-3933
-  pissn: null
-  language:
-  - EN
-  oa_start: 2014
-  boai: true
-  publication_time_weeks: 23
-  keywords:
-  - animal behaviour
-  - biogeography
-  - environmental sciences
-  - evolutionary biology
-  - mathematical ecology
-  - organism movement
-  research_fields:
-  - Biology (General)
-  subject_codes:
-  - code: QH301-705.5
-    scheme: LCC
-    term: Biology (General)
-  publisher_name: BMC
-  publisher_country: GB
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://movementecologyjournal.biomedcentral.com/about
-  board_url: https://movementecologyjournal.biomedcentral.com/about/editorial-board
-  license_types:
-  - CC BY
-  - CC BY-NC-ND
-  apc_has: true
-  apc_max:
-  - price: 2390
-    currency: EUR
-  - price: 2890
-    currency: USD
-  - price: 2090
-    currency: GBP
-  apc_url: https://link.springer.com/journal/40462/how-to-publish-with-us#Fees%20and%20funding
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - LOCKSS
-  preservation_url: https://www.biomedcentral.com/about/archive
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.biomedcentral.com/about /editorialpolicies#DuplicatePublication
-  copyright_author_retains: false
-  copyright_url: https://movementecologyjournal.biomedcentral.com/submission-guidelines/copyright
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/27829
-  article_license_display:
-  - Embed
-  article_license_example_url: https://movementecologyjournal.biomedcentral.com/articles/10.1186/s40462-022-00359-w
-  ref_journal: https://movementecologyjournal.biomedcentral.com
-  ref_aims_scope: https://movementecologyjournal.biomedcentral.com/about
-  ref_oa_statement: https://movementecologyjournal.biomedcentral.com/about
-  ref_author_instructions: https://movementecologyjournal.biomedcentral.com/submission-guidelines
-  ref_license_terms: https://movementecologyjournal.biomedcentral.com/submission-guidelines/copyright
-- id: 115
-  issn: 1314-4049
-  journal_title: MycoKeys
-  publisher: Pensoft Publishers
-  url: https://mycokeys.pensoft.net/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1314-4049
-  pissn: 1314-4057
-  language:
-  - EN
-  oa_start: 2011
-  boai: true
-  publication_time_weeks: 6
-  keywords:
-  - mycology
-  - fungal biology
-  research_fields:
-  - Botany
-  subject_codes:
-  - code: QK1-989
-    scheme: LCC
-    term: Botany
-  publisher_name: Pensoft Publishers
-  publisher_country: BG
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Peer review
-  review_url: http://mycokeys.pensoft.net/about
-  board_url: http://mycokeys.pensoft.net/board
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 950
-    currency: EUR
-  apc_url: https://mycokeys.pensoft.net/about#ArticleProcessingCharges
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://mycokeys.pensoft.net/about#DiscountsandWaivers
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - Portico
-  preservation_url: https://portal.issn.org/resource/ISSN/1314-4049
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: ''
-  copyright_author_retains: true
-  copyright_url: http://mycokeys.pensoft.net/about#Copyright-Notice
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/21378
-  article_license_display:
-  - Embed
-  article_license_example_url: http://mycokeys.pensoft.net/articles.php?id=6670&display_type=list&element_type=1
-  ref_journal: http://mycokeys.pensoft.net/
-  ref_aims_scope: http://mycokeys.pensoft.net/about
-  ref_oa_statement: http://mycokeys.pensoft.net/about#Open-Access-Policy
-  ref_author_instructions: http://mycokeys.pensoft.net/about#Author-Guidelines
-  ref_license_terms: http://mycokeys.pensoft.net/about#Copyright-Notice
-- id: 116
-  issn: 1314-3301
-  journal_title: Nature Conservation
-  publisher: Pensoft Publishers
-  url: https://natureconservation.pensoft.net/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1314-3301
-  pissn: 1314-6947
-  language:
-  - EN
-  oa_start: 2012
-  boai: true
-  publication_time_weeks: 6
-  keywords:
-  - conservation biology
-  - applied ecology
-  - nature conservation
-  - habitat conservation
-  research_fields:
-  - Ecology
-  - General. Including nature conservation, geographical distribution
-  subject_codes:
-  - code: QH540-549.5
-    scheme: LCC
-    term: Ecology
-  - code: QH1-199.5
-    scheme: LCC
-    term: General. Including nature conservation, geographical distribution
-  publisher_name: Pensoft Publishers
-  publisher_country: BG
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Peer review
-  review_url: http://natureconservation.pensoft.net/about
-  board_url: http://natureconservation.pensoft.net/browse_journal_groups.php?journal_id=10&grp_id=117
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 950
-    currency: EUR
-  apc_url: https://natureconservation.pensoft.net/about#Article-Processing-Charges
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://natureconservation.pensoft.net/about#DiscountsandWaivers
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  preservation_url: http://natureconservation.pensoft.net/
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: null
-  copyright_author_retains: true
-  copyright_url: http://natureconservation.pensoft.net/about#Copyright-Notice
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: null
-  article_license_display:
-  - Embed
-  article_license_example_url: http://natureconservation.pensoft.net/articles.php?id=5625
-  ref_journal: http://natureconservation.pensoft.net/
-  ref_aims_scope: http://natureconservation.pensoft.net/about
-  ref_oa_statement: http://natureconservation.pensoft.net/about#Open-Access-Policy
-  ref_author_instructions: http://natureconservation.pensoft.net/about#Author-Guidelines
-  ref_license_terms: http://natureconservation.pensoft.net/about#Copyright-Notice
-- id: 117
-  issn: 1314-2488
-  journal_title: NeoBiota
-  publisher: Pensoft Publishers
-  url: https://neobiota.pensoft.net/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1314-2488
-  pissn: 1619-0033
-  language:
-  - EN
-  oa_start: 2011
-  boai: true
-  publication_time_weeks: 6
-  keywords:
-  - biological invasions
-  research_fields:
-  - Biology (General)
-  subject_codes:
-  - code: QH301-705.5
-    scheme: LCC
-    term: Biology (General)
-  publisher_name: Pensoft Publishers
-  publisher_country: BG
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Peer review
-  review_url: http://neobiota.pensoft.net/about#Editorial-Policies
-  board_url: http://neobiota.pensoft.net/board
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 950
-    currency: EUR
-  apc_url: https://neobiota.pensoft.net/about#ArticleProcessingCharges
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://neobiota.pensoft.net/about#DiscountsandWaivers
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  preservation_url: http://neobiota.pensoft.net/
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: null
-  copyright_author_retains: true
-  copyright_url: http://neobiota.pensoft.net/about#Copyright-Notice
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: null
-  article_license_display:
-  - Embed
-  article_license_example_url: http://neobiota.pensoft.net/articles.php?id=5437
-  ref_journal: http://neobiota.pensoft.net/
-  ref_aims_scope: http://neobiota.pensoft.net/about#Focus-and-Scope
-  ref_oa_statement: http://neobiota.pensoft.net/about#Open-Access-Policy
-  ref_author_instructions: http://neobiota.pensoft.net/about#Author-Guidelines
-  ref_license_terms: http://neobiota.pensoft.net/
-- id: 118
-  issn: 1559-0089
-  journal_title: Neuroinformatics
-  publisher: Springer (Springer Nature)
-  url: https://www.springer.com/journal/12021/
-  data_journal_type: mixed
-  is_active: true
-- id: 119
-  issn: 0090-3752
-  journal_title: Nuclear Data Sheets
-  publisher: Elsevier
-  url: https://www.sciencedirect.com/journal/nuclear-data-sheets
-  data_journal_type: pure
-  is_active: true
-- id: 120
-  issn: 1362-4962
-  journal_title: Nucleic Acids Research
-  publisher: Oxford University Press
-  url: https://academic.oup.com/nar
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1362-4962
-  pissn: 0305-1048
-  language:
-  - EN
-  oa_start: 2005
-  boai: true
-  publication_time_weeks: 7
-  keywords:
-  - dna
-  - biochemistry
-  - computational biology
-  - genomics
-  - molecular biology
-  - rna
-  research_fields:
-  - Genetics
-  subject_codes:
-  - code: QH426-470
-    scheme: LCC
-    term: Genetics
-  publisher_name: Oxford University Press
-  publisher_country: GB
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://academic.oup.com/nar/pages/referee_info
-  board_url: https://academic.oup.com/nar/pages/Editorial_Board
-  license_types:
-  - CC BY
-  - CC BY-NC
-  apc_has: true
-  apc_max:
-  - price: 4192
-    currency: USD
-  apc_url: https://academic.oup.com/nar/pages/author-guidelines#section-10
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://academic.oup.com/nar/pages/Open_Access_Initiative
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - LOCKSS
-  - PMC
-  - Portico
-  - Scholars Portal
-  preservation_url: https://academic.oup.com/journals/pages/librarians/digital_preservation
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://academic.oup.com/nar/pages/Policies
-  copyright_author_retains: false
-  copyright_url: https://academic.oup.com/nar/pages/Open_Access_Initiative#NAR%20Open%20Access%20License%20Agreement
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/1383
-  article_license_display:
-  - Embed
-  article_license_example_url: https://academic.oup.com/nar/article/45/1/54/2605711/Combining-transcription-factor-binding-affinities
-  ref_journal: https://academic.oup.com/nar
-  ref_aims_scope: https://academic.oup.com/nar/pages/Criteria_Scope
-  ref_oa_statement: https://academic.oup.com/nar/pages/Open_Access_Initiative
-  ref_author_instructions: https://academic.oup.com/nar/pages/General_Instructions
-  ref_license_terms: https://academic.oup.com/nar/pages/author-guidelines#section-10
-- id: 121
-  issn: 2367-8194
-  journal_title: One Ecosystem
-  publisher: Pensoft Publishers
-  url: https://oneecosystem.pensoft.net/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2367-8194
-  pissn: null
-  language:
-  - EN
-  oa_start: 2016
-  boai: true
-  publication_time_weeks: 12
-  keywords:
-  - ecology & conservation
-  - environmental policies and law
-  - ecosystem services
-  - waste and water management
-  - sustainable land and urban development
-  - environmental impact assessment
-  research_fields:
-  - Ecology
-  subject_codes:
-  - code: QH540-549.5
-    scheme: LCC
-    term: Ecology
-  publisher_name: Pensoft Publishers
-  publisher_country: BG
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://oneecosystem.pensoft.net/about#PeerReview
-  board_url: https://oneecosystem.pensoft.net/board/
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 550
-    currency: EUR
-  apc_url: https://oneecosystem.pensoft.net/about#ArticleProcessingCharges
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://oneecosystem.pensoft.net/about#DiscountsandWaivers
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  preservation_url: https://oneecosystem.pensoft.net/about#AboutPensoft
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: null
-  copyright_author_retains: true
-  copyright_url: https://oneecosystem.pensoft.net/about#LicenseandCopyrightAgreement
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: null
-  article_license_display:
-  - Embed
-  article_license_example_url: https://oneecosystem.pensoft.net/browse_journal_articles.php?journal_name=oneecosystem&journal_id=52&p=0
-  ref_journal: https://oneecosystem.pensoft.net/
-  ref_aims_scope: https://oneecosystem.pensoft.net/about#FocusandScope
-  ref_oa_statement: https://oneecosystem.pensoft.net/about#OpenAccessPolicy
-  ref_author_instructions: https://oneecosystem.pensoft.net/about#Howit
-  ref_license_terms: https://oneecosystem.pensoft.net/about#LicenseandCopyrightAgreement
-- id: 122
-  issn: 2352-6378
-  journal_title: Open Data Journal for Agricultural Research
-  publisher: Wageningen University & Research Library
-  url: https://odjar.org/index
-  data_journal_type: pure
-  is_active: true
-- id: 123
-  issn: 2363-7501
-  journal_title: Open Geospatial Data Software and Standards
-  publisher: Springer Open (Springer Nature)
-  url: https://opengeospatialdata.springeropen.com/
-  data_journal_type: mixed
-  is_active: false
-- id: 124
-  issn: 2054-7102
-  journal_title: Open Health Data
-  publisher: Ubiquity Press
-  url: https://openhealthdata.metajnl.com/
-  data_journal_type: pure
-  is_active: false
-- id: 125
-  issn: 2056-5542
-  journal_title: Open Journal of Bioresources
-  publisher: Ubiquity Press
-  url: https://openbioresources.metajnl.com/
-  data_journal_type: pure
-  is_active: false
-- id: 126
-  issn: 2471-2906
-  journal_title: Phytobiomes Journal
-  publisher: APS Publications
-  url: https://apsjournals.apsnet.org/journal/pbiomes
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2471-2906
-  pissn: null
-  language:
-  - EN
-  oa_start: 2017
-  boai: true
-  publication_time_weeks: 4
-  keywords:
-  - systems biology
-  - plant systems
-  - ecosystems processes
-  - plant health
-  - plant productivity
-  research_fields:
-  - Plant culture
-  - Microbial ecology
-  - Plant ecology
-  subject_codes:
-  - code: SB1-1110
-    scheme: LCC
-    term: Plant culture
-  - code: QR100-130
-    scheme: LCC
-    term: Microbial ecology
-  - code: QK900-989
-    scheme: LCC
-    term: Plant ecology
-  publisher_name: The American Phytopathological Society
-  publisher_country: US
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://apsjournals.apsnet.org/page/authorinformation#submitting
-  board_url: https://apsjournals.apsnet.org/page/aboutphytobiomes#edboard
-  license_types:
-  - CC BY
-  - CC BY-NC-ND
-  - CC0
-  - Publisher's own license
-  apc_has: true
-  apc_max:
-  - price: 1660
-    currency: USD
-  apc_url: https://apsjournals.apsnet.org/page/authorinformation#apc
-  other_charges: true
-  waiver_has: false
-  waiver_url: null
-  preservation_has: true
-  preservation_services:
-  - Portico
-  preservation_url: https://apsjournals.apsnet.org/page/authorinformation#archiving
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://apsjournals.apsnet.org/page/authorinformation#plagiarism
-  copyright_author_retains: false
-  copyright_url: https://apsjournals.apsnet.org/page/pbiomes/about
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/38263
-  article_license_display:
-  - Embed
-  article_license_example_url: https://apsjournals.apsnet.org/doi/10.1094/PBIOMES-02-20-0019-R
-  ref_journal: https://apsjournals.apsnet.org/journal/pbiomes
-  ref_aims_scope: https://apsjournals.apsnet.org/page/pbiomes/about
-  ref_oa_statement: https://apsjournals.apsnet.org/page/aboutphytobiomes
-  ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
-  ref_license_terms: https://apsjournals.apsnet.org/page/authorinformation#submitting
-- id: 127
-  issn: 1314-2003
-  journal_title: PhytoKeys
-  publisher: Pensoft Publishers
-  url: https://phytokeys.pensoft.net/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1314-2003
-  pissn: 1314-2011
-  language:
-  - EN
-  oa_start: 2010
-  boai: true
-  publication_time_weeks: 6
-  keywords:
-  - systematic botany
-  - plants phylogeny
-  - plant taxonomy
-  research_fields:
-  - Botany
-  subject_codes:
-  - code: QK1-989
-    scheme: LCC
-    term: Botany
-  publisher_name: Pensoft Publishers
-  publisher_country: BG
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Peer review
-  review_url: http://phytokeys.pensoft.net/about
-  board_url: http://phytokeys.pensoft.net/board
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 780
-    currency: EUR
-  apc_url: https://phytokeys.pensoft.net/about#ArticleProcessingCharges
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://phytokeys.pensoft.net/about#DiscountsandWaivers
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - PMC
-  preservation_url: http://phytokeys.pensoft.net/
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: ''
-  copyright_author_retains: true
-  copyright_url: http://jhr.pensoft.net/about#Copyright-Notice
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: null
-  article_license_display:
-  - Embed
-  article_license_example_url: http://phytokeys.pensoft.net/articles.php?id=5339
-  ref_journal: http://phytokeys.pensoft.net/
-  ref_aims_scope: http://phytokeys.pensoft.net/about
-  ref_oa_statement: http://jhr.pensoft.net/about#OpenAccessPolicy
-  ref_author_instructions: http://phytokeys.pensoft.net/about
-  ref_license_terms: http://jhr.pensoft.net/about#CopyrightNotice
-- id: 128
-  issn: 1943-7684
-  journal_title: Phytopathology
-  publisher: APS Publications
-  url: https://apsjournals.apsnet.org/journal/phyto
-  data_journal_type: mixed
-  is_active: true
-- id: 129
-  issn: 1471-9053
-  journal_title: Plant and Cell Physiology
-  publisher: Oxford University Press
-  url: https://academic.oup.com/pcp
-  data_journal_type: mixed
-  is_active: true
-- id: 130
-  issn: 1943-7692
-  journal_title: Plant Disease
-  publisher: APS Publications
-  url: https://apsjournals.apsnet.org/journal/pdis
-  data_journal_type: mixed
-  is_active: true
-- id: 131
-  issn: 1746-4811
-  journal_title: Plant Methods
-  publisher: BioMed Central (Springer Nature)
-  url: https://plantmethods.biomedcentral.com/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1746-4811
-  pissn: null
-  language:
-  - EN
-  oa_start: 2005
-  boai: true
-  publication_time_weeks: 11
-  keywords:
-  - plant biology
-  - cell biology
-  - plant genomics
-  research_fields:
-  - Plant culture
-  - Biology (General)
-  subject_codes:
-  - code: SB1-1110
-    scheme: LCC
-    term: Plant culture
-  - code: QH301-705.5
-    scheme: LCC
-    term: Biology (General)
-  publisher_name: BMC
-  publisher_country: GB
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://plantmethods.biomedcentral.com/about
-  board_url: https://plantmethods.biomedcentral.com/about/editorial-board
-  license_types:
-  - CC BY
-  - CC BY-NC-ND
-  apc_has: true
-  apc_max:
-  - price: 2690
-    currency: EUR
-  - price: 3190
-    currency: USD
-  - price: 2390
-    currency: GBP
-  apc_url: https://link.springer.com/journal/13007/how-to-publish-with-us#Fees%20and%20funding
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - PMC
-  - Portico
-  preservation_url: https://www.biomedcentral.com/getpublished/indexing-archiving-and-access-to-data/journal-archiving
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.biomedcentral.com/getpublished/editorial-policies#misconduct
-  copyright_author_retains: false
-  copyright_url: https://plantmethods.biomedcentral.com/submission-guidelines/copyright
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/2654
-  article_license_display:
-  - Embed
-  article_license_example_url: https://plantmethods.biomedcentral.com/articles/10.1186/s13007-022-00884-0
-  ref_journal: https://plantmethods.biomedcentral.com
-  ref_aims_scope: https://plantmethods.biomedcentral.com/about
-  ref_oa_statement: https://plantmethods.biomedcentral.com/about
-  ref_author_instructions: https://plantmethods.biomedcentral.com/submission-guidelines
-  ref_license_terms: https://plantmethods.biomedcentral.com/submission-guidelines/copyright
-- id: 132
-  issn: 2452-3666
-  journal_title: Research Data Journal for the Humanities and Social Sciences
-  publisher: Brill
-  url: https://brill.com/view/journals/rdj/rdj-overview.xml
-  data_journal_type: pure
-  is_active: true
-  eissn: 2452-3666
-  pissn: null
-  language:
-  - EN
-  oa_start: 2016
-  boai: true
-  publication_time_weeks: 32
-  keywords:
-  - research data
-  - social history
-  - economic history
-  - language and literature
-  - audio-visual media
-  - archeology
-  research_fields:
-  - Social Sciences
-  subject_codes:
-  - code: H
-    scheme: LCC
-    term: Social Sciences
-  publisher_name: International Institute of Social History
-  publisher_country: NL
-  institution_name: Consortium of European Social Science Data Archives
-  institution_country: 'NO'
-  review_process:
-  - Double anonymous peer review
-  review_url: https://researchdatajournal.org/policies
-  board_url: https://researchdatajournal.org/about/editorialTeam
-  license_types:
-  - CC BY
-  apc_has: false
-  apc_max: []
-  apc_url: https://researchdatajournal.org/policies
-  other_charges: false
-  waiver_has: false
-  waiver_url: null
-  preservation_has: true
-  preservation_services:
-  - PKP PN
-  - Portico
-  preservation_url: https://researchdatajournal.org/policies
-  pid_schemes:
-  - DOI
-  plagiarism_detection: false
-  plagiarism_url: null
-  copyright_author_retains: true
-  copyright_url: https://researchdatajournal.org/policies
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Publisher site
-  deposit_policy_url: https://researchdatajournal.org/policies
-  article_license_display:
-  - Embed
-  article_license_example_url: https://researchdatajournal.org/article/view/22818/24380
-  ref_journal: https://researchdatajournal.org/
-  ref_aims_scope: https://researchdatajournal.org//editorial-statute
-  ref_oa_statement: https://researchdatajournal.org/policies
-  ref_author_instructions: https://researchdatajournal.org/about/submissions
-  ref_license_terms: https://researchdatajournal.org/policies
-- id: 133
-  issn: 2367-7163
-  journal_title: Research Ideas and Outcomes
-  publisher: Pensoft Publishers
-  url: https://riojournal.com/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2367-7163
-  pissn: null
-  language:
-  - EN
-  oa_start: 2015
-  boai: true
-  publication_time_weeks: 2
-  keywords:
-  - research cycles
-  - research ideas
-  research_fields:
-  - Science
-  subject_codes:
-  - code: Q
-    scheme: LCC
-    term: Science
-  publisher_name: Pensoft Publishers
-  publisher_country: BG
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Post-publication peer review
-  - Open peer review
-  review_url: http://rio.pensoft.net/about#ForReviewers
-  board_url: http://rio.pensoft.net/board
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 299
-    currency: EUR
-  apc_url: https://riojournal.com/about#PublicationCharges
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://riojournal.com/about#PromotionsandWaivers
-  preservation_has: true
-  preservation_services:
-  - Portico
-  preservation_url: http://rio.pensoft.net/about#RIO-Policies
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: http://rio.pensoft.net/about#RIO-Policies
-  copyright_author_retains: true
-  copyright_url: http://rio.pensoft.net/about
-  deposit_policy_has: true
-  deposit_policy_services:
-  - https://riojournal.com/about?journal_name=rio#ForAuthors
-  - Open Policy Finder
-  deposit_policy_url: null
-  article_license_display:
-  - Embed
-  article_license_example_url: https://riojournal.com/article/47042/list/8/
-  ref_journal: http://rio.pensoft.net
-  ref_aims_scope: http://rio.pensoft.net/about#Our-Mission
-  ref_oa_statement: http://rio.pensoft.net/about#RIO-Policies
-  ref_author_instructions: http://rio.pensoft.net/about#ForAuthors
-  ref_license_terms: http://rio.pensoft.net/about
-- id: 134
-  issn: 2052-4463
-  journal_title: Scientific Data
-  publisher: Springer Nature
-  url: https://www.nature.com/sdata/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2052-4463
-  pissn: null
-  language:
-  - EN
-  oa_start: 2014
-  boai: true
-  publication_time_weeks: 16
-  keywords:
-  - metadata
-  - scientific data
-  research_fields:
-  - Science
-  subject_codes:
-  - code: Q
-    scheme: LCC
-    term: Science
-  publisher_name: Nature Portfolio
-  publisher_country: GB
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://www.nature.com/sdata/policies/editorial-and-publishing-policies#publication-criteria
-  board_url: https://www.nature.com/sdata/about/editorial-board
-  license_types:
-  - CC BY
-  - CC BY-NC-ND
-  apc_has: true
-  apc_max:
-  - price: 2390
-    currency: EUR
-  - price: 2690
-    currency: USD
-  - price: 2150
-    currency: GBP
-  apc_url: https://www.nature.com/sdata/about/oa
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
-  preservation_has: true
-  preservation_services:
-  - PMC
-  - Portico
-  preservation_url: https://www.nature.com/openresearch/about-open-access/policies-journals/#Digital_preservation
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.nature.com/sdata/policies/editorial-and-publishing-policies#plagiarism
-  copyright_author_retains: false
-  copyright_url: https://www.nature.com/sdata/open-access
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/29449?from=single_hit
-  article_license_display:
-  - Embed
-  article_license_example_url: https://www.nature.com/articles/sdata201448
-  ref_journal: https://www.nature.com/sdata/
-  ref_aims_scope: https://www.nature.com/sdata/publish/for-authors#aims-scope
-  ref_oa_statement: https://www.nature.com/sdata/about/oa
-  ref_author_instructions: https://www.nature.com/sdata/publish/submission-guidelines
-  ref_license_terms: https://www.nature.com/sdata/open-access
-- id: 135
-  issn: 1747-597X
-  journal_title: Substance Abuse Treatment Prevention and Policy
-  publisher: BioMed Central (Springer Nature)
-  url: https://substanceabusepolicy.biomedcentral.com/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 1747-597X
+  eissn: 1809-127X
   pissn: null
   language:
   - EN
   oa_start: 2006
   boai: true
-  publication_time_weeks: 19
+  publication_time_weeks: 12
   keywords:
-  - substance abuse
+  - taxonomy
   research_fields:
-  - Public aspects of medicine
-  - Social pathology. Social and public welfare. Criminology
+  - Biology (General)
   subject_codes:
-  - code: RA1-1270
+  - code: QH301-705.5
     scheme: LCC
-    term: Public aspects of medicine
-  - code: HV1-9960
-    scheme: LCC
-    term: Social pathology. Social and public welfare. Criminology
-  publisher_name: BMC
-  publisher_country: GB
-  institution_name: Iowa Consortium for Substance Abuse Research and Evaluation
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://substanceabusepolicy.biomedcentral.com/about
-  board_url: https://substanceabusepolicy.biomedcentral.com/about/editorial-board
-  license_types:
-  - CC BY
-  - CC BY-NC-ND
-  apc_has: true
-  apc_max:
-  - price: 2790
-    currency: EUR
-  - price: 3190
-    currency: USD
-  - price: 2390
-    currency: GBP
-  apc_url: https://link.springer.com/journal/13011/how-to-publish-with-us#Fees%20and%20funding
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - LOCKSS
-  - PMC
-  - Portico
-  preservation_url: https://www.biomedcentral.com/getpublished/indexing-archiving-and-access-to-data/journal-archiving
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.biomedcentral.com/getpublished/editorial-policies
-  copyright_author_retains: false
-  copyright_url: https://substanceabusepolicy.biomedcentral.com/submission-guidelines/copyright
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/2670
-  article_license_display:
-  - Embed
-  article_license_example_url: https://substanceabusepolicy.biomedcentral.com/articles/10.1186/s13011-016-0082-1
-  ref_journal: https://substanceabusepolicy.biomedcentral.com/
-  ref_aims_scope: https://substanceabusepolicy.biomedcentral.com/about
-  ref_oa_statement: https://substanceabusepolicy.biomedcentral.com/about
-  ref_author_instructions: https://substanceabusepolicy.biomedcentral.com/submission-guidelines
-  ref_license_terms: https://substanceabusepolicy.biomedcentral.com/submission-guidelines/copyright
-- id: 136
-  issn: 1538-4365
-  journal_title: The Astrophysical Journal Supplement Series
-  publisher: IOP
-  url: https://journals.aas.org/astrophysical-supplement-series/
-  data_journal_type: pure
-  is_active: true
-  eissn: 1538-4365
-  pissn: 0067-0049
-  language:
-  - EN
-  oa_start: 2022
-  boai: true
-  publication_time_weeks: 26
-  keywords:
-  - astronomy
-  - astrophysics
-  research_fields:
-  - Astrophysics
-  subject_codes:
-  - code: QB460-466
-    scheme: LCC
-    term: Astrophysics
-  publisher_name: IOP Publishing
-  publisher_country: GB
-  institution_name: American Astronomical Society
-  institution_country: US
-  review_process:
-  - Peer review
-  - Anonymous peer review
-  - Double anonymous peer review
-  review_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#peer
-  board_url: https://journals.aas.org/editorial/
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 4681
-    currency: USD
-  apc_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#charges
-  other_charges: true
-  waiver_has: true
-  waiver_url: https://journals.aas.org/waivers/
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - Portico
-  preservation_url: https://publishingsupport.iopscience.iop.org/questions/digital-preservation-policy/
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://journals.aas.org/submission/
-  copyright_author_retains: true
-  copyright_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/6403
-  article_license_display:
-  - Embed
-  article_license_example_url: https://iopscience.iop.org/article/10.3847/1538-4365/ac3131
-  ref_journal: https://iopscience.iop.org/journal/0067-0049
-  ref_aims_scope: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#aim
-  ref_oa_statement: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
-  ref_author_instructions: https://journals.aas.org/author-resources/
-  ref_license_terms: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#OA
-- id: 137
-  issn: 1741-3176
-  journal_title: The International Journal of Robotics Research
-  publisher: SAGE Publishing
-  url: https://journals.sagepub.com/home/IJR
-  data_journal_type: mixed
-  is_active: true
-- id: 138
-  issn: 1365-313X
-  journal_title: The Plant Journal
-  publisher: Blackwell Publishing (Wiley)
-  url: https://onlinelibrary.wiley.com/journal/1365313x
-  data_journal_type: mixed
-  is_active: true
-- id: 139
-  issn: 2578-2703
-  journal_title: The Plant Phenome Journal
-  publisher: John Wiley & Sons (Wiley)
-  url: https://acsess.onlinelibrary.wiley.com/journal/25782703
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2578-2703
-  pissn: null
-  language:
-  - EN
-  oa_start: 2018
-  boai: true
-  publication_time_weeks: 31
-  keywords:
-  - plant breeding
-  - plant genetics
-  - plant phenome
-  - phenotype linkage
-  research_fields:
-  - Plant culture
-  subject_codes:
-  - code: SB1-1110
-    scheme: LCC
-    term: Plant culture
-  publisher_name: Wiley
-  publisher_country: US
-  institution_name: American Society of Agronomy; Crop Science Society of America
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
-  board_url: https://acsess.onlinelibrary.wiley.com/journal/25782703/editorial-board/editorial-board
-  license_types:
-  - CC BY
-  - CC BY-NC-ND
-  apc_has: true
-  apc_max:
-  - price: 3470
-    currency: USD
-  - price: 2700
-    currency: GBP
-  - price: 3030
-    currency: EUR
-  apc_url: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://authorservices.wiley.com/open-research/open-access/for-authors/waivers-and-discounts.html
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - Portico
-  preservation_url: https://onlinelibrary.wiley.com/library-info/resources/preservation
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
-  copyright_author_retains: false
-  copyright_url: https://authors.wiley.com/author-resources/Journal-Authors/licensing/licensing-info-faqs.html
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/45244
-  article_license_display:
-  - Embed
-  article_license_example_url: https://acsess.onlinelibrary.wiley.com/doi/full/10.1002/ppj2.20008
-  ref_journal: https://acsess.onlinelibrary.wiley.com/journal/25782703
-  ref_aims_scope: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/productinformation
-  ref_oa_statement: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
-  ref_author_instructions: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
-  ref_license_terms: https://acsess.onlinelibrary.wiley.com/hub/journal/25782703/openaccess
-- id: 140
-  issn: 2603-431X
-  journal_title: Viticulture Data Journal
-  publisher: Pensoft Publishers
-  url: https://vdj.pensoft.net/
-  data_journal_type: pure
-  is_active: true
-- id: 141
-  issn: 2398-502X
-  journal_title: Wellcome Open Research
-  publisher: F1000Research
-  url: https://wellcomeopenresearch.org/
-  data_journal_type: mixed
-  is_active: true
-  eissn: 2398-502X
-  pissn: null
-  language:
-  - EN
-  oa_start: 2016
-  boai: true
-  publication_time_weeks: 1
-  keywords:
-  - translational research
-  - clinical research
-  - clinical trials
-  research_fields:
-  - Medicine
-  - Science
-  subject_codes:
-  - code: R
-    scheme: LCC
-    term: Medicine
-  - code: Q
-    scheme: LCC
-    term: Science
-  publisher_name: Wellcome
-  publisher_country: GB
+    term: Biology (General)
+  publisher_name: Pensoft Publishers
+  publisher_country: BG
   institution_name: null
   institution_country: null
   review_process:
-  - Post-publication peer review
-  - Open peer review
-  review_url: https://wellcomeopenresearch.org/about/policies#post-pub-peer-review
-  board_url: https://wellcomeopenresearch.org/advisors
+  - Peer review
+  review_url: https://checklist.pensoft.net/about#PeerReviewProcess
+  board_url: https://checklist.pensoft.net/board/
   license_types:
   - CC BY
   apc_has: true
   apc_max:
-  - price: 1014
-    currency: GBP
-  apc_url: https://wellcomeopenresearch.org/for-authors/article-processing-charges
+  - price: 250
+    currency: EUR
+  apc_url: https://checklist.pensoft.net/about#ArticleProcessingCharges
   other_charges: false
-  waiver_has: false
-  waiver_url: null
+  waiver_has: true
+  waiver_url: https://checklist.pensoft.net/about#DiscountsandWaivers
   preservation_has: true
   preservation_services:
-  - PMC
-  - Portico
-  preservation_url: https://wellcomeopenresearch.org/about/policies#permcontent
+  - CLOCKSS
+  preservation_url: https://portal.issn.org/resource/ISSN/1809-127X#
   pid_schemes:
   - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://wellcomeopenresearch.org/about/policies#originality
+  plagiarism_detection: false
+  plagiarism_url: ''
   copyright_author_retains: true
-  copyright_url: https://wellcomeopenresearch.org/about/policies#licenses
+  copyright_url: https://checklist.pensoft.net/about#CopyrightNotice
   deposit_policy_has: true
   deposit_policy_services:
   - Open Policy Finder
-  deposit_policy_url: null
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/33141
   article_license_display:
   - Embed
-  article_license_example_url: https://wellcomeopenresearch.org/articles/1-1
-  ref_journal: https://wellcomeopenresearch.org/
-  ref_aims_scope: https://wellcomeopenresearch.org/about
-  ref_oa_statement: https://wellcomeopenresearch.org/about
-  ref_author_instructions: https://wellcomeopenresearch.org/for-authors/publish-your-research
-  ref_license_terms: https://wellcomeopenresearch.org/about/policies#licenses
+  article_license_example_url: https://checklist.pensoft.net/articles
+  ref_journal: https://checklist.pensoft.net/
+  ref_aims_scope: https://checklist.pensoft.net/about
+  ref_oa_statement: https://checklist.pensoft.net/about#OpenAccessPolicy
+  ref_author_instructions: https://checklist.pensoft.net/about#AuthorsGuidelines
+  ref_license_terms: https://checklist.pensoft.net/about#CopyrightNotice
