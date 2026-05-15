@@ -22,6 +22,10 @@
       <p>{{ with index $d "institution_name" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Associated Institution:</strong> {{ .Params.institution_name }}</p>
       {{ end }}
 
+      {{ if .Params.language }}
+      <p>{{ with index $d "language" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Language:</strong> {{ index .Params.language 0 }}</p>
+      {{ end }}
+
       {{ if .Params.data_journal_type }}
       <p>{{ with index $d "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Data Journal Type:</strong> {{ index .Params.data_journal_type 0 }}</p>
       {{ end }}
