@@ -4,19 +4,19 @@ from pathlib import Path
 
 from data_processing import (
     get_journal_data_from_github,
-    get_journal_data_from_csv,
-    save_csv_to_disk,
+    write_csv_to_disk,
     process_all_journals,
     process_single_journal,
     METADATA_SCHEMA_PATH,
     RAW_JOURNAL_METADATA_PATH,
     PROCESSED_JOURNAL_METADATA_PATH,
 )
+from utils import ensure_dir, yaml_to_csv, csv_to_yaml
 
 
 class OrderedGroup(click.Group):
     def list_commands(self, ctx: click.Context) -> list[str]:
-        return list(["collect", "process", "hugo"])
+        return list(["collect", "process", "hugo", "export"])
 
 
 @click.group(cls=OrderedGroup, no_args_is_help=True)
@@ -34,7 +34,7 @@ def cli():
     default=False,
     help="Fetch data journal metadata CSV from https://github.com/MaxiKi/data-journals.",
 )
-def collect(github: bool, csv_fpath: Path | None):
+def collect(github: bool):
     """
     Fetch or parse raw journal metadata from GitHub or a local
     CSV containing data journal metadata.
@@ -44,7 +44,7 @@ def collect(github: bool, csv_fpath: Path | None):
     else:
         raise click.UsageError("Provide --github")
     if rows:
-        save_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
+        write_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
 
 
 @cli.group("process", no_args_is_help=True)
@@ -183,6 +183,68 @@ def hugo_init(output_dir: Path):
     generate_hugo_site_config(output_dir, version=timestamp)
     generate_hugo_archetype(output_dir)
     click.secho("Hugo site structure initialized.", fg="green")
+
+
+@cli.group("export", no_args_is_help=True)
+def export():
+    """
+    Export data journal metadata to different file types.
+    """
+    pass
+
+
+@export.command("csv", no_args_is_help=True)
+@click.option(
+    "--input_fpath", "-i",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Path to journal metadata YAML file.",
+)
+@click.option(
+    "--output_dir", "-o",
+    type=click.Path(path_type=Path),
+    default=Path("./exports"),
+    show_default=True,
+    help="Folder where exported files are saved.",
+)
+def export_csv(input_fpath: Path, output_dir: Path):
+    """
+    Export YAML metadata to a core-schema CSV.
+    """
+    if not Path(input_fpath).exists():
+        click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
+        return
+
+    ensure_dir(output_dir)
+    output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".csv")
+    yaml_to_csv(input_fpath, output_fpath)
+
+
+@export.command("yaml", no_args_is_help=True)
+@click.option(
+    "--input_fpath", "-i",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Path to core-schema CSV file.",
+)
+@click.option(
+    "--output_dir", "-o",
+    type=click.Path(path_type=Path),
+    default=Path("./exports"),
+    show_default=True,
+    help="Folder where the exported YAML file is saved.",
+)
+def export_yaml(input_fpath: Path, output_dir: Path):
+    """
+    Convert a core-schema CSV back to a YAML journal collection.
+    """
+    if not Path(input_fpath).exists():
+        click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
+        return
+
+    ensure_dir(output_dir)
+    output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".yaml")
+    csv_to_yaml(input_fpath, output_fpath)
 
 
 if __name__ == "__main__":

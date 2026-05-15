@@ -6,28 +6,20 @@ import requests
 import yaml
 from pathlib import Path
 
-
-CRAWL_URL = "https://raw.githubusercontent.com/MaxiKi/data-journals/refs/heads/main/data_journals_characteristics.csv"
-METADATA_SCHEMA_PATH = Path("journal_metadata_schema/schema.yaml")
-RAW_JOURNAL_METADATA_PATH = Path("data/raw/data_journals.csv")
-PROCESSED_JOURNAL_METADATA_PATH = Path("data/processed/data_journals.yaml")
-
-
-def ensure_dir(dir_path: Path | str):
-    Path(dir_path).mkdir(parents=True, exist_ok=True)
-
-
-def load_schema(schema_path: Path) -> list[dict]:
-    """
-    Load the journal metadata schema and return the list of field definitions.
-    """
-    try:
-        with open(schema_path, "r", encoding="utf-8") as file:
-            schema = yaml.safe_load(file)
-        return schema.get("fields", [])
-    except Exception as e:
-        click.secho(f"Error loading schema from {schema_path}: {e}", fg="red")
-        return []
+from utils import (
+    load_schema,
+    load_schema_core,
+    get_journal_data_from_csv,
+    parse_csv_rows_with_schema,
+    write_csv_to_disk,
+    write_yaml_to_disk
+)
+from config import (
+    GITHUB_JOURNAL_DATA_URL,
+    METADATA_SCHEMA_PATH,
+    RAW_JOURNAL_METADATA_PATH,
+    PROCESSED_JOURNAL_METADATA_PATH
+)
 
 
 def get_journal_data_from_github() -> list[list[str]] | None:
@@ -36,95 +28,12 @@ def get_journal_data_from_github() -> list[list[str]] | None:
     """
     try:
         click.secho("Fetching data journal data from GitHub...", fg="blue")
-        response = requests.get(CRAWL_URL)
+        response = requests.get(GITHUB_JOURNAL_DATA_URL)
         response.raise_for_status()
         return list(csv.reader(io.StringIO(response.text.strip())))
     except Exception as e:
         click.secho(f"Error during data crawl: {e}", fg="red")
         return None
-
-
-def get_journal_data_from_csv(fpath: Path) -> list[list[str]] | None:
-    """
-    Read a local CSV file and return parsed rows (header first).
-    """
-    try:
-        with open(fpath, newline="", encoding="utf-8") as f:
-            return list(csv.reader(f))
-    except Exception as e:
-        click.secho(f"Error reading CSV {fpath}: {e}", fg="red")
-        return None
-
-
-def save_csv_to_disk(rows: list[list[str]], fpath: Path):
-    """
-    Write raw CSV rows to disk.
-    """
-    ensure_dir(fpath.parent)
-    with open(fpath, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        writer.writerows(rows)
-    click.secho(f"Saved raw CSV → {fpath}", fg="green")
-
-
-def _coerce_value(val: str, field_type: str):
-    """
-    Cast a CSV string value to the type declared in the schema.
-    """
-    if field_type == "boolean":
-        if val.lower() == "true":
-            return True
-        if val.lower() == "false":
-            return False
-        return None
-    if field_type == "integer":
-        try:
-            return int(val)
-        except (ValueError, TypeError):
-            return None
-    return val
-
-
-def parse_csv_rows_with_schema(
-    rows: list[list[str]],
-    schema_fields: list[dict]
-) -> list[dict]:
-    """
-    Convert CSV rows to list of dicts, only including fields defined in
-    schema with source "csv" or "generated".
-    """
-    if not rows:
-        return []
-
-    # Get CSV fields from schema
-    header = [col.strip() for col in rows[0]]
-    csv_fields = [f for f in schema_fields if f["source"] == "csv"]
-    csv_col_to_field = {f["csv_column"].strip(): f for f in csv_fields}
-
-    # Get generated fields from schema (id)
-    generated_fields = [f for f in schema_fields if f["source"] == "generated"]
-
-    journals = []
-    for idx, row in enumerate(rows[1:], start=1):
-        # Add generated fields first (id)
-        record = {}
-        for gf in generated_fields:
-            if gf["key"] == "id":
-                record["id"] = idx
-            else:
-                record[gf["key"]] = gf.get("default")
-
-        # Map CSV columns
-        for col, val in zip(header, row):
-            col_clean = col.strip()
-            if col_clean in csv_col_to_field:
-                field = csv_col_to_field[col_clean]
-                record[field["key"]] = _coerce_value(
-                    val.strip(), field.get("type", "string")
-                )
-        journals.append(record)
-
-    return journals
 
 
 def extract_doaj_value(bibjson: dict, doaj_path: str, default):
@@ -234,31 +143,6 @@ def enrich_journals_with_doaj(
     return enriched
 
 
-def write_yaml_to_disk(journals: list[dict], fpath: Path, verbose: bool = True):
-    """
-    Write enriched journal records to a YAML file.
-    """
-    class _IgnoreAliases(yaml.Dumper):
-        """
-        Class overwrite for pyyaml to prevent the inclusion of object aliases
-        ("&id001 []") during write execution for identical objects.
-        """
-        def ignore_aliases(self, _data):
-            return True
-
-    ensure_dir(fpath.parent)
-    with open(fpath, "w", encoding="utf-8") as file:
-        yaml.dump(
-            {"journals": journals},
-            file,
-            Dumper=_IgnoreAliases,
-            allow_unicode=True,
-            sort_keys=False
-        )
-    if verbose:
-        click.secho(f"Saved enriched YAML → {fpath}", fg="green")
-
-
 def load_existing_journals() -> list[dict]:
     """
     Load existing journals from the processed YAML file.
@@ -281,11 +165,7 @@ def is_duplicate_journal(
     metadata schema fields (except for the generated id). Returns True if
     duplicate, False otherwise.
     """
-    schema = load_schema(METADATA_SCHEMA_PATH)
-    schema_core = [
-        f["key"] for f in schema
-        if f["schema_level"] == "core" and f.get("source") != "generated"
-    ]
+    schema_core = load_schema_core()
 
     # Get only core metadata fields for current journal
     journal_core = {
@@ -304,18 +184,30 @@ def is_duplicate_journal(
     return False, ""
 
 
-def replace_existing_journal(
-    existing_journals: list[dict],
-    existing_id: str | int
-) -> list[dict]:
+def merge_journal_update(
+    existing_journal: dict,
+    new_journal: dict,
+    schema_fields: list[dict]
+) -> dict:
     """
-    Remove the journal with existing_id, re-index remaining entries, and
-    return the updated list.
+    Merge new journal data into existing journal, preserving non-core metadata.
+    Only updates fields defined in schema with source 'csv' or 'doaj'.
     """
-    existing_journals = [e for e in existing_journals if e["id"] != existing_id]
-    for idx, e in enumerate(existing_journals, start=1):
-        e["id"] = idx
-    return existing_journals
+    # Get all fields that should be updated from CSV/DOAJ
+    updatable_sources = {"csv", "doaj"}
+    updatable_keys = {
+        f["key"] for f in schema_fields
+        if f.get("source") in updatable_sources
+    }
+
+    # Preserve existing journal, but update with new core/doaj fields
+    merged = dict(existing_journal)
+
+    for key, value in new_journal.items():
+        if key in updatable_keys and value is not None:
+            merged[key] = value
+
+    return merged
 
 
 def process_single_journal(
@@ -332,7 +224,7 @@ def process_single_journal(
         click.secho("Failed to load schema. Aborting.", fg="red")
         return False
 
-    core_metadata = [f for f in schema_fields if f["source"] == "csv"]
+    schema_core = [f for f in schema_fields if f["source"] == "csv"]
 
     # Step 1: Parse input → dict with schema keys
     journal = None
@@ -371,7 +263,7 @@ def process_single_journal(
 
     # Step 2: Validate required fields
     missing = [
-        f["key"] for f in core_metadata
+        f["key"] for f in schema_core
         if f.get("required") and not journal.get(f["key"])
     ]
     if missing:
@@ -389,9 +281,18 @@ def process_single_journal(
         )
         return False
 
-    # Remove existing journal (same ISSN) with different core fields
+    # Merge existing journal (same ISSN) with different core fields
     if existing_id:
-        existing_journals = replace_existing_journal(existing_journals, existing_id)
+        for i, existing_journal in enumerate(existing_journals):
+            if existing_journal["id"] == existing_id:
+                journal = merge_journal_update(
+                    existing_journal, journal, schema_fields
+                )
+                # Enrich the merged journal
+                journal = enrich_journals_with_doaj([journal], schema_fields)[0]
+                existing_journals[i] = journal
+                write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
+                return True
 
     # Assign next available ID
     journal["id"] = max((j.get("id", 0) for j in existing_journals), default=0) + 1
@@ -431,7 +332,7 @@ def process_all_journals(
     rows = None
     if not input_fpath.exists():
         rows = get_journal_data_from_github()
-        save_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
+        write_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
     else:
         rows = get_journal_data_from_csv(input_fpath)
 
@@ -447,6 +348,7 @@ def process_all_journals(
     # Step 3: Filter out duplicates
     existing_journals = load_existing_journals()
     new_journals = []
+    merged_ids = set()
     for journal in journals:
         is_duplicate, existing_id = is_duplicate_journal(
             journal, existing_journals
@@ -457,22 +359,40 @@ def process_all_journals(
                 "in collection. Skipping.",
                 fg="yellow"
             )
+        elif existing_id:
+            # Merge existing journal (same ISSN) with new core fields
+            for existing_journal in existing_journals:
+                if existing_journal["id"] == existing_id:
+                    merged = merge_journal_update(
+                        existing_journal, journal, schema_fields
+                    )
+                    new_journals.append(merged)
+                    merged_ids.add(existing_id)
+                    break
         else:
-            # Remove existing journal (same ISSN) with different core fields
-            if existing_id:
-                existing_journals = replace_existing_journal(
-                    existing_journals, existing_id
-                )
-            # Append the new journal
+            # New journal - keep as-is for enrichment
             new_journals.append(journal)
     journals = new_journals
 
-    # Assign sequential IDs to new journals
+    # Remove merged journals from existing_journals to avoid duplicates
+    existing_journals = [
+        j for j in existing_journals if j["id"] not in merged_ids
+    ]
+
+    # Assign sequential IDs to new journals (merged journals keep their existing ID)
     max_existing_id = max(
         (j.get("id", 0) for j in existing_journals), default=0
     )
-    for idx, journal in enumerate(journals, start=1):
-        journal["id"] = max_existing_id + idx
+    next_new_id = max_existing_id + 1
+    for journal in journals:
+        # Only assign ID if this journal doesn't already have one (new journal)
+        if journal["id"] is None or journal["id"] == 0:
+            journal["id"] = next_new_id
+            next_new_id += 1
+        else:
+            # Update max_existing_id to account for merged journal's ID
+            max_existing_id = max(max_existing_id, journal["id"])
+            next_new_id = max_existing_id + 1
 
     # Step 4: enrich with DOAJ metadata
     enriched_journals = enrich_journals_with_doaj(journals, schema_fields)
