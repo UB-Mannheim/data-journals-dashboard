@@ -7553,6 +7553,32 @@ journals:
   url: https://www.journals.elsevier.com/international-economics
   data_journal_type: mixed
   is_active: true
+  publication_time_weeks: 43
+  keywords:
+  - international trade
+  - commercial policy
+  - open economy macroeconomics
+  - international finance
+  - exchange rates
+  - financial and monetary policies
+  - economic development
+  - migration and factor movements
+  research_fields:
+  - Economics
+  - Econometrics and Finance (General)
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 3390 (excluding taxes)
+    currency: USD
+  apc_url: https://www.sciencedirect.com/journal/international-economics/publish/open-access-options
+  ref_journal: https://www.journals.elsevier.com/international-economics
+  ref_aims_scope: https://www.sciencedirect.com/journal/international-economics/about/aims-and-scope
+  ref_oa_statement: https://www.sciencedirect.com/journal/international-economics/publish/open-access-options
+  ref_author_instructions: https://www.sciencedirect.com/journal/international-economics/publish/guide-for-authors
 - id: 126
   issn: 1464-3685
   journal_title: International Journal of Epidemiology
