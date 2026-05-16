@@ -19,7 +19,7 @@
       {{ end }}
       
       {{ if .Params.institution_name }}
-      <p>{{ with index $d "institution_name" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Associated Institution:</strong> {{ .Params.institution_name }}</p>
+      <p>{{ with index $d "institution_name" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Associated Institution:</strong> {{ .Params.institution_name }} {{ if .Params.institution_country }}({{ .Params.institution_country }}){{ end }}</p>
       {{ end }}
 
       {{ if .Params.language }}
