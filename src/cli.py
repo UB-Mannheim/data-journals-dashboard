@@ -207,7 +207,17 @@ def export():
     show_default=True,
     help="Folder where exported files are saved.",
 )
-def export_csv(input_fpath: Path, output_dir: Path):
+@click.option(
+    "--scope", "-s",
+    type=click.Choice(["base", "core", "full"]),
+    default="base",
+    show_default=True,
+    help=(
+        "base: core metadata without 'is_active' field; "
+        "core: core metadata; full: complete metadata"
+    ),
+)
+def export_csv(input_fpath: Path, output_dir: Path, scope: str):
     """
     Export YAML metadata to a core-schema CSV.
     """
@@ -217,7 +227,7 @@ def export_csv(input_fpath: Path, output_dir: Path):
 
     ensure_dir(output_dir)
     output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".csv")
-    yaml_to_csv(input_fpath, output_fpath)
+    yaml_to_csv(input_fpath, output_fpath, scope)
 
 
 @export.command("yaml", no_args_is_help=True)

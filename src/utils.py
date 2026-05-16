@@ -26,16 +26,23 @@ def load_schema(
 
 
 def load_schema_core(
-    schema_path: Path | str = METADATA_SCHEMA_PATH
+    schema_path: Path | str = METADATA_SCHEMA_PATH,
+    djd_fields: bool = False
 ):
     """
-    Load schema[schema_level] = "core"
+    Load schema[schema_level] = "core" with or without "djd" fields.
     """
     schema = load_schema(schema_path=schema_path)
-    return [
-        f["key"] for f in schema
-        if f["schema_level"] == "core" and f.get("source") != "generated"
-    ]
+
+    if djd_fields:
+        schema_core = [f["key"] for f in schema if f["schema_level"] == "core"]
+    else:
+        schema_core = [
+            f["key"] for f in schema
+            if f["schema_level"] == "core" and f.get("source") != "djd"
+        ]
+
+    return schema_core
 
 
 def get_journal_data_from_csv(fpath: Path) -> list[list[str]] | None:
@@ -56,7 +63,7 @@ def parse_csv_rows_with_schema(
 ) -> list[dict]:
     """
     Convert CSV rows to list of dicts, only including fields defined in
-    schema with source "csv" or "generated".
+    schema with source "csv" or "djd".
     """
     if not rows:
         return []
@@ -66,14 +73,14 @@ def parse_csv_rows_with_schema(
     csv_fields = [f for f in schema_fields if f["source"] == "csv"]
     csv_col_to_field = {f["csv_column"].strip(): f for f in csv_fields}
 
-    # Get generated fields from schema (id)
-    generated_fields = [f for f in schema_fields if f["source"] == "generated"]
+    # Get djd fields from schema (id)
+    djd_fields = [f for f in schema_fields if f["source"] == "djd"]
 
     journals = []
     for idx, row in enumerate(rows[1:], start=1):
-        # Add generated fields first (id)
+        # Add djd fields first (id)
         record = {}
-        for gf in generated_fields:
+        for gf in djd_fields:
             if gf["key"] == "id":
                 record["id"] = idx
             else:
@@ -197,7 +204,9 @@ def csv_to_yaml(
 def yaml_to_csv(
     yaml_fpath: list[dict] = None,
     output_fpath: Path | str = None,
+    scope: str = None,
     schema_path: Path | str = METADATA_SCHEMA_PATH,
+    sort: bool = True,
     verbose: bool = True,
 ) -> dict:
     """
@@ -205,7 +214,22 @@ def yaml_to_csv(
     Optionally, save it to disk.
     """
     schema = load_schema(schema_path=schema_path)
-    csv_fields = [f for f in schema if f.get("source") == "csv"]
+
+    # Get appropriate csv_fields based on scope level
+    if scope == "base":
+        csv_fields = [f for f in schema if f.get("source") == "csv"]
+        csv_quote_level = csv.QUOTE_MINIMAL
+
+    elif scope == "core":
+        csv_fields = [f for f in schema if f.get("schema_level") == "core"]
+        csv_quote_level = csv.QUOTE_MINIMAL
+
+    elif scope == "full":
+        csv_fields = [
+            f for f in schema
+            if f.get("schema_level") in ["internal", "core", "full"]
+        ]
+        csv_quote_level = csv.QUOTE_ALL
 
     # Load yaml data
     with open(yaml_fpath, "r", encoding="utf-8") as f:
@@ -220,15 +244,23 @@ def yaml_to_csv(
             )
         return {}
 
-    rows = [[f["csv_column"] for f in csv_fields]]
+    csv_header = [
+        f.get("csv_column") or f.get("doaj_path") for f in csv_fields
+    ]
+    rows = [csv_header]
     for journal in journal_data["journals"]:
         row = [str(journal.get(f["key"], "")) for f in csv_fields]
         rows.append(row)
 
+    if sort:
+        # Sort rows based on journal_title
+        rows = sorted(rows[1:], key=lambda x: x[1])
+        rows.insert(0, csv_header)
+
     # Optionally: write csv to disk
     if output_fpath:
         write_csv_to_disk(
-            rows, Path(output_fpath), verbose, quoting=csv.QUOTE_MINIMAL
+            rows, Path(output_fpath), verbose, quoting=csv_quote_level
         )
 
     return rows
