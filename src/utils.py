@@ -172,6 +172,7 @@ def write_yaml_to_disk(
 def csv_to_yaml(
     csv_fpath: Path | str = None,
     output_fpath: Path | str = None,
+    scope: str = "core",
     schema_path: Path | str = METADATA_SCHEMA_PATH,
     verbose: bool = True,
 ) -> list[dict]:
@@ -180,6 +181,22 @@ def csv_to_yaml(
     collection. Optionally, save it to disk.
     """
     schema = load_schema(schema_path=schema_path)
+
+    if scope == "base":
+        allowed_keys = {
+            f["key"] for f in schema if f.get("source") == "csv"
+        }
+    elif scope == "core":
+        allowed_keys = {
+            f["key"] for f in schema if f.get("schema_level") == "core"
+        }
+    elif scope == "full":
+        allowed_keys = {
+            f["key"] for f in schema
+            if f.get("schema_level") in ["internal", "core", "full"]
+        }
+    else:
+        allowed_keys = None
 
     rows = get_journal_data_from_csv(csv_fpath)
     if not rows:
@@ -193,6 +210,15 @@ def csv_to_yaml(
 
     journals = parse_csv_rows_with_schema(rows, schema)
 
+    # Sort keys
+    allowed_keys = sorted(allowed_keys, key=lambda k: (k != "issn", k))
+
+    if allowed_keys is not None:
+        journals = [
+            {k: v for k, v in j.items() if k in allowed_keys}
+            for j in journals
+        ]
+
     if output_fpath:
         write_yaml_to_disk(
             journals, Path(output_fpath), sort_by_id=False, verbose=verbose
@@ -204,7 +230,7 @@ def csv_to_yaml(
 def yaml_to_csv(
     yaml_fpath: list[dict] = None,
     output_fpath: Path | str = None,
-    scope: str = None,
+    scope: str = "core",
     schema_path: Path | str = METADATA_SCHEMA_PATH,
     sort: bool = True,
     verbose: bool = True,
@@ -215,15 +241,12 @@ def yaml_to_csv(
     """
     schema = load_schema(schema_path=schema_path)
 
-    # Get appropriate csv_fields based on scope level
     if scope == "base":
         csv_fields = [f for f in schema if f.get("source") == "csv"]
         csv_quote_level = csv.QUOTE_MINIMAL
-
     elif scope == "core":
         csv_fields = [f for f in schema if f.get("schema_level") == "core"]
         csv_quote_level = csv.QUOTE_MINIMAL
-
     elif scope == "full":
         csv_fields = [
             f for f in schema

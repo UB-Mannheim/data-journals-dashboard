@@ -244,7 +244,18 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str):
     show_default=True,
     help="Folder where the exported YAML file is saved.",
 )
-def export_yaml(input_fpath: Path, output_dir: Path):
+@click.option(
+    "--scope", "-s",
+    type=click.Choice(["base", "core", "full"]),
+    default="core",
+    show_default=True,
+    help=(
+        "base: raw CSV fields only; "
+        "core: core metadata (includes generated id); "
+        "full: complete metadata"
+    ),
+)
+def export_yaml(input_fpath: Path, output_dir: Path, scope: str):
     """
     Convert a core-schema CSV back to a YAML journal collection.
     """
@@ -254,7 +265,7 @@ def export_yaml(input_fpath: Path, output_dir: Path):
 
     ensure_dir(output_dir)
     output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".yaml")
-    csv_to_yaml(input_fpath, output_fpath)
+    csv_to_yaml(input_fpath, output_fpath, scope)
 
 
 if __name__ == "__main__":
