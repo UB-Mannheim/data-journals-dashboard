@@ -1,0 +1,73 @@
+journal:
+  - issn: string
+    journal_title: string
+    publisher: string
+    url: string
+    data_journal_type: [ pure, mixed ]
+    is_active: [ true, false ]
+    eissn: null
+    pissn: null
+    language:
+    - EN
+    - FR
+    oa_start: integer
+    boai: [ true, false ]
+    publication_time_weeks: integer
+    keywords:
+    - string 1
+    - string 2
+    research_fields:
+    - Geology
+    subject_codes:
+    - code: QE1-996.5
+      scheme: LCC
+      term: Geology
+    publisher_name: string
+    publisher_country: GB
+    institution_name: string
+    institution_country: FR
+    review_process:
+    - Single-anonymous peer review
+    - Anonymous peer review
+    - Double blind peer review
+    - Open peer review
+    review_url: string
+    board_url: string
+    license_types:
+    - CC BY
+    - Restricted Access
+    - Publisher's Own License
+    apc_has: [ true, false ]
+    apc_max:
+    - price: 1200
+      currency: EUR
+    - price: 1200
+      currency: USD
+    - price: 1200
+      currency: GBP
+    apc_url: string
+    other_charges: [ true, false ]
+    waiver_has: [ true, false ]
+    waiver_url: string
+    preservation_has: [ true, false ]
+    preservation_services:
+    - CLOCKSS
+    preservation_url: string
+    pid_schemes:
+    - DOI
+    plagiarism_detection: [ true, false ]
+    plagiarism_url: string
+    copyright_author_retains: [ true, false ]
+    copyright_url: string
+    deposit_policy_has: [ true, false ]
+    deposit_policy_services:
+    - Open Policy Finder
+    deposit_policy_url: [ true, false ]
+    article_license_display:
+    - Embed
+    article_license_example_url: string
+    ref_journal: string
+    ref_aims_scope: string
+    ref_oa_statement: string
+    ref_author_instructions: string
+    ref_license_terms: string
