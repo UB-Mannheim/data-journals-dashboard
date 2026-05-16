@@ -206,7 +206,7 @@ journals:
   pid_schemes:
   - DOI
   plagiarism_detection: false
-  plagiarism_url: ''
+  plagiarism_url: null
   copyright_author_retains: true
   copyright_url: https://mbmg.pensoft.net/about#LicenseandCopyrightAgreement
   deposit_policy_has: true
@@ -477,7 +477,7 @@ journals:
   pid_schemes:
   - DOI
   plagiarism_detection: false
-  plagiarism_url: ''
+  plagiarism_url: null
   copyright_author_retains: true
   copyright_url: http://mycokeys.pensoft.net/about#Copyright-Notice
   deposit_policy_has: true
@@ -626,7 +626,7 @@ journals:
 - id: 10
   issn: 1559-0089
   journal_title: Neuroinformatics
-  publisher: Springer (Springer Nature)
+  publisher: Springer Nature
   url: https://www.springer.com/journal/12021/
   data_journal_type: mixed
   is_active: true
@@ -786,7 +786,7 @@ journals:
 - id: 15
   issn: 2363-7501
   journal_title: Open Geospatial Data Software and Standards
-  publisher: Springer Open (Springer Nature)
+  publisher: Springer Nature
   url: https://opengeospatialdata.springeropen.com/
   data_journal_type: mixed
   is_active: false
@@ -931,7 +931,7 @@ journals:
   pid_schemes:
   - DOI
   plagiarism_detection: false
-  plagiarism_url: ''
+  plagiarism_url: null
   copyright_author_retains: true
   copyright_url: http://jhr.pensoft.net/about#Copyright-Notice
   deposit_policy_has: true
@@ -2354,7 +2354,7 @@ journals:
   pid_schemes:
   - DOI
   plagiarism_detection: false
-  plagiarism_url: ''
+  plagiarism_url: null
   copyright_author_retains: true
   copyright_url: http://bdj.pensoft.net/about#Licenses-and-Copyright
   deposit_policy_has: true
@@ -6343,6 +6343,49 @@ journals:
   url: https://www.sciencedirect.com/journal/chemical-data-collections
   data_journal_type: pure
   is_active: true
+  eissn: 2405-8300
+  language:
+  - EN
+  publication_time_weeks: 19
+  keywords:
+  - spectral data
+  - syntheses
+  - crystallographic data
+  - molecular dynamics and models
+  - physicochemical data
+  research_fields:
+  - Physical and theoretical chemistry
+  - Analytical chemistry
+  subject_codes:
+  - code: QD71-142
+    scheme: LCC
+    term: Analytical chemistry
+  - code: QD450-801
+    scheme: LCC
+    term: Physical and theoretical chemistry
+  publisher_name: Elsevier
+  publisher_country: GB
+  review_process:
+  - Anonymous peer review
+  review_url: https://www.sciencedirect.com/journal/chemical-data-collections/publish/guide-for-authors#about-the-journal-peer-review
+  board_url: https://www.sciencedirect.com/journal/chemical-data-collections/about/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 1660
+    currency: USD
+  apc_url: https://www.sciencedirect.com/journal/chemical-data-collections/publish/open-access-options#article-publishing-charge-apc
+  pid_schemes:
+  - DOI
+  ref_journal: https://www.sciencedirect.com/journal/chemical-data-collections
+  ref_aims_scope: https://www.sciencedirect.com/journal/chemical-data-collections/about/aims-and-scope
+  ref_oa_statement: https://www.sciencedirect.com/journal/chemical-data-collections/publish/open-access-options
+  ref_author_instructions: https://www.sciencedirect.com/journal/chemical-data-collections/publish/guide-for-authors
+  ref_license_terms: https://www.sciencedirect.com/journal/chemical-data-collections/publish/guide-for-authors#after-receiving-a-final-decision-license-options
 - id: 105
   issn: 2045-709X
   journal_title: Chiropractic & Manual Therapies
@@ -6768,6 +6811,47 @@ journals:
   url: https://esj-journals.onlinelibrary.wiley.com/journal/14401703
   data_journal_type: mixed
   is_active: true
+  language:
+  - EN
+  boai: true
+  publication_time_weeks: 33
+  keywords:
+  - biological diversity
+  - ecosystems
+  - biodiversity
+  research_fields:
+  - Ecology
+  subject_codes:
+  - code: QH540-549.5
+    scheme: LCC
+    term: Ecology
+  publisher_name: Blackwell Publishing (Wiley)
+  publisher_country: JP
+  institution_name: The Ecological Society of Japan
+  institution_country: JP
+  review_process:
+  - Single-anonymized peer review
+  review_url: https://esj-journals.onlinelibrary.wiley.com/hub/journal/14401703/homepage/forauthors#policies
+  board_url: https://esj-journals.onlinelibrary.wiley.com/hub/journal/14401703/homepage/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 2630
+    currency: EUR
+  - price: 3150
+    currency: USD
+  - price: 2100
+    currency: GBP
+  apc_url: https://esj-journals.onlinelibrary.wiley.com/hub/journal/14401703/homepage/open-access
+  ref_journal: https://esj-journals.onlinelibrary.wiley.com/journal/14401703
+  ref_aims_scope: https://esj-journals.onlinelibrary.wiley.com/hub/journal/14401703/homepage/overview
+  ref_oa_statement: https://esj-journals.onlinelibrary.wiley.com/hub/journal/14401703/homepage/open-access
+  ref_author_instructions: https://esj-journals.onlinelibrary.wiley.com/hub/journal/14401703/homepage/forauthors
+  ref_license_terms: https://esj-journals.onlinelibrary.wiley.com/hub/journal/14401703/homepage/forauthors#licensing
 - id: 112
   issn: 1939-9170
   journal_title: Ecology
@@ -6775,6 +6859,55 @@ journals:
   url: https://esajournals.onlinelibrary.wiley.com/journal/19399170
   data_journal_type: mixed
   is_active: true
+  eissn: 1939-9170
+  pissn: 0012-9658
+  language:
+  - EN
+  publication_time_weeks: 39
+  keywords:
+  - ecosystems
+  - paleoecology
+  - evolutionary ecology
+  - population ecology
+  - physiological ecology
+  - community ecology
+  - biogeochemistry
+  research_fields:
+  - Ecology
+  subject_codes:
+  - code: QH540-549.5
+    scheme: LCC
+    term: Ecology
+  publisher_name: John Wiley & Sons (Wiley)
+  publisher_country: GB
+  institution_name: Ecological Society of America
+  institution_country: US
+  review_process:
+  - Anonymous peer review
+  review_url: https://esajournals.onlinelibrary.wiley.com/hub/journal/19399170/author-guidelines#peer-review-process
+  board_url: https://esajournals.onlinelibrary.wiley.com/hub/journal/19399170/editorial-board/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 3480
+    currency: EUR
+  - price: 4170
+    currency: USD
+  - price: 2780
+    currency: GBP
+  apc_url: https://esajournals.onlinelibrary.wiley.com/hub/journal/19399170/open-access
+  other_charges: true
+  pid_schemes:
+  - DOI
+  ref_journal: https://esajournals.onlinelibrary.wiley.com/journal/19399170
+  ref_aims_scope: https://esajournals.onlinelibrary.wiley.com/hub/journal/19399170/aims-and-scope/read-full-aims-and-scope
+  ref_oa_statement: https://esajournals.onlinelibrary.wiley.com/hub/journal/19399170/open-access
+  ref_author_instructions: https://esajournals.onlinelibrary.wiley.com/hub/journal/19399170/author-guidelines
+  ref_license_terms: https://esajournals.onlinelibrary.wiley.com/hub/journal/19399170/open-access
 - id: 113
   issn: 2639-5916
   journal_title: Ecosystems and People
@@ -7627,6 +7760,48 @@ journals:
   url: https://academic.oup.com/ije
   data_journal_type: mixed
   is_active: true
+  eissn: 1464-3685
+  language:
+  - EN
+  keywords:
+  - epidemiology
+  - medical care
+  - health services
+  research_fields:
+  - Epidemics, Epidemology, Quarantine, Disinfection
+  subject_codes:
+  - code: 648.5-766
+    scheme: LCC
+    term: Epidemics, Epidemology, Quarantine, Disinfection
+  publisher_name: Oxford University Press
+  publisher_country: GB
+  institution_name: International Epidemiological Association
+  institution_country: US
+  review_process:
+  - Anonymous peer review
+  board_url: https://academic.oup.com/ije/pages/Editorial_Board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 3594
+    currency: GBP
+  apc_url: https://academic.oup.com/pages/open-research/open-access/charges-licences-and-self-archiving
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://academic.oup.com/pages/open-research/open-access/charges-licences-and-self-archiving/apc-waiver-policy
+  pid_schemes:
+  - DOI
+  article_license_display:
+  - Embed
+  ref_journal: https://academic.oup.com/ije
+  ref_aims_scope: https://academic.oup.com/ije/pages/About
+  ref_oa_statement: https://academic.oup.com/ije/pages/General_Instructions#Open%20access%20and%20licensing
+  ref_author_instructions: https://academic.oup.com/ije/pages/General_Instructions
+  ref_license_terms: https://academic.oup.com/ije/pages/General_Instructions#Open%20access%20and%20licensing
 - id: 127
   issn: 2196-2804
   journal_title: International Journal of Food Contamination
@@ -8455,7 +8630,7 @@ journals:
   pid_schemes:
   - DOI
   plagiarism_detection: false
-  plagiarism_url: ''
+  plagiarism_url: null
   copyright_author_retains: true
   copyright_url: https://checklist.pensoft.net/about#CopyrightNotice
   deposit_policy_has: true

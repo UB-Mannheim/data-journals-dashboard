@@ -245,29 +245,33 @@ def process_single_journal(
         suffix = fpath.suffix.lower()
 
         # csv
-        if suffix == ".csv":
-            rows = load_journal_data_from_csv(fpath)
-            if not rows:
-                return False
-            parsed = parse_csv_rows_with_schema(rows, schema_fields)
-            if not parsed:
-                click.secho("No records found in CSV file.", fg="red")
-                return False
-            journal = parsed[0]
+        try:
+            if suffix == ".csv":
+                rows = load_journal_data_from_csv(fpath)
+                if not rows:
+                    return False
+                parsed = parse_csv_rows_with_schema(rows, schema_fields)
+                if not parsed:
+                    click.secho("No records found in CSV file.", fg="red")
+                    return False
+                journal = parsed[0]
 
-        # yaml
-        elif suffix in (".yaml", ".yml"):
-            with open(fpath, "r", encoding="utf-8") as f:
-                data = yaml.safe_load(f)
-            if isinstance(data, dict) and "journal" in data:
-                journal = data["journal"][0]
-            elif isinstance(data, list):
-                journal = data[0]
+            # yaml
+            elif suffix in (".yaml", ".yml"):
+                with open(fpath, "r", encoding="utf-8") as f:
+                    data = yaml.safe_load(f)
+                if isinstance(data, dict) and "journal" in data:
+                    journal = data["journal"][0]
+                elif isinstance(data, list):
+                    journal = data[0]
+                else:
+                    journal = data
+
             else:
-                journal = data
-
-        else:
-            click.secho(f"Unsupported file type: {suffix}", fg="red")
+                click.secho(f"Unsupported file type: {suffix}", fg="red")
+                return False
+        except Exception as e:
+            click.secho(f"Error parsing file: {e}")
             return False
     else:
         click.secho("No input provided. Aborting.", fg="red")
