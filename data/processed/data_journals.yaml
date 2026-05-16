@@ -2302,6 +2302,7 @@ journals:
   ref_aims_scope: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/about/aims-and-scope
   ref_oa_statement: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/open-access-options
   ref_author_instructions: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/guide-for-authors
+  publisher_name: Elsevier
 - id: 47
   issn: 1314-2828
   journal_title: Biodiversity Data Journal

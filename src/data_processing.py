@@ -159,29 +159,42 @@ def load_existing_journals() -> list[dict]:
 def is_duplicate_journal(
     journal: dict,
     existing_journals: list[dict]
-) -> tuple[bool, str]:
+) -> tuple[str, int | None]:
     """
-    Check if a journal already exists in the processed YAML based on the core
-    metadata schema fields (except for the generated id). Returns True if
-    duplicate, False otherwise.
-    """
-    schema_core = load_schema_core()
+    Check whether journal already exists in the collection.
 
-    # Get only core metadata fields for current journal
-    journal_core = {
-        key: journal[key] for key in schema_core if key in journal
+    Returns:
+        ("new",       None) — not in collection, add with full processing
+        ("duplicate", id)   — exists with identical data, skip
+        ("update",    id)   — exists but data has changed, merge in-place
+    """
+    schema_fields = load_schema()
+
+    incoming_issn = journal.get("issn")
+    if not incoming_issn:
+        return "new", None
+
+    matched = next(
+        (j for j in existing_journals if j.get("issn") == incoming_issn),
+        None
+    )
+    if matched is None:
+        return "new", None
+
+    # Check if any of the matched journal's key is updated
+    comparable_keys = {
+        f["key"] for f in schema_fields
+        if f.get("source") in {"csv", "doaj"}
     }
-    for existing_journal in existing_journals:
-        if existing_journal.get("issn") == journal_core.get("issn", ""):
-            existing_journal_core = {
-                key: existing_journal[key]
-                for key in schema_core if key in existing_journal
-            }
-            if not journal_core == existing_journal_core:
-                return False, existing_journal.get("id", "")
-            else:
-                return True, ""
-    return False, ""
+    has_changes = any(
+        journal.get(key) is not None and journal.get(key) != matched.get(key)
+        for key in comparable_keys
+    )
+
+    if not has_changes:
+        return "duplicate", matched["id"]
+
+    return "update", matched["id"]
 
 
 def merge_journal_update(
@@ -272,8 +285,8 @@ def process_single_journal(
 
     # Step 3: Duplicate check
     existing_journals = load_existing_journals()
-    is_duplicate, existing_id = is_duplicate_journal(journal, existing_journals)
-    if is_duplicate:
+    status, existing_id = is_duplicate_journal(journal, existing_journals)
+    if status == "duplicate":
         click.secho(
             f"Journal with ISSN {journal.get("issn", "")} already exists "
             "in collection. Aborting.",
@@ -282,7 +295,7 @@ def process_single_journal(
         return False
 
     # Merge existing journal (same ISSN) with different core fields
-    if existing_id:
+    if status == "update":
         for i, existing_journal in enumerate(existing_journals):
             if existing_journal["id"] == existing_id:
                 journal = merge_journal_update(
@@ -350,16 +363,16 @@ def process_all_journals(
     new_journals = []
     merged_ids = set()
     for journal in journals:
-        is_duplicate, existing_id = is_duplicate_journal(
+        status, existing_id = is_duplicate_journal(
             journal, existing_journals
         )
-        if is_duplicate:
+        if status == "duplicate":
             click.secho(
                 f"Journal with ISSN {journal.get("issn", "")} already exists "
                 "in collection. Skipping.",
                 fg="yellow"
             )
-        elif existing_id:
+        elif status == "update":
             # Merge existing journal (same ISSN) with new core fields
             for existing_journal in existing_journals:
                 if existing_journal["id"] == existing_id:
