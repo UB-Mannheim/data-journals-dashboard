@@ -8,8 +8,7 @@ from pathlib import Path
 
 from utils import (
     load_schema,
-    load_schema_core,
-    get_journal_data_from_csv,
+    load_journal_data_from_csv,
     parse_csv_rows_with_schema,
     write_csv_to_disk,
     write_yaml_to_disk
@@ -247,7 +246,7 @@ def process_single_journal(
 
         # csv
         if suffix == ".csv":
-            rows = get_journal_data_from_csv(fpath)
+            rows = load_journal_data_from_csv(fpath)
             if not rows:
                 return False
             parsed = parse_csv_rows_with_schema(rows, schema_fields)
@@ -347,7 +346,7 @@ def process_all_journals(
         rows = get_journal_data_from_github()
         write_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
     else:
-        rows = get_journal_data_from_csv(input_fpath)
+        rows = load_journal_data_from_csv(input_fpath)
 
     if rows is None:
         click.secho("→ No data source provided or data fetch failed.",

@@ -7,7 +7,7 @@ DataDir = "hugo-data"
 [params]
   description = "Search and filter data journals by type, publisher, APC, and more"
   author = { name = "Thomas Schmidt", email = "thomas.schmidt@uni-mannheim.de" }
-  version = "v2026-05-15"
+  version = "v2026-05-16"
 
 [taxonomies]
   data_journal_type = "data_journal_type"

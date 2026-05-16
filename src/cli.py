@@ -198,7 +198,7 @@ def export():
     "--input_fpath", "-i",
     type=click.Path(path_type=Path),
     default=None,
-    help="Path to journal metadata YAML file.",
+    help="Path to journal metadata YAML or JSON file.",
 )
 @click.option(
     "--output_dir", "-o",
@@ -219,7 +219,7 @@ def export():
 )
 def export_csv(input_fpath: Path, output_dir: Path, scope: str):
     """
-    Export YAML metadata to a core-schema CSV.
+    Export YAML or JSON metadata to a core-schema CSV.
     """
     if not Path(input_fpath).exists():
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
@@ -235,7 +235,7 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str):
     "--input_fpath", "-i",
     type=click.Path(path_type=Path),
     default=None,
-    help="Path to core-schema CSV file.",
+    help="Path to schema CSV or JSON file.",
 )
 @click.option(
     "--output_dir", "-o",
@@ -257,7 +257,7 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str):
 )
 def export_yaml(input_fpath: Path, output_dir: Path, scope: str):
     """
-    Convert a core-schema CSV back to a YAML journal collection.
+    Convert a core-schema CSV or JSON back to a YAML journal collection.
     """
     if not Path(input_fpath).exists():
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")

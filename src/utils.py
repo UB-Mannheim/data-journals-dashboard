@@ -46,7 +46,28 @@ def load_schema_core(
     return schema_core
 
 
-def get_journal_data_from_csv(fpath: Path) -> list[list[str]] | None:
+def _load_journals_from_json(fpath: Path, verbose: bool = True) -> list[dict]:
+    try:
+        with open(fpath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        if verbose:
+            click.secho(f"Error reading JSON {fpath}: {e}", fg="red")
+        return []
+    if not data or "journals" not in data:
+        if verbose:
+            click.secho(
+                f"Invalid JSON structure in {fpath}: missing 'journals' key.",
+                fg="red"
+            )
+        return []
+    return [
+        {"id": idx, "issn": issn, **fields}
+        for idx, (issn, fields) in enumerate(data["journals"].items(), start=1)
+    ]
+
+
+def load_journal_data_from_csv(fpath: Path) -> list[list[str]] | None:
     """
     Read a local CSV file and return parsed rows (header first).
     """
@@ -171,14 +192,14 @@ def write_yaml_to_disk(
 
 
 def to_yaml(
-    csv_fpath: Path | str = None,
+    input_fpath: Path | str = None,
     output_fpath: Path | str = None,
     scope: str = "core",
     schema_path: Path | str = METADATA_SCHEMA_PATH,
     verbose: bool = True,
 ) -> list[dict]:
     """
-    Parse a core-schema CSV (e.g. an export) and transform it to a YAML journal
+    Parse a CSV or JSON journal collection and transform it to a YAML journal
     collection. Optionally, save it to disk.
     """
     schema = load_schema(schema_path=schema_path)
@@ -200,17 +221,31 @@ def to_yaml(
     else:
         allowed_keys = None
 
-    rows = get_journal_data_from_csv(csv_fpath)
-    if not rows:
+    input_path = Path(input_fpath)
+    suffix = input_path.suffix.lower()
+
+    if suffix == ".csv":
+        rows = load_journal_data_from_csv(input_path)
+        if not rows:
+            if verbose:
+                click.secho(
+                    f"Could not parse CSV for filepath: {input_path}. "
+                    "Please make sure the file contains valid CSV data.",
+                    fg="red"
+                )
+            return []
+        journals = parse_csv_rows_with_schema(rows, schema)
+    elif suffix == ".json":
+        journals = _load_journals_from_json(input_path, verbose=verbose)
+        if not journals:
+            return []
+    else:
         if verbose:
             click.secho(
-                f"Could not parse CSV for filepath: {csv_fpath}. "
-                "Please make sure the file contains valid CSV data.",
+                f"Unsupported input format: {suffix}. Use .csv or .json.",
                 fg="red"
             )
         return []
-
-    journals = parse_csv_rows_with_schema(rows, schema)
 
     # Sort keys
     allowed_keys = sorted(allowed_keys, key=lambda k: (k != "issn", k))
@@ -230,7 +265,7 @@ def to_yaml(
 
 
 def to_csv(
-    yaml_fpath: list[dict] = None,
+    input_fpath: Path | str = None,
     output_fpath: Path | str = None,
     scope: str = "core",
     schema_path: Path | str = METADATA_SCHEMA_PATH,
@@ -238,7 +273,7 @@ def to_csv(
     verbose: bool = True,
 ) -> dict:
     """
-    Parse an existing yaml journal collection and transform it to csv.
+    Parse an existing YAML or JSON journal collection and transform it to CSV.
     Optionally, save it to disk.
     """
     schema = load_schema(schema_path=schema_path)
@@ -257,15 +292,34 @@ def to_csv(
         ]
         csv_quote_level = csv.QUOTE_ALL
 
-    # Load yaml data
-    with open(yaml_fpath, "r", encoding="utf-8") as f:
-        journal_data = yaml.safe_load(f)
+    input_path = Path(input_fpath)
+    suffix = input_path.suffix.lower()
 
-    if not journal_data:
+    if suffix in (".yaml", ".yml"):
+        try:
+            with open(input_path, "r", encoding="utf-8") as f:
+                journal_data = yaml.safe_load(f)
+        except Exception as e:
+            if verbose:
+                click.secho(f"Error reading YAML {input_path}: {e}", fg="red")
+            return {}
+        if not journal_data or "journals" not in journal_data:
+            if verbose:
+                click.secho(
+                    f"Could not parse YAML for filepath: {input_path}. "
+                    "Please make sure the file contains valid YAML data.",
+                    fg="red"
+                )
+            return {}
+        journals = journal_data["journals"]
+    elif suffix == ".json":
+        journals = _load_journals_from_json(input_path, verbose=verbose)
+        if not journals:
+            return {}
+    else:
         if verbose:
             click.secho(
-                f"Could not parse YAML for filepath: {yaml_fpath}."
-                "Please make sure the file contains valid YAML data.",
+                f"Unsupported input format: {suffix}. Use .yaml, .yml, or .json.",
                 fg="red"
             )
         return {}
@@ -274,7 +328,7 @@ def to_csv(
         f.get("csv_column") or f.get("doaj_path") for f in csv_fields
     ]
     rows = [csv_header]
-    for journal in journal_data["journals"]:
+    for journal in journals:
         row = [str(journal.get(f["key"], "")) for f in csv_fields]
         rows.append(row)
 
@@ -328,7 +382,7 @@ def to_json(
 
     # Parse input file based on type
     if suffix == ".csv":
-        rows = get_journal_data_from_csv(input_path)
+        rows = load_journal_data_from_csv(input_path)
         if not rows:
             if verbose:
                 click.secho(
