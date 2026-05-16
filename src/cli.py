@@ -11,7 +11,7 @@ from data_processing import (
     RAW_JOURNAL_METADATA_PATH,
     PROCESSED_JOURNAL_METADATA_PATH,
 )
-from utils import ensure_dir, yaml_to_csv, csv_to_yaml
+from utils import ensure_dir, to_csv, to_yaml, to_json
 
 
 class OrderedGroup(click.Group):
@@ -227,7 +227,7 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str):
 
     ensure_dir(output_dir)
     output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".csv")
-    yaml_to_csv(input_fpath, output_fpath, scope)
+    to_csv(input_fpath, output_fpath, scope)
 
 
 @export.command("yaml", no_args_is_help=True)
@@ -265,7 +265,44 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str):
 
     ensure_dir(output_dir)
     output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".yaml")
-    csv_to_yaml(input_fpath, output_fpath, scope)
+    to_yaml(input_fpath, output_fpath, scope)
+
+
+@export.command("json", no_args_is_help=True)
+@click.option(
+    "--input_fpath", "-i",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Path to journal metadata CSV or YAML file.",
+)
+@click.option(
+    "--output_dir", "-o",
+    type=click.Path(path_type=Path),
+    default=Path("./exports"),
+    show_default=True,
+    help="Folder where the exported JSON file is saved.",
+)
+@click.option(
+    "--scope", "-s",
+    type=click.Choice(["base", "core", "full"]),
+    default="core",
+    show_default=True,
+    help=(
+        "base: raw CSV/YAML fields only; "
+        "core: core metadata; full: complete metadata"
+    ),
+)
+def export_json(input_fpath: Path, output_dir: Path, scope: str):
+    """
+    Export journal metadata from CSV or YAML to a JSON file.
+    """
+    if not Path(input_fpath).exists():
+        click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
+        return
+
+    ensure_dir(output_dir)
+    output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".json")
+    to_json(input_fpath, output_fpath, scope)
 
 
 if __name__ == "__main__":

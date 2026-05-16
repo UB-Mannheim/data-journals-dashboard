@@ -1,5 +1,6 @@
 import click
 import csv
+import json
 import yaml
 from pathlib import Path
 
@@ -169,7 +170,7 @@ def write_yaml_to_disk(
         click.secho(f"Saved enriched YAML → {fpath}", fg="green")
 
 
-def csv_to_yaml(
+def to_yaml(
     csv_fpath: Path | str = None,
     output_fpath: Path | str = None,
     scope: str = "core",
@@ -182,6 +183,7 @@ def csv_to_yaml(
     """
     schema = load_schema(schema_path=schema_path)
 
+    # Determine allowed keys based on scope
     if scope == "base":
         allowed_keys = {
             f["key"] for f in schema if f.get("source") == "csv"
@@ -227,7 +229,7 @@ def csv_to_yaml(
     return journals
 
 
-def yaml_to_csv(
+def to_csv(
     yaml_fpath: list[dict] = None,
     output_fpath: Path | str = None,
     scope: str = "core",
@@ -241,6 +243,7 @@ def yaml_to_csv(
     """
     schema = load_schema(schema_path=schema_path)
 
+    # Determine allowed keys based on scope
     if scope == "base":
         csv_fields = [f for f in schema if f.get("source") == "csv"]
         csv_quote_level = csv.QUOTE_MINIMAL
@@ -287,3 +290,102 @@ def yaml_to_csv(
         )
 
     return rows
+
+
+def to_json(
+    input_fpath: Path | str = None,
+    output_fpath: Path | str = None,
+    scope: str = "core",
+    schema_path: Path | str = METADATA_SCHEMA_PATH,
+    verbose: bool = True,
+) -> list[dict]:
+    """
+    Convert a CSV or YAML journal collection to a JSON file.
+    Optionally, save it to disk.
+    """
+    schema = load_schema(schema_path=schema_path)
+
+    # Determine allowed keys based on scope
+    if scope == "base":
+        allowed_keys = {
+            f["key"] for f in schema if f.get("source") == "csv"
+        }
+    elif scope == "core":
+        allowed_keys = {
+            f["key"] for f in schema if f.get("schema_level") == "core"
+        }
+    elif scope == "full":
+        allowed_keys = {
+            f["key"] for f in schema
+            if f.get("schema_level") in ["internal", "core", "full"]
+        }
+    else:
+        allowed_keys = None
+
+    input_path = Path(input_fpath)
+    suffix = input_path.suffix.lower()
+    journals = []
+
+    # Parse input file based on type
+    if suffix == ".csv":
+        rows = get_journal_data_from_csv(input_path)
+        if not rows:
+            if verbose:
+                click.secho(
+                    f"Could not parse CSV for filepath: {input_path}. "
+                    "Please make sure the file contains valid CSV data.",
+                    fg="red"
+                )
+            return []
+        journals = parse_csv_rows_with_schema(rows, schema)
+
+    elif suffix in (".yaml", ".yml"):
+        try:
+            with open(input_path, "r", encoding="utf-8") as f:
+                journal_data = yaml.safe_load(f)
+        except Exception as e:
+            if verbose:
+                click.secho(
+                    f"Error reading YAML {input_path}: {e}", fg="red"
+                )
+            return []
+        if not journal_data or "journals" not in journal_data:
+            if verbose:
+                click.secho(
+                    f"Invalid YAML structure in {input_path}: missing "
+                    "'journals' key.",
+                    fg="red"
+                )
+            return []
+        journals = journal_data["journals"]
+
+    else:
+        if verbose:
+            click.secho(
+                f"Unsupported input format: {suffix}. Use .csv, .yaml, or .yml.",
+                fg="red"
+            )
+        return []
+
+    # Apply scope filtering
+    if allowed_keys is not None:
+        allowed_keys = sorted(allowed_keys, key=lambda k: (k != "issn", k))
+
+    # Building the export json dict
+    journals_dict = {}
+    for j in journals:
+        issn = j.get("issn")
+        journals_dict[issn] = {}
+        for key, value in j.items():
+            if key in allowed_keys and key != "issn":
+                journals_dict[issn][key] = value
+
+    # Write JSON to disk if output path is provided
+    if output_fpath:
+        ensure_dir(Path(output_fpath).parent)
+        with open(output_fpath, "w", encoding="utf-8") as f:
+            json.dump({"journals": journals_dict}, f, indent=2, ensure_ascii=False)
+        if verbose:
+            click.secho(f"Saved JSON → {output_fpath}", fg="green")
+
+    return journals_dict
