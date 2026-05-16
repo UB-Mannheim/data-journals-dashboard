@@ -95,7 +95,7 @@ def process_all(
 @click.option(
     "--schema_path", "-s",
     type=click.Path(path_type=Path),
-    default="journal_metadata_schema/schema.yaml",
+    default=METADATA_SCHEMA_PATH,
     show_default=True,
     help="Path to the journal metadata schema YAML file.",
 )
