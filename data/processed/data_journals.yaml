@@ -2297,6 +2297,7 @@ journals:
   pissn: 0092-640X
   language:
   - EN
+  boai: false
   publication_time_weeks: 16
   keywords:
   - energy levels
@@ -5085,7 +5086,11 @@ journals:
   boai: true
   publication_time_weeks: 21
   keywords:
-  - paediatrics
+  - pediatric
+  - health care
+  - molecular genetics
+  - pathophysiology
+  - epidemiology
   research_fields:
   - Pediatrics
   subject_codes:
@@ -6375,6 +6380,7 @@ journals:
   eissn: 2405-8300
   language:
   - EN
+  boai: false
   publication_time_weeks: 19
   keywords:
   - spectral data
@@ -6842,7 +6848,7 @@ journals:
   is_active: true
   language:
   - EN
-  boai: true
+  boai: false
   publication_time_weeks: 33
   keywords:
   - biological diversity
@@ -6892,6 +6898,7 @@ journals:
   pissn: 0012-9658
   language:
   - EN
+  baoi: false
   publication_time_weeks: 39
   keywords:
   - ecosystems
@@ -7756,6 +7763,7 @@ journals:
   is_active: true
   language:
   - EN
+  boai: false
   publication_time_weeks: 43
   keywords:
   - international trade
@@ -7792,6 +7800,7 @@ journals:
   eissn: 1464-3685
   language:
   - EN
+  boai: false
   keywords:
   - epidemiology
   - medical care
@@ -8255,6 +8264,67 @@ journals:
   url: https://pubs.acs.org/journal/jceaax
   data_journal_type: pure
   is_active: true
+  eissn: 1520-5134
+  pissn: 0021-9568
+  language:
+  - EN
+  boai: false
+  publication_time_weeks: 16
+  keywords:
+  - thermophysical properties
+  - thermodynamic properties
+  - phase behavior
+  - transport properties
+  - thermochemical properties
+  - phase equilibria
+  - chemical engineering data
+  research_fields:
+  - Chemistry
+  - Thermodynamics
+  subject_codes:
+  - code: QD1-999
+    scheme: LCC
+    term: Chemistry
+  - code: QC310.15-319
+    scheme: LCC
+    term: Thermodynamics
+  publisher_name: American Chemical Society
+  publisher_country: US
+  review_process:
+  - Single-anonymous peer review
+  review_url: https://researcher-resources.acs.org/publish/author_guidelines?coden=jceaax
+  board_url: https://pubs.acs.org/page/jceaax/about.html
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 4500
+    currency: USD
+  apc_url: https://acsopenscience.org/researchers/oa-pricing/
+  other_charges: true
+  waiver_has: true
+  waiver_url: https://acsopenscience.org/researchers/special-country-pricing/
+  preservation_has: true
+  preservation_services:
+  - Portico
+  preservation_url: https://www.portico.org/publishers/acs/
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://pubs.acs.org/page/policy/ethics/index.html
+  copyright_author_retains: false
+  copyright_url: https://pubs.acs.org/page/copyright/journals/jpa_index.html
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://pubs.acs.org/page/copyright/journals/posting_policies.html
+  ref_journal: https://pubs.acs.org/journal/jceaax
+  ref_aims_scope: https://pubs.acs.org/page/jceaax/about.html
+  ref_oa_statement: https://acsopenscience.org/researchers/oa-pricing/
+  ref_author_instructions: https://researcher-resources.acs.org/publish/author_guidelines?coden=jceaax
+  ref_license_terms: https://pubs.acs.org/page/copyright/journals/jpa_index.html
 - id: 134
   issn: 1758-2946
   journal_title: Journal of Cheminformatics
@@ -8608,10 +8678,60 @@ journals:
 - id: 140
   issn: 1529-7845
   journal_title: Journal of Physical and Chemical Reference Data
-  publisher: American Institute of Physics
-  url: https://aip.scitation.org/jpr/info/focus
+  publisher: AIP Publishing
+  url: https://pubs.aip.org/aip/jpr
   data_journal_type: pure
   is_active: true
+  eissn: 1529-7845
+  pissn: 0047-2689
+  language:
+  - EN
+  boai: false
+  keywords:
+  - analytical chemistry
+  - classical electromagnetism
+  - thermodynamics
+  - molecular properties
+  - condensed matter electronic structure
+  - nuclear engineering
+  research_fields:
+  - Chemistry
+  - Physics
+  subject_codes:
+  - code: QD1-999
+    scheme: LCC
+    term: Chemistry
+  - code: QC1-999
+    scheme: LCC
+    term: Physics
+  publisher_name: AIP Publishing
+  publisher_country: US
+  institution_name: U.S. Department of Commerce National Institute of Standards and
+    Technology (NIST)
+  institution_country: US
+  review_process:
+  - Anonymous peer review
+  review_url: https://pubs.aip.org/aip/jpr/pages/policies
+  board_url: https://pubs.aip.org/aip/jpr/pages/editorial_board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 3500
+    currency: USD
+  apc_url: https://pubs.aip.org/aip/jpr/pages/charges
+  waiver_has: true
+  waiver_url: https://publishing.aip.org/resources/researchers/open-science/open-access/#waiverdiscountpolicy
+  pid_schemes:
+  - DOI
+  ref_journal: https://pubs.aip.org/aip/jpr
+  ref_aims_scope: https://pubs.aip.org/aip/jpr/pages/about
+  ref_oa_statement: https://publishing.aip.org/resources/researchers/open-science/open-access/
+  ref_author_instructions: https://publishing.aip.org/resources/researchers/author-instructions/#JPCRD
+  ref_license_terms: https://pubs.aip.org/aip/jpr/pages/charges
 - id: 141
   issn: 1809-127X
   journal_title: Check List
@@ -8628,6 +8748,8 @@ journals:
   publication_time_weeks: 12
   keywords:
   - taxonomy
+  - biogeography
+  - biodiversity
   research_fields:
   - Biology (General)
   subject_codes:
@@ -8655,6 +8777,9 @@ journals:
   preservation_has: true
   preservation_services:
   - CLOCKSS
+  - Zenodo
+  - Portico
+  - Zendy
   preservation_url: https://portal.issn.org/resource/ISSN/1809-127X#
   pid_schemes:
   - DOI
