@@ -2179,12 +2179,41 @@ journals:
   ref_author_instructions: https://www.nature.com/authorguide/hgv/hgv-gta.pdf
   ref_license_terms: https://www.nature.com/hgv/open-access
 - id: 44
-  issn: 2032-6378
+  issn: 1385-3945
   journal_title: Journal of Astronomical Data
   publisher: Vrije Universiteit Brussel
   url: https://journalofastronomicaldata.be/jad.htm
-  data_journal_type: pure
+  data_journal_type: mixed
   is_active: true
+  eissn: 1385-3945
+  pissn: 2032-6378
+  language:
+  - EN
+  keywords:
+  - observational datasets
+  - video simulations
+  - research software
+  - CAD-based instrument designs
+  research_fields:
+  - Astronomy
+  subject_codes:
+  - code: 1-991
+    scheme: LCC
+    term: Astronomy
+  publisher_name: Vrije Universiteit Brussel
+  publisher_country: NL
+  review_process:
+  - Anonymous peer review
+  review_url: https://journalofastronomicaldata.be/jadscope.htm
+  board_url: https://journalofastronomicaldata.be/jadscope.htm
+  license_types:
+  - Publisher's Own License
+  apc_has: false
+  other_charges: false
+  copyright_author_retains: true
+  ref_journal: https://journalofastronomicaldata.be/jad.htm
+  ref_aims_scope: https://journalofastronomicaldata.be/JAD31/info/jadscope.htm
+  ref_author_instructions: https://journalofastronomicaldata.be/JAD31/info/instruct.txt
 - id: 45
   issn: 1297-966X
   journal_title: Annals of Forest Science
@@ -2258,7 +2287,7 @@ journals:
   ref_author_instructions: https://annforsci.biomedcentral.com/submission-guidelines
   ref_license_terms: https://annforsci.biomedcentral.com/submission-guidelines/copyright
 - id: 46
-  issn: 0092-640X
+  issn: 1090-2090
   journal_title: Atomic Data and Nuclear Data Tables
   publisher: Elsevier
   url: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables

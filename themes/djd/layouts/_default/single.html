@@ -2,20 +2,21 @@
 {{- $d := hugo.Data.field_descriptions -}}
 <article class="journal-single">
   <header>
-    <h1>{{ .Title }}</h1>
-    {{ if .Params.issn }}
-    <p>{{ with index $d "issn" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>ISSN:</strong> {{ .Params.issn }}</p>
-    {{ end }}
+    <h1><a class="journal-url" href="{{ .Params.journal_url }}" target="_blank">{{ .Title }}</a></h1>
   </header>
 
   <div class="journal-details">
     <div class="detail-section">
-      {{ if .Params.journal_url }}
-      <p>{{ with index $d "url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Homepage:</strong> <a href="{{ .Params.journal_url }}" target="_blank">{{ .Params.journal_url }}</a></p>
+      {{ if .Params.issn }}
+      <p>{{ with index $d "issn" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>ISSN:</strong> {{ .Params.issn }}</p>
+      {{ end }}
+
+      {{ if .Params.pissn }}
+      <p><strong>Print ISSN</strong>: {{ .Params.pissn }}</p>
       {{ end }}
 
       {{ if .Params.publisher }}
-      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ index .Params.publisher 0 }}{{ if .Params.publisher_country }} • <strong>Country:</strong> {{ .Params.publisher_country }}{{ end }}</p>
+      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
       {{ end }}
       
       {{ if .Params.institution_name }}
@@ -40,7 +41,7 @@
       <h3>{{ with index $d "keywords" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Keywords</h3>
       <ul class="tags">
         {{ range .Params.keywords }}
-        <li><a href="/keywords/{{ . | urlize }}">{{ . }}</a></li>
+        <li><a href="/keywords/{{ . | urlize }}">{{ . | title }}</a></li>
         {{ end }}
       </ul>
     </div>

@@ -6,6 +6,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: #f8f9fa;
   color: #212529;
+  font-weight: 200;
 }
 
 .container {
@@ -54,6 +55,7 @@ body {
   margin-bottom: 0.5rem;
   font-weight: 400;
   font-size: 0.9rem;
+  font-weight: 200;
 }
 
 .filter-group input,
@@ -90,6 +92,10 @@ body {
   padding: 2rem;
 }
 
+strong {
+  font-weight: 500;
+}
+
 /* Journal grid */
 .journal-grid {
   display: grid;
@@ -119,6 +125,7 @@ body {
   height: 100%;
   text-decoration: none;
   color: inherit;
+  font-weight: 300;
   cursor: pointer;
 }
 
@@ -152,8 +159,9 @@ body {
 .journal-card h3 a:visited {
   margin: 0 0 0.75rem 0;
   font-size: 1.1rem;
+  font-weight: 600;
   color: #212529;
-  text-decoration: underline wavy var(--journal-border-1);
+  text-decoration: underline dotted 4px var(--journal-border-1);
 }
 
 .journal-card:nth-child(6n+2) h3 { text-decoration-color: var(--journal-border-2);}
@@ -189,6 +197,19 @@ body {
   margin-bottom: 1rem;
 }
 
+.journal-url,
+.journal-url :visited {
+  color: blue;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-decoration: underline dotted 6px var(--journal-border-6);
+}
+
+.journal-url:hover {
+  color: #007bff;
+  text-decoration: underline dotted 6px var(--journal-border-2);
+}
+
 .detail-section {
   margin-bottom: 1.5rem;
 }
@@ -196,6 +217,7 @@ body {
 .detail-section h3 {
   margin-bottom: 0.5rem;
   color: #495057;
+  font-weight: 600;
 }
 
 .tags {
@@ -235,10 +257,14 @@ body {
 /* Taxonomy list page */
 .taxonomy-header {
   background: #fff;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
   margin-bottom: 1.5rem;
   border-radius: 8px;
   border: 1px solid #dee2e6;
+}
+
+.taxonomy-header h1 {
+  font-weight: 500;
 }
 
 /* Field tooltips */
