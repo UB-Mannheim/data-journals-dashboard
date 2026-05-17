@@ -29,10 +29,10 @@
       <p class="meta"><strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
       {{ end }}
       {{ if .Params.data_journal_type }}
-      <p class="meta"><strong>Data Journal Type:</strong> {{ index .Params.data_journal_type 0 }}</p>
+      <p class="meta"><strong>Data Journal Type:</strong> {{ index .Params.data_journal_type 0 | title }}</p>
       {{ end }}
       {{ if .Params.keywords }}
-      <p class="meta"><strong>Keywords:</strong> {{ delimit .Params.keywords ", " }}</p>
+      <p class="meta"><strong>Keywords:</strong> {{ delimit .Params.keywords ", " | title }}</p>
       {{ end }}
       {{ if .Params.research_fields }}
       <p class="meta"><strong>Research Fields:</strong> {{ delimit .Params.research_fields ", " }}</p>

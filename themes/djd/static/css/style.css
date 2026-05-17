@@ -275,7 +275,7 @@ strong {
   justify-content: center;
   width: 1.3em;
   height: 1.3em;
-  background: olivedrab;
+  background: seagreen;
   color: #fff;
   border-radius: 100%;
   font-size: 0.7rem;
@@ -387,7 +387,7 @@ strong {
 }
 
 .taxonomy-header a:hover svg {
-  stroke: rgb(156, 156, 156);
+  stroke: #007bff;
 }
 
 .taxonomy-header a img {
@@ -395,5 +395,5 @@ strong {
 }
 
 .taxonomy-header a:hover img {
-  filter: invert(75%);
+  filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1352%) hue-rotate(199deg) brightness(101%) contrast(107%);
 }
