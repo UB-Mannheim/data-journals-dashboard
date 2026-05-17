@@ -191,6 +191,15 @@ def write_yaml_to_disk(
         click.secho(f"Saved enriched YAML → {fpath}", fg="green")
 
 
+def get_journal_by_issn(yaml_path: Path, issn: str) -> dict | None:
+    with open(yaml_path, "r", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+    for journal in data.get("journals", []):
+        if journal.get("issn") == issn:
+            return journal
+    return None
+
+
 def to_yaml(
     input_fpath: Path | str = None,
     output_fpath: Path | str = None,

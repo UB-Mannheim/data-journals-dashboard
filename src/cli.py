@@ -1,4 +1,7 @@
 import click
+import json
+import tempfile
+import yaml
 from datetime import datetime
 from pathlib import Path
 
@@ -11,7 +14,7 @@ from data_processing import (
     RAW_JOURNAL_METADATA_PATH,
     PROCESSED_JOURNAL_METADATA_PATH,
 )
-from utils import ensure_dir, to_csv, to_yaml, to_json
+from utils import ensure_dir, to_csv, to_yaml, to_json, get_journal_by_issn
 
 
 class OrderedGroup(click.Group):
@@ -217,10 +220,33 @@ def export():
         "core: core metadata; full: complete metadata"
     ),
 )
-def export_csv(input_fpath: Path, output_dir: Path, scope: str):
+@click.option(
+    "--issn",
+    default=None,
+    help="ISSN of a single journal to export from the collection.",
+)
+def export_csv(input_fpath: Path, output_dir: Path, scope: str, issn: str | None):
     """
     Export YAML or JSON metadata to a core-schema CSV.
     """
+    if issn:
+        journal = get_journal_by_issn(PROCESSED_JOURNAL_METADATA_PATH, issn)
+        if journal is None:
+            click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
+            return
+        ensure_dir(output_dir)
+        with tempfile.NamedTemporaryFile(
+            suffix=".yaml", delete=False, mode="w", encoding="utf-8"
+        ) as tmp:
+            yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
+            tmp_path = Path(tmp.name)
+        try:
+            output_fpath = Path(output_dir) / f"{issn}.csv"
+            to_csv(tmp_path, output_fpath, scope)
+        finally:
+            tmp_path.unlink(missing_ok=True)
+        return
+
     if not Path(input_fpath).exists():
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
@@ -255,10 +281,35 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str):
         "full: complete metadata"
     ),
 )
-def export_yaml(input_fpath: Path, output_dir: Path, scope: str):
+@click.option(
+    "--issn",
+    default=None,
+    help="ISSN of a single journal to export from the collection.",
+)
+def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | None):
     """
     Convert a core-schema CSV or JSON back to a YAML journal collection.
     """
+    if issn:
+        journal = get_journal_by_issn(PROCESSED_JOURNAL_METADATA_PATH, issn)
+        if journal is None:
+            click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
+            return
+        ensure_dir(output_dir)
+        journal_without_issn = {k: v for k, v in journal.items() if k != "issn"}
+        payload = json.dumps({"journals": {issn: journal_without_issn}})
+        with tempfile.NamedTemporaryFile(
+            suffix=".json", delete=False, mode="w", encoding="utf-8"
+        ) as tmp:
+            tmp.write(payload)
+            tmp_path = Path(tmp.name)
+        try:
+            output_fpath = Path(output_dir) / f"{issn}.yaml"
+            to_yaml(tmp_path, output_fpath, scope)
+        finally:
+            tmp_path.unlink(missing_ok=True)
+        return
+
     if not Path(input_fpath).exists():
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
@@ -292,10 +343,33 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str):
         "core: core metadata; full: complete metadata"
     ),
 )
-def export_json(input_fpath: Path, output_dir: Path, scope: str):
+@click.option(
+    "--issn",
+    default=None,
+    help="ISSN of a single journal to export from the collection.",
+)
+def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | None):
     """
     Export journal metadata from CSV or YAML to a JSON file.
     """
+    if issn:
+        journal = get_journal_by_issn(PROCESSED_JOURNAL_METADATA_PATH, issn)
+        if journal is None:
+            click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
+            return
+        ensure_dir(output_dir)
+        with tempfile.NamedTemporaryFile(
+            suffix=".yaml", delete=False, mode="w", encoding="utf-8"
+        ) as tmp:
+            yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
+            tmp_path = Path(tmp.name)
+        try:
+            output_fpath = Path(output_dir) / f"{issn}.json"
+            to_json(tmp_path, output_fpath, scope)
+        finally:
+            tmp_path.unlink(missing_ok=True)
+        return
+
     if not Path(input_fpath).exists():
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return

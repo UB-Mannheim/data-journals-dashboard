@@ -200,26 +200,33 @@ def merge_journal_update(
     existing_journal: dict,
     new_journal: dict,
     schema_fields: list[dict]
-) -> dict:
+) -> tuple[dict | bool]:
     """
     Merge new journal data into existing journal, preserving non-core metadata.
     Only updates fields defined in schema with source 'csv' or 'doaj'.
     """
     # Get all fields that should be updated from CSV/DOAJ
-    updatable_sources = {"csv", "doaj"}
-    updatable_keys = {
+    schema_source_csv = {
         f["key"] for f in schema_fields
-        if f.get("source") in updatable_sources
+        if f.get("source") == "csv"
+    }
+    schema_source_doaj = {
+        f["key"] for f in schema_fields
+        if f.get("source") == "doaj"
     }
 
     # Preserve existing journal, but update with new core/doaj fields
+    doaj_metadata_updated = False
     merged = dict(existing_journal)
 
     for key, value in new_journal.items():
-        if key in updatable_keys and value is not None:
+        if key in schema_source_csv and value is not None:
             merged[key] = value
+        elif key in schema_source_doaj and value is not None:
+            merged[key] = value
+            doaj_metadata_updated = True
 
-    return merged
+    return merged, doaj_metadata_updated
 
 
 def process_single_journal(
@@ -262,6 +269,8 @@ def process_single_journal(
                     data = yaml.safe_load(f)
                 if isinstance(data, dict) and "journal" in data:
                     journal = data["journal"][0]
+                elif isinstance(data, dict) and "journals" in data:
+                    journal = data["journals"][0]
                 elif isinstance(data, list):
                     journal = data[0]
                 else:
@@ -297,15 +306,16 @@ def process_single_journal(
         )
         return False
 
-    # Merge existing journal (same ISSN) with different core fields
+    # Merge existing journal (same ISSN) with updated metadata
     if status == "update":
         for i, existing_journal in enumerate(existing_journals):
             if existing_journal["id"] == existing_id:
-                journal = merge_journal_update(
+                journal, doaj_metadata_updated = merge_journal_update(
                     existing_journal, journal, schema_fields
                 )
-                # Enrich the merged journal
-                journal = enrich_journals_with_doaj([journal], schema_fields)[0]
+                # Enrich if DOAJ metadata was NOT updated (prevent API overwrites)
+                if not doaj_metadata_updated:
+                    journal = enrich_journals_with_doaj([journal], schema_fields)[0]
                 existing_journals[i] = journal
                 write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
                 return True
