@@ -626,7 +626,7 @@ journals:
 - id: 10
   issn: 1559-0089
   journal_title: Neuroinformatics
-  publisher: Springer Nature
+  publisher: Springer (Springer Nature)
   url: https://www.springer.com/journal/12021/
   data_journal_type: mixed
   is_active: true
@@ -786,7 +786,7 @@ journals:
 - id: 15
   issn: 2363-7501
   journal_title: Open Geospatial Data Software and Standards
-  publisher: Springer Nature
+  publisher: Springer Open (Springer Nature)
   url: https://opengeospatialdata.springeropen.com/
   data_journal_type: mixed
   is_active: false
@@ -1045,8 +1045,8 @@ journals:
 - id: 24
   issn: 2452-3666
   journal_title: Research Data Journal for the Humanities and Social Sciences
-  publisher: International Institute of Social History (Netherlands)
-  url: https://researchdatajournal.org/
+  publisher: Brill
+  url: https://brill.com/view/journals/rdj/rdj-overview.xml
   data_journal_type: pure
   is_active: true
   eissn: 2452-3666
@@ -2182,7 +2182,7 @@ journals:
   issn: 2032-6378
   journal_title: Journal of Astronomical Data
   publisher: Vrije Universiteit Brussel
-  url: https://journalofastronomicaldata.be/jad.htm
+  url: http://journalofastronomicaldata.be/
   data_journal_type: pure
   is_active: true
 - id: 45
@@ -2303,6 +2303,75 @@ journals:
   ref_oa_statement: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/open-access-options
   ref_author_instructions: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/guide-for-authors
   publisher_name: Elsevier
+- id: 46
+  is_active: null
+  issn: 1471-2121
+  journal_title: BMC Molecular and Cell Biology
+  publisher: BioMed Central (Springer Nature)
+  url: https://bmcmolcellbiol.biomedcentral.com/
+  data_journal_type: mixed
+  eissn: 1471-2121
+  pissn: null
+  language:
+  - EN
+  oa_start: 2000
+  boai: true
+  publication_time_weeks: 21
+  keywords:
+  - cell biology
+  research_fields:
+  - Cytology
+  subject_codes:
+  - code: QH573-671
+    scheme: LCC
+    term: Cytology
+  publisher_name: BMC
+  publisher_country: GB
+  institution_name: null
+  institution_country: null
+  review_process:
+  - Anonymous peer review
+  review_url: https://bmcmolcellbiol.biomedcentral.com/about
+  board_url: https://bmcmolcellbiol.biomedcentral.com/about/editorial-board
+  license_types:
+  - CC BY
+  apc_has: true
+  apc_max:
+  - price: 2150
+    currency: EUR
+  - price: 2590
+    currency: USD
+  - price: 1850
+    currency: GBP
+  apc_url: https://link.springer.com/journal/12860/how-to-publish-with-us#Fees%20and%20funding
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - LOCKSS
+  - PMC
+  - Portico
+  preservation_url: https://www.biomedcentral.com/getpublished/indexing-archiving-and-access-to-data
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.biomedcentral.com/getpublished/editorial-policies
+  copyright_author_retains: true
+  copyright_url: https://www.biomedcentral.com/about/policies/license-agreement
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/2413?from=single_hit
+  article_license_display:
+  - Embed
+  article_license_example_url: https://bmcmolcellbiol.biomedcentral.com/articles/10.1186/s12860-016-0080-1
+  ref_journal: https://bmcmolcellbiol.biomedcentral.com/
+  ref_aims_scope: https://bmcmolcellbiol.biomedcentral.com/about
+  ref_oa_statement: https://bmcmolcellbiol.biomedcentral.com/about
+  ref_author_instructions: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines
+  ref_license_terms: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines/copyright
 - id: 47
   issn: 1314-2828
   journal_title: Biodiversity Data Journal
@@ -5045,7 +5114,7 @@ journals:
   issn: 1471-2431
   journal_title: BMC Pediatrics
   publisher: BioMed Central (Springer Nature)
-  url: https://link.springer.com/journal/12887
+  url: https://bmcpediatr.biomedcentral.com/submission-guidelines/preparing-your-manuscript
   data_journal_type: mixed
   is_active: true
   eissn: 1471-2431
@@ -7757,7 +7826,7 @@ journals:
   issn: 1464-3685
   journal_title: International Journal of Epidemiology
   publisher: Oxford University Press
-  url: https://academic.oup.com/ije
+  url: https://academic.oup.com/ije/pages/About
   data_journal_type: mixed
   is_active: true
   eissn: 1464-3685
@@ -8586,7 +8655,7 @@ journals:
 - id: 141
   issn: 1809-127X
   journal_title: Check List
-  publisher: Pensoft Publishers
+  publisher: Pensoft
   url: https://checklist.pensoft.net/
   data_journal_type: pure
   is_active: true
@@ -8630,7 +8699,7 @@ journals:
   pid_schemes:
   - DOI
   plagiarism_detection: false
-  plagiarism_url: null
+  plagiarism_url: ''
   copyright_author_retains: true
   copyright_url: https://checklist.pensoft.net/about#CopyrightNotice
   deposit_policy_has: true
