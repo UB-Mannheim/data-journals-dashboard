@@ -1062,13 +1062,25 @@ journals:
   - economic history
   - language and literature
   - audio-visual media
-  - archeology
+  - archaeology
   research_fields:
   - Social Sciences
+  - Archaeology
+  - Philology. Linguistics
+  - Literature
   subject_codes:
-  - code: H
+  - code: H1-99
     scheme: LCC
-    term: Social Sciences
+    term: Social Sciences (General)
+  - code: CC1-960
+    scheme: LCC
+    term: Archaeology
+  - code: P1-1091
+    scheme: LCC
+    term: Philology. Linguistics
+  - code: PN1-6790
+    scheme: LCC
+    term: Literature (General)
   publisher_name: International Institute of Social History
   publisher_country: NL
   institution_name: Consortium of European Social Science Data Archives
@@ -1472,8 +1484,66 @@ journals:
   journal_title: Viticulture Data Journal
   publisher: Pensoft Publishers
   url: https://vdj.pensoft.net/
-  data_journal_type: pure
+  data_journal_type: mixed
   is_active: true
+  eissn: 2603-431X
+  language:
+  - EN
+  oa_start: 2019
+  boai: true
+  keywords:
+  - viticulture
+  - grapevine
+  - phenotyping
+  - genotyping
+  - vine ecophysiology
+  - ampelography
+  - plant pathology
+  research_fields:
+  - Agriculture
+  - Grape culture. Viticulture
+  subject_codes:
+  - code: SB387-399
+    scheme: LCC
+    term: Grape culture. Viticulture
+  - code: S1-(972)
+    scheme: LCC
+    term: Agriculture (General)
+  publisher_name: Pensoft Publishers Ltd.
+  publisher_country: BG
+  review_process:
+  - Single-anonymous peer review
+  - Community peer review
+  review_url: https://vdj.pensoft.net/about#PeerReview
+  board_url: https://vdj.pensoft.net/board/
+  license_types:
+  - CC BY 4.0
+  apc_has: false
+  apc_url: https://vdj.pensoft.net/about#ArticleProcessingCharges
+  other_charges: false
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - Portico
+  - Zenodo
+  - Zendy
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://vdj.pensoft.net/about#PublicationEthicsandMalpracticeStatement
+  copyright_author_retains: true
+  copyright_url: https://vdj.pensoft.net/about#CopyrightNotice
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  article_license_display:
+  - Embed
+  article_license_example_url: https://vdj.pensoft.net/article/49717/
+  ref_journal: https://vdj.pensoft.net/
+  ref_aims_scope: https://vdj.pensoft.net/about#FocusandScope
+  ref_oa_statement: https://vdj.pensoft.net/about#OpenAccess
+  ref_author_instructions: https://vdj.pensoft.net/about#AuthorGuidelines
+  ref_license_terms: https://vdj.pensoft.net/about#CopyrightNotice
 - id: 33
   issn: 2398-502X
   journal_title: Wellcome Open Research
@@ -2333,75 +2403,6 @@ journals:
   ref_oa_statement: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/open-access-options
   ref_author_instructions: https://www.sciencedirect.com/journal/atomic-data-and-nuclear-data-tables/publish/guide-for-authors
   publisher_name: Elsevier
-- id: 46
-  is_active: null
-  issn: 1471-2121
-  journal_title: BMC Molecular and Cell Biology
-  publisher: BioMed Central (Springer Nature)
-  url: https://bmcmolcellbiol.biomedcentral.com/
-  data_journal_type: mixed
-  eissn: 1471-2121
-  pissn: null
-  language:
-  - EN
-  oa_start: 2000
-  boai: true
-  publication_time_weeks: 21
-  keywords:
-  - cell biology
-  research_fields:
-  - Cytology
-  subject_codes:
-  - code: QH573-671
-    scheme: LCC
-    term: Cytology
-  publisher_name: BMC
-  publisher_country: GB
-  institution_name: null
-  institution_country: null
-  review_process:
-  - Anonymous peer review
-  review_url: https://bmcmolcellbiol.biomedcentral.com/about
-  board_url: https://bmcmolcellbiol.biomedcentral.com/about/editorial-board
-  license_types:
-  - CC BY
-  apc_has: true
-  apc_max:
-  - price: 2150
-    currency: EUR
-  - price: 2590
-    currency: USD
-  - price: 1850
-    currency: GBP
-  apc_url: https://link.springer.com/journal/12860/how-to-publish-with-us#Fees%20and%20funding
-  other_charges: false
-  waiver_has: true
-  waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
-  preservation_has: true
-  preservation_services:
-  - CLOCKSS
-  - LOCKSS
-  - PMC
-  - Portico
-  preservation_url: https://www.biomedcentral.com/getpublished/indexing-archiving-and-access-to-data
-  pid_schemes:
-  - DOI
-  plagiarism_detection: true
-  plagiarism_url: https://www.biomedcentral.com/getpublished/editorial-policies
-  copyright_author_retains: true
-  copyright_url: https://www.biomedcentral.com/about/policies/license-agreement
-  deposit_policy_has: true
-  deposit_policy_services:
-  - Open Policy Finder
-  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/2413?from=single_hit
-  article_license_display:
-  - Embed
-  article_license_example_url: https://bmcmolcellbiol.biomedcentral.com/articles/10.1186/s12860-016-0080-1
-  ref_journal: https://bmcmolcellbiol.biomedcentral.com/
-  ref_aims_scope: https://bmcmolcellbiol.biomedcentral.com/about
-  ref_oa_statement: https://bmcmolcellbiol.biomedcentral.com/about
-  ref_author_instructions: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines
-  ref_license_terms: https://bmcmolcellbiol.biomedcentral.com/submission-guidelines/copyright
 - id: 47
   issn: 1314-2828
   journal_title: Biodiversity Data Journal
@@ -8478,6 +8479,73 @@ journals:
   url: https://acsess.onlinelibrary.wiley.com/journal/15372537
   data_journal_type: mixed
   is_active: true
+  eissn: 1537-2537
+  pissn: 0047-2425
+  language:
+  - EN
+  boai: false
+  keywords:
+  - environmental quality
+  - anthropogenic impacts
+  - agricultural ecosystems
+  - water quality
+  - soil science
+  - atmospheric science
+  - pollution
+  research_fields:
+  - Environmental Sciences
+  - Agriculture
+  subject_codes:
+  - code: GE1-350
+    scheme: LCC
+    term: Environmental Sciences
+  - code: S1-(972)
+    scheme: LCC
+    term: Agriculture (General)
+  publisher_name: American Society of Agronomy, Crop Science Society of America, Soil
+    Science Society of America
+  publisher_country: US
+  institution_name: American Society of Agronomy (ASA) / Crop Science Society of America
+    (CSSA) / Soil Science Society of America (SSSA)
+  institution_country: US
+  review_process:
+  - Single-anonymous peer review
+  review_url: https://www.sciencesocieties.org/publications/journals/author-resources/jeq-instructions
+  board_url: https://acsess.onlinelibrary.wiley.com/journal/15372537/editorial-board/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 2140
+    currency: USD
+  - price: 1690
+    currency: GBP
+  - price: 1950
+    currency: EUR
+  apc_url: https://acsess.onlinelibrary.wiley.com/hub/journal/15372537/openaccess
+  waiver_has: true
+  waiver_url: https://acsess.onlinelibrary.wiley.com/hub/journal/15372537/openaccess
+  preservation_has: true
+  preservation_services:
+  - Portico
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  copyright_url: https://acsess.onlinelibrary.wiley.com/hub/journal/15372537/openaccess
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/
+  article_license_display:
+  - Embed
+  ref_journal: https://acsess.onlinelibrary.wiley.com/journal/15372537
+  ref_aims_scope: https://acsess.onlinelibrary.wiley.com/hub/journal/15372537/productinformation
+  ref_oa_statement: https://acsess.onlinelibrary.wiley.com/hub/journal/15372537/openaccess
+  ref_author_instructions: https://www.sciencesocieties.org/publications/journals/author-resources/jeq-instructions
+  ref_license_terms: https://acsess.onlinelibrary.wiley.com/hub/journal/15372537/openaccess
 - id: 136
   issn: 1745-6673
   journal_title: Journal of Occupational Medicine and Toxicology
@@ -8853,7 +8921,7 @@ journals:
   pid_schemes:
   - DOI
   plagiarism_detection: false
-  plagiarism_url: ''
+  plagiarism_url: null
   copyright_author_retains: true
   copyright_url: https://checklist.pensoft.net/about#CopyrightNotice
   deposit_policy_has: true
