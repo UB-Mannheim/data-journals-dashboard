@@ -953,6 +953,64 @@ journals:
   url: https://apsjournals.apsnet.org/journal/phyto
   data_journal_type: mixed
   is_active: true
+  eissn: 1943-7684
+  pissn: 0031-949X
+  language:
+  - EN
+  boai: false
+  keywords:
+  - plant diseases
+  - phytopathology
+  - bacteriology
+  - mycology
+  - virology
+  - nematology
+  - epidemiology
+  research_fields:
+  - Plant Pathology
+  - Plant culture
+  subject_codes:
+  - code: SB621-795
+    scheme: LCC
+    term: Plant pathology
+  - code: SB1-1110
+    scheme: LCC
+    term: Plant culture
+  publisher_name: The American Phytopathological Society
+  publisher_country: US
+  review_process:
+  - Single-anonymous peer review
+  review_url: https://apsjournals.apsnet.org/page/authorinformation#submitting
+  board_url: https://apsjournals.apsnet.org/page/phyto/editorial-board
+  license_types:
+  - Restricted Access
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  apc_has: true
+  apc_max:
+  - price: 3465
+    currency: USD
+  apc_url: https://apsjournals.apsnet.org/page/authorinformation#apc
+  other_charges: true
+  waiver_has: false
+  preservation_has: true
+  preservation_services:
+  - Portico
+  preservation_url: https://apsjournals.apsnet.org/page/authorinformation#archiving
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://apsjournals.apsnet.org/page/plagiarism_statement
+  copyright_author_retains: false
+  copyright_url: https://apsjournals.apsnet.org/page/authorinformation
+  article_license_display:
+  - Display
+  ref_journal: https://apsjournals.apsnet.org/journal/phyto
+  ref_aims_scope: https://apsjournals.apsnet.org/page/phyto/about
+  ref_oa_statement: https://apsjournals.apsnet.org/page/open_access
+  ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
+  ref_license_terms: https://apsjournals.apsnet.org/page/copyright_permissions
 - id: 21
   issn: 1471-9053
   journal_title: Plant and Cell Physiology
@@ -960,6 +1018,72 @@ journals:
   url: https://academic.oup.com/pcp
   data_journal_type: mixed
   is_active: true
+  eissn: 1471-9053
+  pissn: 0032-0781
+  language:
+  - EN
+  boai: false
+  keywords:
+  - biochemistry
+  - cell biology
+  - molecular genetics
+  - epigenetics
+  - biotechnology
+  - bioinformatics
+  - omics
+  - plant ecology
+  research_fields:
+  - Plant physiology
+  - Plant culture
+  subject_codes:
+  - code: SB1-1110
+    scheme: LCC
+    term: Plant culture
+  - code: QK710-899
+    scheme: LCC
+    term: Plant physiology
+  publisher_name: Oxford University Press
+  publisher_country: GB
+  institution_name: Japanese Society of Plant Physiologists
+  institution_country: JP
+  review_process:
+  - Single-anonymous peer review
+  review_url: https://academic.oup.com/pcp/pages/author-guidelines#section-4
+  board_url: https://academic.oup.com/pcp/pages/Editorial_Board
+  license_types:
+  - Restricted Access
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  apc_has: true
+  apc_max:
+  - price: 3178
+    currency: USD
+  apc_url: https://jspp.org/en/pcp/pcp_fee_en.html
+  other_charges: true
+  waiver_has: true
+  waiver_url: https://academic.oup.com/pcp/pages/publishing-oa-with-pcp
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - LOCKSS
+  - Portico
+  preservation_url: https://academic.oup.com/journals/pages/librarians/digital_preservation
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://academic.oup.com/pcp/pages/author-guidelines#section-4-1
+  copyright_author_retains: false
+  copyright_url: https://academic.oup.com/journals/pages/access_purchase/rights_and_permissions
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Sherpa Romeo
+  deposit_policy_url: https://academic.oup.com/journals/pages/access_purchase/rights_and_permissions/self_archiving_policy_b
+  ref_journal: https://academic.oup.com/pcp
+  ref_aims_scope: https://academic.oup.com/pcp/pages/author-guidelines
+  ref_oa_statement: https://academic.oup.com/pcp/pages/publishing-oa-with-pcp
+  ref_author_instructions: https://academic.oup.com/pcp/pages/author-guidelines
+  ref_license_terms: https://academic.oup.com/journals/pages/access_purchase/rights_and_permissions
 - id: 22
   issn: 1943-7692
   journal_title: Plant Disease
@@ -967,6 +1091,67 @@ journals:
   url: https://apsjournals.apsnet.org/journal/pdis
   data_journal_type: mixed
   is_active: true
+  eissn: 1943-7692
+  pissn: 0191-2917
+  language:
+  - EN
+  boai: false
+  keywords:
+  - plant disease
+  - plant pathology
+  - disease diagnosis
+  - plant health
+  research_fields:
+  - Plant culture
+  - Plant pathology
+  - Pests and diseases
+  subject_codes:
+  - code: SB599-990.5
+    scheme: LCC
+    term: Pests and diseases
+  - code: SB621-795
+    scheme: LCC
+    term: Plant pathology
+  - code: SB1-1110
+    scheme: LCC
+    term: Plant culture
+  publisher_name: The American Phytopathological Society
+  publisher_country: US
+  review_process:
+  - Anonymous peer review
+  review_url: https://apsjournals.apsnet.org/page/authorinformation#submitting
+  board_url: https://apsjournals.apsnet.org/page/pdis/editorial-board
+  license_types:
+  - CC0
+  - CC BY
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 3465
+    currency: USD
+  apc_url: https://apsjournals.apsnet.org/page/authorinformation#apc
+  other_charges: true
+  waiver_has: false
+  preservation_has: true
+  preservation_services:
+  - Portico
+  - Internet Archive
+  preservation_url: https://portico.org/stable?cs=ISSN_01912917
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://apsjournals.apsnet.org/page/authorinformation#plagiarism
+  copyright_author_retains: false
+  copyright_url: https://apsjournals.apsnet.org/page/open_access
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Sherpa Romeo
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/10351
+  ref_journal: https://apsjournals.apsnet.org/journal/pdis
+  ref_aims_scope: https://apsjournals.apsnet.org/page/pdis/about
+  ref_oa_statement: https://apsjournals.apsnet.org/page/open_access
+  ref_author_instructions: https://apsjournals.apsnet.org/page/authorinformation
 - id: 23
   issn: 1746-4811
   journal_title: Plant Methods
@@ -1401,6 +1586,58 @@ journals:
   url: https://journals.sagepub.com/home/IJR
   data_journal_type: mixed
   is_active: true
+  eissn: 1741-3176
+  pissn: 0278-3649
+  language:
+  - EN
+  boai: false
+  publication_time_weeks: 22
+  keywords:
+  - robotics
+  - artificial intelligence
+  - applied mathematics
+  - human-robot interaction
+  - autonomous systems
+  - mechanical engineering
+  - computer science
+  research_fields:
+  - Robotics
+  subject_codes:
+  - code: TJ210.2-211.47
+    scheme: LCC
+    term: Robotics
+  publisher_name: SAGE Publications Ltd
+  publisher_country: GB
+  review_process:
+  - Anonymous peer review
+  review_url: https://journals.sagepub.com/page/ijr/guidelines-for-editors-and-reviewers#IRJJ_Review_Process
+  board_url: https://journals.sagepub.com/editorial-board/IJR
+  license_types:
+  - CC BY
+  - Restricted Access
+  apc_has: false
+  apc_url: https://journals.sagepub.com/author-instructions/ijr
+  other_charges: false
+  waiver_has: true
+  waiver_url: https://us.sagepub.com/en-us/nam/open-access-agreements-at-sage
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - LOCKSS
+  - Portico
+  pid_schemes:
+  - DOI
+  copyright_author_retains: false
+  copyright_url: https://journals.sagepub.com/author-instructions/ijr
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Sherpa Romeo
+  deposit_policy_url: https://www.sherpa.ac.uk/id/publication/9515
+  ref_journal: https://journals.sagepub.com/home/IJR
+  ref_aims_scope: https://journals.sagepub.com/home/IJR
+  ref_oa_statement: https://us.sagepub.com/en-us/nam/sage-choice
+  ref_author_instructions: https://journals.sagepub.com/author-instructions/ijr
+  ref_license_terms: https://us.sagepub.com/en-us/nam/copyright-and-permissions
 - id: 30
   issn: 1365-313X
   journal_title: The Plant Journal
@@ -1408,6 +1645,66 @@ journals:
   url: https://onlinelibrary.wiley.com/journal/1365313x
   data_journal_type: mixed
   is_active: true
+  eissn: 1365-313X
+  pissn: 0960-7412
+  language:
+  - EN
+  boai: false
+  publication_time_weeks: 24
+  keywords:
+  - plant biology
+  - plant physiology
+  - cell biology
+  - molecular biology
+  - phytopathology
+  research_fields:
+  - Plant culture
+  - Plant physiology
+  subject_codes:
+  - code: SB1-1110
+    scheme: LCC
+    term: Plant culture
+  - code: QK710-899
+    scheme: LCC
+    term: Plant physiology
+  publisher_name: John Wiley & Sons Ltd
+  publisher_country: US
+  institution_name: Society for Experimental Biology
+  institution_country: GB
+  review_process:
+  - Single-anonymous peer review
+  review_url: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/forauthors.html#editorialpoliciesandethicalconsiderations
+  board_url: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/editorialboard.html
+  license_types:
+  - CC BY
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 5480
+    currency: USD
+  - price: 3880
+    currency: GBP
+  - price: 4680
+    currency: EUR
+  apc_url: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/fundedaccess.html
+  other_charges: true
+  waiver_has: true
+  waiver_url: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/fundedaccess.html
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - Portico
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Sherpa Romeo
+  ref_journal: https://onlinelibrary.wiley.com/journal/1365313x
+  ref_aims_scope: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/productinformation.html
+  ref_oa_statement: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/fundedaccess.html
+  ref_author_instructions: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/forauthors.html
+  ref_license_terms: https://onlinelibrary.wiley.com/page/journal/1365313x/homepage/fundedaccess.html
 - id: 31
   issn: 2578-2703
   journal_title: The Plant Phenome Journal
@@ -1517,7 +1814,7 @@ journals:
   review_url: https://vdj.pensoft.net/about#PeerReview
   board_url: https://vdj.pensoft.net/board/
   license_types:
-  - CC BY 4.0
+  - CC BY
   apc_has: false
   apc_url: https://vdj.pensoft.net/about#ArticleProcessingCharges
   other_charges: false
@@ -8872,7 +9169,7 @@ journals:
 - id: 141
   issn: 1809-127X
   journal_title: Check List
-  publisher: Pensoft
+  publisher: Pensoft Publishers
   url: https://checklist.pensoft.net/
   data_journal_type: pure
   is_active: true
