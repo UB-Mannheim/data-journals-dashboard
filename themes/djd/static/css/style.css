@@ -1,5 +1,3 @@
-/* Data Journal Dashboard Theme Styles */
-
 /* Base layout */
 body {
   margin: 0;
@@ -68,24 +66,6 @@ body {
   box-sizing: border-box;
 }
 
-.reset-filters-btn {
-  width: 70px;
-  height: 36px;
-  margin-top: 0.2rem;
-  padding: 0.5rem;
-  background: #2f00b0;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.reset-filters-btn:hover {
-  background: rgb(0, 0, 181);
-}
-
 /* Main content */
 .main-content {
   flex: 1;
@@ -151,7 +131,7 @@ strong {
 
 .journal-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.2);
 }
 
 .journal-card h3,
@@ -172,6 +152,7 @@ strong {
 
 .journal-card:hover h3 {
   color: #007bff;
+  text-decoration: underline dotted 4px var(--journal-border-2);
 }
 
 .journal-card .meta {
@@ -182,6 +163,35 @@ strong {
 
 .journal-card .meta strong {
   color: #495057;
+}
+
+.filter-tag {
+  display: inline-flex;
+  font-size: 0.95rem;
+  align-items: center;
+  gap: 6px;
+  background: lavender;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filter-tag:hover { background: #ccccff; }
+
+.taxonomy-header a svg {
+  transition: stroke;
+}
+
+.taxonomy-header a:hover svg {
+  stroke: #007bff;
+}
+
+.taxonomy-header a img {
+  transition: filter;
+}
+
+.taxonomy-header a:hover img {
+  filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1352%) hue-rotate(199deg) brightness(101%) contrast(107%);
 }
 
 /* Single journal page */
@@ -202,7 +212,7 @@ strong {
   color: blue;
   font-size: 2.2rem;
   font-weight: 600;
-  text-decoration: underline dotted 6px var(--journal-border-6);
+  text-decoration: underline dotted 6px #ff6400;
 }
 
 .journal-url:hover {
@@ -313,6 +323,12 @@ strong {
 }
 
 /* About Page */
+hr {
+  border: none;
+  border-top: 4px dotted seagreen;
+  margin: 1.5rem 0;
+}
+
 .about-content {
   line-height: 1.8rem;
 }
@@ -367,33 +383,4 @@ strong {
     margin: -1rem -1rem 1rem -1rem;
     padding: 1.5rem;
   }
-}
-
-.filter-tag {
-  display: inline-flex;
-  font-size: 0.95rem;
-  align-items: center;
-  gap: 6px;
-  background: lavender;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.filter-tag:hover { background: #ccccff; }
-
-.taxonomy-header a svg {
-  transition: stroke;
-}
-
-.taxonomy-header a:hover svg {
-  stroke: #007bff;
-}
-
-.taxonomy-header a img {
-  transition: filter;
-}
-
-.taxonomy-header a:hover img {
-  filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1352%) hue-rotate(199deg) brightness(101%) contrast(107%);
 }

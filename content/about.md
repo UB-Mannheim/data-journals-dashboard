@@ -4,13 +4,9 @@ date: '2026-05-11'
 type: page
 ---
 
-Last update: 2026-05-11
-
----
-
 ## Introduction
 
-The Data Journals Dashboard provides easy access to a collection of data journals first compiled by **Kindling, M. and Strecker, D.** and published in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
+The Data Journals Dashboard provides easy access to a collection of data journals first compiled and published by **Kindling, M. and Strecker, D.** in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
 
 To find out more about the concept of data journals refer to this page by the [University Libraries of Western Michigan University](https://libguides.wmich.edu/datasci/datajournals).
 
@@ -33,6 +29,9 @@ The primary dataset is enhanced by adding additional metadata via the [Directory
 
 **The augmented dataset is available as XXX here:
 All metadata is licensed under CC 0**
+
+Metadata:
+  Research Fields: LLC
 
 ### Limitations
 

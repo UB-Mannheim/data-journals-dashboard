@@ -72,7 +72,9 @@
     {{ if .Params.apc_has }}
     <div class="detail-section">
       <h3>{{ with index $d "apc_has" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Article Processing Charges</h3>
-      <p><strong>APC:</strong> Yes</p>
+      {{ if .Params.apc_has }}
+      <p><strong>APC:</strong> {{ .Params.apc_has }}</p>
+      {{ end }}
       {{ if .Params.apc_price_range }}
       <p><strong>Price Range:</strong> {{ .Params.apc_price_range }}{{ with index $d "apc_max" }} <span class="tooltip" data-tip="{{ . }}">?</span>{{ end }}</p>
       {{ end }}
