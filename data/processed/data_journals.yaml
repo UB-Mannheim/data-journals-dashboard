@@ -6,6 +6,7 @@ journals:
   url: https://www.tandfonline.com/journals/tbed20
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2574-5417
   pissn: 2096-4471
   language:
@@ -84,6 +85,7 @@ journals:
   url: https://www.tandfonline.com/journals/rssn20
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1550-2783
   pissn: null
   language:
@@ -159,6 +161,7 @@ journals:
   url: https://mbmg.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2534-9708
   pissn: null
   language:
@@ -228,6 +231,7 @@ journals:
   url: https://www.micropublication.org/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2578-9430
   pissn: null
   language:
@@ -292,6 +296,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/mpmi
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1943-7706
   pissn: 0894-0282
   language:
@@ -362,6 +367,7 @@ journals:
   url: https://movementecologyjournal.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2051-3933
   pissn: null
   language:
@@ -435,6 +441,7 @@ journals:
   url: https://mycokeys.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1314-4049
   pissn: 1314-4057
   language:
@@ -499,6 +506,7 @@ journals:
   url: https://natureconservation.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1314-3301
   pissn: 1314-6947
   language:
@@ -568,6 +576,7 @@ journals:
   url: https://neobiota.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1314-2488
   pissn: 1619-0033
   language:
@@ -630,6 +639,7 @@ journals:
   url: https://www.springer.com/journal/12021/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: null
 - id: 11
   issn: 0090-3752
   journal_title: Nuclear Data Sheets
@@ -637,6 +647,7 @@ journals:
   url: https://www.sciencedirect.com/journal/nuclear-data-sheets
   data_journal_type: pure
   is_active: true
+  enrichment_source: null
 - id: 12
   issn: 1362-4962
   journal_title: Nucleic Acids Research
@@ -644,6 +655,7 @@ journals:
   url: https://academic.oup.com/nar
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1362-4962
   pissn: 0305-1048
   language:
@@ -716,6 +728,7 @@ journals:
   url: https://oneecosystem.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2367-8194
   pissn: null
   language:
@@ -783,6 +796,7 @@ journals:
   url: https://odjar.org/index
   data_journal_type: pure
   is_active: true
+  enrichment_source: null
 - id: 15
   issn: 2363-7501
   journal_title: Open Geospatial Data Software and Standards
@@ -790,6 +804,7 @@ journals:
   url: https://opengeospatialdata.springeropen.com/
   data_journal_type: mixed
   is_active: false
+  enrichment_source: null
 - id: 16
   issn: 2054-7102
   journal_title: Open Health Data
@@ -797,6 +812,7 @@ journals:
   url: https://openhealthdata.metajnl.com/
   data_journal_type: pure
   is_active: false
+  enrichment_source: null
 - id: 17
   issn: 2056-5542
   journal_title: Open Journal of Bioresources
@@ -804,6 +820,7 @@ journals:
   url: https://openbioresources.metajnl.com/
   data_journal_type: pure
   is_active: false
+  enrichment_source: null
 - id: 18
   issn: 2471-2906
   journal_title: Phytobiomes Journal
@@ -811,6 +828,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/pbiomes
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2471-2906
   pissn: null
   language:
@@ -888,6 +906,7 @@ journals:
   url: https://phytokeys.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1314-2003
   pissn: 1314-2011
   language:
@@ -953,6 +972,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/phyto
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1943-7684
   pissn: 0031-949X
   language:
@@ -1018,6 +1038,7 @@ journals:
   url: https://academic.oup.com/pcp
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1471-9053
   pissn: 0032-0781
   language:
@@ -1091,6 +1112,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/pdis
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1943-7692
   pissn: 0191-2917
   language:
@@ -1159,6 +1181,7 @@ journals:
   url: https://plantmethods.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1746-4811
   pissn: null
   language:
@@ -1234,6 +1257,7 @@ journals:
   url: https://brill.com/view/journals/rdj/rdj-overview.xml
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2452-3666
   pissn: null
   language:
@@ -1312,6 +1336,7 @@ journals:
   url: https://riojournal.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2367-7163
   pissn: null
   language:
@@ -1377,6 +1402,7 @@ journals:
   url: https://www.nature.com/sdata/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2052-4463
   pissn: null
   language:
@@ -1446,6 +1472,7 @@ journals:
   url: https://substanceabusepolicy.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1747-597X
   pissn: null
   language:
@@ -1520,6 +1547,7 @@ journals:
   url: https://journals.aas.org/astrophysical-supplement-series/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 1538-4365
   pissn: 0067-0049
   language:
@@ -1586,6 +1614,7 @@ journals:
   url: https://journals.sagepub.com/home/IJR
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1741-3176
   pissn: 0278-3649
   language:
@@ -1645,6 +1674,7 @@ journals:
   url: https://onlinelibrary.wiley.com/journal/1365313x
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1365-313X
   pissn: 0960-7412
   language:
@@ -1712,6 +1742,7 @@ journals:
   url: https://acsess.onlinelibrary.wiley.com/journal/25782703
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2578-2703
   pissn: null
   language:
@@ -1783,6 +1814,7 @@ journals:
   url: https://vdj.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 2603-431X
   language:
   - EN
@@ -1848,6 +1880,7 @@ journals:
   url: https://wellcomeopenresearch.org/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2398-502X
   pissn: null
   language:
@@ -1918,6 +1951,7 @@ journals:
   url: https://museucienciesjournals.cat/en/amz
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 1698-0476
   pissn: null
   language:
@@ -1985,6 +2019,7 @@ journals:
   url: https://www.cdc.gov/nchs/products/databriefs.htm
   data_journal_type: pure
   is_active: true
+  enrichment_source: null
 - id: 36
   issn: 1758-0463
   journal_title: 'Database: The Journal of Biological Databases and Curation'
@@ -1992,6 +2027,7 @@ journals:
   url: https://academic.oup.com/database
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 1758-0463
   pissn: null
   language:
@@ -2065,6 +2101,7 @@ journals:
   url: https://gigabytejournal.com/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2709-4715
   pissn: null
   language:
@@ -2132,6 +2169,7 @@ journals:
   url: https://gatesopenresearch.org/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2572-4754
   pissn: null
   language:
@@ -2197,6 +2235,7 @@ journals:
   url: https://open-research-europe.ec.europa.eu/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2732-5121
   pissn: null
   language:
@@ -2267,6 +2306,7 @@ journals:
   url: https://ride.i-d-e.de/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2363-4952
   pissn: null
   language:
@@ -2339,6 +2379,7 @@ journals:
   url: https://openhumanitiesdata.metajnl.com/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2059-481X
   pissn: null
   language:
@@ -2409,6 +2450,7 @@ journals:
   url: https://www.frontiersin.org/journals/marine-science
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2296-7745
   pissn: null
   language:
@@ -2479,6 +2521,7 @@ journals:
   url: https://www.nature.com/hgv/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2054-345X
   pissn: null
   language:
@@ -2552,6 +2595,7 @@ journals:
   url: https://journalofastronomicaldata.be/jad.htm
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1385-3945
   pissn: 2032-6378
   language:
@@ -2588,6 +2632,7 @@ journals:
   url: https://annforsci.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1297-966X
   pissn: 1286-4560
   language:
@@ -2662,6 +2707,7 @@ journals:
   is_active: true
   eissn: 1090-2090
   pissn: 0092-640X
+  enrichment_source: manual
   language:
   - EN
   boai: false
@@ -2707,6 +2753,7 @@ journals:
   url: https://bdj.pensoft.net/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1314-2828
   pissn: null
   language:
@@ -2773,6 +2820,7 @@ journals:
   url: https://www.reabic.net/journals/bir/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2242-1300
   pissn: null
   language:
@@ -2842,6 +2890,7 @@ journals:
   url: https://bsd.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2042-6410
   pissn: null
   language:
@@ -2917,6 +2966,7 @@ journals:
   url: https://bmcanesthesiol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2253
   pissn: null
   language:
@@ -2987,6 +3037,7 @@ journals:
   url: https://bmcbioinformatics.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2105
   pissn: null
   language:
@@ -3060,6 +3111,7 @@ journals:
   url: https://bmcbiol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1741-7007
   pissn: null
   language:
@@ -3129,6 +3181,7 @@ journals:
   url: https://bmcbiotechnol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6750
   pissn: null
   language:
@@ -3196,6 +3249,7 @@ journals:
   url: https://bmccancer.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2407
   pissn: null
   language:
@@ -3264,6 +3318,7 @@ journals:
   url: https://bmccardiovascdisord.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2261
   pissn: null
   language:
@@ -3334,6 +3389,7 @@ journals:
   url: https://bmcchem.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2661-801X
   pissn: null
   language:
@@ -3403,6 +3459,7 @@ journals:
   url: https://bmccomplementmedtherapies.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6882
   pissn: null
   language:
@@ -3473,6 +3530,7 @@ journals:
   url: https://bmcecol.biomedcentral.com/
   data_journal_type: mixed
   is_active: false
+  enrichment_source: doaj
   eissn: 1472-6785
   pissn: null
   language:
@@ -3545,6 +3603,7 @@ journals:
   url: https://bmcemergmed.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-227X
   pissn: null
   language:
@@ -3621,6 +3680,7 @@ journals:
   url: https://bmcendocrdisord.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6823
   pissn: null
   language:
@@ -3690,6 +3750,7 @@ journals:
   url: https://bmcecolevol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2148
   pissn: null
   language:
@@ -3762,6 +3823,7 @@ journals:
   url: https://bmcgastroenterol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-230X
   pissn: null
   language:
@@ -3831,6 +3893,7 @@ journals:
   url: https://bmcgenomdata.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2156
   pissn: null
   language:
@@ -3901,6 +3964,7 @@ journals:
   url: https://bmcgenomics.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2164
   pissn: null
   language:
@@ -3976,6 +4040,7 @@ journals:
   url: https://bmcgeriatr.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2318
   pissn: null
   language:
@@ -4046,6 +4111,7 @@ journals:
   url: https://bmchealthservres.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6963
   pissn: null
   language:
@@ -4117,6 +4183,7 @@ journals:
   url: https://bmcimmunol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2172
   pissn: null
   language:
@@ -4186,6 +4253,7 @@ journals:
   url: https://bmcinfectdis.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2334
   pissn: null
   language:
@@ -4255,6 +4323,7 @@ journals:
   url: https://bmcmededuc.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6920
   pissn: null
   language:
@@ -4329,6 +4398,7 @@ journals:
   url: https://bmcmedethics.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6939
   pissn: null
   language:
@@ -4397,6 +4467,7 @@ journals:
   url: https://bmcmedgenomics.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1755-8794
   pissn: null
   language:
@@ -4472,6 +4543,7 @@ journals:
   url: https://bmcmedimaging.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2342
   pissn: null
   language:
@@ -4542,6 +4614,7 @@ journals:
   url: https://bmcmedinformdecismak.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6947
   pissn: null
   language:
@@ -4610,6 +4683,7 @@ journals:
   url: https://bmcmedresmethodol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2288
   pissn: null
   language:
@@ -4680,6 +4754,7 @@ journals:
   url: https://bmcmedicine.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1741-7015
   pissn: null
   language:
@@ -4753,6 +4828,7 @@ journals:
   url: https://bmcmicrobiol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2180
   pissn: null
   language:
@@ -4821,6 +4897,7 @@ journals:
   url: https://bmcmolcellbiol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2661-8850
   pissn: null
   language:
@@ -4890,6 +4967,7 @@ journals:
   url: https://bmcmusculoskeletdisord.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2474
   pissn: null
   language:
@@ -4958,6 +5036,7 @@ journals:
   url: https://bmcnephrol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2369
   pissn: null
   language:
@@ -5027,6 +5106,7 @@ journals:
   url: https://bmcneurol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2377
   pissn: null
   language:
@@ -5096,6 +5176,7 @@ journals:
   url: https://bmcneurosci.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2202
   pissn: null
   language:
@@ -5169,6 +5250,7 @@ journals:
   url: https://bmcnurs.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6955
   pissn: null
   language:
@@ -5237,6 +5319,7 @@ journals:
   url: https://bmcophthalmol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2415
   pissn: null
   language:
@@ -5306,6 +5389,7 @@ journals:
   url: https://bmcoralhealth.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6831
   pissn: null
   language:
@@ -5375,6 +5459,7 @@ journals:
   url: https://bmcpalliatcare.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-684X
   pissn: null
   language:
@@ -5445,6 +5530,7 @@ journals:
   url: https://bmcpediatr.biomedcentral.com/submission-guidelines/preparing-your-manuscript
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2431
   pissn: null
   language:
@@ -5517,6 +5603,7 @@ journals:
   url: https://bmcpharmacoltoxicol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2050-6511
   pissn: null
   language:
@@ -5595,6 +5682,7 @@ journals:
   url: https://bmcplantbiol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2229
   pissn: null
   language:
@@ -5663,6 +5751,7 @@ journals:
   url: https://bmcpregnancychildbirth.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2393
   pissn: null
   language:
@@ -5733,6 +5822,7 @@ journals:
   url: https://bmcprimcare.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2296
   pissn: null
   language:
@@ -5804,6 +5894,7 @@ journals:
   url: https://bmcpsychiatry.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-244X
   pissn: null
   language:
@@ -5873,6 +5964,7 @@ journals:
   url: https://bmcpsychology.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2050-7283
   pissn: null
   language:
@@ -5946,6 +6038,7 @@ journals:
   url: https://bmcpublichealth.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2458
   pissn: null
   language:
@@ -6015,6 +6108,7 @@ journals:
   url: https://bmcpulmmed.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2466
   pissn: null
   language:
@@ -6083,6 +6177,7 @@ journals:
   url: https://bmcresnotes.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1756-0500
   pissn: null
   language:
@@ -6163,6 +6258,7 @@ journals:
   url: https://bmcsportsscimedrehabil.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2052-1847
   pissn: null
   language:
@@ -6235,6 +6331,7 @@ journals:
   url: https://bmcsurg.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2482
   pissn: null
   language:
@@ -6303,6 +6400,7 @@ journals:
   url: https://bmcurol.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1471-2490
   pissn: null
   language:
@@ -6371,6 +6469,7 @@ journals:
   url: https://bmcvetres.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1746-6148
   pissn: null
   language:
@@ -6442,6 +6541,7 @@ journals:
   url: https://bmcwomenshealth.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1472-6874
   pissn: null
   language:
@@ -6518,6 +6618,7 @@ journals:
   url: https://bmczool.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2056-3132
   pissn: null
   language:
@@ -6589,6 +6690,7 @@ journals:
   url: https://as-botanicalstudies.springeropen.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1999-3110
   pissn: 1817-406X
   language:
@@ -6661,6 +6763,7 @@ journals:
   url: https://cellandbioscience.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2045-3701
   pissn: null
   language:
@@ -6744,6 +6847,7 @@ journals:
   url: https://www.sciencedirect.com/journal/chemical-data-collections
   data_journal_type: pure
   is_active: true
+  enrichment_source: manual
   eissn: 2405-8300
   language:
   - EN
@@ -6795,6 +6899,7 @@ journals:
   url: https://chiromt.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2045-709X
   pissn: null
   language:
@@ -6875,6 +6980,7 @@ journals:
   url: https://journals.openedition.org/cybergeo/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1278-3366
   pissn: null
   language:
@@ -6940,6 +7046,7 @@ journals:
   url: https://www.mdpi.com/journal/data
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2306-5729
   pissn: null
   language:
@@ -7005,6 +7112,7 @@ journals:
   url: https://www.sciencedirect.com/journal/data-in-brief
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2352-3409
   pissn: null
   language:
@@ -7077,6 +7185,7 @@ journals:
   url: https://datascience.codata.org/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1683-1470
   pissn: null
   language:
@@ -7141,6 +7250,7 @@ journals:
   url: https://www.earth-system-science-data.net/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 1866-3516
   pissn: 1866-3508
   language:
@@ -7213,6 +7323,7 @@ journals:
   url: https://esj-journals.onlinelibrary.wiley.com/journal/14401703
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   language:
   - EN
   boai: false
@@ -7261,6 +7372,7 @@ journals:
   url: https://esajournals.onlinelibrary.wiley.com/journal/19399170
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1939-9170
   pissn: 0012-9658
   language:
@@ -7318,6 +7430,7 @@ journals:
   url: https://www.tandfonline.com/journals/tbsm22
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2639-5916
   pissn: 2639-5908
   language:
@@ -7394,6 +7507,7 @@ journals:
   url: https://elifesciences.org/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2050-084X
   pissn: null
   language:
@@ -7468,6 +7582,7 @@ journals:
   url: https://evodevojournal.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2041-9139
   pissn: null
   language:
@@ -7539,6 +7654,7 @@ journals:
   url: https://f1000research.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2046-1402
   pissn: null
   language:
@@ -7613,6 +7729,7 @@ journals:
   url: https://www.sciencedirect.com/journal/forest-ecosystems
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2197-5620
   pissn: 2095-6355
   language:
@@ -7681,6 +7798,7 @@ journals:
   url: http://data.freshwaterbiodiversity.eu/fmj/
   data_journal_type: pure
   is_active: true
+  enrichment_source: null
 - id: 119
   issn: 1756-994X
   journal_title: Genome Medicine
@@ -7688,6 +7806,7 @@ journals:
   url: https://genomemedicine.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1756-994X
   pissn: null
   language:
@@ -7766,6 +7885,7 @@ journals:
   url: https://rmets.onlinelibrary.wiley.com/journal/20496060
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2049-6060
   pissn: null
   language:
@@ -7842,6 +7962,7 @@ journals:
   url: https://www.geoscientific-model-development.net/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 1991-9603
   pissn: 1991-959X
   language:
@@ -7910,6 +8031,7 @@ journals:
   url: https://academic.oup.com/gigascience
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2047-217X
   pissn: null
   language:
@@ -7978,6 +8100,7 @@ journals:
   url: https://healthandjusticejournal.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2194-7899
   pissn: null
   language:
@@ -8056,6 +8179,7 @@ journals:
   url: https://humgenomics.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1479-7364
   pissn: null
   language:
@@ -8128,6 +8252,7 @@ journals:
   url: https://www.journals.elsevier.com/international-economics
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   language:
   - EN
   boai: false
@@ -8164,6 +8289,7 @@ journals:
   url: https://academic.oup.com/ije/pages/About
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1464-3685
   language:
   - EN
@@ -8214,6 +8340,7 @@ journals:
   url: https://foodcontaminationjournal.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2196-2804
   pissn: null
   language:
@@ -8283,6 +8410,7 @@ journals:
   url: https://intarch.ac.uk/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1363-5387
   pissn: null
   language:
@@ -8346,6 +8474,7 @@ journals:
   url: https://irishvetjournal.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2046-0481
   pissn: null
   language:
@@ -8417,6 +8546,7 @@ journals:
   url: https://iucrdata.iucr.org/x/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2414-3146
   pissn: null
   language:
@@ -8483,6 +8613,7 @@ journals:
   url: https://appliedvolc.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2191-5040
   pissn: null
   language:
@@ -8557,6 +8688,7 @@ journals:
   url: https://jbiomedsem.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2041-1480
   pissn: null
   language:
@@ -8631,6 +8763,7 @@ journals:
   url: https://pubs.acs.org/journal/jceaax
   data_journal_type: pure
   is_active: true
+  enrichment_source: manual
   eissn: 1520-5134
   pissn: 0021-9568
   language:
@@ -8699,6 +8832,7 @@ journals:
   url: https://jcheminf.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1758-2946
   pissn: null
   language:
@@ -8776,6 +8910,7 @@ journals:
   url: https://acsess.onlinelibrary.wiley.com/journal/15372537
   data_journal_type: mixed
   is_active: true
+  enrichment_source: manual
   eissn: 1537-2537
   pissn: 0047-2425
   language:
@@ -8850,6 +8985,7 @@ journals:
   url: https://occup-med.biomedcentral.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 1745-6673
   pissn: null
   language:
@@ -8921,6 +9057,7 @@ journals:
   url: https://openarchaeologydata.metajnl.com/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2049-1565
   pissn: null
   language:
@@ -8987,6 +9124,7 @@ journals:
   url: https://openpsychologydata.metajnl.com/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 2050-9863
   pissn: null
   language:
@@ -9052,6 +9190,7 @@ journals:
   url: https://openresearchsoftware.metajnl.com/
   data_journal_type: mixed
   is_active: true
+  enrichment_source: doaj
   eissn: 2049-9647
   pissn: null
   language:
@@ -9116,6 +9255,7 @@ journals:
   url: https://pubs.aip.org/aip/jpr
   data_journal_type: pure
   is_active: true
+  enrichment_source: manual
   eissn: 1529-7845
   pissn: 0047-2689
   language:
@@ -9173,6 +9313,7 @@ journals:
   url: https://checklist.pensoft.net/
   data_journal_type: pure
   is_active: true
+  enrichment_source: doaj
   eissn: 1809-127X
   pissn: null
   language:

@@ -3,19 +3,10 @@
 fields:
 
   # CORE METADATA
-  
+
   ## The core metadata fields originate from this publication and GitHub repository: 
   ## Publication: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7082126
   ## GitHub repository: https://github.com/MaxiKi/data-journals
-
-  - key: id
-    label: "ID"
-    description: "Sequential integer id for each data journal assigned during processing."
-    source: djd
-    type: integer
-    required: true
-    default: null
-    schema_level: internal
 
   - key: issn
     label: "ISSN"
@@ -67,11 +58,22 @@ fields:
     default: null
     schema_level: core
 
-  # ADDITIONAL METADATA
 
-  ## Dashboard metadata for filtering purposes
+  # ADDITIONAL DJD METADATA
+
+  ## Data Journals Dashboard metadata
+
+  - key: id
+    label: "ID"
+    description: "Sequential integer id for each data journal assigned during processing."
+    source: djd
+    type: integer
+    required: true
+    default: null
+    schema_level: internal
 
   - key: is_active
+    label: "Journal Status"
     description: "Indicates whether the data journal is currently active and publishing new papers or has ceased/paused publication."
     source: djd
     csv_column: is_active
@@ -79,6 +81,15 @@ fields:
     required: true
     default: null
     schema_level: core
+  
+  - key: enrichment_source
+    label: "Source of Metadata Enrichment"
+    description: "Source of metadata enrichment: 'DOAJ.org' or 'manual'"
+    source: djd
+    type: string
+    required: true
+    default: null
+    schema_level: full
 
 
   # DOAJ.ORG METADATA VIA THE DOAJ API (https://doaj.org/api/)

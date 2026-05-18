@@ -152,6 +152,10 @@
         {{ end }}
       </ul>
     </div>
+
+    {{ if .Params.enrichment_source }}
+    <p style="color: darkorchid">{{ with index $d "enrichment_source" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }} <strong>Metadata Source:</strong> {{ .Params.enrichment_source }}</p>
+    {{ end }}
   </div>
 </article>
 {{ end }}
