@@ -13,6 +13,7 @@ from utils import (
     write_csv_to_disk,
     write_yaml_to_disk
 )
+
 from config import (
     GITHUB_JOURNAL_DATA_URL,
     METADATA_SCHEMA_PATH,

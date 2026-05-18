@@ -3,13 +3,29 @@ import re
 from pathlib import Path
 from datetime import datetime
 
+from config import HUGO_CONFIG_PATH
+
 
 def sanitize_filename(title: str) -> str:
-    """Convert title to safe filename by removing/escaping special chars."""
+    """
+    Convert title to safe filename by removing/escaping special chars.
+    """
     # Remove or replace problematic characters
     safe = re.sub(r"[^\w\s-]", "", title.lower())
     safe = re.sub(r"[\s_]+", "-", safe)
     return safe[:50]  # Limit length
+
+
+def _update_version_in_config(config_fpath: Path | str = HUGO_CONFIG_PATH):
+    """
+    Inject current timestamp to hugo.toml.
+    """
+    data = config_fpath.read_text()
+    timestamp = f"v{datetime.now().strftime("%Y-%m-%d")}"
+    data = re.sub(r"v\d{4}-\d{2}-\d{2}", timestamp, data)
+    
+    with open(config_fpath, "w", encoding="utf-8") as file:
+        file.write(data)
 
 
 def create_journal_content_for_hugo(
@@ -75,7 +91,7 @@ def create_journal_content_for_hugo(
 
         # Flatten APC info for easier template access
         if journal.get("apc_has") is not None:
-            front_matter["apc_has"] = journal["apc_has"]
+            front_matter["apc_has"] = "yes" if journal["apc_has"] else "no"
         if journal.get("apc_max"):
             # Convert list of {price, currency} to simple display string
             apc_prices = []
@@ -122,6 +138,8 @@ def create_journal_content_for_hugo(
         generated_count += 1
         print(f"Generated: {filepath.name}")
 
+    # Update version
+    _update_version_in_config()
     print(f"Done. Generated {generated_count} journal pages.")
     return generated_count
 
