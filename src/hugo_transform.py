@@ -23,7 +23,7 @@ def _update_version_in_config(config_fpath: Path | str = HUGO_CONFIG_PATH):
     data = config_fpath.read_text()
     timestamp = f"v{datetime.now().strftime("%Y-%m-%d")}"
     data = re.sub(r"v\d{4}-\d{2}-\d{2}", timestamp, data)
-    
+
     with open(config_fpath, "w", encoding="utf-8") as file:
         file.write(data)
 
