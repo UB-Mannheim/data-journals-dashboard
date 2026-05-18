@@ -25,7 +25,7 @@ GitHub:
 
 ## Augmented Dataset
 
-The primary dataset is enhanced by adding additional metadata via the [Directory of Open Access Journals (doaj.org)](https://doaj.org/) API. Each `ISSN` in the primary dataset is queried via the API. If the `ISSN` is present in the DOAJ, additional metadata is retrieved and added to the journal's existing metadata. The full metadata schema used to integrate both data sources is available on [GitHub](https://github.com/tsmdt/data-journals-dashboard/blob/main/journal_metadata_schema/schema.yaml).
+The primary dataset is enhanced by adding additional metadata via the [Directory of Open Access Journals (doaj.org)](https://doaj.org/) API. Each `ISSN` in the primary dataset is queried via the API. If the `ISSN` is present in the DOAJ, additional metadata is retrieved and added to the journal's existing metadata. The full metadata schema used to integrate both data sources is available on [GitHub](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
 
 **The augmented dataset is available as XXX here:
 All metadata is licensed under CC 0**
