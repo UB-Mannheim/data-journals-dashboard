@@ -92,7 +92,7 @@
     {{ if .Params.preservation_services }}
     <div class="detail-section">
       <h3>{{ with index $d "preservation_services" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Preservation Services</h3>
-      <ul class="tags">
+      <ul>
         {{ range .Params.preservation_services }}
         <li>{{ . }}</li>
         {{ end }}
