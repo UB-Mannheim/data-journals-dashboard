@@ -412,19 +412,6 @@ def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
     help="Path to write validation log (defaults to stdout)."
 )
 @click.option(
-    "--repair", "-r",
-    is_flag=True,
-    default=False,
-    help="Repair input YAML by adding missing keys with schema defaults."
-)
-@click.option(
-    "--scope", "-sc",
-    type=click.Choice(["base", "core", "full"]),
-    default="full",
-    show_default=True,
-    help="base: CSV fields; core: core metadata; full: all schema fields.",
-)
-@click.option(
     "--issn",
     default=None,
     help="ISSN of a single journal to validate from the collection.",
@@ -432,8 +419,6 @@ def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
 def validate(
     input_fpath: Path,
     output_fpath: Path | None,
-    repair: bool,
-    scope: str,
     issn: str | None,
 ):
     """
@@ -444,7 +429,7 @@ def validate(
             f"Input file must be a .yaml file, got {input_fpath.suffix}"
         )
     try:
-        run_validation(input_fpath, output_fpath, repair, issn=issn, scope=scope)
+        run_validation(input_fpath, output_fpath, issn)
     except ValueError as e:
         click.secho(str(e), fg="red")
         return

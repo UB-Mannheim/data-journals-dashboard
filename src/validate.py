@@ -1,10 +1,9 @@
 import click
-import copy
 import yaml
 from pathlib import Path
 from datetime import datetime
 
-from utils import load_schema, _IgnoreAliases
+from utils import load_schema
 from config import METADATA_SCHEMA_PATH
 
 
@@ -36,41 +35,39 @@ def load_input(input_fpath: Path) -> list[dict]:
 def validate_compliance(
     journals: list[dict],
     schema_fields: list[dict],
-    scope: str = "full"
 ) -> list[str]:
     """
-    Check if each journal has all required fields defined in the schema.
-
-    Scope: "base", "core", "full".
+    Run validation checks for a list of journals against the metadata schema.
+    The checks run against all schema metadata fields that have a "required"
+    key == True.
     """
-    # Determine required fields based on scope
-    if scope == "base":
-        required_fields = {
-            f["key"] for f in schema_fields if f.get("source") == "csv"
-        }
-    elif scope == "core":
-        required_fields = {
-            f["key"] for f in schema_fields if f.get("schema_level") == "core"
-        }
-    elif scope == "full":
-        required_fields = {
-            f["key"] for f in schema_fields
-            if f.get("schema_level") in ["internal", "core", "full"]
-        }
-    else:
-        required_fields = None
+    # All metadata schema fields
+    schema_field_keys = [f["key"] for f in schema_fields]
+
+    # Get all required fields from metadata schema
+    required_fields = {
+        f["key"] for f in schema_fields if f.get("required")
+    }
 
     errors = []
     for idx, journal in enumerate(journals):
         journal_title = journal.get("journal_title", f"journal_{idx}")
         journal_id = journal.get("id", "N/A")
 
+        # Missing keys: Check for missing fields in journal
         for field in required_fields:
-            # Check if metadata field is in journal
             if field not in journal:
                 errors.append(
-                    f"Missing required metadata field '{field}' in Journal "
-                    f"'{journal_title}' (id: {journal_id})"
+                    f"'{journal_title}' (id: {journal_id}): missing required "
+                    f"metadata field: '{field}'."
+                )
+
+        # Invalid keys: Check for journal keys not part of the schema
+        for key in journal.keys():
+            if key not in schema_field_keys:
+                errors.append(
+                    f"'{journal_title}' (id: {journal_id}): invalid metadata "
+                    f"field: '{field}'."
                 )
     return errors
 
@@ -101,51 +98,6 @@ def check_duplicates(journals: list[dict]) -> list[str]:
                     f"indices {indices} (titles: {titles})."
                 )
     return errors
-
-
-def _schema_key_order(schema_fields: list[dict]) -> list[str]:
-    return [f["key"] for f in schema_fields]
-
-
-def _reorder_journal(journal: dict, template_order: list[str]) -> dict:
-    reordered = {}
-    if "id" in journal:
-        reordered["id"] = journal["id"]
-    for key in template_order:
-        if key in journal:
-            reordered[key] = journal[key]
-    for key in journal:
-        if key not in reordered:
-            reordered[key] = journal[key]
-    return reordered
-
-
-def repair_journals(
-    journals: list[dict],
-    schema_fields: list[dict],
-    template_order: list[str] | None = None,
-) -> tuple[dict[str], list[str]]:
-    """
-    Add missing keys to each journal using schema default values
-    (never overwrites existing keys), then reorder keys to match template.
-    """
-    default_map = {f["key"]: f.get("default") for f in schema_fields}
-    repaired = copy.deepcopy(journals)
-
-    repairs_list = []
-    for journal in repaired:
-        for key, default_val in default_map.items():
-            if key not in journal or journal[key] is None:
-                journal[key] = copy.deepcopy(default_val)
-                repairs_list.append(
-                    f"Added missing '{key}' key to Journal "
-                    f"'{journal.get("journal_title")}' (id: {journal.get("id")}) "
-                    f"with default value: '{default_val}'"
-                )
-    if template_order:
-        repaired = [_reorder_journal(j, template_order) for j in repaired]
-
-    return repaired, repairs_list
 
 
 def validate_types(
@@ -179,8 +131,8 @@ def validate_types(
             expected = type_map[key]
             if not isinstance(value, expected):
                 errors.append(
-                    f"Journal '{journal_title}' (id: {journal_id}): field '{key}' "
-                    f"has value of type '{type(value).__name__}' but schema expects "
+                    f"'{journal_title}' (id: {journal_id}): field '{key}' has "
+                    f"value of type '{type(value).__name__}' but schema expects "
                     f"'{expected.__name__}'."
                 )
 
@@ -220,9 +172,7 @@ def write_log(log: str, output_fpath: Path | None, text_color: str = "blue"):
 def run_validation(
     input_fpath: Path,
     output_fpath: Path | None,
-    repair: bool = False,
-    issn: str | None = None,
-    scope: str = "full",
+    issn: str | None = None
 ):
     """
     Main validation workflow: load schema, validate, log results,
@@ -249,35 +199,11 @@ def run_validation(
             raise ValueError(f"No journal with ISSN '{issn}' found in input file.")
 
     # Run validation checks
-    compliance_errors = validate_compliance(journals, schema_fields, scope=scope)
+    compliance_errors = validate_compliance(journals, schema_fields)
     type_errors = validate_types(journals, schema_fields)
     duplicate_errors = check_duplicates(journals)
     all_errors = compliance_errors + type_errors + duplicate_errors
 
-    # Repair input file if requested
-    if repair:
-        schema_key_order = _schema_key_order(schema_fields)
-        repaired_journals, repairs_list = repair_journals(
-            journals, schema_fields, schema_key_order
-        )
-        try:
-            with open(input_fpath, "w", encoding="utf-8") as f:
-                yaml.dump(
-                    {"journals": repaired_journals},
-                    f,
-                    Dumper=_IgnoreAliases,
-                    allow_unicode=True,
-                    sort_keys=False,
-                )
-        except IOError as e:
-            raise RuntimeError(
-                f"Failed to write repaired data to {input_fpath}: {e}"
-            )
-
     # Generate and write logs
     error_log = generate_log(all_errors)
     write_log(error_log, output_fpath, text_color="red")
-
-    if repair:
-        repairs_log = generate_log(repairs_list)
-        write_log(repairs_log, output_fpath, text_color="green")
