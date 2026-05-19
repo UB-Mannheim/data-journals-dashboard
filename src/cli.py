@@ -15,11 +15,12 @@ from data_processing import (
     PROCESSED_JOURNAL_METADATA_PATH,
 )
 from utils import ensure_dir, to_csv, to_yaml, to_json, get_journal_by_issn
+from validate import run_validation
 
 
 class OrderedGroup(click.Group):
     def list_commands(self, ctx: click.Context) -> list[str]:
-        return list(["collect", "process", "hugo", "export"])
+        return list(["collect", "process", "hugo", "export", "validate"])
 
 
 @click.group(cls=OrderedGroup, no_args_is_help=True)
@@ -74,9 +75,17 @@ def process():
     show_default=True,
     help="Path to the journal metadata schema YAML file.",
 )
+@click.option(
+    "--output_fpath", "-o",
+    type=click.Path(path_type=Path),
+    default=PROCESSED_JOURNAL_METADATA_PATH,
+    show_default=True,
+    help="Path to save the processed journal collections YAML file.",
+)
 def process_all(
     input_fpath: Path,
     schema_path: Path,
+    output_fpath: Path,
 ):
     """
     Process all journals in one go.
@@ -85,7 +94,8 @@ def process_all(
         click.secho("No input provided. Aborting.", fg="red")
         return
 
-    process_all_journals(input_fpath=input_fpath, schema_path=schema_path)
+    ensure_dir(output_fpath.parent)
+    process_all_journals(input_fpath, schema_path, output_fpath)
 
 
 @process.command("single", no_args_is_help=True)
@@ -102,9 +112,17 @@ def process_all(
     show_default=True,
     help="Path to the journal metadata schema YAML file.",
 )
+@click.option(
+    "--output_fpath", "-o",
+    type=click.Path(path_type=Path),
+    default=PROCESSED_JOURNAL_METADATA_PATH,
+    show_default=True,
+    help="Path to save the processed journal collections YAML file.",
+)
 def process_single(
     input_fpath: Path | None,
     schema_path: Path,
+    output_fpath: Path,
 ):
     """
     Process a single journal.
@@ -112,7 +130,8 @@ def process_single(
     if not input_fpath.exists():
         click.secho("No input provided. Aborting.", fg="red")
 
-    process_single_journal(input_fpath=input_fpath, schema_path=schema_path)
+    ensure_dir(output_fpath.parent)
+    process_single_journal(input_fpath, schema_path, output_fpath)
 
 
 @cli.group("hugo", no_args_is_help=True)
@@ -377,6 +396,59 @@ def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
     ensure_dir(output_dir)
     output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".json")
     to_json(input_fpath, output_fpath, scope)
+
+
+@cli.command("validate", no_args_is_help=True)
+@click.option(
+    "--input_fpath", "-i",
+    type=click.Path(path_type=Path, exists=True),
+    required=True,
+    help="Path to input journal metadata YAML file (must be .yaml)."
+)
+@click.option(
+    "--output_fpath", "-o",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Path to write validation log (defaults to stdout)."
+)
+@click.option(
+    "--repair", "-r",
+    is_flag=True,
+    default=False,
+    help="Repair input YAML by adding missing keys with schema defaults."
+)
+@click.option(
+    "--scope", "-sc",
+    type=click.Choice(["base", "core", "full"]),
+    default="full",
+    show_default=True,
+    help="base: CSV fields; core: core metadata; full: all schema fields.",
+)
+@click.option(
+    "--issn",
+    default=None,
+    help="ISSN of a single journal to validate from the collection.",
+)
+def validate(
+    input_fpath: Path,
+    output_fpath: Path | None,
+    repair: bool,
+    scope: str,
+    issn: str | None,
+):
+    """
+    Validate journals against metadata schema.
+    """
+    if input_fpath.suffix != ".yaml":
+        raise click.UsageError(
+            f"Input file must be a .yaml file, got {input_fpath.suffix}"
+        )
+    try:
+        run_validation(input_fpath, output_fpath, repair, issn=issn, scope=scope)
+    except ValueError as e:
+        click.secho(str(e), fg="red")
+        return
+    click.secho("Validation complete.", fg="green")
 
 
 if __name__ == "__main__":

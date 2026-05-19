@@ -156,6 +156,14 @@ def write_csv_to_disk(
         click.secho(f"Saved raw CSV → {fpath}", fg="green")
 
 
+class _IgnoreAliases(yaml.Dumper):
+    """
+    Prevent PyYAML from emitting anchors/aliases for repeated objects.
+    """
+    def ignore_aliases(self, _data):
+        return True
+
+
 def write_yaml_to_disk(
     journals: list[dict],
     fpath: Path,
@@ -165,14 +173,6 @@ def write_yaml_to_disk(
     """
     Write enriched journal records to a YAML file.
     """
-    class _IgnoreAliases(yaml.Dumper):
-        """
-        Class overwrite for pyyaml to prevent the inclusion of object aliases
-        ("&id001 []") during write execution for identical objects.
-        """
-        def ignore_aliases(self, _data):
-            return True
-
     # Make sure output_dir exists
     ensure_dir(fpath.parent)
 

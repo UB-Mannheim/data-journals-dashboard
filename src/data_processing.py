@@ -102,6 +102,7 @@ def enrich_journals_with_doaj(
 
         issn = journal.get("issn", "") or journal.get("ISSN", "")
         if not issn:
+            journal["enrichment_source"] = None
             enriched.append(journal)
             continue
 
@@ -116,6 +117,7 @@ def enrich_journals_with_doaj(
             results = response.json().get("results", [])
             if not results:
                 click.secho(f"  No DOAJ entry found for {issn}.", fg="yellow")
+                journal["enrichment_source"] = None
                 enriched.append(journal)
                 time.sleep(sleep)
                 continue
@@ -130,7 +132,9 @@ def enrich_journals_with_doaj(
                     bibjson, field["doaj_path"], field.get("default")
                 )
                 doaj_metadata[field["key"]] = result
-            enriched.append({**journal, **doaj_metadata})
+            enriched.append(
+                {**journal, **doaj_metadata, "enrichment_source": "doaj"}
+            )
             time.sleep(sleep)
 
         except Exception as e:
@@ -138,18 +142,21 @@ def enrich_journals_with_doaj(
                 f"Error getting metadata from doaj.org for ISSN {issn}: {e}",
                 fg="red"
             )
+            journal["enrichment_source"] = None
             enriched.append(journal)
 
     return enriched
 
 
-def load_existing_journals() -> list[dict]:
+def load_existing_journals(
+    fpath: Path = PROCESSED_JOURNAL_METADATA_PATH
+) -> list[dict]:
     """
     Load existing journals from the processed YAML file.
     Returns an empty list if the file doesn"t exist or is empty.
     """
-    if PROCESSED_JOURNAL_METADATA_PATH.exists():
-        with open(PROCESSED_JOURNAL_METADATA_PATH, "r", encoding="utf-8") as f:
+    if Path(fpath).exists():
+        with open(fpath, "r", encoding="utf-8") as f:
             existing_data = yaml.safe_load(f)
         if existing_data:
             return existing_data.get("journals", [])
@@ -233,6 +240,7 @@ def merge_journal_update(
 def process_single_journal(
     input_fpath: str | Path = None,
     schema_path: Path | str | None = METADATA_SCHEMA_PATH,
+    output_fpath: Path = PROCESSED_JOURNAL_METADATA_PATH,
 ) -> bool:
     """
     Process a single data journal from various inputs.
@@ -297,7 +305,7 @@ def process_single_journal(
         return False
 
     # Step 3: Duplicate check
-    existing_journals = load_existing_journals()
+    existing_journals = load_existing_journals(output_fpath)
     status, existing_id = is_duplicate_journal(journal, existing_journals)
     if status == "duplicate":
         click.secho(
@@ -318,7 +326,7 @@ def process_single_journal(
                 if not doaj_metadata_updated:
                     journal = enrich_journals_with_doaj([journal], schema_fields)[0]
                 existing_journals[i] = journal
-                write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
+                write_yaml_to_disk(existing_journals, output_fpath)
                 return True
 
     # Assign next available ID
@@ -332,7 +340,7 @@ def process_single_journal(
 
     # Step 5: Append and write
     existing_journals.append(journal)
-    write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
+    write_yaml_to_disk(existing_journals, output_fpath)
 
     return True
 
@@ -340,6 +348,7 @@ def process_single_journal(
 def process_all_journals(
     input_fpath: Path = RAW_JOURNAL_METADATA_PATH,
     schema_path: Path | str | None = None,
+    output_fpath: Path = PROCESSED_JOURNAL_METADATA_PATH,
 ) -> bool:
     """
     Core processing workflow: fetch → save CSV → parse → enrich → save YAML.
@@ -373,7 +382,7 @@ def process_all_journals(
     click.secho(f"Parsed {len(journals)} journals.", fg="blue")
 
     # Step 3: Filter out duplicates
-    existing_journals = load_existing_journals()
+    existing_journals = load_existing_journals(output_fpath)
     new_journals = []
     merged_ids = set()
     for journal in journals:
@@ -390,7 +399,7 @@ def process_all_journals(
             # Merge existing journal (same ISSN) with new core fields
             for existing_journal in existing_journals:
                 if existing_journal["id"] == existing_id:
-                    merged = merge_journal_update(
+                    merged, _ = merge_journal_update(
                         existing_journal, journal, schema_fields
                     )
                     new_journals.append(merged)
@@ -427,7 +436,7 @@ def process_all_journals(
     # Step 5: Append enriched journals and save YAML
     if enriched_journals:
         existing_journals.extend(enriched_journals)
-        write_yaml_to_disk(existing_journals, PROCESSED_JOURNAL_METADATA_PATH)
+        write_yaml_to_disk(existing_journals, output_fpath)
         return True
 
     return False
