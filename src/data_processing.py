@@ -18,7 +18,7 @@ from config import (
     GITHUB_JOURNAL_DATA_URL,
     METADATA_SCHEMA_PATH,
     RAW_JOURNAL_METADATA_PATH,
-    PROCESSED_JOURNAL_METADATA_PATH
+    JOURNAL_COLLECTION_PATH
 )
 
 
@@ -149,7 +149,7 @@ def enrich_journals_with_doaj(
 
 
 def load_existing_journals(
-    fpath: Path = PROCESSED_JOURNAL_METADATA_PATH
+    fpath: Path = JOURNAL_COLLECTION_PATH
 ) -> list[dict]:
     """
     Load existing journals from the processed YAML file.
@@ -240,7 +240,7 @@ def merge_journal_update(
 def process_single_journal(
     input_fpath: str | Path = None,
     schema_path: Path | str | None = METADATA_SCHEMA_PATH,
-    output_fpath: Path = PROCESSED_JOURNAL_METADATA_PATH,
+    output_fpath: Path = JOURNAL_COLLECTION_PATH,
 ) -> bool:
     """
     Process a single data journal from various inputs.
@@ -348,7 +348,7 @@ def process_single_journal(
 def process_all_journals(
     input_fpath: Path = RAW_JOURNAL_METADATA_PATH,
     schema_path: Path | str | None = None,
-    output_fpath: Path = PROCESSED_JOURNAL_METADATA_PATH,
+    output_fpath: Path = JOURNAL_COLLECTION_PATH,
 ) -> bool:
     """
     Core processing workflow: fetch → save CSV → parse → enrich → save YAML.

@@ -12,7 +12,7 @@ from data_processing import (
     process_single_journal,
     METADATA_SCHEMA_PATH,
     RAW_JOURNAL_METADATA_PATH,
-    PROCESSED_JOURNAL_METADATA_PATH,
+    JOURNAL_COLLECTION_PATH,
 )
 from utils import ensure_dir, to_csv, to_yaml, to_json, get_journal_by_issn
 from validate import run_validation
@@ -78,9 +78,9 @@ def process():
 @click.option(
     "--output_fpath", "-o",
     type=click.Path(path_type=Path),
-    default=PROCESSED_JOURNAL_METADATA_PATH,
+    default=JOURNAL_COLLECTION_PATH,
     show_default=True,
-    help="Path to save the processed journal collections YAML file.",
+    help="Path to save the processed journal collection YAML file.",
 )
 def process_all(
     input_fpath: Path,
@@ -115,9 +115,9 @@ def process_all(
 @click.option(
     "--output_fpath", "-o",
     type=click.Path(path_type=Path),
-    default=PROCESSED_JOURNAL_METADATA_PATH,
+    default=JOURNAL_COLLECTION_PATH,
     show_default=True,
-    help="Path to save the processed journal collections YAML file.",
+    help="Path to save the processed journal collection YAML file.",
 )
 def process_single(
     input_fpath: Path | None,
@@ -146,7 +146,7 @@ def hugo():
 @click.option(
     "--input_fpath", "-i",
     type=click.Path(path_type=Path),
-    default=PROCESSED_JOURNAL_METADATA_PATH,
+    default=JOURNAL_COLLECTION_PATH,
     show_default=True,
     help="Path to the processed journal YAML file.",
 )
@@ -249,7 +249,7 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str, issn: str | None
     Export YAML or JSON metadata to a core-schema CSV.
     """
     if issn:
-        journal = get_journal_by_issn(PROCESSED_JOURNAL_METADATA_PATH, issn)
+        journal = get_journal_by_issn(JOURNAL_COLLECTION_PATH, issn)
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
@@ -310,7 +310,7 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
     Convert a core-schema CSV or JSON back to a YAML journal collection.
     """
     if issn:
-        journal = get_journal_by_issn(PROCESSED_JOURNAL_METADATA_PATH, issn)
+        journal = get_journal_by_issn(JOURNAL_COLLECTION_PATH, issn)
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
@@ -372,7 +372,7 @@ def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
     Export journal metadata from CSV or YAML to a JSON file.
     """
     if issn:
-        journal = get_journal_by_issn(PROCESSED_JOURNAL_METADATA_PATH, issn)
+        journal = get_journal_by_issn(JOURNAL_COLLECTION_PATH, issn)
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
