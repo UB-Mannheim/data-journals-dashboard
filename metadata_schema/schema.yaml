@@ -1,8 +1,28 @@
-# DATA JOURNALS DASHBOARD – JOURNAL METADATA SCHMEA
+# DATA JOURNALS DASHBOARD – METADATA SCHEMA
+#
+# The metadata schema combines metadata fields of different origin to form the collection
+# and validation basis for data journal metadata used in the Data Journals Dashboard.
+# The field's origin can be traced by the "schema_level" and "source" attributes of each field.
+#
+# BASE METADATA FIELDS
+# ====================
+# Base metadata fields are a subset of the core metadata fields (schema_level == 'core') and
+# originate from a publication by Kindling, M. & Strecker, D. (2022). Metadata fields of this
+# origin can be traced by "schema_level == 'core' AND source == 'csv'"
+#   - Publication: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. 
+#        Zenodo. https://doi.org/10.5281/zenodo.7082126
+#   - GitHub repository: https://github.com/MaxiKi/data-journals
+# 
+# CORE METADATA FIELDS
+# ====================
+# Core metadata fields are a combination of base metadata fields and custom added fields of
+# source type "djd" (data journal dashboard). 
+#
+# FULL METADATA FIELDS
+# ====================
+# All other metadata fields ("schema_level == 'full'") are originating from the Directory of
+# Open Access Journals (https://doaj.org) public API and can be traced by the source type "doaj".
 
-## The core metadata fields originate from this publication and GitHub repository: 
-## Publication: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7082126
-## GitHub repository: https://github.com/MaxiKi/data-journals
 
 fields:
 
