@@ -87,7 +87,6 @@ journals:
   is_active: true
   enrichment_source: doaj.org
   eissn: 1550-2783
-  pissn: null
   language:
   - EN
   oa_start: 2004
@@ -639,7 +638,71 @@ journals:
   url: https://www.springer.com/journal/12021/
   data_journal_type: mixed
   is_active: true
-  enrichment_source: null
+  enrichment_source: journal website, ISSN Portal, Wikipedia
+  eissn: 1559-0089
+  pissn: 1539-2791
+  language:
+  - EN
+  boai: false
+  keywords:
+  - neurology
+  - neuroinformatics
+  - bioinformatics
+  - computational biology
+  - neuroengineering
+  - ontology
+  - data sharing
+  - neuroimaging
+  - computational modeling
+  research_fields:
+  - Neuroscience
+  - Computer Science
+  subject_codes:
+  - code: RC321-571
+    scheme: LCC
+    term: Neurosciences. Biological psychiatry. Neuropsychiatry
+  - code: QA75.5-76.95
+    scheme: LCC
+    term: Electronic computers. Computer science
+  publisher_name: Springer Science+Business Media, LLC
+  publisher_country: US
+  review_process:
+  - Anonymous peer review
+  review_url: https://link.springer.com/brands/springer/journal-policies#Peer%20review
+  board_url: https://link.springer.com/journal/12021/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 5090
+    currency: USD
+  - price: 3990
+    currency: EUR
+  - price: 3190
+    currency: GBP
+  apc_url: https://link.springer.com/journal/12021/how-to-publish-with-us
+  other_charges: false
+  waiver_has: false
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - Portico
+  - LOCKSS
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://link.springer.com/brands/springer/journal-policies#Ethical%20responsibilities%20of%20authors
+  copyright_url: https://link.springer.com/journal/12021/how-to-publish-with-us
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Sherpa Romeo
+  ref_journal: https://link.springer.com/journal/12021
+  ref_aims_scope: https://link.springer.com/journal/12021/aims-and-scope
+  ref_oa_statement: https://link.springer.com/journal/12021/how-to-publish-with-us
+  ref_author_instructions: https://link.springer.com/journal/12021/submission-guidelines
+  ref_license_terms: https://link.springer.com/journal/12021/how-to-publish-with-us
 - id: 11
   issn: 0090-3752
   journal_title: Nuclear Data Sheets
@@ -647,7 +710,67 @@ journals:
   url: https://www.sciencedirect.com/journal/nuclear-data-sheets
   data_journal_type: pure
   is_active: true
-  enrichment_source: null
+  enrichment_source: journal website, ISSN Portal
+  eissn: 1095-9904
+  pissn: 0090-3752
+  language:
+  - EN
+  boai: false
+  keywords:
+  - radioactive decay
+  - radiations
+  - ENSDF
+  - nuclear reactions
+  - level schemes
+  - decay schemes
+  research_fields:
+  - Nuclear Physics
+  - Nuclear Structure
+  subject_codes:
+  - code: QC770-798
+    scheme: LCC
+    term: Nuclear and particle physics
+  - code: 21
+    scheme: PACS
+    term: Nuclear Structure
+  publisher_name: Elsevier B.V.
+  publisher_country: NL
+  review_process:
+  - Anonymous peer review
+  review_url: https://www.sciencedirect.com/journal/nuclear-data-sheets/publish/guide-for-authors
+  board_url: https://www.sciencedirect.com/journal/nuclear-data-sheets/about/editorial-board
+  license_types:
+  - CC BY
+  - CC BY-NC
+  - CC BY-NC-ND
+  - Restricted Access
+  apc_has: true
+  apc_max:
+  - price: 3080
+    currency: USD
+  apc_url: https://www.elsevier.com/journals/nuclear-data-sheets/0090-3752/open-access-options
+  other_charges: false
+  preservation_has: true
+  preservation_services:
+  - CLOCKSS
+  - Portico
+  preservation_url: https://portico.org/stable?cs=ISSN_00903752
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://www.elsevier.com/about/policies/publishing-ethics
+  copyright_url: https://www.elsevier.com/about/policies/copyright
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Sherpa Romeo
+  deposit_policy_url: https://www.sherpa.ac.uk/romeo/search.php?issn=0090-3752
+  article_license_display:
+  - Embed
+  ref_journal: https://www.sciencedirect.com/journal/nuclear-data-sheets
+  ref_aims_scope: https://www.sciencedirect.com/journal/nuclear-data-sheets
+  ref_oa_statement: https://www.elsevier.com/journals/nuclear-data-sheets/0090-3752/open-access-options
+  ref_author_instructions: https://www.sciencedirect.com/journal/nuclear-data-sheets/publish/guide-for-authors
+  ref_license_terms: https://www.elsevier.com/about/policies/open-access-licenses
 - id: 12
   issn: 1362-4962
   journal_title: Nucleic Acids Research
@@ -796,7 +919,7 @@ journals:
   url: https://odjar.org/index
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website, ISSN Portal, WUR website
   eissn: 2352-6378
   language:
   - EN
@@ -1007,7 +1130,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/phyto
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1943-7684
   pissn: 0031-949X
   language:
@@ -1073,7 +1196,7 @@ journals:
   url: https://academic.oup.com/pcp
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1471-9053
   pissn: 0032-0781
   language:
@@ -1147,7 +1270,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/pdis
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1943-7692
   pissn: 0191-2917
   language:
@@ -1649,7 +1772,7 @@ journals:
   url: https://journals.sagepub.com/home/IJR
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1741-3176
   pissn: 0278-3649
   language:
@@ -1709,7 +1832,7 @@ journals:
   url: https://onlinelibrary.wiley.com/journal/1365313x
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1365-313X
   pissn: 0960-7412
   language:
@@ -1849,7 +1972,7 @@ journals:
   url: https://vdj.pensoft.net/
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 2603-431X
   language:
   - EN
@@ -2050,11 +2173,61 @@ journals:
 - id: 35
   issn: 1941-4927
   journal_title: NCHS Data Briefs
-  publisher: Centers for Disease Control and Preventions (CDC)
+  publisher: Centers for Disease Control and Prevention (CDC)
   url: https://www.cdc.gov/nchs/products/databriefs.htm
   data_journal_type: pure
   is_active: true
-  enrichment_source: null
+  enrichment_source: journal website
+  eissn: 1941-4935
+  pissn: 1941-4927
+  language:
+  - EN
+  oa_start: 2008
+  boai: true
+  keywords:
+  - public health
+  - vital statistics
+  - mortality
+  - morbidity
+  - health surveys
+  - health disparities
+  - epidemiology
+  research_fields:
+  - Public Health
+  - Health Statistics
+  - Public aspects of medicine
+  subject_codes:
+  - code: RA1-1270
+    scheme: LCC
+    term: Public health
+  - code: WA 900
+    scheme: NLM
+    term: Health statistics
+  - code: RA1-1270
+    scheme: LCC
+    term: Public aspects of medicine
+  publisher_name: U.S. Department of Health and Human Services, Centers for Disease
+    Control and Prevention, National Center for Health Statistics
+  publisher_country: US
+  institution_name: National Center for Health Statistics (NCHS)
+  institution_country: US
+  license_types:
+  - CC0
+  apc_has: false
+  other_charges: false
+  preservation_has: true
+  preservation_services:
+  - HathiTrust
+  preservation_url: https://catalog.hathitrust.org/Record/103340616
+  pid_schemes:
+  - DOI
+  copyright_author_retains: false
+  article_license_display:
+  - Embed
+  article_license_example_url: https://www.ncbi.nlm.nih.gov/books/NBK605976/
+  ref_journal: https://www.cdc.gov/nchs/products/databriefs.htm
+  ref_aims_scope: https://www.cdc.gov/nchs/products/databriefs.htm
+  ref_oa_statement: https://www.ncbi.nlm.nih.gov/books/NBK605976/
 - id: 36
   issn: 1758-0463
   journal_title: 'Database: The Journal of Biological Databases and Curation'
@@ -2630,7 +2803,7 @@ journals:
   url: https://journalofastronomicaldata.be/jad.htm
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1385-3945
   pissn: 2032-6378
   language:
@@ -2742,7 +2915,7 @@ journals:
   is_active: true
   eissn: 1090-2090
   pissn: 0092-640X
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   language:
   - EN
   boai: false
@@ -4161,7 +4334,11 @@ journals:
   - healthcare systems
   research_fields:
   - Public aspects of medicine
+  - Public health
   subject_codes:
+  - code: RA1-1270
+    scheme: LCC
+    term: Public health
   - code: RA1-1270
     scheme: LCC
     term: Public aspects of medicine
@@ -4804,10 +4981,14 @@ journals:
   - clinical practice
   research_fields:
   - Medicine
+  - Public health
   subject_codes:
   - code: R
     scheme: LCC
     term: Medicine
+  - code: RA1-1270
+    scheme: LCC
+    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -6082,14 +6263,17 @@ journals:
   boai: true
   publication_time_weeks: 18
   keywords:
-  - public health
   - health policy
   research_fields:
   - Public aspects of medicine
+  - Public health
   subject_codes:
   - code: RA1-1270
     scheme: LCC
     term: Public aspects of medicine
+  - code: RA421-790.95
+    scheme: LCC
+    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -6586,13 +6770,13 @@ journals:
   publication_time_weeks: 24
   keywords:
   - women's health
-  - public health
   - breast cancer
   - gynaecology
   - mental health
   research_fields:
   - Gynecology and obstetrics
   - Public aspects of medicine
+  - Public health
   subject_codes:
   - code: RG1-991
     scheme: LCC
@@ -6600,6 +6784,9 @@ journals:
   - code: RA1-1270
     scheme: LCC
     term: Public aspects of medicine
+  - code: RA421-790.95
+    schema: LCC
+    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -6882,7 +7069,7 @@ journals:
   url: https://www.sciencedirect.com/journal/chemical-data-collections
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 2405-8300
   language:
   - EN
@@ -7358,7 +7545,7 @@ journals:
   url: https://esj-journals.onlinelibrary.wiley.com/journal/14401703
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   language:
   - EN
   boai: false
@@ -7407,7 +7594,7 @@ journals:
   url: https://esajournals.onlinelibrary.wiley.com/journal/19399170
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1939-9170
   pissn: 0012-9658
   language:
@@ -7833,7 +8020,49 @@ journals:
   url: http://data.freshwaterbiodiversity.eu/fmj/
   data_journal_type: pure
   is_active: true
-  enrichment_source: null
+  enrichment_source: journal website, ISSN Portal, Wikidata
+  eissn: 2312-6604
+  language:
+  - EN
+  oa_start: 2014
+  boai: true
+  keywords:
+  - freshwater
+  - metadata
+  - biodiversity
+  - freshwater ecosystems
+  research_fields:
+  - Freshwater biology
+  - Ecology
+  subject_codes:
+  - code: QH96
+    scheme: LCC
+    term: Freshwater biology
+  - code: QH540-549.5
+    scheme: LCC
+    term: Ecology
+  publisher_name: University of Natural Resources and Life Sciences Vienna (BOKU)
+  publisher_country: AT
+  institution_name: University of Natural Resources and Life Sciences Vienna (BOKU),  Royal
+    Belgian Institute of Natural Sciences (RBINS)
+  institution_country: AT
+  review_process:
+  - Editorial peer review
+  review_url: http://data.freshwaterbiodiversity.eu/fmj/information.html#board
+  board_url: http://data.freshwaterbiodiversity.eu/fmj/information.html#board
+  license_types:
+  - CC BY
+  apc_has: false
+  other_charges: false
+  pid_schemes:
+  - DOI
+  copyright_author_retains: true
+  copyright_url: http://data.freshwaterbiodiversity.eu/fmj/information.html#aims
+  ref_journal: http://data.freshwaterbiodiversity.eu/fmj/
+  ref_aims_scope: http://data.freshwaterbiodiversity.eu/fmj/information.html#aims
+  ref_oa_statement: http://data.freshwaterbiodiversity.eu/fmj/information.html#aims
+  ref_author_instructions: http://data.freshwaterbiodiversity.eu/fmj/information.html#guidelines
+  ref_license_terms: https://creativecommons.org/licenses/by/4.0/
 - id: 119
   issn: 1756-994X
   journal_title: Genome Medicine
@@ -8144,14 +8373,14 @@ journals:
   boai: true
   publication_time_weeks: 13
   keywords:
-  - public health
   - social policy
   - criminology
   - criminal justice
   - psychology
   research_fields:
   - Public aspects of medicine
-  - Social pathology. Social and public welfare. Criminology
+  - Social pathology
+  - Public health
   subject_codes:
   - code: RA1-1270
     scheme: LCC
@@ -8159,6 +8388,9 @@ journals:
   - code: HV1-9960
     scheme: LCC
     term: Social pathology. Social and public welfare. Criminology
+  - code: RA421-790.95
+    schema: LCC
+    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -8287,7 +8519,7 @@ journals:
   url: https://www.journals.elsevier.com/international-economics
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   language:
   - EN
   boai: false
@@ -8324,7 +8556,7 @@ journals:
   url: https://academic.oup.com/ije/pages/About
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1464-3685
   language:
   - EN
@@ -8798,7 +9030,7 @@ journals:
   url: https://pubs.acs.org/journal/jceaax
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1520-5134
   pissn: 0021-9568
   language:
@@ -8945,7 +9177,7 @@ journals:
   url: https://acsess.onlinelibrary.wiley.com/journal/15372537
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1537-2537
   pissn: 0047-2425
   language:
@@ -9290,7 +9522,7 @@ journals:
   url: https://pubs.aip.org/aip/jpr
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website (manual metadata enrichment)
+  enrichment_source: journal website
   eissn: 1529-7845
   pissn: 0047-2689
   language:
