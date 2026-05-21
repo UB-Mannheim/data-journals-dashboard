@@ -31,7 +31,7 @@ body {
   margin-top: 0;
   font-size: 2.8rem;
   font-weight: bold;
-  background: linear-gradient(120deg, red, darkorange, seagreen, #007bff, darkorchid);
+  background: linear-gradient(120deg, mediumvioletred, darkorange, green, #007bff, darkorchid);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -39,6 +39,10 @@ body {
 }
 
 .sidebar h2 a:hover {
+  background: linear-gradient(120deg, darkorchid, #007bff, green, darkorange, mediumvioletred);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: underline dotted var(--journal-border-2);
 }
 
@@ -55,7 +59,6 @@ body {
 .filter-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 400;
   font-size: 0.9rem;
   font-weight: 200;
 }
@@ -289,7 +292,7 @@ strong {
   justify-content: center;
   width: 1.3em;
   height: 1.3em;
-  background: seagreen;
+  background: slategray;
   color: #fff;
   border-radius: 100%;
   font-size: 0.7rem;

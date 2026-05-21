@@ -1,18 +1,27 @@
 <aside class="sidebar">
+  {{- $d := hugo.Data.field_descriptions -}}
   <h2 align="left"><a href="{{ .Site.BaseURL }}">Data Journals Dashboard</a></h2>
 
   <div class="filter-group">
-    <label for="search-input">Search</label>
     <input type="text" id="search-input" class="filter-input" placeholder="Search the collection ...">
   </div>
 
   <div class="filter-group">
-    <label for="type-filter">Data Journal Type</label>
+    <label for="type-filter">Data Journal Type {{ with index $d "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}</label>
     <select id="type-filter" class="filter-input">
       <option value="">All Types</option>
       {{ range $name, $pages := .Site.Taxonomies.data_journal_type }}
       <option value="{{ $name }}">{{ $name }}</option>
       {{ end }}
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="status-filter">Journal Status {{ with index $d "is_active" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}</label>
+    <select id="status-filter" class="filter-input">
+      <option value="">All Status Types</option>
+      <option value="active">active</option>
+      <option value="inactive">inactive</option>
     </select>
   </div>
 

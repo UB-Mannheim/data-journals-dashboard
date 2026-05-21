@@ -24,7 +24,7 @@
       {{ end }}
 
       {{ if .Params.language }}
-      <p>{{ with index $d "language" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Language:</strong> {{ index .Params.language 0 }}</p>
+      <p>{{ with index $d "language" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Language:</strong> {{  delimit .Params.language ", " | title }}</p> 
       {{ end }}
 
       {{ if .Params.data_journal_type }}

@@ -17,13 +17,16 @@
 
   <div class="journal-grid" id="journal-list">
     {{ range where .Site.RegularPages ".Params.issn" "!=" nil }}
-    <a class="journal-card" href="{{ .RelPermalink }}"
-        data-title="{{ .Title }}" 
+    {{ $cardClass := "journal-card" }}
+    {{ if eq .Params.is_active "no" }}{{ $cardClass = "journal-card journal-card-inactive" }}{{ end }}
+    <a class="{{ $cardClass }}" href="{{ .RelPermalink }}"
+        data-title="{{ .Title }}"
         data-publisher="{{ .Params.publisher | jsonify }}"
         data-data-journal-type="{{ .Params.data_journal_type | jsonify }}"
         data-keywords="{{ .Params.keywords | jsonify }}"
         data-research-fields="{{ .Params.research_fields | jsonify }}"
-        data-license-types="{{ .Params.license_types | jsonify }}">
+        data-license-types="{{ .Params.license_types | jsonify }}"
+        data-is-active="{{ if eq .Params.is_active `yes` }}active{{ else }}inactive{{ end }}">
       <h3>{{ .Title }}</h3>
       {{ if .Params.publisher }}
       <p class="meta"><strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>

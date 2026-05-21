@@ -19,6 +19,7 @@
       'publisher-filter':       'Publisher',
       'reasearch-field-filter': 'Research Field',
       'license-filter':         'License',
+      'status-filter':          'Journal Status',
     };
 
     function parseAttr(val) {
@@ -56,6 +57,8 @@
       const selectedPublisher = publisherSelect ? publisherSelect.value.toLowerCase() : '';
       const selectedResearchField = researchFieldSelect ? researchFieldSelect.value.toLowerCase() : '';
       const selectedLicenseType = licenseTypeSelect ? licenseTypeSelect.value.toLowerCase() : '';
+      const statusSelect = document.getElementById('status-filter');
+      const selectedStatus = statusSelect ? statusSelect.value.toLowerCase() : '';
 
       document.querySelectorAll('.journal-card').forEach(card => {
         const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
@@ -77,8 +80,9 @@
         const matchesPublisher = !selectedPublisher || publisherArr.includes(selectedPublisher);
         const matchesResearchField = !selectedResearchField || researchFieldsArr.some(v => v.includes(selectedResearchField));
         const matchesLicenseType = !selectedLicenseType || licenseTypesArr.includes(selectedLicenseType);
+        const matchesStatus = !selectedStatus || card.dataset.isActive === selectedStatus;
 
-        card.style.display = (matchesSearch && matchesDataJournalType && matchesPublisher && matchesResearchField && matchesLicenseType) ? '' : 'none';
+        card.style.display = (matchesSearch && matchesDataJournalType && matchesPublisher && matchesResearchField && matchesLicenseType && matchesStatus) ? '' : 'none';
       });
 
       // Update journal count on index.html if filters are applied
@@ -98,6 +102,7 @@
       document.getElementById('publisher-filter').value = '';
       document.getElementById('reasearch-field-filter').value = '';
       document.getElementById('license-filter').value = '';
+      document.getElementById('status-filter').value = '';
       filterJournals();
     }
 
