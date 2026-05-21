@@ -1,7 +1,9 @@
 [project]
-name = "data-journals-dashboard"
+name = "Data Journals Dashboard"
 version = "0.1.0"
 description = "Browser dashboard built with Hugo to access and search a database of (Open Access) Data Journals"
+license = { text = "MIT" }
+authors = [ { name = "Thomas Schmidt" } ]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [

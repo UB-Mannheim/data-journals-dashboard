@@ -54,7 +54,7 @@ def extract_doaj_value(bibjson: dict, doaj_path: str, default):
         nested_items = bibjson.get(list_key, [])
 
         if not isinstance(nested_items, list):
-            return default
+            return
 
         if nested_key:
             nested_values = []
@@ -63,23 +63,23 @@ def extract_doaj_value(bibjson: dict, doaj_path: str, default):
                     nested_values.append(item[nested_key])
             return nested_values
 
-        return nested_items or default
+        return nested_items
 
     # Example: publisher.name
     if "." in doaj_path:
         obj = bibjson
         for part in doaj_path.split("."):
             if not isinstance(obj, dict):
-                return default
+                return
 
             obj = obj.get(part)
             if obj is None:
-                return default
+                return
         return obj
 
     # Example: plain key like "eissn" etc.
     val = bibjson.get(doaj_path)
-    return val if val is not None else default
+    return val if val is not None else None
 
 
 def enrich_journals_with_doaj(
@@ -131,7 +131,8 @@ def enrich_journals_with_doaj(
                 result = extract_doaj_value(
                     bibjson, field["doaj_path"], field.get("default")
                 )
-                doaj_metadata[field["key"]] = result
+                if result:
+                    doaj_metadata[field["key"]] = result
             enriched.append(
                 {**journal, **doaj_metadata, "enrichment_source": "doaj"}
             )
@@ -214,13 +215,13 @@ def merge_journal_update(
     Only updates fields defined in schema with source 'csv' or 'doaj'.
     """
     # Get all fields that should be updated from CSV/DOAJ
-    schema_source_csv = {
+    schema_level_core = {
         f["key"] for f in schema_fields
-        if f.get("source") == "csv"
+        if f.get("schema_level") == "core"
     }
-    schema_source_doaj = {
+    schema_level_full = {
         f["key"] for f in schema_fields
-        if f.get("source") == "doaj"
+        if f.get("schema_level") == "full"
     }
 
     # Preserve existing journal, but update with new core/doaj fields
@@ -228,9 +229,9 @@ def merge_journal_update(
     merged = dict(existing_journal)
 
     for key, value in new_journal.items():
-        if key in schema_source_csv and value is not None:
+        if key in schema_level_core and value is not None:
             merged[key] = value
-        elif key in schema_source_doaj and value is not None:
+        elif key in schema_level_full and value is not None:
             merged[key] = value
             doaj_metadata_updated = True
 
@@ -260,8 +261,8 @@ def process_single_journal(
         fpath = Path(input_fpath)
         suffix = fpath.suffix.lower()
 
-        # csv
         try:
+            # csv
             if suffix == ".csv":
                 rows = load_journal_data_from_csv(fpath)
                 if not rows:
