@@ -1,27 +1,40 @@
 # DATA JOURNALS DASHBOARD – METADATA SCHEMA
+# =========================================
+# Author: Thomas Schmidt (thomas.schmidt@uni-mannheim.de)
+# ORCID: https://orcid.org/0000-0003-3620-3355
+# =========================================
 #
 # The metadata schema combines metadata fields of different origin to form the collection
 # and validation basis for data journal metadata used in the Data Journals Dashboard.
-# The field's origin can be traced by the "schema_level" and "source" attributes of each field.
+# The field's origin can be traced by the "schema_level" and "source" attributes of each 
+# metadata field.
 #
-# BASE METADATA FIELDS
-# ====================
+# BASE METADATA
+# =============
 # Base metadata fields are a subset of the core metadata fields (schema_level == 'core') and
 # originate from a publication by Kindling, M. & Strecker, D. (2022). Metadata fields of this
-# origin can be traced by "schema_level == 'core' AND source == 'csv'"
-#   - Publication: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. 
-#        Zenodo. https://doi.org/10.5281/zenodo.7082126
-#   - GitHub repository: https://github.com/MaxiKi/data-journals
+# origin can be traced by "schema_level == 'core' AND source == 'csv'". The metadata is
+# licensed under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/deed.de
+#
+# - Publication: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. 
+#   Zenodo. https://doi.org/10.5281/zenodo.7082126
+# - GitHub repository: https://github.com/MaxiKi/data-journals
 # 
-# CORE METADATA FIELDS
-# ====================
+# CORE METADATA
+# =============
 # Core metadata fields are a combination of base metadata fields and custom added fields of
 # source type "djd" (data journal dashboard). 
 #
-# FULL METADATA FIELDS
-# ====================
+# FULL METADATA
+# =============
 # All other metadata fields ("schema_level == 'full'") are originating from the Directory of
 # Open Access Journals (https://doaj.org) public API and can be traced by the source type "doaj".
+# DOAJ's API metadata is licensed under CC0 1.0 Universal: https://doaj.org/terms/#metadata
+#
+# LICENSE
+# =======
+# This metadata schema is made available for reuse under CC0 1.0 Universal:
+# https://creativecommons.org/publicdomain/zero/1.0/deed.de
 
 
 fields:
@@ -97,7 +110,7 @@ fields:
   
   - key: enrichment_source
     label: "Source of Metadata Enrichment"
-    description: "Source of metadata enrichment: Directory of Open Access Journals (doai.org) or manual enrichment (manual)"
+    description: "Provider or source of additional metadata used to enriched the core metadata fields ISSN, Journal Title, Publisher, URL and Data Journal Type"
     source: djd
     type: string
     required: true
