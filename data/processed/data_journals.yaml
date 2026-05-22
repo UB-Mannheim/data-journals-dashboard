@@ -2587,7 +2587,7 @@ journals:
   url: https://openhumanitiesdata.metajnl.com/
   data_journal_type: pure
   is_active: true
-  enrichment_source: doaj.org
+  enrichment_source: doaj.org, journal website
   eissn: 2059-481X
   pissn: null
   language:
@@ -2623,7 +2623,7 @@ journals:
   - CC BY
   apc_has: true
   apc_max:
-  - price: 760
+  - price: 1070
     currency: GBP
   apc_url: https://openhumanitiesdata.metajnl.com/about/submissions#publication-fees
   other_charges: false
