@@ -29,21 +29,42 @@ body {
 .sidebar h2 a,
 .sidebar h2 a:visited {
   margin-top: 0;
-  font-size: 2.8rem;
-  font-weight: bold;
-  background: linear-gradient(120deg, mediumvioletred, darkorange, green, #007bff, darkorchid);
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  line-height: 3.4rem;
+  font-weight: 100;
+  background: linear-gradient(
+    120deg,
+    var(--journal-color-8),
+    var(--journal-color-7),
+    var(--journal-color-6),
+    var(--journal-color-5),
+    var(--journal-color-4),
+    var(--journal-color-3),
+    var(--journal-color-2),
+    var(--journal-color-1)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-decoration: underline dotted;
+  text-decoration: none;
 }
 
 .sidebar h2 a:hover {
-  background: linear-gradient(120deg, darkorchid, #007bff, green, darkorange, mediumvioletred);
+  background: linear-gradient(
+    120deg,
+    var(--journal-color-1),
+    var(--journal-color-2),
+    var(--journal-color-3),
+    var(--journal-color-4),
+    var(--journal-color-5),
+    var(--journal-color-6),
+    var(--journal-color-7),
+    var(--journal-color-8)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-decoration: underline dotted var(--journal-border-2);
 }
 
 .sidebar h3 {
@@ -91,19 +112,21 @@ strong {
   margin-bottom: 2rem;
 }
 
-/* Border colors for journal cards */
+/* Color map for journal cards */
 :root {
-  --journal-border-1: #4A90E2;
-  --journal-border-2: #50C878;
-  --journal-border-3: #9B59B6;
-  --journal-border-4: #1ABC9C;
-  --journal-border-5: #E67E22;
-  --journal-border-6: #E74C3C;
+  --journal-color-1: #f77189;
+  --journal-color-2: #ce9031;
+  --journal-color-3: #97a432;
+  --journal-color-4: #32b166;
+  --journal-color-5: #35ada4;
+  --journal-color-6: #39a7d0;
+  --journal-color-7: #a48cf3;
+  --journal-color-8: #f561dd;
 }
 
 .journal-card {
   background: #fff;
-  border: 4px double var(--journal-border-1);
+  border: 4px double var(--journal-color-1);
   border-radius: 14px;
   padding: 1.25rem;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -117,23 +140,31 @@ strong {
 }
 
 .journal-card:nth-child(6n+2) {
-  border-color: var(--journal-border-2);
+  border-color: var(--journal-color-2);
 }
 
 .journal-card:nth-child(6n+3) {
-  border-color: var(--journal-border-3);
+  border-color: var(--journal-color-3);
 }
 
 .journal-card:nth-child(6n+4) {
-  border-color: var(--journal-border-4);
+  border-color: var(--journal-color-4);
 }
 
 .journal-card:nth-child(6n+5) {
-  border-color: var(--journal-border-5);
+  border-color: var(--journal-color-5);
 }
 
 .journal-card:nth-child(6n+6) {
-  border-color: var(--journal-border-6);
+  border-color: var(--journal-color-6);
+}
+
+.journal-card:nth-child(6n+7) {
+  border-color: var(--journal-color-7);
+}
+
+.journal-card:nth-child(6n+8) {
+  border-color: var(--journal-color-8);
 }
 
 .journal-card:hover {
@@ -145,21 +176,23 @@ strong {
 .journal-card h3 a,
 .journal-card h3 a:visited {
   margin: 0 0 0.75rem 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #212529;
-  text-decoration: underline dotted 4px var(--journal-border-1);
+  text-decoration: underline dotted 4px var(--journal-color-1);
 }
 
-.journal-card:nth-child(6n+2) h3 { text-decoration-color: var(--journal-border-2);}
-.journal-card:nth-child(6n+3) h3 { text-decoration-color: var(--journal-border-3); }
-.journal-card:nth-child(6n+4) h3 { text-decoration-color: var(--journal-border-4); }
-.journal-card:nth-child(6n+5) h3 { text-decoration-color: var(--journal-border-5); }
-.journal-card:nth-child(6n+6) h3 { text-decoration-color: var(--journal-border-6); }
+.journal-card:nth-child(6n+2) h3 { text-decoration-color: var(--journal-color-2);}
+.journal-card:nth-child(6n+3) h3 { text-decoration-color: var(--journal-color-3); }
+.journal-card:nth-child(6n+4) h3 { text-decoration-color: var(--journal-color-4); }
+.journal-card:nth-child(6n+5) h3 { text-decoration-color: var(--journal-color-5); }
+.journal-card:nth-child(6n+6) h3 { text-decoration-color: var(--journal-color-6); }
+.journal-card:nth-child(6n+7) h3 { text-decoration-color: var(--journal-color-7); }
+.journal-card:nth-child(6n+8) h3 { text-decoration-color: var(--journal-color-8); }
 
 .journal-card:hover h3 {
-  color: #007bff;
-  text-decoration: underline dotted 4px var(--journal-border-2);
+  color: var(--journal-color-6);
+  text-decoration: underline dotted 4px var(--journal-color-6);
 }
 
 .journal-card .meta {
@@ -190,7 +223,7 @@ strong {
 }
 
 .taxonomy-header a:hover svg {
-  stroke: #007bff;
+  stroke: var(--journal-color-7);
 }
 
 .taxonomy-header a img {
@@ -198,7 +231,7 @@ strong {
 }
 
 .taxonomy-header a:hover img {
-  filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1352%) hue-rotate(199deg) brightness(101%) contrast(107%);
+  filter: brightness(0) saturate(100%) invert(56%) sepia(60%) saturate(600%) hue-rotate(210deg) brightness(86%) contrast(88%);
 }
 
 /* Single journal page */
@@ -216,15 +249,15 @@ strong {
 
 .journal-url,
 .journal-url :visited {
-  color: blue;
+  color: black;
   font-size: 2.2rem;
   font-weight: 600;
-  text-decoration: underline dotted 6px #ff6400;
+  text-decoration: underline dotted 6px var(--journal-color-1);
 }
 
 .journal-url:hover {
-  color: #007bff;
-  text-decoration: underline dotted 6px var(--journal-border-2);
+  color: var(--journal-color-6);
+  text-decoration: underline dotted 6px var(--journal-color-6);
 }
 
 .detail-section {
@@ -312,8 +345,8 @@ strong {
   background: #212529;
   color: #fff;
   padding: 0.4rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-weight: normal;
   line-height: 1.4;
   white-space: normal;
@@ -332,7 +365,7 @@ strong {
 /* About Page */
 hr {
   border: none;
-  border-top: 4px dotted seagreen;
+  border-top: 4px dotted var(--journal-color-2);
   margin: 1.5rem 0;
 }
 
@@ -352,7 +385,7 @@ hr {
 }
 
 .about-content code {
-  color: seagreen;
+  color: var(--journal-color-2);
   font-size: 11pt;
   line-height: 1.8rem;
   border-radius: 8px;

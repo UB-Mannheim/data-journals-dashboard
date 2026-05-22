@@ -26,10 +26,10 @@
   </div>
 
   <div class="filter-group">
-    <label for="publisher-filter">Publisher</label>
-    <select id="publisher-filter" class="filter-input">
-      <option value="">All Publishers</option>
-      {{ with $.Site.GetPage "/publisher" }}
+    <label for="reasearch-field-filter">Research Field</label>
+    <select id="reasearch-field-filter" class="filter-input">
+      <option value="">All Research Fields</option>
+      {{ with $.Site.GetPage "/research_fields" }}
       {{ range .Pages }}
       <option value="{{ .Title }}">{{ .Title }}</option>
       {{ end }}
@@ -38,10 +38,10 @@
   </div>
 
   <div class="filter-group">
-    <label for="reasearch-field-filter">Research Fields</label>
-    <select id="reasearch-field-filter" class="filter-input">
-      <option value="">All Research Fields</option>
-      {{ with $.Site.GetPage "/research_fields" }}
+    <label for="publisher-filter">Publisher</label>
+    <select id="publisher-filter" class="filter-input">
+      <option value="">All Publishers</option>
+      {{ with $.Site.GetPage "/publisher" }}
       {{ range .Pages }}
       <option value="{{ .Title }}">{{ .Title }}</option>
       {{ end }}
