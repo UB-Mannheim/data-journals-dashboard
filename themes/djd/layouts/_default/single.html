@@ -32,7 +32,7 @@
       {{ end }}
 
       {{ if isset .Params "is_active" }}
-      <p>{{ with index $d "is_active" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Active:</strong> {{ .Params.is_active }}</p>
+      <p>{{ with index $d "is_active" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Journal Status:</strong> {{ .Params.is_active }}</p>
       {{ end }}
     </div>
 

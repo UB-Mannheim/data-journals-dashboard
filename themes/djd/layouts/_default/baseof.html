@@ -97,12 +97,11 @@
     }
 
     function resetFilters() {
-      document.getElementById('search-input').value = '';
-      document.getElementById('type-filter').value = '';
-      document.getElementById('publisher-filter').value = '';
-      document.getElementById('reasearch-field-filter').value = '';
-      document.getElementById('license-filter').value = '';
-      document.getElementById('status-filter').value = '';
+      const ids = ['search-input', 'type-filter', 'publisher-filter', 'reasearch-field-filter', 'license-filter', 'status-filter'];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+      });
       filterJournals();
     }
 
@@ -111,6 +110,11 @@
         input.addEventListener('input', filterJournals);
         input.addEventListener('change', filterJournals);
       });
+      // Reset filters when landing on homepage
+      const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+      if (isHomepage) {
+        resetFilters();
+      }
     });
   </script>
 </body>

@@ -223,7 +223,7 @@ strong {
 }
 
 .taxonomy-header a:hover svg {
-  stroke: var(--journal-color-7);
+  stroke: var(--journal-color-6);
 }
 
 .taxonomy-header a img {
@@ -231,7 +231,7 @@ strong {
 }
 
 .taxonomy-header a:hover img {
-  filter: brightness(0) saturate(100%) invert(56%) sepia(60%) saturate(600%) hue-rotate(210deg) brightness(86%) contrast(88%);
+  filter: brightness(0) saturate(80%) invert(56%) sepia(40%) saturate(450%) hue-rotate(170deg);
 }
 
 /* Single journal page */
@@ -325,7 +325,7 @@ strong {
   justify-content: center;
   width: 1.3em;
   height: 1.3em;
-  background: slategray;
+  background: var(--journal-color-3);
   color: #fff;
   border-radius: 100%;
   font-size: 0.7rem;
@@ -365,7 +365,7 @@ strong {
 /* About Page */
 hr {
   border: none;
-  border-top: 4px dotted var(--journal-color-2);
+  border-top: 4px dotted var(--journal-color-4);
   margin: 1.5rem 0;
 }
 
@@ -385,7 +385,7 @@ hr {
 }
 
 .about-content code {
-  color: var(--journal-color-2);
+  color: var(--journal-color-4);
   font-size: 11pt;
   line-height: 1.8rem;
   border-radius: 8px;
