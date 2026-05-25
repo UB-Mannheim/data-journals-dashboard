@@ -127,11 +127,14 @@ def process_single(
     """
     Process a single journal.
     """
-    if not input_fpath.exists():
+    if not input_fpath or not input_fpath.exists():
         click.secho("No input provided. Aborting.", fg="red")
+        raise click.Abort()
 
     ensure_dir(output_fpath.parent)
-    process_single_journal(input_fpath, schema_path, output_fpath)
+    success = process_single_journal(input_fpath, schema_path, output_fpath)
+    if not success:
+        raise click.Abort()
 
 
 @cli.group("hugo", no_args_is_help=True)

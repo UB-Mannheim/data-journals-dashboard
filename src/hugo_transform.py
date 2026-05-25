@@ -66,7 +66,7 @@ def create_journal_content_for_hugo(
             "date": datetime.now().strftime("%Y-%m-%d"),
             "draft": False,
             "issn": issn,
-            "is_active": "yes" if is_active else "no"
+            "is_active": "active" if is_active else "inactive"
         }
 
         # Add data_journal_type as taxonomy if present
