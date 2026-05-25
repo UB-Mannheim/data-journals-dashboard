@@ -67,7 +67,7 @@ def validate_compliance(
             if key not in schema_field_keys:
                 errors.append(
                     f"'{journal_title}' (id: {journal_id}): invalid metadata "
-                    f"field: '{field}'."
+                    f"field: '{key}'."
                 )
     return errors
 
