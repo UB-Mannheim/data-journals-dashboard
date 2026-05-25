@@ -109,7 +109,16 @@ strong {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.journal-grid .journal-card.row-shadow {
+  box-shadow: 0 -6px 10px -4px rgba(0, 0, 0, 0.15);
+}
+
+.journal-grid .journal-card.row-shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.2);
 }
 
 /* Color map for journal cards */
@@ -304,6 +313,10 @@ strong {
   text-decoration: none;
 }
 
+.metadata {
+  color: darkorchid;
+}
+
 /* Taxonomy list page */
 .taxonomy-header {
   background: #fff;
@@ -414,7 +427,7 @@ hr {
   .journal-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .main-content {
     padding: 1rem;
   }

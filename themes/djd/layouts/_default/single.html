@@ -145,7 +145,7 @@
         <li>{{ with index $d "ref_author_instructions" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_author_instructions }}" target="_blank">Author Instructions</a></li>
         {{ end }}
         {{ if .Params.ref_oa_statement }}
-        <li>{{ with index $d "ref_oa_statement" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_oa_statement }}" target="_blank">OA Statement</a></li>
+        <li>{{ with index $d "ref_oa_statement" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_oa_statement }}" target="_blank">Open Access Statement</a></li>
         {{ end }}
         {{ if .Params.plagiarism_url }}
         <li>{{ with index $d "plagiarism_url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.plagiarism_url }}" target="_blank">Plagiarism Statement</a></li>
@@ -154,7 +154,7 @@
     </div>
 
     {{ if .Params.enrichment_source }}
-    <p style="color: darkorchid">{{ with index $d "enrichment_source" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }} <strong>Metadata Source:</strong> {{ .Params.enrichment_source }}</p>
+    <p class="metadata">{{ with index $d "enrichment_source" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }} <strong>Metadata Source:</strong> {{ .Params.enrichment_source }}</p>
     {{ end }}
   </div>
 </article>

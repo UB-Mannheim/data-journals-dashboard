@@ -94,6 +94,17 @@
       }
 
       renderFilterTags();
+      updateRowShadows();
+    }
+
+    function updateRowShadows() {
+      const cards = [...document.querySelectorAll('.journal-card')]
+        .filter(c => c.style.display !== 'none');
+      if (!cards.length) return;
+      const firstTop = cards[0].offsetTop;
+      cards.forEach(card => {
+        card.classList.toggle('row-shadow', card.offsetTop > firstTop);
+      });
     }
 
     function resetFilters() {
@@ -115,6 +126,8 @@
       if (isHomepage) {
         resetFilters();
       }
+      updateRowShadows();
+      window.addEventListener('resize', updateRowShadows);
     });
   </script>
 </body>
