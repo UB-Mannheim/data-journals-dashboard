@@ -6,12 +6,12 @@
 #
 # The metadata schema combines metadata fields of different origin to form the collection
 # and validation basis for data journal metadata used in the Data Journals Dashboard.
-# The field's origin can be traced by the "schema_level" and "source" attributes of each 
-# metadata field.
+# The origin of each field can be traced by the "schema_level" and "source" attributes of
+# each field.
 #
 # BASE METADATA
 # =============
-# Base metadata fields are a subset of the core metadata fields ("schema_level == 'core'"") and
+# Base metadata fields are a subset of the core metadata fields ("schema_level == 'core'") and
 # originate from a publication by Kindling, M. & Strecker, D. (2022). Metadata fields of this
 # origin can be traced by "schema_level == 'core' AND source == 'csv'". The metadata is
 # licensed under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/deed.de
@@ -121,7 +121,7 @@ fields:
 
   - key: eissn
     label: "eISSN"
-    description: "Electronic ISSN from DOAJ."
+    description: "Electronic ISSN."
     source: doaj
     doaj_path: "eissn"
     type: string
@@ -131,7 +131,7 @@ fields:
 
   - key: pissn
     label: "pISSN"
-    description: "Print ISSN from DOAJ."
+    description: "Print ISSN."
     source: doaj
     doaj_path: "pissn"
     type: string
@@ -181,7 +181,7 @@ fields:
 
   - key: keywords
     label: "Keywords"
-    description: "Author-supplied or editor-assigned keywords for the journal."
+    description: "Subject keywords describing the journal's scope."
     source: doaj
     doaj_path: "keywords"
     type: list
@@ -257,7 +257,7 @@ fields:
 
   - key: review_process
     label: "Review Process"
-    description: "Peer review types used by the journal (e.g. double blind, open peer review)."
+    description: "Peer review types used by the journal (e.g. Double anonymous peer review, Open peer review, Editorial peer review etc.)."
     source: doaj
     doaj_path: "editorial.review_process"
     type: list
@@ -463,7 +463,7 @@ fields:
 
   - key: deposit_policy_services
     label: "Deposit Policy Services"
-    description: "Repositories or registries where the deposit policy is recorded (e.g. Sherpa/RoMEO)."
+    description: "Services or registries where the journal's deposit/self-archiving policy is registered (e.g. Open Policy Finder, Sherpa Romeo)."
     source: doaj
     doaj_path: "deposit_policy.service"
     type: list
@@ -485,7 +485,7 @@ fields:
 
   - key: article_license_display
     label: "Article License Display"
-    description: "How the license is displayed on article pages (e.g. on article, on website)."
+    description: "How the license is displayed at the article level. Values: 'Embed' (license embedded in article metadata), 'Display' (shown on the article page), or 'No' (not displayed)."
     source: doaj
     doaj_path: "article.license_display"
     type: list
