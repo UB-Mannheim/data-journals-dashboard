@@ -1,5 +1,5 @@
 [project]
-name = "Data Journals Dashboard"
+name = "data-journals-dashboard"
 version = "0.1.0"
 description = "Browser dashboard built with Hugo to access and search a database of (Open Access) Data Journals"
 license = { text = "MIT" }
@@ -18,3 +18,8 @@ dj = "cli:cli"
 
 [tool.uv]
 package = true
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]
