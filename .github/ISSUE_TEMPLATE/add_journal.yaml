@@ -2,7 +2,7 @@ name: Add Data Journal
 description: Suggest a new data journal to be added to the Data Journals Dashboard
 title: "[Contribution] "
 labels:
-  - contribution-pending
+  - pending-journal-contribution
 body:
   - type: markdown
     attributes:
