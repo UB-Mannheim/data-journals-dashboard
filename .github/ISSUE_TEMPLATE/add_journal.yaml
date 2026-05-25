@@ -15,7 +15,7 @@ body:
     attributes:
       label: Journal ISSN
       description: Primary ISSN of the data journal (print or online).
-      placeholder: "1234-5678"
+      placeholder:
     validations:
       required: true
 
