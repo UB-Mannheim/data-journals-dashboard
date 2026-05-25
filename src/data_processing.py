@@ -192,7 +192,7 @@ def is_duplicate_journal(
     # Check if any of the matched journal's key is updated
     comparable_keys = {
         f["key"] for f in schema_fields
-        if f.get("source") in {"csv", "doaj"}
+        if f.get("source") in {"csv", "doaj", "djd"}
     }
     has_changes = any(
         journal.get(key) is not None and journal.get(key) != matched.get(key)
@@ -290,7 +290,10 @@ def process_single_journal(
                 click.secho(f"Unsupported file type: {suffix}", fg="red")
                 return False
         except Exception as e:
-            click.secho(f"Error parsing file: {e}")
+            click.secho(
+                f"Error parsing file: {e}"
+                "Does your file align with the metadata specs?"
+            )
             return False
     else:
         click.secho("No input provided. Aborting.", fg="red")
@@ -382,9 +385,11 @@ def process_all_journals(
     journals = parse_csv_rows_with_schema(rows, schema_fields)
     click.secho(f"Parsed {len(journals)} journals.", fg="blue")
 
-    # Step 3: Filter out duplicates
+    # Step 3: Filter out duplicates; split merged journals by whether DOAJ
+    # fields were explicitly provided (mirrors process_single_journal logic)
     existing_journals = load_existing_journals(output_fpath)
-    new_journals = []
+    journals_to_enrich: list[dict] = []   # new + merged without DOAJ update
+    journals_skip_enrich: list[dict] = [] # merged where DOAJ fields were set
     merged_ids = set()
     for journal in journals:
         status, existing_id = is_duplicate_journal(
@@ -400,16 +405,18 @@ def process_all_journals(
             # Merge existing journal (same ISSN) with new core fields
             for existing_journal in existing_journals:
                 if existing_journal["id"] == existing_id:
-                    merged, _ = merge_journal_update(
+                    merged, doaj_metadata_updated = merge_journal_update(
                         existing_journal, journal, schema_fields
                     )
-                    new_journals.append(merged)
+                    if doaj_metadata_updated:
+                        journals_skip_enrich.append(merged)
+                    else:
+                        journals_to_enrich.append(merged)
                     merged_ids.add(existing_id)
                     break
         else:
-            # New journal - keep as-is for enrichment
-            new_journals.append(journal)
-    journals = new_journals
+            # New journal - enrich from DOAJ
+            journals_to_enrich.append(journal)
 
     # Remove merged journals from existing_journals to avoid duplicates
     existing_journals = [
@@ -417,11 +424,12 @@ def process_all_journals(
     ]
 
     # Assign sequential IDs to new journals (merged journals keep their existing ID)
+    all_new_journals = journals_to_enrich + journals_skip_enrich
     max_existing_id = max(
         (j.get("id", 0) for j in existing_journals), default=0
     )
     next_new_id = max_existing_id + 1
-    for journal in journals:
+    for journal in all_new_journals:
         # Only assign ID if this journal doesn't already have one (new journal)
         if journal["id"] is None or journal["id"] == 0:
             journal["id"] = next_new_id
@@ -431,12 +439,14 @@ def process_all_journals(
             max_existing_id = max(max_existing_id, journal["id"])
             next_new_id = max_existing_id + 1
 
-    # Step 4: enrich with DOAJ metadata
-    enriched_journals = enrich_journals_with_doaj(journals, schema_fields)
+    # Step 4: enrich with DOAJ metadata — skip journals where DOAJ fields
+    # were explicitly provided in the incoming data (same as process_single_journal)
+    enriched_journals = enrich_journals_with_doaj(journals_to_enrich, schema_fields)
+    all_new_journals = enriched_journals + journals_skip_enrich
 
     # Step 5: Append enriched journals and save YAML
-    if enriched_journals:
-        existing_journals.extend(enriched_journals)
+    if all_new_journals:
+        existing_journals.extend(all_new_journals)
         write_yaml_to_disk(existing_journals, output_fpath)
         return True
 

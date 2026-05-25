@@ -185,6 +185,8 @@ def hugo_generate(input_fpath: Path, output_dir: Path, schema_path: Path):
     )
     generate_field_descriptions_data(schema_path, output_dir)
     click.secho(f"Generated {count} journal pages for Hugo.", fg="green")
+    click.secho("Generated field descriptions at "
+                f"{Path("./hugo-data/field_descriptions.yaml")}", fg="blue")
 
 
 @hugo.command("init", no_args_is_help=False)

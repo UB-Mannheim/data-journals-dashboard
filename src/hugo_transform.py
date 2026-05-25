@@ -140,7 +140,6 @@ def create_journal_content_for_hugo(
 
     # Update version
     _update_version_in_config()
-    print(f"Done. Generated {generated_count} journal pages.")
     return generated_count
 
 
@@ -208,8 +207,6 @@ def generate_field_descriptions_data(schema_fpath: Path, output_dir: Path) -> No
 
     with open(data_dir / "field_descriptions.yaml", "w") as f:
         yaml.dump(descriptions, f, allow_unicode=True, sort_keys=True)
-
-    print(f"Generated field descriptions data at {data_dir / "field_descriptions.yaml"}")
 
 
 def generate_hugo_archetype(output_dir: Path) -> None:
