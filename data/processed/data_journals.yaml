@@ -638,7 +638,7 @@ journals:
   url: https://www.springer.com/journal/12021/
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website, ISSN Portal, Wikipedia
+  enrichment_source: journal homepage, ISSN Portal, Wikipedia
   eissn: 1559-0089
   pissn: 1539-2791
   language:
@@ -710,7 +710,7 @@ journals:
   url: https://www.sciencedirect.com/journal/nuclear-data-sheets
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website, ISSN Portal
+  enrichment_source: journal homepage, ISSN Portal
   eissn: 1095-9904
   pissn: 0090-3752
   language:
@@ -919,7 +919,7 @@ journals:
   url: https://odjar.org/index
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website, ISSN Portal, WUR website
+  enrichment_source: journal homepage, ISSN Portal, WUR homepage
   eissn: 2352-6378
   language:
   - EN
@@ -1130,7 +1130,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/phyto
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1943-7684
   pissn: 0031-949X
   language:
@@ -1196,7 +1196,7 @@ journals:
   url: https://academic.oup.com/pcp
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1471-9053
   pissn: 0032-0781
   language:
@@ -1270,7 +1270,7 @@ journals:
   url: https://apsjournals.apsnet.org/journal/pdis
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1943-7692
   pissn: 0191-2917
   language:
@@ -1772,7 +1772,7 @@ journals:
   url: https://journals.sagepub.com/home/IJR
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1741-3176
   pissn: 0278-3649
   language:
@@ -1832,7 +1832,7 @@ journals:
   url: https://onlinelibrary.wiley.com/journal/1365313x
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1365-313X
   pissn: 0960-7412
   language:
@@ -1972,7 +1972,7 @@ journals:
   url: https://vdj.pensoft.net/
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 2603-431X
   language:
   - EN
@@ -2177,7 +2177,7 @@ journals:
   url: https://www.cdc.gov/nchs/products/databriefs.htm
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1941-4935
   pissn: 1941-4927
   language:
@@ -2587,7 +2587,7 @@ journals:
   url: https://openhumanitiesdata.metajnl.com/
   data_journal_type: pure
   is_active: true
-  enrichment_source: doaj.org, journal website
+  enrichment_source: doaj.org, journal homepage
   eissn: 2059-481X
   pissn: null
   language:
@@ -2803,7 +2803,7 @@ journals:
   url: https://journalofastronomicaldata.be/jad.htm
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1385-3945
   pissn: 2032-6378
   language:
@@ -2915,7 +2915,7 @@ journals:
   is_active: true
   eissn: 1090-2090
   pissn: 0092-640X
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   language:
   - EN
   boai: false
@@ -7069,7 +7069,7 @@ journals:
   url: https://www.sciencedirect.com/journal/chemical-data-collections
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 2405-8300
   language:
   - EN
@@ -7545,7 +7545,7 @@ journals:
   url: https://esj-journals.onlinelibrary.wiley.com/journal/14401703
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   language:
   - EN
   boai: false
@@ -7594,7 +7594,7 @@ journals:
   url: https://esajournals.onlinelibrary.wiley.com/journal/19399170
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1939-9170
   pissn: 0012-9658
   language:
@@ -8020,7 +8020,7 @@ journals:
   url: http://data.freshwaterbiodiversity.eu/fmj/
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website, ISSN Portal, Wikidata
+  enrichment_source: journal homepage, ISSN Portal, Wikidata
   eissn: 2312-6604
   language:
   - EN
@@ -8519,7 +8519,7 @@ journals:
   url: https://www.journals.elsevier.com/international-economics
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   language:
   - EN
   boai: false
@@ -8556,7 +8556,7 @@ journals:
   url: https://academic.oup.com/ije/pages/About
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1464-3685
   language:
   - EN
@@ -9030,7 +9030,7 @@ journals:
   url: https://pubs.acs.org/journal/jceaax
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1520-5134
   pissn: 0021-9568
   language:
@@ -9177,7 +9177,7 @@ journals:
   url: https://acsess.onlinelibrary.wiley.com/journal/15372537
   data_journal_type: mixed
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1537-2537
   pissn: 0047-2425
   language:
@@ -9522,7 +9522,7 @@ journals:
   url: https://pubs.aip.org/aip/jpr
   data_journal_type: pure
   is_active: true
-  enrichment_source: journal website
+  enrichment_source: journal homepage
   eissn: 1529-7845
   pissn: 0047-2689
   language:
@@ -9641,3 +9641,126 @@ journals:
   ref_oa_statement: https://checklist.pensoft.net/about#OpenAccessPolicy
   ref_author_instructions: https://checklist.pensoft.net/about#AuthorsGuidelines
   ref_license_terms: https://checklist.pensoft.net/about#CopyrightNotice
+- id: 142
+  issn: 2941-1300
+  journal_title: ing.grid
+  publisher: Universitäts- und Landesbibliothek Darmstadt
+  url: https://www.inggrid.org/
+  data_journal_type: mixed
+  is_active: true
+  enrichment_source: journal homepage
+  eissn: 2941-1300
+  language:
+  - EN
+  oa_start: 2023
+  boai: true
+  keywords:
+  - data literacy
+  - data infrastructure
+  - data governance
+  - data economics
+  - data ethics
+  - research software
+  - research data management
+  research_fields:
+  - Engineering Sciences
+  - Research Data Management
+  subject_codes:
+  - code: TA1-2040
+    scheme: LCC
+    term: Engineering (General)
+  - code: Q175
+    scheme: LCC
+    term: Science – Methodology
+  publisher_name: Universitäts- und Landesbibliothek Darmstadt
+  publisher_country: DE
+  institution_name: Technische Universität Darmstadt
+  institution_country: DE
+  review_process:
+  - Single-anonymous peer review
+  - Community open peer review
+  review_url: https://www.inggrid.org/site/reviewprocess/
+  board_url: null
+  license_types:
+  - CC BY 4.0
+  apc_has: false
+  other_charges: false
+  pid_schemes:
+  - DOI
+  copyright_author_retains: true
+  copyright_url: https://www.inggrid.org/site/openaccess/
+  deposit_policy_has: true
+  deposit_policy_services:
+  - ing.grid Preprint Server
+  ref_journal: https://www.inggrid.org/
+  ref_aims_scope: https://www.inggrid.org/site/focusandscope/
+  ref_oa_statement: https://www.inggrid.org/site/openaccess/
+  ref_author_instructions: https://www.inggrid.org/site/authorguidelines/
+  ref_license_terms: https://www.inggrid.org/site/openaccess/
+- id: 143
+  issn: 2819-4497
+  journal_title: JMIR Data
+  publisher: JMIR Publications
+  url: https://data.jmir.org/
+  data_journal_type: mixed
+  is_active: true
+  enrichment_source: journal homepage
+  eissn: 2819-4497
+  language:
+  - EN
+  oa_start: 2020
+  boai: true
+  publication_time_weeks: null
+  keywords:
+  - digital health
+  - health informatics
+  - patient-generated data
+  - biospecimen data
+  research_fields:
+  - Medicine
+  - Public Health
+  - Medical informatics
+  subject_codes:
+  - code: R5-920
+    scheme: LCC
+    term: Medicine (General)
+  - code: RA421-790.95
+    scheme: LCC
+    term: Public health. Hygiene. Preventive medicine
+  - code: R858-859.7
+    scheme: LCC
+    term: Computer applications to medicine. Medical informatics
+  publisher_name: JMIR Publications Inc.
+  publisher_country: CA
+  review_process:
+  - Single-anonymous peer review
+  - Open reviewer names (reviewers named in published article)
+  review_url: https://data.jmir.org/author-information/peer-review-process
+  board_url: https://data.jmir.org/about-journal/editorial-board
+  license_types:
+  - CC BY 4.0
+  apc_has: true
+  apc_max:
+  - price: 1500
+    currency: USD
+  apc_url: https://data.jmir.org/about-journal/article-processing-fees
+  other_charges: true
+  waiver_has: false
+  preservation_has: true
+  preservation_services:
+  - PubMed Central
+  pid_schemes:
+  - DOI
+  plagiarism_detection: true
+  plagiarism_url: https://support.jmir.org/hc/en-us/articles/29759962647195
+  copyright_author_retains: true
+  copyright_url: https://data.jmir.org/publishing-policies/copyright-notice
+  deposit_policy_has: true
+  deposit_policy_services:
+  - Open Policy Finder
+  deposit_policy_url: https://data.jmir.org/author-information/author-self-archiving
+  ref_journal: https://data.jmir.org/
+  ref_aims_scope: https://data.jmir.org/about-journal/focus-and-scope
+  ref_oa_statement: https://data.jmir.org/publishing-policies/open-access-policy
+  ref_author_instructions: https://data.jmir.org/author-information/instructions-for-authors
+  ref_license_terms: https://data.jmir.org/publishing-policies/copyright-notice
