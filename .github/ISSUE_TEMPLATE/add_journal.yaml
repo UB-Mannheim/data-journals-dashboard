@@ -1,16 +1,71 @@
 name: Add Data Journal
+description: Suggest a new data journal to be added to the Data Journals Dashboard
+title: "[Contribution] "
+labels:
+  - contribution-pending
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to the Data Journals Dashboard!
+        Please fill in all required fields below. After submission, a maintainer will review your contribution and trigger processing.
+
   - type: input
     id: issn
-    label: ISSN
+    attributes:
+      label: ISSN
+      description: Primary ISSN of the data journal (print or online).
+      placeholder: "1234-5678"
     validations:
       required: true
+
   - type: input
     id: journal_title
-    label: Journal Title
+    attributes:
+      label: Journal Title
+      description: Official name of the journal.
+      placeholder: "Journal of Open Data"
+    validations:
+      required: true
+
   - type: input
     id: publisher
-    label: Publisher
+    attributes:
+      label: Publisher
+      description: Name of the journal's publisher.
+      placeholder: "Open Access Publishing"
+    validations:
+      required: true
+
   - type: input
     id: url
-    label: URL
+    attributes:
+      label: URL
+      description: Link to the journal's website.
+      placeholder: "https://journal.example.com"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data_journal_type
+    attributes:
+      label: Data Journal Type
+      description: >
+        **pure** — journal focuses exclusively on publishing data papers.
+        **mixed** — journal also publishes other types (research articles, reviews, etc.).
+      options:
+        - pure
+        - mixed
+    validations:
+      required: true
+
+  - type: dropdown
+    id: journal_status
+    attributes:
+      label: Journal Status
+      description: Is the journal currently active and accepting submissions?
+      options:
+        - active
+        - inactive
+    validations:
+      required: true
