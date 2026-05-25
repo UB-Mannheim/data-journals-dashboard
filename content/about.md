@@ -6,68 +6,55 @@ type: page
 
 ## Introduction
 
-The Data Journals Dashboard provides easy access to a collection of data journals first compiled and published by **Kindling, M. and Strecker, D.** in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
+The Data Journals Dashboard provides access to a collection of data journals first published by **Kindling, M. and Strecker, D.** in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
 
 To find out more about the concept of data journals refer to this page by the [University Libraries of Western Michigan University](https://libguides.wmich.edu/datasci/datajournals).
 
 ## Primary Dataset
 
-The primary data source for the dashboard is a collection of data journal metadata published under `CC0 1.0 Universal` on [Zenodo](https://doi.org/10.5281/zenodo.7082126) and [Github](https://github.com/MaxiKi/data-journals):
+The dashboard's primary data source are data journal metadata published under `CC0 1.0 Universal` on [Zenodo](https://doi.org/10.5281/zenodo.7082126) and [Github](https://github.com/MaxiKi/data-journals):
 
-```bash
-Zenodo:
-    - Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. Zenodo.
-      https://doi.org/10.5281/zenodo.7082126
-
-GitHub:
-    - https://github.com/MaxiKi/data-journals
-```
+- **Zenodo**: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7082126
+- **GitHub**: https://github.com/MaxiKi/data-journals
 
 ## Augmented Dataset
 
-The primary dataset is enhanced by adding additional metadata via the [Directory of Open Access Journals (doaj.org)](https://doaj.org/) API. Each `ISSN` in the primary dataset is queried via the API. If the `ISSN` is present in the DOAJ, additional metadata is retrieved and added to the journal's existing metadata. The full metadata schema used to integrate both data sources is available on [GitHub](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
+The primary dataset is enhanced by adding additional metadata via the [Directory of Open Access Journals](https://doaj.org/) API. Each `ISSN` in the primary dataset is queried via the API. If the `ISSN` is present in the DOAJ, additional metadata is retrieved and added to the journal's existing metadata. The full metadata schema used to integrate both data sources is available on [GitHub](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
 
-**The augmented dataset is available as XXX here:
-All metadata is licensed under CC 0**
+For `ISSNs` not present in the DOAJ manual metadata augmentations are made using the journal's website, [ISSN Portal](https://portal.issn.org/), Wikidata and other sources. Each data journal page provides a list of the specific sources used for metadata augmentation.
 
-Metadata:
-  Research Fields: LLC
+### Licenses
 
-### Limitations
+Metadata retrieved via the [Directory of Open Access Journals](https://doaj.org/) API is licensed under `CC0 1.0 Universal` [[Source]](https://doaj.org/terms/#metadata). Manually compiled metadata as well as the [metadata schema](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) of the Data Journals Dashboard are licensed under `CC0 1.0 Universal` [[CC0 1.0 deed]](https://creativecommons.org/publicdomain/zero/1.0/deed.de) as well.
 
-The metadata for a majority of data journals is augmented via the DOAJ API. In cases where an `ISSN` is not present in the directory the corresponding data journal in the dashboard will only provide limited metdata, consisting of these core elements:
+### Dataset Dump
 
-```bash
-- ISSN
-- Journal Title
-- Publisher
-- URL
-- Data Journal Type
-```
+The augmented dataset containing all metadata can be dowloaded as `CSV`, `YAML` and `JSON` on [Github](LINK).
 
 ## Contributions
 
-pass
+The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal using the **GitHub issue template**.
+
+### Adding a Data Journal
+
+1. Navigate to the **[New Issue](https://github.com/tsmdt/data-journals-dashboard/issues/new/choose)** page on GitHub
+2. Select the **"Add Data Journal"** template
+3. Fill in the required fields:
+   - **ISSN** — Primary ISSN of the data journal (print or online)
+   - **Journal Title** — Official name of the journal
+   - **Publisher** — Name of the journal's publisher
+   - **URL** — Link to the journal's website
+   - **Data Journal Type** — Whether the journal is "pure" (exclusively data papers) or "mixed" (also publishes other article types)
+   - **Journal Status** — Whether the journal is currently "active" or "inactive"
+
+After submitting the issue and a review of your contribution the new journal will be added to the existing collection.
 
 ## Acknowledgment
 
 pass
 
-## citation.cff
+## Citing the Dashboard
 
-```yaml
-cff-version: 1.2.0
-type: software
-title: "Data Journals Dashboard"
-version: v2026-05-12
-date-released: "2026-05-12"
-url: "https://tsmdt.github.io/data-journals-dashboard/"
-repository-code: "https://github.com/tsmdt/data-journals-dashboard"
-authors:
-  - family-names: Schmidt
-    given-names: Thomas
-    orcid: "https://orcid.org/0000-0003-3620-3355"
-license: CC0-1.0
-```
+pass
 
 {{< figure src="/logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="20%" >}}
