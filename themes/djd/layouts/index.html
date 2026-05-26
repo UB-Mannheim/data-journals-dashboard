@@ -17,9 +17,7 @@
 
   <div class="journal-grid" id="journal-list">
     {{ range where .Site.RegularPages ".Params.issn" "!=" nil }}
-    {{ $cardClass := "journal-card" }}
-    {{ if eq .Params.is_active "no" }}{{ $cardClass = "journal-card journal-card-inactive" }}{{ end }}
-    <a class="{{ $cardClass }}" href="{{ .RelPermalink }}"
+    <a class="journal-card" href="{{ .RelPermalink }}"
         data-title="{{ .Title }}"
         data-publisher="{{ .Params.publisher | jsonify }}"
         data-data-journal-type="{{ .Params.data_journal_type | jsonify }}"
