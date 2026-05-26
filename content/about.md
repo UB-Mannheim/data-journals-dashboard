@@ -1,6 +1,6 @@
 ---
 title: About
-date: '2026-05-11'
+date: '2026-05-25'
 type: page
 ---
 
@@ -46,6 +46,6 @@ The dashboard builds on the foundational work of Kindling, M. and Strecker, D. a
 
 If you use the Data Journals Dashboard in your research or work, please cite it as follows:
 
-Schmidt, T. (2026). *Data Journals Dashboard* (v2026-05-25) [Software]. Universitätsbibliothek Mannheim. https://github.com/tsmdt/data-journals-dashboard
+Schmidt, T. (2026). *Data Journals Dashboard* ({{< version >}}) [Software]. Universitätsbibliothek Mannheim. https://github.com/tsmdt/data-journals-dashboard
 
-{{< figure src="/logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="20%" >}}
+{{< figure src="/logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="15%" >}}
