@@ -9682,7 +9682,7 @@ journals:
   review_url: https://www.inggrid.org/site/reviewprocess/
   board_url: null
   license_types:
-  - CC BY 4.0
+  - CC BY
   apc_has: false
   other_charges: false
   pid_schemes:
@@ -9738,7 +9738,7 @@ journals:
   review_url: https://data.jmir.org/author-information/peer-review-process
   board_url: https://data.jmir.org/about-journal/editorial-board
   license_types:
-  - CC BY 4.0
+  - CC BY
   apc_has: true
   apc_max:
   - price: 1500
