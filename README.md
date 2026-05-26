@@ -1,6 +1,6 @@
 # Data Journals Dashboard
 
-The **Data Journals Dashboard** (DJD) is a browser app for searching and filtering a *curated and regularly updated* collection of [data journals](https://libguides.wmich.edu/datasci/datajournals), enabling researchers, research data management professionals, librarians, and all other interested parties to find data journals that meet their publication needs.
+The **Data Journals Dashboard** (DJD) is a browser app for searching and filtering a curated and regularly updated collection of [data journals](https://libguides.wmich.edu/datasci/datajournals), enabling researchers, research data management professionals, librarians, and all other interested parties to find data journals that meet their publication needs.
 
 ## Table of Contents
 
@@ -25,13 +25,13 @@ The dashboard's primary data source is a list of data journals first published b
 
 ### Augmented Dataset
 
-The primary dataset is enhanced with additional metadata retrieved via the [Directory of Open Access Journals](https://doaj.org/) (DOAJ) API. Each `ISSN` in the primary dataset is queried against the DOAJ API; if found, additional metadata is retrieved and merged with the existing journal record. The full metadata schema used to integrate both data sources is available on [GitHub](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
+The primary dataset is enhanced with additional metadata retrieved via the [Directory of Open Access Journals](https://doaj.org/) (DOAJ) API. Each `ISSN` in the primary dataset is queried against the DOAJ API; if found, additional metadata is retrieved and merged with the existing journal record. 
 
 For `ISSNs` not present in the DOAJ, manual metadata augmentations are made using the journal's website, the [ISSN Portal](https://portal.issn.org/), Wikidata, and other sources. Each journal page in the dashboard lists the specific sources used for its metadata augmentation.
 
 ### Metadata Schema
 
-The dashboard uses a [custom metadata schema](LINK) for collecting and validating data journal metadata. Refer to the documentation at the beginning of the schema for more information.
+The metadata schema used to integrate all data sources and validate new journal additions is available as well: [Data Journals Dashboard – Metadata Schema](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
 
 ### Licenses
 

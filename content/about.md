@@ -33,28 +33,19 @@ The augmented dataset containing all metadata can be dowloaded as `CSV`, `YAML` 
 
 ## Contributions
 
-The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal using the **GitHub issue template**.
+The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal via a [GitHub issue](https://github.com/tsmdt/data-journals-dashboard/issues/new/choose) using the **"Add Data Journal"** template. The template will ask for the journal's ISSN, title, publisher, URL, type, and status.
 
-### Adding a Data Journal
+After submitting the issue, a maintainer will review your contribution. Once approved, the new journal will be processed and added to the collection.
 
-1. Navigate to the **[New Issue](https://github.com/tsmdt/data-journals-dashboard/issues/new/choose)** page on GitHub
-2. Select the **"Add Data Journal"** template
-3. Fill in the required fields:
-   - **ISSN** — Primary ISSN of the data journal (print or online)
-   - **Journal Title** — Official name of the journal
-   - **Publisher** — Name of the journal's publisher
-   - **URL** — Link to the journal's website
-   - **Data Journal Type** — Whether the journal is "pure" (exclusively data papers) or "mixed" (also publishes other article types)
-   - **Journal Status** — Whether the journal is currently "active" or "inactive"
 
-After submitting the issue and a review of your contribution the new journal will be added to the existing collection.
+## Acknowledgement
 
-## Acknowledgment
-
-pass
+The dashboard builds on the foundational work of Kindling, M. and Strecker, D. and relies on open metadata provided by the [Directory of Open Access Journals](https://doaj.org/).
 
 ## Citing the Dashboard
 
-pass
+If you use the Data Journals Dashboard in your research or work, please cite it as follows:
+
+Schmidt, T. (2026). *Data Journals Dashboard* (v2026-05-25) [Software]. Universitätsbibliothek Mannheim. https://github.com/tsmdt/data-journals-dashboard
 
 {{< figure src="/logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="20%" >}}
