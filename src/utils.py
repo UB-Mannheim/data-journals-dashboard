@@ -297,7 +297,7 @@ def to_csv(
     elif scope == "full":
         csv_fields = [
             f for f in schema
-            if f.get("schema_level") in ["internal", "core", "full"]
+            if f.get("schema_level") in ["core", "full"]
         ]
         csv_quote_level = csv.QUOTE_ALL
 
@@ -343,7 +343,7 @@ def to_csv(
 
     if sort:
         # Sort rows based on journal_title
-        rows = sorted(rows[1:], key=lambda x: x[1])
+        rows = sorted(rows[1:], key=lambda x: x[1].lower())
         rows.insert(0, csv_header)
 
     # Optionally: write csv to disk
