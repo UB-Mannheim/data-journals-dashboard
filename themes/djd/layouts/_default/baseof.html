@@ -63,6 +63,8 @@
       document.querySelectorAll('.journal-card').forEach(card => {
         const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
         const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
+        const issn = card.dataset.issn ? card.dataset.issn.toLowerCase() : '';
+        const pissn = card.dataset.pissn ? card.dataset.pissn.toLowerCase() : '';
         const publisherArr = parseAttr(card.dataset.publisher);
         const dataJournalTypeArr = parseAttr(card.dataset.dataJournalType);
         const researchFieldsArr = parseAttr(card.dataset.researchFields);
@@ -70,6 +72,8 @@
 
         const matchesSearch = !searchTerm ||
           title.includes(searchTerm) ||
+          issn.includes(searchTerm) ||
+          pissn.includes(searchTerm) ||
           keywords.includes(searchTerm) ||
           publisherArr.some(v => v.includes(searchTerm)) ||
           dataJournalTypeArr.some(v => v.includes(searchTerm)) ||

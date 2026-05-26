@@ -26,7 +26,9 @@
         data-keywords="{{ .Params.keywords | jsonify }}"
         data-research-fields="{{ .Params.research_fields | jsonify }}"
         data-license-types="{{ .Params.license_types | jsonify }}"
-        data-is-active="{{ if eq .Params.is_active `active` }}active{{ else }}inactive{{ end }}">
+        data-is-active="{{ if eq .Params.is_active `active` }}active{{ else }}inactive{{ end }}"
+        data-issn="{{ .Params.issn }}"
+        data-pissn="{{ .Params.pissn }}">
       <h3>{{ .Title }}</h3>
       {{ if .Params.publisher }}
       <p class="meta"><strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
