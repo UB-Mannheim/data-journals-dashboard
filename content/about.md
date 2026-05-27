@@ -41,7 +41,9 @@ The easiest way to contribute to the Data Journals Dashboard is by suggesting a 
 
 ## Use of AI
 
-Claude Code (`Sonnet 4.6`) was used for coding, bug fixing and testing the Python data processing pipeline as well as the [Hugo](https://gohugo.io/) framework-based website configuration. Additional journal metadata not provided by the Directory of Open Access Journals' API was for a large part retrieved with Claude Code and its web search tool, and then manually checked and cleaned.
+Claude Code (`Sonnet 4.6`) was used for coding, bug fixing and testing the Python data processing pipeline as well as the [Hugo](https://gohugo.io/) app. 
+
+Additional journal metadata not provided by the Directory of Open Access Journals' API was for a large part collected with Claude Code and its web search tool, and then manually verified and cleaned.
 
 ## Citing the Dashboard
 
