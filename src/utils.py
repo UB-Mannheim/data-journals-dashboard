@@ -11,6 +11,27 @@ def ensure_dir(dir_path: Path | str):
     Path(dir_path).mkdir(parents=True, exist_ok=True)
 
 
+def ensure_output_fpath(
+    output_fpath: Path | str | None,
+    input_fpath: Path | str | None,
+    suffix: str,
+    issn: str | None = None,
+) -> Path:
+    """
+    Ensure that output_fpath always returns a file_path with file suffix
+    despite it possibly being a directory.
+    """
+    default_name = f"{issn}{suffix}" if issn else Path(input_fpath).with_suffix(suffix).name
+
+    if output_fpath:
+        p = Path(output_fpath)
+        if p.is_dir() or not p.suffix:
+            return p / default_name
+        return p
+
+    return Path("./exports") / default_name
+
+
 def load_schema(
     schema_path: Path | str = METADATA_SCHEMA_PATH
 ) -> list[dict]:
@@ -206,6 +227,7 @@ def to_yaml(
     scope: str = "core",
     schema_path: Path | str = METADATA_SCHEMA_PATH,
     verbose: bool = True,
+    issn: str | None = None,
 ) -> list[dict]:
     """
     Parse a CSV or JSON journal collection and transform it to a YAML journal
@@ -265,21 +287,21 @@ def to_yaml(
             for j in journals
         ]
 
-    if output_fpath:
-        write_yaml_to_disk(
-            journals, Path(output_fpath), sort_by_id=False, verbose=verbose
-        )
+    if output_fpath is not None or issn is not None:
+        resolved = ensure_output_fpath(output_fpath, input_path, ".yaml", issn)
+        write_yaml_to_disk(journals, resolved, sort_by_id=False, verbose=verbose)
 
     return journals
 
 
 def to_csv(
-    input_fpath: Path | str = None,
-    output_fpath: Path | str = None,
+    input_fpath: Path = None,
+    output_fpath: Path = None,
     scope: str = "core",
     schema_path: Path | str = METADATA_SCHEMA_PATH,
     sort: bool = True,
     verbose: bool = True,
+    issn: str | None = None,
 ) -> dict:
     """
     Parse an existing YAML or JSON journal collection and transform it to CSV.
@@ -347,10 +369,10 @@ def to_csv(
         rows.insert(0, csv_header)
 
     # Optionally: write csv to disk
-    if output_fpath:
-        write_csv_to_disk(
-            rows, Path(output_fpath), verbose, quoting=csv_quote_level
-        )
+    if output_fpath is not None or issn is not None:
+        resolved = ensure_output_fpath(output_fpath, input_path, ".csv", issn)
+        ensure_dir(resolved.parent)
+        write_csv_to_disk(rows, resolved, verbose, quoting=csv_quote_level)
 
     return rows
 
@@ -361,6 +383,7 @@ def to_json(
     scope: str = "core",
     schema_path: Path | str = METADATA_SCHEMA_PATH,
     verbose: bool = True,
+    issn: str | None = None,
 ) -> list[dict]:
     """
     Convert a CSV or YAML journal collection to a JSON file.
@@ -437,18 +460,19 @@ def to_json(
     # Building the export json dict
     journals_dict = {}
     for j in journals:
-        issn = j.get("issn")
-        journals_dict[issn] = {}
+        j_issn = j.get("issn")
+        journals_dict[j_issn] = {}
         for key, value in j.items():
             if key in allowed_keys and key != "issn":
-                journals_dict[issn][key] = value
+                journals_dict[j_issn][key] = value
 
     # Write JSON to disk if output path is provided
-    if output_fpath:
-        ensure_dir(Path(output_fpath).parent)
-        with open(output_fpath, "w", encoding="utf-8") as f:
+    if output_fpath is not None or issn is not None:
+        resolved = ensure_output_fpath(output_fpath, input_path, ".json", issn)
+        ensure_dir(resolved.parent)
+        with open(resolved, "w", encoding="utf-8") as f:
             json.dump({"journals": journals_dict}, f, indent=2, ensure_ascii=False)
         if verbose:
-            click.secho(f"Saved JSON → {output_fpath}", fg="green")
+            click.secho(f"Saved JSON → {resolved}", fg="green")
 
     return journals_dict

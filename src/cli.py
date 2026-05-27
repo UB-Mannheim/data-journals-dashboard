@@ -262,15 +262,13 @@ def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: s
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
-        resolved = Path(output_fpath) if output_fpath else Path("./exports") / f"{issn}.csv"
-        ensure_dir(resolved.parent)
         with tempfile.NamedTemporaryFile(
             suffix=".yaml", delete=False, mode="w", encoding="utf-8"
         ) as tmp:
             yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
             tmp_path = Path(tmp.name)
         try:
-            to_csv(tmp_path, resolved, scope)
+            to_csv(tmp_path, output_fpath, scope, issn=issn)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -279,13 +277,7 @@ def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: s
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    resolved = (
-        Path(output_fpath)
-        if output_fpath
-        else Path("./exports") / Path(input_fpath.name).with_suffix(".csv")
-    )
-    ensure_dir(resolved.parent)
-    to_csv(input_fpath, resolved, scope)
+    to_csv(input_fpath, output_fpath, scope)
 
 
 @export.command("yaml", no_args_is_help=True)
@@ -326,8 +318,6 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
-        resolved = Path(output_fpath) if output_fpath else Path("./exports") / f"{issn}.yaml"
-        ensure_dir(resolved.parent)
         journal_without_issn = {k: v for k, v in journal.items() if k != "issn"}
         payload = json.dumps({"journals": {issn: journal_without_issn}})
         with tempfile.NamedTemporaryFile(
@@ -336,7 +326,7 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
             tmp.write(payload)
             tmp_path = Path(tmp.name)
         try:
-            to_yaml(tmp_path, resolved, scope)
+            to_yaml(tmp_path, output_fpath, scope, issn=issn)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -345,13 +335,7 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    resolved = (
-        Path(output_fpath)
-        if output_fpath
-        else Path("./exports") / Path(input_fpath.name).with_suffix(".yaml")
-    )
-    ensure_dir(resolved.parent)
-    to_yaml(input_fpath, resolved, scope)
+    to_yaml(input_fpath, output_fpath, scope)
 
 
 @export.command("json", no_args_is_help=True)
@@ -391,15 +375,13 @@ def export_json(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
-        resolved = Path(output_fpath) if output_fpath else Path("./exports") / f"{issn}.json"
-        ensure_dir(resolved.parent)
         with tempfile.NamedTemporaryFile(
             suffix=".yaml", delete=False, mode="w", encoding="utf-8"
         ) as tmp:
             yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
             tmp_path = Path(tmp.name)
         try:
-            to_json(tmp_path, resolved, scope)
+            to_json(tmp_path, output_fpath, scope, issn=issn)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -408,13 +390,7 @@ def export_json(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    resolved = (
-        Path(output_fpath)
-        if output_fpath
-        else Path("./exports") / Path(input_fpath.name).with_suffix(".json")
-    )
-    ensure_dir(resolved.parent)
-    to_json(input_fpath, resolved, scope)
+    to_json(input_fpath, output_fpath, scope)
 
 
 @cli.command("validate", no_args_is_help=True)
