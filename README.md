@@ -27,29 +27,29 @@ The dashboard's primary data source is a list of data journals first published b
 
 ### Augmented Dataset
 
-The primary dataset is enhanced with additional metadata retrieved via the [Directory of Open Access Journals](https://doaj.org/) (DOAJ) API. Each `ISSN` in the primary dataset is queried against the DOAJ API; if found, additional metadata is retrieved and merged with the existing journal record. 
+The primary dataset is enhanced with additional metadata retrieved via the [Directory of Open Access Journals](https://doaj.org/) (DOAJ) API. Each `ISSN` in the primary dataset is queried against the DOAJ API; if found, additional metadata is retrieved and merged with the existing journal record.
 
 For `ISSNs` not present in the DOAJ, manual metadata augmentations are made using the journal's website, the [ISSN Portal](https://portal.issn.org/), Wikidata, and other sources. Each journal page in the dashboard lists the specific sources used for its metadata augmentation.
 
 ### Metadata Schema
 
-The metadata schema used to integrate all data sources and validate new journal additions is available as well: [Data Journals Dashboard – Metadata Schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
+The [metadata schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) used to integrate all data sources and validate new journal additions is available for reuse as well.
 
 ### Licenses
 
-| Source | License |
-|---|---|
-| Kindling & Strecker (2022) primary dataset | `CC0 1.0 Universal` |
-| DOAJ API metadata | `CC0 1.0 Universal` ([Source](https://doaj.org/terms/#metadata)) |
-| Manually compiled metadata | `CC0 1.0 Universal` ([CC0 1.0 deed](https://creativecommons.org/publicdomain/zero/1.0/deed.de)) |
-| [Data Journals Dashboard – Metadata Schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) | `CC0 1.0 Universal` ([CC0 1.0 deed](https://creativecommons.org/publicdomain/zero/1.0/deed.de)) |
+| Source | License | Source |
+| --- | --- | --- |
+| Kindling & Strecker (2022) primary dataset | `CC0 1.0 Universal` | [[Zenodo](https://doi.org/10.5281/zenodo.7082126)], [[GitHub](https://github.com/MaxiKi/data-journals)] |
+| DOAJ API journal metadata | `CC0 1.0 Universal` | [[DOAJ Docs](https://doaj.org/terms/#metadata)] |
+| Manually compiled journal metadata | `CC0 1.0 Universal` | [[rf. Metadata Schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml)] |
+| [Data Journals Dashboard – Metadata schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) | `CC0 1.0 Universal` | [[rf. Metadata Schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml)] |
 
 ## Python and Hugo App
 
 The dashboard is built on two components:
 
 - **Python CLI** (`dj`): A command-line tool for collecting raw journal metadata from GitHub, enriching it via the DOAJ API, validating it against the metadata schema, and exporting it in multiple formats (`CSV`, `YAML`, `JSON`).
-- **[Hugo](https://gohugo.io/)**: A static site generator that renders the processed metadata into the browsable dashboard. The dashboard supports filtering by data journal type, publisher, article processing charges (APC), research fields, license types, and more.
+- **[Hugo](https://gohugo.io/) App**: A static site generator that renders the processed metadata into the browsable dashboard. The dashboard supports filtering by data journal type, publisher, research fields, license types, and more.
 
 Dependencies are managed with [uv](https://docs.astral.sh/uv/). After cloning the repository, install the project with:
 
@@ -77,11 +77,11 @@ Commands:
 
 ### App License
 
-The Python CLI and Hugo application are licensed under the **MIT License**.
+The Python CLI and Hugo application are licensed under the [MIT License](LICENSE).
 
 ## Contributing
 
-The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal via a [GitHub issue](https://github.com/UB-Mannheim/data-journals-dashboard/issues/new/choose) using the **"Add Data Journal"** template. The template will ask for the journal's ISSN, title, publisher, URL, type, and status.
+Contribute to the Data Journals Dashboard by suggesting a new data journal via a [GitHub issue](https://github.com/UB-Mannheim/data-journals-dashboard/issues/new/choose) using the **"Add Data Journal"** template. The template will ask for the journal's `ISSN`, `title`, `publisher`, `URL`, `data_journal_type`, and `status`.
 
 After submitting the issue, a maintainer will review your contribution. Once approved, the new journal will be processed and added to the collection.
 
@@ -95,4 +95,4 @@ Additional journal metadata not provided by the Directory of Open Access Journal
 
 If you use the Data Journals Dashboard in your research or work, please cite it as follows:
 
-Schmidt, T. (2026). *Data Journals Dashboard* (v2026-05-25) [Software]. Universitätsbibliothek Mannheim. https://github.com/UB-Mannheim/data-journals-dashboard
+Schmidt, T. (2026). *Data Journals Dashboard* [Software]. Universitätsbibliothek Mannheim. [https://github.com/UB-Mannheim/data-journals-dashboard](https://github.com/UB-Mannheim/data-journals-dashboard)
