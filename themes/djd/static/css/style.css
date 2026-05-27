@@ -228,20 +228,20 @@ strong {
 
 .filter-tag:hover { background: #ccccff; }
 
-.taxonomy-header a svg {
-  transition: stroke;
+.taxonomy-header a.stroke svg {
+  transition: stroke 0.2s;
 }
 
-.taxonomy-header a:hover svg {
+.taxonomy-header a.stroke:hover svg {
   stroke: var(--journal-color-6);
 }
 
-.taxonomy-header a img {
-  transition: filter;
+.taxonomy-header a.fill svg {
+  transition: fill 0.2s;
 }
 
-.taxonomy-header a:hover img {
-  filter: brightness(0) saturate(80%) invert(56%) sepia(40%) saturate(450%) hue-rotate(170deg);
+.taxonomy-header a.fill:hover svg {
+  fill: var(--journal-color-6);
 }
 
 /* Single journal page */
