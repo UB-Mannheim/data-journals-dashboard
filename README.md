@@ -95,4 +95,4 @@ Additional journal metadata not provided by the Directory of Open Access Journal
 
 If you use the Data Journals Dashboard in your research or work, please cite it as follows:
 
-Schmidt, T. (2026). *Data Journals Dashboard* [Software]. Universitätsbibliothek Mannheim. [https://github.com/UB-Mannheim/data-journals-dashboard](https://github.com/UB-Mannheim/data-journals-dashboard)
+> Schmidt, T. (2026). *Data Journals Dashboard* [Software]. Universitätsbibliothek Mannheim. [https://github.com/UB-Mannheim/data-journals-dashboard](https://github.com/UB-Mannheim/data-journals-dashboard)
