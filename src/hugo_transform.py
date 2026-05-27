@@ -143,11 +143,11 @@ def create_journal_content_for_hugo(
     return generated_count
 
 
-def generate_hugo_site_config(output_dir: Path, version: str) -> None:
+def generate_hugo_site_config(output_dir: Path, base_url: str, version: str) -> None:
     """
     Generate Hugo config.toml with taxonomies for filtering.
     """
-    config_content = f"""baseURL = ""
+    config_content = f"""baseURL = "{base_url}"
 locale = "en-us"
 title = "Data Journals Dashboard"
 theme = "djd"

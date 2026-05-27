@@ -1,13 +1,17 @@
-baseURL = ""
+baseURL = "https://ub-mannheim.github.io/data-journals-dashboard/"
 locale = "en-us"
 title = "Data Journals Dashboard"
 theme = "djd"
 DataDir = "hugo-data"
 
 [params]
-  description = "Search and filter data journals by type, publisher, APC, and more"
-  author = { name = "Thomas Schmidt", email = "thomas.schmidt@uni-mannheim.de" }
-  version = "v2026-05-26"
+  description = "Search and filter data journals by type, publisher, research field, and more"
+  version = "v2026-05-27"
+  [params.author]
+    name = "Thomas Schmidt"
+    orcid = "https://orcid.org/0000-0003-3620-3355"
+    affiliation = "University Library Mannheim"
+    email = "thomas.schmidt@uni-mannheim.de"
 
 [taxonomies]
   data_journal_type = "data_journal_type"

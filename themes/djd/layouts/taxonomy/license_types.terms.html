@@ -5,7 +5,7 @@
 
   <div class="tags-list">
     {{ range $name, $pages := .Site.Taxonomies.license_types }}
-    <a href="/license_types/{{ $name | urlize }}" class="tag">{{ $name }} ({{ len $pages }})</a>
+    <a href="{{ printf "license_types/%s" ($name | urlize) | relURL }}" class="tag">{{ $name }} ({{ len $pages }})</a>
     {{ end }}
   </div>
 {{ end }}

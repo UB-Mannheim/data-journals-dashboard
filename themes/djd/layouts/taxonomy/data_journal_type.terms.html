@@ -5,7 +5,7 @@
 
   <div class="tags-list">
     {{ range $name, $pages := .Site.Taxonomies.data_journal_type }}
-    <a href="/data_journal_type/{{ $name | urlize }}" class="tag">{{ $name }} ({{ len $pages }})</a>
+    <a href="{{ printf "data_journal_type/%s" ($name | urlize) | relURL }}" class="tag">{{ $name }} ({{ len $pages }})</a>
     {{ end }}
   </div>
 {{ end }}

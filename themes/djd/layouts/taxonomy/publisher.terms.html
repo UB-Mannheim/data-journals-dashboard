@@ -5,7 +5,7 @@
 
   <div class="tags-list">
     {{ range $name, $pages := .Site.Taxonomies.publisher }}
-    <a href="/publisher/{{ $name | urlize }}" class="tag">{{ $name }} ({{ len $pages }})</a>
+    <a href="{{ printf "publisher/%s" ($name | urlize) | relURL }}" class="tag">{{ $name }} ({{ len $pages }})</a>
     {{ end }}
   </div>
 {{ end }}

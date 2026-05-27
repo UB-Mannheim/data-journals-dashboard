@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- $d := hugo.Data.field_descriptions -}}
+{{- $tooltip := hugo.Data.field_descriptions -}}
 <article class="journal-single">
   <header>
     <h1><a class="journal-url" href="{{ .Params.journal_url }}" target="_blank">{{ .Title }}</a></h1>
@@ -8,7 +8,7 @@
   <div class="journal-details">
     <div class="detail-section">
       {{ if .Params.issn }}
-      <p>{{ with index $d "issn" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>ISSN:</strong> {{ .Params.issn }}</p>
+      <p>{{ with index $tooltip "issn" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>ISSN:</strong> {{ .Params.issn }}</p>
       {{ end }}
 
       {{ if .Params.pissn }}
@@ -16,32 +16,32 @@
       {{ end }}
 
       {{ if .Params.publisher }}
-      <p>{{ with index $d "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
+      <p>{{ with index $tooltip "publisher" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publisher:</strong> {{ index .Params.publisher 0 }}</p>
       {{ end }}
       
       {{ if .Params.institution_name }}
-      <p>{{ with index $d "institution_name" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Associated Institution:</strong> {{ .Params.institution_name }} {{ if .Params.institution_country }}({{ .Params.institution_country }}){{ end }}</p>
+      <p>{{ with index $tooltip "institution_name" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Associated Institution:</strong> {{ .Params.institution_name }} {{ if .Params.institution_country }}({{ .Params.institution_country }}){{ end }}</p>
       {{ end }}
 
       {{ if .Params.language }}
-      <p>{{ with index $d "language" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Language:</strong> {{  delimit .Params.language ", " | title }}</p> 
+      <p>{{ with index $tooltip "language" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Language:</strong> {{  delimit .Params.language ", " | title }}</p> 
       {{ end }}
 
       {{ if .Params.data_journal_type }}
-      <p>{{ with index $d "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Data Journal Type:</strong> {{ index .Params.data_journal_type 0 }}</p>
+      <p>{{ with index $tooltip "data_journal_type" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Data Journal Type:</strong> {{ index .Params.data_journal_type 0 }}</p>
       {{ end }}
 
       {{ if isset .Params "is_active" }}
-      <p>{{ with index $d "is_active" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Journal Status:</strong> {{ .Params.is_active }}</p>
+      <p>{{ with index $tooltip "is_active" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Journal Status:</strong> {{ .Params.is_active }}</p>
       {{ end }}
     </div>
 
     {{ if .Params.keywords }}
     <div class="detail-section">
-      <h3>{{ with index $d "keywords" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Keywords</h3>
+      <h3>{{ with index $tooltip "keywords" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Keywords</h3>
       <ul class="tags">
         {{ range .Params.keywords }}
-        <li><a href="/keywords/{{ . | urlize }}">{{ . | title }}</a></li>
+        <li><a href="{{ printf "keywords/%s" (. | urlize) | relURL }}">{{ . | title }}</a></li>
         {{ end }}
       </ul>
     </div>
@@ -49,10 +49,10 @@
 
     {{ if .Params.research_fields }}
     <div class="detail-section">
-      <h3>{{ with index $d "research_fields" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Research Fields</h3>
+      <h3>{{ with index $tooltip "research_fields" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Research Fields</h3>
       <ul class="tags">
         {{ range .Params.research_fields }}
-        <li><a href="/research_fields/{{ . | urlize }}">{{ . }}</a></li>
+        <li><a href="{{ printf "research_fields/%s" (. | urlize) | relURL }}">{{ . }}</a></li>
         {{ end }}
       </ul>
     </div>
@@ -60,10 +60,10 @@
 
     {{ if .Params.license_types }}
     <div class="detail-section">
-      <h3>{{ with index $d "license_types" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}License Types</h3>
+      <h3>{{ with index $tooltip "license_types" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}License Types</h3>
       <ul class="tags">
         {{ range .Params.license_types }}
-        <li><a href="/license_types/{{ . | urlize }}">{{ . }}</a></li>
+        <li><a href="{{ printf "license_types/%s" (. | urlize) | relURL }}">{{ . }}</a></li>
         {{ end }}
       </ul>
     </div>
@@ -71,12 +71,12 @@
 
     {{ if .Params.apc_has }}
     <div class="detail-section">
-      <h3>{{ with index $d "apc_has" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Article Processing Charges</h3>
+      <h3>{{ with index $tooltip "apc_has" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Article Processing Charges</h3>
       {{ if .Params.apc_has }}
       <p><strong>APC:</strong> {{ .Params.apc_has }}</p>
       {{ end }}
       {{ if .Params.apc_price_range }}
-      <p><strong>Price Range:</strong> {{ .Params.apc_price_range }}{{ with index $d "apc_max" }} <span class="tooltip" data-tip="{{ . }}">?</span>{{ end }}</p>
+      <p><strong>Price Range:</strong> {{ .Params.apc_price_range }}{{ with index $tooltip "apc_max" }} <span class="tooltip" data-tip="{{ . }}">?</span>{{ end }}</p>
       {{ end }}
       <ul>
       {{ if .Params.apc_url }}
@@ -91,7 +91,7 @@
 
     {{ if .Params.preservation_services }}
     <div class="detail-section">
-      <h3>{{ with index $d "preservation_services" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Preservation Services</h3>
+      <h3>{{ with index $tooltip "preservation_services" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Preservation Services</h3>
       <ul>
         {{ range .Params.preservation_services }}
         <li>{{ . }}</li>
@@ -102,25 +102,25 @@
 
     {{ if .Params.boai }}
     <div class="detail-section">
-      <p>{{ with index $d "boai" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>BOAI Compliant:</strong> {{ .Params.boai }}</p>
+      <p>{{ with index $tooltip "boai" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>BOAI Compliant:</strong> {{ .Params.boai }}</p>
     </div>
     {{ end }}
 
     {{ if .Params.oa_start }}
     <div class="detail-section">
-      <p>{{ with index $d "oa_start" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>OA Start Year:</strong> {{ .Params.oa_start }}</p>
+      <p>{{ with index $tooltip "oa_start" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>OA Start Year:</strong> {{ .Params.oa_start }}</p>
     </div>
     {{ end }}
 
     {{ if .Params.publication_time_weeks }}
     <div class="detail-section">
-      <p>{{ with index $d "publication_time_weeks" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publication Time:</strong> {{ .Params.publication_time_weeks }} weeks</p>
+      <p>{{ with index $tooltip "publication_time_weeks" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<strong>Publication Time:</strong> {{ .Params.publication_time_weeks }} weeks</p>
     </div>
     {{ end }}
 
     {{ if .Params.review_process }}
     <div class="detail-section">
-      <h3>{{ with index $d "review_process" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Review Process</h3>
+      <h3>{{ with index $tooltip "review_process" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}Review Process</h3>
       <ul>
         {{ range .Params.review_process }}
         <li>{{ . }}</li>
@@ -136,25 +136,25 @@
     <div class="detail-section">
       <h3>Additional Links</h3>
       <ul>
-        <li>{{ with index $d "ref_journal" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_journal }}" target="_blank">Journal Homepage</a></li>
+        <li>{{ with index $tooltip "ref_journal" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_journal }}" target="_blank">Journal Homepage</a></li>
         {{ end }}
         {{ if .Params.ref_aims_scope }}
-        <li>{{ with index $d "ref_aims_scope" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_aims_scope }}" target="_blank">Aims & Scope</a></li>
+        <li>{{ with index $tooltip "ref_aims_scope" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_aims_scope }}" target="_blank">Aims & Scope</a></li>
         {{ end }}
         {{ if .Params.ref_author_instructions }}
-        <li>{{ with index $d "ref_author_instructions" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_author_instructions }}" target="_blank">Author Instructions</a></li>
+        <li>{{ with index $tooltip "ref_author_instructions" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_author_instructions }}" target="_blank">Author Instructions</a></li>
         {{ end }}
         {{ if .Params.ref_oa_statement }}
-        <li>{{ with index $d "ref_oa_statement" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_oa_statement }}" target="_blank">Open Access Statement</a></li>
+        <li>{{ with index $tooltip "ref_oa_statement" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.ref_oa_statement }}" target="_blank">Open Access Statement</a></li>
         {{ end }}
         {{ if .Params.plagiarism_url }}
-        <li>{{ with index $d "plagiarism_url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.plagiarism_url }}" target="_blank">Plagiarism Statement</a></li>
+        <li>{{ with index $tooltip "plagiarism_url" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }}<a href="{{ .Params.plagiarism_url }}" target="_blank">Plagiarism Statement</a></li>
         {{ end }}
       </ul>
     </div>
 
     {{ if .Params.enrichment_source }}
-    <p class="metadata">{{ with index $d "enrichment_source" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }} <strong>Metadata Source:</strong> {{ .Params.enrichment_source }}</p>
+    <p class="metadata">{{ with index $tooltip "enrichment_source" }}<span class="tooltip" data-tip="{{ . }}">?</span> {{ end }} <strong>Metadata Source:</strong> {{ .Params.enrichment_source }}</p>
     {{ end }}
   </div>
 </article>

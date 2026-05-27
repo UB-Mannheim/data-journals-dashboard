@@ -5,7 +5,7 @@
 
   <div class="tags-list">
     {{ range $name, $pages := .Site.Taxonomies.keywords }}
-    <a href="/keywords/{{ $name | urlize }}" class="tag">{{ $name }} ({{ len $pages }})</a>
+    <a href="{{ printf "keywords/%s" ($name | urlize) | relURL }}" class="tag">{{ $name }} ({{ len $pages }})</a>
     {{ end }}
   </div>
 {{ end }}
