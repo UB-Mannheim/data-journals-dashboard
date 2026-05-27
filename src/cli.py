@@ -186,7 +186,8 @@ def hugo_generate(input_fpath: Path, output_dir: Path, schema_path: Path):
     generate_field_descriptions_data(schema_path, output_dir)
     click.secho(f"Generated {count} journal pages for Hugo.", fg="green")
     click.secho("Generated field descriptions at "
-                f"{Path("./hugo-data/field_descriptions.yaml")}", fg="blue")
+                f"{Path("./hugo-data/field_descriptions.yaml")}",
+                fg="blue")
 
 
 @hugo.command("init", no_args_is_help=False)
@@ -207,7 +208,11 @@ def hugo_init(output_dir: Path):
     )
 
     timestamp = f"v{datetime.now().strftime("%Y-%m-%d")}"
-    generate_hugo_site_config(output_dir, version=timestamp)
+    generate_hugo_site_config(
+        output_dir,
+        base_url="https://ub-mannheim.github.io/data-journals-dashboard/",
+        version=timestamp
+    )
     generate_hugo_archetype(output_dir)
     click.secho("Hugo site structure initialized.", fg="green")
 
@@ -228,11 +233,10 @@ def export():
     help="Path to journal metadata YAML or JSON file.",
 )
 @click.option(
-    "--output_dir", "-o",
+    "--output_fpath", "-o",
     type=click.Path(path_type=Path),
-    default=Path("./exports"),
-    show_default=True,
-    help="Folder where exported files are saved.",
+    default=None,
+    help="Output file path (e.g. data/dumps/export.csv). Defaults to ./exports/<name>.csv.",
 )
 @click.option(
     "--scope", "-s",
@@ -249,7 +253,7 @@ def export():
     default=None,
     help="ISSN of a single journal to export from the collection.",
 )
-def export_csv(input_fpath: Path, output_dir: Path, scope: str, issn: str | None):
+def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: str | None):
     """
     Export YAML or JSON metadata to a core-schema CSV.
     """
@@ -258,15 +262,15 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str, issn: str | None
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
-        ensure_dir(output_dir)
+        resolved = Path(output_fpath) if output_fpath else Path("./exports") / f"{issn}.csv"
+        ensure_dir(resolved.parent)
         with tempfile.NamedTemporaryFile(
             suffix=".yaml", delete=False, mode="w", encoding="utf-8"
         ) as tmp:
             yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
             tmp_path = Path(tmp.name)
         try:
-            output_fpath = Path(output_dir) / f"{issn}.csv"
-            to_csv(tmp_path, output_fpath, scope)
+            to_csv(tmp_path, resolved, scope)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -275,9 +279,9 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str, issn: str | None
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    ensure_dir(output_dir)
-    output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".csv")
-    to_csv(input_fpath, output_fpath, scope)
+    resolved = Path(output_fpath) if output_fpath else Path("./exports") / Path(input_fpath.name).with_suffix(".csv")
+    ensure_dir(resolved.parent)
+    to_csv(input_fpath, resolved, scope)
 
 
 @export.command("yaml", no_args_is_help=True)
@@ -288,11 +292,10 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str, issn: str | None
     help="Path to schema CSV or JSON file.",
 )
 @click.option(
-    "--output_dir", "-o",
+    "--output_fpath", "-o",
     type=click.Path(path_type=Path),
-    default=Path("./exports"),
-    show_default=True,
-    help="Folder where the exported YAML file is saved.",
+    default=None,
+    help="Output file path (e.g. data/dumps/export.yaml). Defaults to ./exports/<name>.yaml.",
 )
 @click.option(
     "--scope", "-s",
@@ -310,7 +313,7 @@ def export_csv(input_fpath: Path, output_dir: Path, scope: str, issn: str | None
     default=None,
     help="ISSN of a single journal to export from the collection.",
 )
-def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | None):
+def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: str | None):
     """
     Convert a core-schema CSV or JSON back to a YAML journal collection.
     """
@@ -319,7 +322,8 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
-        ensure_dir(output_dir)
+        resolved = Path(output_fpath) if output_fpath else Path("./exports") / f"{issn}.yaml"
+        ensure_dir(resolved.parent)
         journal_without_issn = {k: v for k, v in journal.items() if k != "issn"}
         payload = json.dumps({"journals": {issn: journal_without_issn}})
         with tempfile.NamedTemporaryFile(
@@ -328,8 +332,7 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
             tmp.write(payload)
             tmp_path = Path(tmp.name)
         try:
-            output_fpath = Path(output_dir) / f"{issn}.yaml"
-            to_yaml(tmp_path, output_fpath, scope)
+            to_yaml(tmp_path, resolved, scope)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -338,9 +341,9 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    ensure_dir(output_dir)
-    output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".yaml")
-    to_yaml(input_fpath, output_fpath, scope)
+    resolved = Path(output_fpath) if output_fpath else Path("./exports") / Path(input_fpath.name).with_suffix(".yaml")
+    ensure_dir(resolved.parent)
+    to_yaml(input_fpath, resolved, scope)
 
 
 @export.command("json", no_args_is_help=True)
@@ -351,11 +354,10 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
     help="Path to journal metadata CSV or YAML file.",
 )
 @click.option(
-    "--output_dir", "-o",
+    "--output_fpath", "-o",
     type=click.Path(path_type=Path),
-    default=Path("./exports"),
-    show_default=True,
-    help="Folder where the exported JSON file is saved.",
+    default=None,
+    help="Output file path (e.g. data/dumps/export.json). Defaults to ./exports/<name>.json.",
 )
 @click.option(
     "--scope", "-s",
@@ -372,7 +374,7 @@ def export_yaml(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
     default=None,
     help="ISSN of a single journal to export from the collection.",
 )
-def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | None):
+def export_json(input_fpath: Path, output_fpath: Path | None, scope: str, issn: str | None):
     """
     Export journal metadata from CSV or YAML to a JSON file.
     """
@@ -381,15 +383,15 @@ def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
         if journal is None:
             click.secho(f"ISSN '{issn}' not found in collection.", fg="red")
             return
-        ensure_dir(output_dir)
+        resolved = Path(output_fpath) if output_fpath else Path("./exports") / f"{issn}.json"
+        ensure_dir(resolved.parent)
         with tempfile.NamedTemporaryFile(
             suffix=".yaml", delete=False, mode="w", encoding="utf-8"
         ) as tmp:
             yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
             tmp_path = Path(tmp.name)
         try:
-            output_fpath = Path(output_dir) / f"{issn}.json"
-            to_json(tmp_path, output_fpath, scope)
+            to_json(tmp_path, resolved, scope)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -398,9 +400,9 @@ def export_json(input_fpath: Path, output_dir: Path, scope: str, issn: str | Non
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    ensure_dir(output_dir)
-    output_fpath = Path(output_dir) / Path(input_fpath.name).with_suffix(".json")
-    to_json(input_fpath, output_fpath, scope)
+    resolved = Path(output_fpath) if output_fpath else Path("./exports") / Path(input_fpath.name).with_suffix(".json")
+    ensure_dir(resolved.parent)
+    to_json(input_fpath, resolved, scope)
 
 
 @cli.command("validate", no_args_is_help=True)
