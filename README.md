@@ -40,7 +40,7 @@ The metadata schema used to integrate all data sources and validate new journal 
 | Kindling & Strecker (2022) primary dataset | `CC0 1.0 Universal` |
 | DOAJ API metadata | `CC0 1.0 Universal` ([Source](https://doaj.org/terms/#metadata)) |
 | Manually compiled metadata | `CC0 1.0 Universal` ([CC0 1.0 deed](https://creativecommons.org/publicdomain/zero/1.0/deed.de)) |
-| [Metadata schema](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) | `CC0 1.0 Universal` ([CC0 1.0 deed](https://creativecommons.org/publicdomain/zero/1.0/deed.de)) |
+| [Metadata schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) | `CC0 1.0 Universal` ([CC0 1.0 deed](https://creativecommons.org/publicdomain/zero/1.0/deed.de)) |
 
 ## 2. Python and Hugo App
 

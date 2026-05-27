@@ -279,7 +279,11 @@ def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: s
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    resolved = Path(output_fpath) if output_fpath else Path("./exports") / Path(input_fpath.name).with_suffix(".csv")
+    resolved = (
+        Path(output_fpath)
+        if output_fpath
+        else Path("./exports") / Path(input_fpath.name).with_suffix(".csv")
+    )
     ensure_dir(resolved.parent)
     to_csv(input_fpath, resolved, scope)
 
@@ -341,7 +345,11 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    resolved = Path(output_fpath) if output_fpath else Path("./exports") / Path(input_fpath.name).with_suffix(".yaml")
+    resolved = (
+        Path(output_fpath)
+        if output_fpath
+        else Path("./exports") / Path(input_fpath.name).with_suffix(".yaml")
+    )
     ensure_dir(resolved.parent)
     to_yaml(input_fpath, resolved, scope)
 
@@ -400,7 +408,11 @@ def export_json(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    resolved = Path(output_fpath) if output_fpath else Path("./exports") / Path(input_fpath.name).with_suffix(".json")
+    resolved = (
+        Path(output_fpath)
+        if output_fpath
+        else Path("./exports") / Path(input_fpath.name).with_suffix(".json")
+    )
     ensure_dir(resolved.parent)
     to_json(input_fpath, resolved, scope)
 
