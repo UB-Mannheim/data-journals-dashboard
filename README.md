@@ -31,7 +31,7 @@ For `ISSNs` not present in the DOAJ, manual metadata augmentations are made usin
 
 ### Metadata Schema
 
-The metadata schema used to integrate all data sources and validate new journal additions is available as well: [Data Journals Dashboard – Metadata Schema](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
+The metadata schema used to integrate all data sources and validate new journal additions is available as well: [Data Journals Dashboard – Metadata Schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
 
 ### Licenses
 
@@ -79,7 +79,7 @@ The Python CLI and Hugo application are licensed under the **MIT License**.
 
 ## 3. Contributing
 
-The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal via a [GitHub issue](https://github.com/tsmdt/data-journals-dashboard/issues/new/choose) using the **"Add Data Journal"** template. The template will ask for the journal's ISSN, title, publisher, URL, type, and status.
+The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal via a [GitHub issue](https://github.com/UB-Mannheim/data-journals-dashboard/issues/new/choose) using the **"Add Data Journal"** template. The template will ask for the journal's ISSN, title, publisher, URL, type, and status.
 
 After submitting the issue, a maintainer will review your contribution. Once approved, the new journal will be processed and added to the collection.
 
@@ -91,4 +91,4 @@ The dashboard builds on the foundational work of Kindling, M. and Strecker, D. a
 
 If you use the Data Journals Dashboard in your research or work, please cite it as follows:
 
-Schmidt, T. (2026). *Data Journals Dashboard* (v2026-05-25) [Software]. Universitätsbibliothek Mannheim. https://github.com/tsmdt/data-journals-dashboard
+Schmidt, T. (2026). *Data Journals Dashboard* (v2026-05-25) [Software]. Universitätsbibliothek Mannheim. https://github.com/UB-Mannheim/data-journals-dashboard

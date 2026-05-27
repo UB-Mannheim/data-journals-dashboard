@@ -8,7 +8,9 @@ type: page
 
 The Data Journals Dashboard provides access to a collection of data journals first published by **Kindling, M. and Strecker, D.** in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
 
-To find out more about the concept of data journals refer to this page by the [University Libraries of Western Michigan University](https://libguides.wmich.edu/datasci/datajournals).
+The Data Journals Dashboard is provided by the [Research Data Center](https://fdz.bib.uni-mannheim.de/) of the [University Library Mannheim](https://www.bib.uni-mannheim.de/en/).
+
+{{< figure src="/logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="18%" >}}
 
 ## Primary Dataset
 
@@ -19,13 +21,15 @@ The dashboard's primary data source are data journal metadata published under `C
 
 ## Augmented Dataset
 
-The primary dataset is enhanced by adding additional metadata via the [Directory of Open Access Journals](https://doaj.org/) API. Each `ISSN` in the primary dataset is queried via the API. If the `ISSN` is present in the DOAJ, additional metadata is retrieved and added to the journal's existing metadata. The full metadata schema used to integrate both data sources is available on [GitHub](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
+The primary dataset is enhanced by adding additional metadata via the Directory of Open Access Journals API. Each `ISSN` in the primary dataset is queried via the API. If the `ISSN` is present in the DOAJ, additional metadata is retrieved and added to the journal's existing metadata. The full metadata schema used to integrate both data sources is available on [GitHub](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml).
 
 For `ISSNs` not present in the DOAJ manual metadata augmentations are made using the journal's website, [ISSN Portal](https://portal.issn.org/), Wikidata and other sources. Each data journal page provides a list of the specific sources used for metadata augmentation.
 
 ### Licenses
 
-Metadata retrieved via the [Directory of Open Access Journals](https://doaj.org/) API is licensed under `CC0 1.0 Universal` [[Source]](https://doaj.org/terms/#metadata). Manually compiled metadata as well as the [metadata schema](https://github.com/tsmdt/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) of the Data Journals Dashboard are licensed under `CC0 1.0 Universal` [[CC0 1.0 deed]](https://creativecommons.org/publicdomain/zero/1.0/deed.de) as well.
+- Metadata retrieved via the Directory of Open Access Journals API is licensed under `CC0 1.0 Universal` [[Source](https://doaj.org/terms/#metadata)]
+- Manually compiled journal metadata are licensed under `CC0 1.0 Universal` [[CC0 1.0 deed](https://creativecommons.org/publicdomain/zero/1.0/deed.de)]
+- The [metadata schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml) of the Data Journals Dashboard is licensed under `CC0 1.0 Universal` [[CC0 1.0 deed](https://creativecommons.org/publicdomain/zero/1.0/deed.de)]
 
 ### Dataset Dump
 
@@ -33,19 +37,14 @@ The augmented dataset containing all metadata can be dowloaded as `CSV`, `YAML` 
 
 ## Contributions
 
-The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal via a [GitHub issue](https://github.com/tsmdt/data-journals-dashboard/issues/new/choose) using the **"Add Data Journal"** template. The template will ask for the journal's ISSN, title, publisher, URL, type, and status.
+The easiest way to contribute to the Data Journals Dashboard is by suggesting a new data journal via a [GitHub issue](https://github.com/UB-Mannheim/data-journals-dashboard/issues/new/choose) using the **"Add Data Journal"** template. The template will ask for the journal's ISSN, title, publisher, URL, type, and status. After submitting the issue, a maintainer will review your contribution. Once approved, the new journal will be processed and added to the collection.
 
-After submitting the issue, a maintainer will review your contribution. Once approved, the new journal will be processed and added to the collection.
+## Use of AI
 
-
-## Acknowledgement
-
-The dashboard builds on the foundational work of Kindling, M. and Strecker, D. and relies on open metadata provided by the [Directory of Open Access Journals](https://doaj.org/).
+Claude Code (`Sonnet 4.6`) was used for coding, bug fixing and testing the Python data processing pipeline as well as the [Hugo](https://gohugo.io/) framework-based website configuration. Additional journal metadata not provided by the Directory of Open Access Journals' API was for a large part retrieved with Claude Code and its web search tool, and then manually checked and cleaned.
 
 ## Citing the Dashboard
 
 If you use the Data Journals Dashboard in your research or work, please cite it as follows:
 
-Schmidt, T. (2026). *Data Journals Dashboard* ({{< version >}}) [Software]. Universitätsbibliothek Mannheim. https://github.com/tsmdt/data-journals-dashboard
-
-{{< figure src="/logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="15%" >}}
+- Schmidt, T. (2026). *Data Journals Dashboard* ({{< version >}}) [Software]. Universitätsbibliothek Mannheim. https://github.com/UB-Mannheim/data-journals-dashboard
