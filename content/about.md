@@ -6,7 +6,7 @@ type: page
 
 ## Introduction
 
-The Data Journals Dashboard provides access to a collection of data journals first published by **Kindling, M. and Strecker, D.** in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
+The Data Journals Dashboard provides access to a collection of data journals first published by **Maxi Kindling & Dorothea Strecker** in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
 
 The Data Journals Dashboard is provided by the [Research Data Center](https://fdz.bib.uni-mannheim.de/) of the [University Library Mannheim](https://www.bib.uni-mannheim.de/en/).
 
@@ -16,8 +16,8 @@ The Data Journals Dashboard is provided by the [Research Data Center](https://fd
 
 The dashboard's primary data source are data journal metadata published under `CC0 1.0 Universal` on [Zenodo](https://doi.org/10.5281/zenodo.7082126) and [Github](https://github.com/MaxiKi/data-journals):
 
-- **Zenodo**: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7082126
-- **GitHub**: https://github.com/MaxiKi/data-journals
+- **Zenodo**: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.7082126](https://doi.org/10.5281/zenodo.7082126)
+- **GitHub**: [https://github.com/MaxiKi/data-journals](https://github.com/MaxiKi/data-journals)
 
 ## Augmented Dataset
 
@@ -41,7 +41,7 @@ The easiest way to contribute to the Data Journals Dashboard is by suggesting a 
 
 ## Use of AI
 
-Claude Code (`Sonnet 4.6`) was used for coding, bug fixing and testing the Python data processing pipeline as well as the [Hugo](https://gohugo.io/) app. 
+Claude Code (`Sonnet 4.6`) was used for coding, bug fixing and testing the Python data processing pipeline as well as the [Hugo](https://gohugo.io/) app.
 
 Additional journal metadata not provided by the Directory of Open Access Journals' API was for a large part collected with Claude Code and its web search tool, and then manually verified and cleaned.
 
@@ -49,4 +49,4 @@ Additional journal metadata not provided by the Directory of Open Access Journal
 
 If you use the Data Journals Dashboard in your research or work, please cite it as follows:
 
-- Schmidt, T. (2026). *Data Journals Dashboard* ({{< version >}}) [Software]. Universitätsbibliothek Mannheim. https://github.com/UB-Mannheim/data-journals-dashboard
+- Schmidt, T. (2026). *Data Journals Dashboard* [Software]. Universitätsbibliothek Mannheim. https://github.com/UB-Mannheim/data-journals-dashboard
