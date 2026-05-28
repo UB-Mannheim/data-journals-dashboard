@@ -229,7 +229,7 @@ strong {
 .filter-tag:hover { background: #ccccff; }
 
 .taxonomy-header a.stroke svg {
-  transition: stroke 0.2s;
+  transition: stroke;
 }
 
 .taxonomy-header a.stroke:hover svg {
@@ -237,7 +237,7 @@ strong {
 }
 
 .taxonomy-header a.fill svg {
-  transition: fill 0.2s;
+  transition: fill;
 }
 
 .taxonomy-header a.fill:hover svg {
