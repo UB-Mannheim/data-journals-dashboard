@@ -389,7 +389,7 @@ def process_all_journals(
     # fields were explicitly provided (mirrors process_single_journal logic)
     existing_journals = load_existing_journals(output_fpath)
     journals_to_enrich: list[dict] = []   # new + merged without DOAJ update
-    journals_skip_enrich: list[dict] = [] # merged where DOAJ fields were set
+    journals_skip_enrich: list[dict] = []  # merged where DOAJ fields were set
     merged_ids = set()
     for journal in journals:
         status, existing_id = is_duplicate_journal(
