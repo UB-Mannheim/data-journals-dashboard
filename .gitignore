@@ -8,7 +8,6 @@ __pycache__/
 .python-version
 .hugo_build.lock
 tests/
-notebooks/
 public/
 ingest/
 workflows_backup/
@@ -16,4 +15,3 @@ content/journals/
 hugo-data/
 data/backup
 data/raw
-data/dumps
