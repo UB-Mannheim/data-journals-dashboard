@@ -6,7 +6,7 @@
 #
 # The metadata schema combines metadata fields of different origin to form the collection
 # and validation basis metadata used in the Data Journals Dashboard. The origin of each 
-# field can be traced by the "source" mapping key of each field.
+# field can be traced by the "source" mapping name of each field.
 #
 # BASE METADATA
 # =============
@@ -34,11 +34,22 @@
 # =======
 # This metadata schema is made available for reuse under CC0 1.0 Universal:
 # https://creativecommons.org/publicdomain/zero/1.0/deed.de
+#
+# CODEBOOK FOR METADATA FIELDS
+# ============================
+# label: field label
+# description: field description
+# source: source or origin of this field: "csv" = Kindling, M. & Strecker, D. (2022), "doaj" = Directory of Open Access Journals, "djd" = Data Journals Dashboard
+# source_path: csv column name or Directory of Open Access Journals json (nested) key
+# type: data type of the field
+# required: boolean; indiciates if this field is requried for adding a new journal to the collection
+# default: the fields default value
+# schema_level: indiciates if field is part of the "base", "core" or "full" schema level (see above)
 
 
 fields:
 
-  - key: id
+  - name: id
     label: "ID"
     description: "Sequential integer id for each data journal assigned during processing."
     source: djd
@@ -48,7 +59,7 @@ fields:
     default: null
     schema_level: core
 
-  - key: issn
+  - name: issn
     label: "ISSN"
     description: "Primary ISSN of the data journal."
     source: csv
@@ -58,7 +69,7 @@ fields:
     default: null
     schema_level: base
 
-  - key: journal_title
+  - name: journal_title
     label: "Journal Title"
     description: "Official journal title."
     source: csv
@@ -68,7 +79,7 @@ fields:
     default: null
     schema_level: base
 
-  - key: publisher
+  - name: publisher
     label: "Publisher"
     description: "Name of the publisher of the data journal."
     source: csv
@@ -78,7 +89,7 @@ fields:
     default: null
     schema_level: base
 
-  - key: url
+  - name: url
     label: "URL"
     description: "URL link to the journal's website."
     source: csv
@@ -88,7 +99,7 @@ fields:
     default: null
     schema_level: base
 
-  - key: data_journal_type
+  - name: data_journal_type
     label: "Data Journal Type"
     description: "Type of the data journal: Either pure (journal has a strong focus on publishing data papers) or mixed (journal also publishes other publication types)"
     source: csv
@@ -98,17 +109,17 @@ fields:
     default: null
     schema_level: base
 
-  - key: is_active
+  - name: is_active
     label: "Journal Status"
     description: "Indicates whether the data journal is currently active and publishing new papers or has ceased/paused publication."
     source: djd
     source_path: is_active
     type: boolean
     required: true
-    default: active
+    default: true
     schema_level: core
   
-  - key: enrichment_source
+  - name: enrichment_source
     label: "Source of Metadata Enrichment"
     description: "Provider or source of additional metadata used to enrich metadata fields beyond the base attributes ISSN, Journal Title, Publisher, URL and Data Journal Type"
     source: djd
@@ -120,7 +131,7 @@ fields:
 
   ## ISSNs
 
-  - key: eissn
+  - name: eissn
     label: "eISSN"
     description: "Electronic ISSN."
     source: doaj
@@ -130,7 +141,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: pissn
+  - name: pissn
     label: "pISSN"
     description: "Print ISSN."
     source: doaj
@@ -140,7 +151,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: language
+  - name: language
     label: "Languages"
     description: "List of publication languages (ISO 639-1 codes)."
     source: doaj
@@ -150,7 +161,7 @@ fields:
     default: []
     schema_level: full
 
-  - key: oa_start
+  - name: oa_start
     label: "OA Start Year"
     description: "Year the journal became open access."
     source: doaj
@@ -160,7 +171,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: boai
+  - name: boai
     label: "BOAI Compliant"
     description: "Whether the journal complies with the Budapest Open Access Initiative definition."
     source: doaj
@@ -170,7 +181,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: publication_time_weeks
+  - name: publication_time_weeks
     label: "Publication Time (weeks)"
     description: "Average time from submission to publication in weeks."
     source: doaj
@@ -180,7 +191,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: keywords
+  - name: keywords
     label: "Keywords"
     description: "Subject keywords describing the journal's scope."
     source: doaj
@@ -192,7 +203,7 @@ fields:
 
   ## Subjects / research fields
 
-  - key: research_fields
+  - name: research_fields
     label: "Research Fields"
     description: "List of subject terms describing the journal's scope."
     source: doaj
@@ -202,7 +213,7 @@ fields:
     default: []
     schema_level: full
 
-  - key: subject_codes
+  - name: subject_codes
     label: "Subject Codes"
     description: "Full subject objects including term, classification code, and scheme (e.g. LCC)."
     source: doaj
@@ -214,7 +225,7 @@ fields:
 
   ## Publisher & institution
 
-  - key: publisher_name
+  - name: publisher_name
     label: "Publisher Name (DOAJ)"
     description: "Publisher name as recorded in DOAJ."
     source: doaj
@@ -224,7 +235,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: publisher_country
+  - name: publisher_country
     label: "Publisher Country"
     description: "Country of the publisher (ISO 3166-1 alpha-2)."
     source: doaj
@@ -234,7 +245,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: institution_name
+  - name: institution_name
     label: "Institution Name"
     description: "Sponsoring institution name, if applicable."
     source: doaj
@@ -244,7 +255,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: institution_country
+  - name: institution_country
     label: "Institution Country"
     description: "Country of the sponsoring institution (ISO 3166-1 alpha-2)."
     source: doaj
@@ -256,7 +267,7 @@ fields:
 
   ## Editorial process
 
-  - key: review_process
+  - name: review_process
     label: "Review Process"
     description: "Peer review types used by the journal (e.g. Double anonymous peer review, Open peer review, Editorial peer review etc.)."
     source: doaj
@@ -266,7 +277,7 @@ fields:
     default: []
     schema_level: full
 
-  - key: review_url
+  - name: review_url
     label: "Review Process URL"
     description: "URL describing the journal's peer review process."
     source: doaj
@@ -276,7 +287,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: board_url
+  - name: board_url
     label: "Editorial Board URL"
     description: "URL listing the editorial board members."
     source: doaj
@@ -288,7 +299,7 @@ fields:
 
   ## Licensing
 
-  - key: license_types
+  - name: license_types
     label: "License Types"
     description: "List of Creative Commons or other license type identifiers (e.g. CC BY, CC BY-NC)."
     source: doaj
@@ -300,7 +311,7 @@ fields:
 
   ## Article Processing Charges (APC)
 
-  - key: apc_has
+  - name: apc_has
     label: "Has APC"
     description: "Whether the journal charges article processing charges."
     source: doaj
@@ -310,7 +321,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: apc_max
+  - name: apc_max
     label: "APC Maximum"
     description: "Maximum APC fee(s) as a list of {price, currency} objects."
     source: doaj
@@ -320,7 +331,7 @@ fields:
     default: []
     schema_level: full
 
-  - key: apc_url
+  - name: apc_url
     label: "APC URL"
     description: "URL with details about the journal's APC policy."
     source: doaj
@@ -330,7 +341,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: other_charges
+  - name: other_charges
     label: "Has Other Charges"
     description: "Whether the journal charges fees beyond APCs (e.g. submission fees)."
     source: doaj
@@ -342,7 +353,7 @@ fields:
 
   ## Waiver policy
 
-  - key: waiver_has
+  - name: waiver_has
     label: "Has Waiver"
     description: "Whether the journal offers APC waivers."
     source: doaj
@@ -352,7 +363,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: waiver_url
+  - name: waiver_url
     label: "Waiver URL"
     description: "URL with details about the journal's waiver policy."
     source: doaj
@@ -364,7 +375,7 @@ fields:
 
   ## Preservation
 
-  - key: preservation_has
+  - name: preservation_has
     label: "Has Preservation"
     description: "Whether the journal participates in a digital preservation scheme."
     source: doaj
@@ -374,7 +385,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: preservation_services
+  - name: preservation_services
     label: "Preservation Services"
     description: "List of preservation services used (e.g. CLOCKSS, Portico)."
     source: doaj
@@ -384,7 +395,7 @@ fields:
     default: []
     schema_level: full
 
-  - key: preservation_url
+  - name: preservation_url
     label: "Preservation URL"
     description: "URL with details about the journal's preservation policy."
     source: doaj
@@ -396,7 +407,7 @@ fields:
 
   ## Persistent Identifiers (PIDs)
 
-  - key: pid_schemes
+  - name: pid_schemes
     label: "PID Schemes"
     description: "Persistent identifier schemes supported for articles (e.g. DOI, Handle)."
     source: doaj
@@ -408,7 +419,7 @@ fields:
 
   ## Plagiarism detection
 
-  - key: plagiarism_detection
+  - name: plagiarism_detection
     label: "Plagiarism Detection"
     description: "Whether the journal uses plagiarism detection software."
     source: doaj
@@ -418,7 +429,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: plagiarism_url
+  - name: plagiarism_url
     label: "Plagiarism Detection URL"
     description: "URL describing the journal's plagiarism detection policy."
     source: doaj
@@ -430,7 +441,7 @@ fields:
 
   ## Copyright
 
-  - key: copyright_author_retains
+  - name: copyright_author_retains
     label: "Author Retains Copyright"
     description: "Whether authors retain copyright of published articles."
     source: doaj
@@ -440,7 +451,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: copyright_url
+  - name: copyright_url
     label: "Copyright URL"
     description: "URL describing the journal's copyright policy."
     source: doaj
@@ -452,7 +463,7 @@ fields:
 
   ## Deposit policy
 
-  - key: deposit_policy_has
+  - name: deposit_policy_has
     label: "Has Deposit Policy"
     description: "Whether the journal has a defined self-archiving / deposit policy."
     source: doaj
@@ -462,7 +473,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: deposit_policy_services
+  - name: deposit_policy_services
     label: "Deposit Policy Services"
     description: "Services or registries where the journal's deposit/self-archiving policy is registered (e.g. Open Policy Finder, Sherpa Romeo)."
     source: doaj
@@ -472,7 +483,7 @@ fields:
     default: []
     schema_level: full
 
-  - key: deposit_policy_url
+  - name: deposit_policy_url
     label: "Deposit Policy URL"
     description: "URL with details about the journal's deposit/self-archiving policy."
     source: doaj
@@ -484,7 +495,7 @@ fields:
 
   ## Article-level metadata
 
-  - key: article_license_display
+  - name: article_license_display
     label: "Article License Display"
     description: "How the license is displayed at the article level. Values: 'Embed' (license embedded in article metadata), 'Display' (shown on the article page), or 'No' (not displayed)."
     source: doaj
@@ -494,7 +505,7 @@ fields:
     default: []
     schema_level: full
 
-  - key: article_license_example_url
+  - name: article_license_example_url
     label: "Article License Example URL"
     description: "URL of an example article showing license display."
     source: doaj
@@ -506,7 +517,7 @@ fields:
 
   ## Reference / external links
 
-  - key: ref_journal
+  - name: ref_journal
     label: "Journal Homepage"
     description: "URL of the journal's homepage."
     source: doaj
@@ -516,7 +527,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: ref_aims_scope
+  - name: ref_aims_scope
     label: "Aims & Scope URL"
     description: "URL of the journal's aims and scope page."
     source: doaj
@@ -526,7 +537,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: ref_oa_statement
+  - name: ref_oa_statement
     label: "OA Statement URL"
     description: "URL of the journal's open access statement."
     source: doaj
@@ -536,7 +547,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: ref_author_instructions
+  - name: ref_author_instructions
     label: "Author Instructions URL"
     description: "URL of the journal's author guidelines / instructions for authors."
     source: doaj
@@ -546,7 +557,7 @@ fields:
     default: null
     schema_level: full
 
-  - key: ref_license_terms
+  - name: ref_license_terms
     label: "License Terms URL"
     description: "URL of the journal's full license terms page."
     source: doaj

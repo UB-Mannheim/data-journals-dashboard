@@ -130,7 +130,7 @@ def enrich_journals_with_doaj(
             for field in doaj_schema_fields:
                 result = extract_doaj_value(bibjson, field["source_path"])
                 if result:
-                    doaj_metadata[field["key"]] = result
+                    doaj_metadata[field["name"]] = result
             enriched.append(
                 {**journal, **doaj_metadata, "enrichment_source": "doaj"}
             )
@@ -154,7 +154,8 @@ def load_existing_journals(
     Load existing journals from the processed YAML file.
     Returns an empty list if the file doesn"t exist or is empty.
     """
-    if Path(fpath).exists():
+    fpath = Path(fpath)
+    if fpath.exists() and fpath.is_file():
         with open(fpath, "r", encoding="utf-8") as f:
             existing_data = yaml.safe_load(f)
         if existing_data:
@@ -189,7 +190,7 @@ def is_duplicate_journal(
 
     # Check if any of the matched journal's key is updated
     comparable_keys = {
-        f["key"] for f in schema_fields
+        f["name"] for f in schema_fields
         if f.get("source") in {"csv", "doaj", "djd"}
     }
     has_changes = any(
@@ -214,11 +215,11 @@ def merge_journal_update(
     """
     # Get all fields that should be updated from CSV/DOAJ
     schema_level_base_or_core = {
-        f["key"] for f in schema_fields
+        f["name"] for f in schema_fields
         if f.get("schema_level") in {"base", "core"}
     }
     schema_level_full = {
-        f["key"] for f in schema_fields
+        f["name"] for f in schema_fields
         if f.get("schema_level") == "full"
     }
 
@@ -299,8 +300,8 @@ def process_single_journal(
 
     # Step 2: Validate required fields
     missing = [
-        f["key"] for f in schema_core
-        if f.get("required") and not journal.get(f["key"])
+        f["name"] for f in schema_core
+        if f.get("required") and not journal.get(f["name"])
     ]
     if missing:
         click.secho(f"Missing required fields: {", ".join(missing)}", fg="red")

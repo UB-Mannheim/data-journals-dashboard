@@ -57,10 +57,10 @@ def load_schema_core(
     schema = load_schema(schema_path=schema_path)
 
     if djd_fields:
-        schema_core = [f["key"] for f in schema if f["schema_level"] == "core"]
+        schema_core = [f["name"] for f in schema if f["schema_level"] == "core"]
     else:
         schema_core = [
-            f["key"] for f in schema
+            f["name"] for f in schema
             if f["schema_level"] == "core" and f.get("source") != "djd"
         ]
 
@@ -122,18 +122,18 @@ def parse_csv_rows_with_schema(
     journals = []
     for idx, row in enumerate(rows[1:], start=1):
         record = {}
-        for gf in djd_fields:
-            if gf["key"] == "id":
+        for field in djd_fields:
+            if field["name"] == "id":
                 record["id"] = idx
             else:
-                record[gf["key"]] = gf.get("default")
+                record[field["name"]] = field.get("default")
 
         # Map CSV columns
         for col, val in zip(header, row):
             col_clean = col.strip()
             if col_clean in csv_col_to_field:
                 field = csv_col_to_field[col_clean]
-                record[field["key"]] = _coerce_value(
+                record[field["name"]] = _coerce_value(
                     val.strip(), field.get("type", "string")
                 )
         journals.append(record)
@@ -186,7 +186,7 @@ class _IgnoreAliases(yaml.Dumper):
 
 def write_yaml_to_disk(
     journals: list[dict],
-    fpath: Path,
+    output_fpath: Path,
     sort_by_id: bool = True,
     verbose: bool = True
 ):
@@ -194,12 +194,12 @@ def write_yaml_to_disk(
     Write enriched journal records to a YAML file.
     """
     # Make sure output_dir exists
-    ensure_dir(fpath.parent)
+    ensure_dir(output_fpath.parent)
 
     if sort_by_id:
         journals = sorted(journals, key=lambda x: x["id"])
 
-    with open(fpath, "w", encoding="utf-8") as file:
+    with open(output_fpath, "w", encoding="utf-8") as file:
         yaml.dump(
             {"journals": journals},
             file,
@@ -208,7 +208,7 @@ def write_yaml_to_disk(
             sort_keys=False
         )
     if verbose:
-        click.secho(f"Saved enriched YAML → {fpath}", fg="green")
+        click.secho(f"Saved enriched YAML → {output_fpath}", fg="green")
 
 
 def get_journal_by_issn(yaml_path: Path, issn: str) -> dict | None:
@@ -237,16 +237,16 @@ def to_yaml(
     # Determine allowed keys based on scope
     if scope == "base":
         allowed_keys = {
-            f["key"] for f in schema_fields if f.get("schema_level") == "base"
+            f["name"] for f in schema_fields if f.get("schema_level") == "base"
         }
     elif scope == "core":
         allowed_keys = {
-            f["key"] for f in schema_fields
+            f["name"] for f in schema_fields
             if f.get("schema_level") in ["base", "core"]
         }
     elif scope == "full":
         allowed_keys = {
-            f["key"] for f in schema_fields
+            f["name"] for f in schema_fields
             if f.get("schema_level") in ["base", "core", "full"]
         }
     else:
@@ -361,7 +361,7 @@ def to_csv(
     csv_header = [f.get("source_path") for f in csv_fields]
     rows = [csv_header]
     for journal in journals:
-        row = [str(journal.get(f["key"], "")) for f in csv_fields]
+        row = [str(journal.get(f["name"], "")) for f in csv_fields]
         rows.append(row)
 
     if sort:
@@ -396,16 +396,16 @@ def to_json(
     # Determine allowed keys based on scope
     if scope == "base":
         allowed_keys = {
-            f["key"] for f in schema_fields if f.get("schema_level") == "base"
+            f["name"] for f in schema_fields if f.get("schema_level") == "base"
         }
     elif scope == "core":
         allowed_keys = {
-            f["key"] for f in schema_fields
+            f["name"] for f in schema_fields
             if f.get("schema_level") in ["base", "core",]
         }
     elif scope == "full":
         allowed_keys = {
-            f["key"] for f in schema_fields
+            f["name"] for f in schema_fields
             if f.get("schema_level") in ["base", "core", "full"]
         }
     else:

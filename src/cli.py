@@ -14,7 +14,7 @@ from data_processing import (
     RAW_JOURNAL_METADATA_PATH,
     JOURNAL_COLLECTION_PATH,
 )
-from utils import ensure_dir, to_csv, to_yaml, to_json, get_journal_by_issn
+from utils import ensure_dir, ensure_output_fpath, to_csv, to_yaml, to_json, get_journal_by_issn
 from validate import run_validation
 
 
@@ -31,24 +31,28 @@ def cli():
     pass
 
 
-@cli.command("collect", no_args_is_help=True)
+@cli.command("collect", no_args_is_help=False)
 @click.option(
-    "--github", "-g",
-    is_flag=True,
-    default=False,
-    help="Fetch data journal metadata CSV from https://github.com/MaxiKi/data-journals.",
+    "--output_fpath", "-o",
+    type=click.Path(path_type=Path),
+    default=Path("data/raw"),
+    show_default=True,
+    help="Path to save the raw journal metadata from Github",
 )
-def collect(github: bool):
+def collect(output_fpath: Path = None):
     """
     Fetch or parse raw journal metadata from GitHub or a local
     CSV containing data journal metadata.
     """
-    if github:
+    try:
         rows = get_journal_data_from_github()
-    else:
-        raise click.UsageError("Provide --github")
+    except Exception as e:
+        click.secho(f"Error fetching journal metadata from Github: {e}", fg="red")
+
     if rows:
-        write_csv_to_disk(rows, RAW_JOURNAL_METADATA_PATH)
+        output_fpath = ensure_output_fpath(output_fpath, RAW_JOURNAL_METADATA_PATH, ".csv")
+        ensure_dir(output_fpath.parent)
+        write_csv_to_disk(rows, output_fpath)
 
 
 @cli.group("process", no_args_is_help=True)
@@ -94,6 +98,7 @@ def process_all(
         click.secho("No input provided. Aborting.", fg="red")
         return
 
+    output_fpath = ensure_output_fpath(output_fpath, input_fpath, ".yaml")
     ensure_dir(output_fpath.parent)
     process_all_journals(input_fpath, schema_path, output_fpath)
 
@@ -131,6 +136,7 @@ def process_single(
         click.secho("No input provided. Aborting.", fg="red")
         raise click.Abort()
 
+    output_fpath = ensure_output_fpath(output_fpath, input_fpath, ".yaml")
     ensure_dir(output_fpath.parent)
     success = process_single_journal(input_fpath, schema_path, output_fpath)
     if not success:

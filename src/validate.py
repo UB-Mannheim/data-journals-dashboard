@@ -42,11 +42,11 @@ def validate_compliance(
     key == True.
     """
     # All metadata schema fields
-    schema_field_keys = [f["key"] for f in schema_fields]
+    schema_field_keys = [f["name"] for f in schema_fields]
 
     # Get all required fields from metadata schema
     required_fields = {
-        f["key"] for f in schema_fields if f.get("required")
+        f["name"] for f in schema_fields if f.get("required")
     }
 
     errors = []
@@ -116,7 +116,7 @@ def validate_types(
     }
 
     type_map = {
-        f["key"]: _type_map[f["type"]]
+        f["name"]: _type_map[f["type"]]
         for f in schema_fields
         if f.get("type") in _type_map
     }

@@ -196,10 +196,10 @@ def generate_field_descriptions_data(schema_fpath: Path, output_dir: Path) -> No
         "deposit_policy_has", "is_active", "enrichment_source"
     ]
     descriptions = {
-        field["key"]: field["description"]
+        field["name"]: field["description"]
         for field in schema.get("fields", [])
-        if field["key"] in selected_keys
-        and "key" in field and "description" in field
+        if field["name"] in selected_keys
+        and "name" in field and "description" in field
     }
 
     data_dir = output_dir / "hugo-data"
