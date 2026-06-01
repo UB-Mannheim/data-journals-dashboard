@@ -10,7 +10,7 @@ The Data Journals Dashboard provides access to a collection of data journals fir
 
 The Data Journals Dashboard is provided by the [Research Data Center](https://fdz.bib.uni-mannheim.de/) of the [University Library Mannheim](https://www.bib.uni-mannheim.de/en/).
 
-{{< figure src="../logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="20%" >}}
+{{< figure src="../logos/FDZ_Logo_DE_rgb_blau.png" link="https://fdz.bib.uni-mannheim.de/" target="_blank" alt="FDZ-Logo" width="15%" >}}
 
 ## Primary Dataset
 
