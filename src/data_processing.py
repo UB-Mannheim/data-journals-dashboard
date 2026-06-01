@@ -165,7 +165,8 @@ def load_existing_journals(
 
 def is_duplicate_journal(
     journal: dict,
-    existing_journals: list[dict]
+    existing_journals: list[dict],
+    schema_fields: list[dict] | None = None,
 ) -> tuple[str, int | None]:
     """
     Check whether journal already exists in the collection.
@@ -175,7 +176,8 @@ def is_duplicate_journal(
         ("duplicate", id)   — exists with identical data, skip
         ("update",    id)   — exists but data has changed, merge in-place
     """
-    schema_fields = load_schema()
+    if schema_fields is None:
+        schema_fields = load_schema()
 
     incoming_issn = journal.get("issn")
     if not incoming_issn:
@@ -392,7 +394,7 @@ def process_all_journals(
     merged_ids = set()
     for journal in journals:
         status, existing_id = is_duplicate_journal(
-            journal, existing_journals
+            journal, existing_journals, schema_fields
         )
         if status == "duplicate":
             click.secho(
