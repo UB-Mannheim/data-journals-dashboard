@@ -5,16 +5,14 @@
 # =========================================
 #
 # The metadata schema combines metadata fields of different origin to form the collection
-# and validation basis for data journal metadata used in the Data Journals Dashboard.
-# The origin of each field can be traced by the "schema_level" and "source" attributes of
-# each field.
+# and validation basis metadata used in the Data Journals Dashboard. The origin of each 
+# field can be traced by the "source" mapping key of each field.
 #
 # BASE METADATA
 # =============
-# Base metadata fields are a subset of the core metadata fields ("schema_level == 'core'") and
-# originate from a publication by Kindling, M. & Strecker, D. (2022). Metadata fields of this
-# origin can be traced by "schema_level == 'core' AND source == 'csv'". The metadata is
-# licensed under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/deed.de
+# Base metadata fields originate from a publication by Kindling, M. & Strecker, D. (2022).
+# These fields can be traced by "source == 'csv'". Metadata of this type is licensed
+# under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/deed.de
 #
 # - Publication: Kindling, M., & Strecker, D. (2022). List of data journals (1.0) [Data set]. 
 #   Zenodo. https://doi.org/10.5281/zenodo.7082126
@@ -22,14 +20,15 @@
 # 
 # CORE METADATA
 # =============
-# Core metadata fields are a combination of base metadata fields and custom added fields of
-# source type "djd" (Data Journals Dashboard). 
+# Core metadata fields are a combination of base metadata fields and custom added fields
+# of type "source == 'djd'" (Data Journals Dashboard).
 #
 # FULL METADATA
 # =============
-# All other metadata fields ("schema_level == 'full'") are originating from the Directory of
-# Open Access Journals (https://doaj.org) public API and can be traced by the source type "doaj".
-# DOAJ's API metadata is licensed under CC0 1.0 Universal: https://doaj.org/terms/#metadata
+# Full metadata fields are a combination of base, core and additional metadata originating
+# from the Directory of Open Access Journals (https://doaj.org) public API. DOAJ metadata
+# fields can be traced by "source == 'doaj'". DOAJ's API metadata is licensed under
+# CC0 1.0 Universal: https://doaj.org/terms/#metadata
 #
 # LICENSE
 # =======
@@ -43,79 +42,81 @@ fields:
     label: "ID"
     description: "Sequential integer id for each data journal assigned during processing."
     source: djd
+    source_path: id
     type: integer
     required: true
     default: null
-    schema_level: internal
+    schema_level: core
 
   - key: issn
     label: "ISSN"
     description: "Primary ISSN of the data journal."
     source: csv
-    csv_column: ISSN
+    source_path: ISSN
     type: string
     required: true
     default: null
-    schema_level: core
+    schema_level: base
 
   - key: journal_title
     label: "Journal Title"
     description: "Official journal title."
     source: csv
-    csv_column: journal_title
+    source_path: journal_title
     type: string
     required: true
     default: null
-    schema_level: core
+    schema_level: base
 
   - key: publisher
     label: "Publisher"
     description: "Name of the publisher of the data journal."
     source: csv
-    csv_column: publisher
+    source_path: publisher
     type: string
     required: true
     default: null
-    schema_level: core
+    schema_level: base
 
   - key: url
     label: "URL"
     description: "URL link to the journal's website."
     source: csv
-    csv_column: URL
+    source_path: URL
     type: string
     required: true
     default: null
-    schema_level: core
+    schema_level: base
 
   - key: data_journal_type
     label: "Data Journal Type"
     description: "Type of the data journal: Either pure (journal has a strong focus on publishing data papers) or mixed (journal also publishes other publication types)"
     source: csv
-    csv_column: data_journal_type
+    source_path: data_journal_type
     type: string
     required: true
     default: null
-    schema_level: core
+    schema_level: base
 
   - key: is_active
     label: "Journal Status"
     description: "Indicates whether the data journal is currently active and publishing new papers or has ceased/paused publication."
     source: djd
-    csv_column: is_active
+    source_path: is_active
     type: boolean
     required: true
-    default: null
+    default: active
     schema_level: core
   
   - key: enrichment_source
     label: "Source of Metadata Enrichment"
     description: "Provider or source of additional metadata used to enrich metadata fields beyond the base attributes ISSN, Journal Title, Publisher, URL and Data Journal Type"
     source: djd
+    source_path: enrichment_source
     type: string
     required: true
     default: null
-    schema_level: core
+    schema_level: full
 
   ## ISSNs
 
@@ -123,7 +124,7 @@ fields:
     label: "eISSN"
     description: "Electronic ISSN."
     source: doaj
-    doaj_path: "eissn"
+    source_path: "eissn"
     type: string
     required: false
     default: null
@@ -133,7 +134,7 @@ fields:
     label: "pISSN"
     description: "Print ISSN."
     source: doaj
-    doaj_path: "pissn"
+    source_path: "pissn"
     type: string
     required: false
     default: null
@@ -143,7 +144,7 @@ fields:
     label: "Languages"
     description: "List of publication languages (ISO 639-1 codes)."
     source: doaj
-    doaj_path: "language"
+    source_path: "language"
     type: list
     required: false
     default: []
@@ -153,7 +154,7 @@ fields:
     label: "OA Start Year"
     description: "Year the journal became open access."
     source: doaj
-    doaj_path: "oa_start"
+    source_path: "oa_start"
     type: integer
     required: false
     default: null
@@ -163,7 +164,7 @@ fields:
     label: "BOAI Compliant"
     description: "Whether the journal complies with the Budapest Open Access Initiative definition."
     source: doaj
-    doaj_path: "boai"
+    source_path: "boai"
     type: boolean
     required: false
     default: null
@@ -173,7 +174,7 @@ fields:
     label: "Publication Time (weeks)"
     description: "Average time from submission to publication in weeks."
     source: doaj
-    doaj_path: "publication_time_weeks"
+    source_path: "publication_time_weeks"
     type: integer
     required: false
     default: null
@@ -183,7 +184,7 @@ fields:
     label: "Keywords"
     description: "Subject keywords describing the journal's scope."
     source: doaj
-    doaj_path: "keywords"
+    source_path: "keywords"
     type: list
     required: false
     default: []
@@ -195,7 +196,7 @@ fields:
     label: "Research Fields"
     description: "List of subject terms describing the journal's scope."
     source: doaj
-    doaj_path: "subject[].term"
+    source_path: "subject[].term"
     type: list
     required: false
     default: []
@@ -205,7 +206,7 @@ fields:
     label: "Subject Codes"
     description: "Full subject objects including term, classification code, and scheme (e.g. LCC)."
     source: doaj
-    doaj_path: "subject[]"
+    source_path: "subject[]"
     type: list
     required: false
     default: []
@@ -217,7 +218,7 @@ fields:
     label: "Publisher Name (DOAJ)"
     description: "Publisher name as recorded in DOAJ."
     source: doaj
-    doaj_path: "publisher.name"
+    source_path: "publisher.name"
     type: string
     required: false
     default: null
@@ -227,7 +228,7 @@ fields:
     label: "Publisher Country"
     description: "Country of the publisher (ISO 3166-1 alpha-2)."
     source: doaj
-    doaj_path: "publisher.country"
+    source_path: "publisher.country"
     type: string
     required: false
     default: null
@@ -237,7 +238,7 @@ fields:
     label: "Institution Name"
     description: "Sponsoring institution name, if applicable."
     source: doaj
-    doaj_path: "institution.name"
+    source_path: "institution.name"
     type: string
     required: false
     default: null
@@ -247,7 +248,7 @@ fields:
     label: "Institution Country"
     description: "Country of the sponsoring institution (ISO 3166-1 alpha-2)."
     source: doaj
-    doaj_path: "institution.country"
+    source_path: "institution.country"
     type: string
     required: false
     default: null
@@ -259,7 +260,7 @@ fields:
     label: "Review Process"
     description: "Peer review types used by the journal (e.g. Double anonymous peer review, Open peer review, Editorial peer review etc.)."
     source: doaj
-    doaj_path: "editorial.review_process"
+    source_path: "editorial.review_process"
     type: list
     required: false
     default: []
@@ -269,7 +270,7 @@ fields:
     label: "Review Process URL"
     description: "URL describing the journal's peer review process."
     source: doaj
-    doaj_path: "editorial.review_url"
+    source_path: "editorial.review_url"
     type: url
     required: false
     default: null
@@ -279,7 +280,7 @@ fields:
     label: "Editorial Board URL"
     description: "URL listing the editorial board members."
     source: doaj
-    doaj_path: "editorial.board_url"
+    source_path: "editorial.board_url"
     type: url
     required: false
     default: null
@@ -291,7 +292,7 @@ fields:
     label: "License Types"
     description: "List of Creative Commons or other license type identifiers (e.g. CC BY, CC BY-NC)."
     source: doaj
-    doaj_path: "license[].type"
+    source_path: "license[].type"
     type: list
     required: false
     default: []
@@ -303,7 +304,7 @@ fields:
     label: "Has APC"
     description: "Whether the journal charges article processing charges."
     source: doaj
-    doaj_path: "apc.has_apc"
+    source_path: "apc.has_apc"
     type: boolean
     required: false
     default: null
@@ -313,7 +314,7 @@ fields:
     label: "APC Maximum"
     description: "Maximum APC fee(s) as a list of {price, currency} objects."
     source: doaj
-    doaj_path: "apc.max"
+    source_path: "apc.max"
     type: list
     required: false
     default: []
@@ -323,7 +324,7 @@ fields:
     label: "APC URL"
     description: "URL with details about the journal's APC policy."
     source: doaj
-    doaj_path: "apc.url"
+    source_path: "apc.url"
     type: url
     required: false
     default: null
@@ -333,7 +334,7 @@ fields:
     label: "Has Other Charges"
     description: "Whether the journal charges fees beyond APCs (e.g. submission fees)."
     source: doaj
-    doaj_path: "other_charges.has_other_charges"
+    source_path: "other_charges.has_other_charges"
     type: boolean
     required: false
     default: null
@@ -345,7 +346,7 @@ fields:
     label: "Has Waiver"
     description: "Whether the journal offers APC waivers."
     source: doaj
-    doaj_path: "waiver.has_waiver"
+    source_path: "waiver.has_waiver"
     type: boolean
     required: false
     default: null
@@ -355,7 +356,7 @@ fields:
     label: "Waiver URL"
     description: "URL with details about the journal's waiver policy."
     source: doaj
-    doaj_path: "waiver.url"
+    source_path: "waiver.url"
     type: url
     required: false
     default: null
@@ -367,7 +368,7 @@ fields:
     label: "Has Preservation"
     description: "Whether the journal participates in a digital preservation scheme."
     source: doaj
-    doaj_path: "preservation.has_preservation"
+    source_path: "preservation.has_preservation"
     type: boolean
     required: false
     default: null
@@ -377,7 +378,7 @@ fields:
     label: "Preservation Services"
     description: "List of preservation services used (e.g. CLOCKSS, Portico)."
     source: doaj
-    doaj_path: "preservation.service"
+    source_path: "preservation.service"
     type: list
     required: false
     default: []
@@ -387,7 +388,7 @@ fields:
     label: "Preservation URL"
     description: "URL with details about the journal's preservation policy."
     source: doaj
-    doaj_path: "preservation.url"
+    source_path: "preservation.url"
     type: url
     required: false
     default: null
@@ -399,7 +400,7 @@ fields:
     label: "PID Schemes"
     description: "Persistent identifier schemes supported for articles (e.g. DOI, Handle)."
     source: doaj
-    doaj_path: "pid_scheme.scheme"
+    source_path: "pid_scheme.scheme"
     type: list
     required: false
     default: []
@@ -411,7 +412,7 @@ fields:
     label: "Plagiarism Detection"
     description: "Whether the journal uses plagiarism detection software."
     source: doaj
-    doaj_path: "plagiarism.detection"
+    source_path: "plagiarism.detection"
     type: boolean
     required: false
     default: null
@@ -421,7 +422,7 @@ fields:
     label: "Plagiarism Detection URL"
     description: "URL describing the journal's plagiarism detection policy."
     source: doaj
-    doaj_path: "plagiarism.url"
+    source_path: "plagiarism.url"
     type: url
     required: false
     default: null
@@ -433,7 +434,7 @@ fields:
     label: "Author Retains Copyright"
     description: "Whether authors retain copyright of published articles."
     source: doaj
-    doaj_path: "copyright.author_retains"
+    source_path: "copyright.author_retains"
     type: boolean
     required: false
     default: null
@@ -443,7 +444,7 @@ fields:
     label: "Copyright URL"
     description: "URL describing the journal's copyright policy."
     source: doaj
-    doaj_path: "copyright.url"
+    source_path: "copyright.url"
     type: url
     required: false
     default: null
@@ -455,7 +456,7 @@ fields:
     label: "Has Deposit Policy"
     description: "Whether the journal has a defined self-archiving / deposit policy."
     source: doaj
-    doaj_path: "deposit_policy.has_policy"
+    source_path: "deposit_policy.has_policy"
     type: boolean
     required: false
     default: null
@@ -465,7 +466,7 @@ fields:
     label: "Deposit Policy Services"
     description: "Services or registries where the journal's deposit/self-archiving policy is registered (e.g. Open Policy Finder, Sherpa Romeo)."
     source: doaj
-    doaj_path: "deposit_policy.service"
+    source_path: "deposit_policy.service"
     type: list
     required: false
     default: []
@@ -475,7 +476,7 @@ fields:
     label: "Deposit Policy URL"
     description: "URL with details about the journal's deposit/self-archiving policy."
     source: doaj
-    doaj_path: "deposit_policy.url"
+    source_path: "deposit_policy.url"
     type: url
     required: false
     default: null
@@ -487,7 +488,7 @@ fields:
     label: "Article License Display"
     description: "How the license is displayed at the article level. Values: 'Embed' (license embedded in article metadata), 'Display' (shown on the article page), or 'No' (not displayed)."
     source: doaj
-    doaj_path: "article.license_display"
+    source_path: "article.license_display"
     type: list
     required: false
     default: []
@@ -497,7 +498,7 @@ fields:
     label: "Article License Example URL"
     description: "URL of an example article showing license display."
     source: doaj
-    doaj_path: "article.license_display_example_url"
+    source_path: "article.license_display_example_url"
     type: url
     required: false
     default: null
@@ -509,7 +510,7 @@ fields:
     label: "Journal Homepage"
     description: "URL of the journal's homepage."
     source: doaj
-    doaj_path: "ref.journal"
+    source_path: "ref.journal"
     type: url
     required: false
     default: null
@@ -519,7 +520,7 @@ fields:
     label: "Aims & Scope URL"
     description: "URL of the journal's aims and scope page."
     source: doaj
-    doaj_path: "ref.aims_scope"
+    source_path: "ref.aims_scope"
     type: url
     required: false
     default: null
@@ -529,7 +530,7 @@ fields:
     label: "OA Statement URL"
     description: "URL of the journal's open access statement."
     source: doaj
-    doaj_path: "ref.oa_statement"
+    source_path: "ref.oa_statement"
     type: url
     required: false
     default: null
@@ -539,7 +540,7 @@ fields:
     label: "Author Instructions URL"
     description: "URL of the journal's author guidelines / instructions for authors."
     source: doaj
-    doaj_path: "ref.author_instructions"
+    source_path: "ref.author_instructions"
     type: url
     required: false
     default: null
@@ -549,7 +550,7 @@ fields:
     label: "License Terms URL"
     description: "URL of the journal's full license terms page."
     source: doaj
-    doaj_path: "ref.license_terms"
+    source_path: "ref.license_terms"
     type: url
     required: false
     default: null

@@ -36,9 +36,9 @@ def get_journal_data_from_github() -> list[list[str]] | None:
         return None
 
 
-def extract_doaj_value(bibjson: dict, doaj_path: str, default):
+def extract_doaj_value(bibjson: dict, source_path: str):
     """
-    Extract a value from a DOAJ bibjson dict using a doaj_path expression.
+    Extract a value from a DOAJ bibjson dict using a source_path expression.
 
     Supported patterns:
       "eissn"             → bibjson["eissn"]
@@ -47,10 +47,10 @@ def extract_doaj_value(bibjson: dict, doaj_path: str, default):
       "subject[].term"    → [s["term"] for s in bibjson["subject"]]
     """
     # Example: subject[] and subject[].term
-    if "[]" in doaj_path:
-        bracket_index = doaj_path.index("[]")
-        list_key = doaj_path[:bracket_index]  # subject
-        nested_key = doaj_path[bracket_index + 2:].lstrip(".")  # term
+    if "[]" in source_path:
+        bracket_index = source_path.index("[]")
+        list_key = source_path[:bracket_index]  # subject
+        nested_key = source_path[bracket_index + 2:].lstrip(".")  # term
         nested_items = bibjson.get(list_key, [])
 
         if not isinstance(nested_items, list):
@@ -66,9 +66,9 @@ def extract_doaj_value(bibjson: dict, doaj_path: str, default):
         return nested_items
 
     # Example: publisher.name
-    if "." in doaj_path:
+    if "." in source_path:
         obj = bibjson
-        for part in doaj_path.split("."):
+        for part in source_path.split("."):
             if not isinstance(obj, dict):
                 return
 
@@ -78,7 +78,7 @@ def extract_doaj_value(bibjson: dict, doaj_path: str, default):
         return obj
 
     # Example: plain key like "eissn" etc.
-    val = bibjson.get(doaj_path)
+    val = bibjson.get(source_path)
     return val if val is not None else None
 
 
@@ -128,9 +128,7 @@ def enrich_journals_with_doaj(
             # Parse bibjson based on schema.yaml
             doaj_metadata = {}
             for field in doaj_schema_fields:
-                result = extract_doaj_value(
-                    bibjson, field["doaj_path"], field.get("default")
-                )
+                result = extract_doaj_value(bibjson, field["source_path"])
                 if result:
                     doaj_metadata[field["key"]] = result
             enriched.append(
@@ -215,21 +213,21 @@ def merge_journal_update(
     Only updates fields defined in schema with source 'csv' or 'doaj'.
     """
     # Get all fields that should be updated from CSV/DOAJ
-    schema_level_core = {
+    schema_level_base_or_core = {
         f["key"] for f in schema_fields
-        if f.get("schema_level") == "core"
+        if f.get("schema_level") in {"base", "core"}
     }
     schema_level_full = {
         f["key"] for f in schema_fields
         if f.get("schema_level") == "full"
     }
 
-    # Preserve existing journal, but update with new core/doaj fields
+    # Preserve existing journal, but update with new base/core/doaj fields
     doaj_metadata_updated = False
     merged = dict(existing_journal)
 
     for key, value in new_journal.items():
-        if key in schema_level_core and value is not None:
+        if key in schema_level_base_or_core and value is not None:
             merged[key] = value
         elif key in schema_level_full and value is not None:
             merged[key] = value
@@ -386,7 +384,7 @@ def process_all_journals(
     click.secho(f"Parsed {len(journals)} journals.", fg="blue")
 
     # Step 3: Filter out duplicates; split merged journals by whether DOAJ
-    # fields were explicitly provided (mirrors process_single_journal logic)
+    # fields were explicitly provided
     existing_journals = load_existing_journals(output_fpath)
     journals_to_enrich: list[dict] = []   # new + merged without DOAJ update
     journals_skip_enrich: list[dict] = []  # merged where DOAJ fields were set
@@ -440,7 +438,7 @@ def process_all_journals(
             next_new_id = max_existing_id + 1
 
     # Step 4: enrich with DOAJ metadata — skip journals where DOAJ fields
-    # were explicitly provided in the incoming data (same as process_single_journal)
+    # were explicitly provided
     enriched_journals = enrich_journals_with_doaj(journals_to_enrich, schema_fields)
     all_new_journals = enriched_journals + journals_skip_enrich
 

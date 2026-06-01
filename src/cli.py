@@ -239,7 +239,7 @@ def export():
     help="Output file path (e.g. data/dumps/export.csv). Defaults to ./exports/<name>.csv.",
 )
 @click.option(
-    "--scope", "-s",
+    "--schema_level", "-s",
     type=click.Choice(["base", "core", "full"]),
     default="base",
     show_default=True,
@@ -253,7 +253,12 @@ def export():
     default=None,
     help="ISSN of a single journal to export from the collection.",
 )
-def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: str | None):
+def export_csv(
+    input_fpath: Path,
+    output_fpath: Path | None,
+    schema_level: str,
+    issn: str | None
+):
     """
     Export YAML or JSON metadata to a core-schema CSV.
     """
@@ -268,7 +273,7 @@ def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: s
             yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
             tmp_path = Path(tmp.name)
         try:
-            to_csv(tmp_path, output_fpath, scope, issn=issn)
+            to_csv(tmp_path, output_fpath, schema_level, issn=issn)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -277,7 +282,7 @@ def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: s
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    to_csv(input_fpath, output_fpath, scope)
+    to_csv(input_fpath, output_fpath, schema_level)
 
 
 @export.command("yaml", no_args_is_help=True)
@@ -294,7 +299,7 @@ def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: s
     help="Output file path (e.g. data/dumps/export.yaml). Defaults to ./exports/<name>.yaml.",
 )
 @click.option(
-    "--scope", "-s",
+    "--schema_level", "-s",
     type=click.Choice(["base", "core", "full"]),
     default="core",
     show_default=True,
@@ -309,7 +314,12 @@ def export_csv(input_fpath: Path, output_fpath: Path | None, scope: str, issn: s
     default=None,
     help="ISSN of a single journal to export from the collection.",
 )
-def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: str | None):
+def export_yaml(
+    input_fpath: Path,
+    output_fpath: Path | None,
+    schema_level: str,
+    issn: str | None
+):
     """
     Convert a core-schema CSV or JSON back to a YAML journal collection.
     """
@@ -326,7 +336,7 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
             tmp.write(payload)
             tmp_path = Path(tmp.name)
         try:
-            to_yaml(tmp_path, output_fpath, scope, issn=issn)
+            to_yaml(tmp_path, output_fpath, schema_level, issn=issn)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -335,7 +345,7 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    to_yaml(input_fpath, output_fpath, scope)
+    to_yaml(input_fpath, output_fpath, schema_level)
 
 
 @export.command("json", no_args_is_help=True)
@@ -352,7 +362,7 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
     help="Output file path (e.g. data/dumps/export.json). Defaults to ./exports/<name>.json.",
 )
 @click.option(
-    "--scope", "-s",
+    "--schema_level", "-s",
     type=click.Choice(["base", "core", "full"]),
     default="core",
     show_default=True,
@@ -366,7 +376,12 @@ def export_yaml(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
     default=None,
     help="ISSN of a single journal to export from the collection.",
 )
-def export_json(input_fpath: Path, output_fpath: Path | None, scope: str, issn: str | None):
+def export_json(
+    input_fpath: Path,
+    output_fpath: Path | None,
+    schema_level: str,
+    issn: str | None
+):
     """
     Export journal metadata from CSV or YAML to a JSON file.
     """
@@ -381,7 +396,7 @@ def export_json(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
             yaml.dump({"journals": [journal]}, tmp, allow_unicode=True)
             tmp_path = Path(tmp.name)
         try:
-            to_json(tmp_path, output_fpath, scope, issn=issn)
+            to_json(tmp_path, output_fpath, schema_level, issn=issn)
         finally:
             tmp_path.unlink(missing_ok=True)
         return
@@ -390,7 +405,7 @@ def export_json(input_fpath: Path, output_fpath: Path | None, scope: str, issn: 
         click.secho(f"Input filepath does not exist: {input_fpath}", fg="red")
         return
 
-    to_json(input_fpath, output_fpath, scope)
+    to_json(input_fpath, output_fpath, schema_level)
 
 
 @cli.command("validate", no_args_is_help=True)

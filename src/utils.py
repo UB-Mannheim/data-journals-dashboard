@@ -114,14 +114,13 @@ def parse_csv_rows_with_schema(
     # Get CSV fields from schema
     header = [col.strip() for col in rows[0]]
     csv_fields = [f for f in schema_fields if f["source"] == "csv"]
-    csv_col_to_field = {f["csv_column"].strip(): f for f in csv_fields}
+    csv_col_to_field = {f["source_path"].strip(): f for f in csv_fields}
 
     # Get djd fields from schema (id)
     djd_fields = [f for f in schema_fields if f["source"] == "djd"]
 
     journals = []
     for idx, row in enumerate(rows[1:], start=1):
-        # Add djd fields first (id)
         record = {}
         for gf in djd_fields:
             if gf["key"] == "id":
@@ -144,7 +143,7 @@ def parse_csv_rows_with_schema(
 
 def _coerce_value(val: str, field_type: str):
     """
-    Cast a CSV string value to the type declared in the schema.
+    Cast a CSV string value to the type declared in a metadata schema field.
     """
     if field_type == "boolean":
         if val.lower() == "true":
@@ -233,21 +232,22 @@ def to_yaml(
     Parse a CSV or JSON journal collection and transform it to a YAML journal
     collection. Optionally, save it to disk.
     """
-    schema = load_schema(schema_path=schema_path)
+    schema_fields = load_schema(schema_path=schema_path)
 
     # Determine allowed keys based on scope
     if scope == "base":
         allowed_keys = {
-            f["key"] for f in schema if f.get("source") == "csv"
+            f["key"] for f in schema_fields if f.get("schema_level") == "base"
         }
     elif scope == "core":
         allowed_keys = {
-            f["key"] for f in schema if f.get("schema_level") == "core"
+            f["key"] for f in schema_fields
+            if f.get("schema_level") in ["base", "core"]
         }
     elif scope == "full":
         allowed_keys = {
-            f["key"] for f in schema
-            if f.get("schema_level") in ["internal", "core", "full"]
+            f["key"] for f in schema_fields
+            if f.get("schema_level") in ["base", "core", "full"]
         }
     else:
         allowed_keys = None
@@ -265,7 +265,7 @@ def to_yaml(
                     fg="red"
                 )
             return []
-        journals = parse_csv_rows_with_schema(rows, schema)
+        journals = parse_csv_rows_with_schema(rows, schema_fields)
     elif suffix == ".json":
         journals = _load_journals_from_json(input_path, verbose=verbose)
         if not journals:
@@ -311,15 +311,18 @@ def to_csv(
 
     # Determine allowed keys based on scope
     if scope == "base":
-        csv_fields = [f for f in schema if f.get("source") == "csv"]
+        csv_fields = [f for f in schema if f.get("schema_level") == "base"]
         csv_quote_level = csv.QUOTE_MINIMAL
     elif scope == "core":
-        csv_fields = [f for f in schema if f.get("schema_level") == "core"]
+        csv_fields = [
+            f for f in schema
+            if f.get("schema_level") in ["base", "core"]
+        ]
         csv_quote_level = csv.QUOTE_MINIMAL
     elif scope == "full":
         csv_fields = [
             f for f in schema
-            if f.get("schema_level") in ["core", "full"]
+            if f.get("schema_level") in ["base", "core", "full"]
         ]
         csv_quote_level = csv.QUOTE_ALL
 
@@ -355,9 +358,7 @@ def to_csv(
             )
         return {}
 
-    csv_header = [
-        f.get("csv_column") or f.get("doaj_path") for f in csv_fields
-    ]
+    csv_header = [f.get("source_path") for f in csv_fields]
     rows = [csv_header]
     for journal in journals:
         row = [str(journal.get(f["key"], "")) for f in csv_fields]
@@ -365,7 +366,8 @@ def to_csv(
 
     if sort:
         # Sort rows based on journal_title
-        rows = sorted(rows[1:], key=lambda x: x[1].lower())
+        journal_title_idx = csv_header.index("journal_title")
+        rows = sorted(rows[1:], key=lambda x: x[journal_title_idx].lower())
         rows.insert(0, csv_header)
 
     # Optionally: write csv to disk
@@ -389,21 +391,22 @@ def to_json(
     Convert a CSV or YAML journal collection to a JSON file.
     Optionally, save it to disk.
     """
-    schema = load_schema(schema_path=schema_path)
+    schema_fields = load_schema(schema_path=schema_path)
 
     # Determine allowed keys based on scope
     if scope == "base":
         allowed_keys = {
-            f["key"] for f in schema if f.get("source") == "csv"
+            f["key"] for f in schema_fields if f.get("schema_level") == "base"
         }
     elif scope == "core":
         allowed_keys = {
-            f["key"] for f in schema if f.get("schema_level") == "core"
+            f["key"] for f in schema_fields
+            if f.get("schema_level") in ["base", "core",]
         }
     elif scope == "full":
         allowed_keys = {
-            f["key"] for f in schema
-            if f.get("schema_level") in ["internal", "core", "full"]
+            f["key"] for f in schema_fields
+            if f.get("schema_level") in ["base", "core", "full"]
         }
     else:
         allowed_keys = None
@@ -423,7 +426,7 @@ def to_json(
                     fg="red"
                 )
             return []
-        journals = parse_csv_rows_with_schema(rows, schema)
+        journals = parse_csv_rows_with_schema(rows, schema_fields)
 
     elif suffix in (".yaml", ".yml"):
         try:
