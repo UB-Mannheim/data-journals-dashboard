@@ -21,7 +21,7 @@ source venv/bin/activate
 3. Install dependencies
 
 ```bash
-pip install .
+pip install -e .
 ```
 
 4. Test the installation. Running ...
@@ -48,4 +48,4 @@ Commands:
   validate  Validate journals against metadata schema.
 ```
 
-5. Start and follow the jupyter notebook: `walkthrough.ipynb`
+5. Start and follow the jupyter notebook: `local_deployment.ipynb`
