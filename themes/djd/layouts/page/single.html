@@ -1,7 +1,15 @@
 {{ define "main" }}
 <article class="journal-single">
   <header>
-    <h1>{{ .Title }}</h1>
+    <div class="page-header">
+      <h1>{{ .Title }}</h1>
+      <p>Last update: {{ .Date | time.Format "2006-01-02" }}</p>
+      {{ with .Params.logo }}
+      <a href="{{ .link }}" target="_blank" rel="noopener">
+        <img src="{{ .src | relURL }}" alt="{{ .alt }}" class="page-header-logo">
+      </a>
+      {{ end }}
+    </div>
     <hr>
   </header>
   <div class="about-content">

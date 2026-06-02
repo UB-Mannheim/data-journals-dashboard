@@ -383,14 +383,46 @@ hr {
   margin: 1.5rem 0;
 }
 
+.page-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: 
+    "title logo"
+    "date logo";
+  align-items: center;
+}
+
+.page-header h1 {
+  grid-area: title;
+  margin-bottom: 0.8rem;
+}
+
+.page-header a {
+  flex-shrink: 0;
+  grid-area: logo; 
+}
+
+.page-header p {
+  grid-area: date;
+  margin-top: 0;
+}
+
+.page-header-logo {
+  width: 140px;
+}
+
 .about-content {
   line-height: 1.8rem;
 }
 
-.about-content figure {
-  text-align: center;
-  margin: 4rem 0 2.4rem 0 ;
-} 
+.about-content ul {
+  list-style-type: square;
+  padding-left: 1.75rem;
+}
+
+.about-content ul ul {
+  padding-left: 1.75rem;
+}
 
 /* Code Blocks and Snippets */
 .about-content pre {
