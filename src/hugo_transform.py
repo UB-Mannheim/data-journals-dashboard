@@ -30,7 +30,8 @@ def _update_version_in_config(config_fpath: Path | str = HUGO_CONFIG_PATH):
 
 def create_journal_content_for_hugo(
     data_journals_fpath: Path,
-    content_dir: Path
+    content_dir: Path,
+    config_fpath: Path = HUGO_CONFIG_PATH,
 ) -> int:
     """
     Generate Hugo-compatible markdown files from data_journals.yaml.
@@ -139,7 +140,7 @@ def create_journal_content_for_hugo(
         print(f"Generated: {filepath.name}")
 
     # Update version
-    _update_version_in_config()
+    _update_version_in_config(config_fpath)
     return generated_count
 
 

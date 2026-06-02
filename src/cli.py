@@ -187,7 +187,9 @@ def hugo_generate(input_fpath: Path, output_dir: Path, schema_path: Path):
         return
 
     count = create_journal_content_for_hugo(
-        input_fpath, output_dir / "content/journals"
+        data_journals_fpath=input_fpath,
+        content_dir=output_dir / "content/journals",
+        config_fpath=output_dir / "hugo.toml",
     )
     generate_field_descriptions_data(schema_path, output_dir)
     click.secho(f"Generated {count} journal pages for Hugo.", fg="green")
