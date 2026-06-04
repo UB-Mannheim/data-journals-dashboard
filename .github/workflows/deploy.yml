@@ -1,0 +1,122 @@
+name: Deploy Hugo Site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/data_journals.yaml'
+      - 'metadata_schema/schema.yaml'
+      - 'hugo.toml'
+      - 'themes/**'
+      - 'content/**'
+      - 'src/hugo_transform.py'
+      - 'src/utils.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install Python dependencies
+        run: pip install .
+
+      # Generate CSV and JSON data dumps
+      - name: Generate Data Dumps
+        run: |
+          python -c "
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'src')
+          from utils import to_csv, to_json
+          to_csv(
+              Path('data/data_journals.yaml'),
+              Path('data/dumps/data_journals_characteristics.csv'),
+              'base'
+          )
+          to_csv(
+              Path('data/data_journals.yaml'),
+              Path('data/dumps/data_journals.csv'),
+              'full'
+          )
+          to_json(
+              Path('data/data_journals.yaml'),
+              Path('data/dumps/data_journals.json'),
+              'full'
+          )
+          "
+
+      # Commit data dumps back to the repository
+      - name: Commit Data Dumps
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/dumps/
+          if git diff --cached --quiet; then
+            echo "No changes to data dumps, skipping commit."
+          else
+            git commit -m "chore: update data dumps"
+            git push
+          fi
+
+      # Generate Hugo website
+      - name: Generate Hugo content
+        run: |
+          python -c "
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'src')
+          from hugo_transform import (
+              create_journal_content_for_hugo,
+              generate_field_descriptions_data
+          )
+          create_journal_content_for_hugo(
+              Path('data/data_journals.yaml'),
+              Path('content/journals')
+          )
+          generate_field_descriptions_data(
+              Path('metadata_schema/schema.yaml'),
+              Path('.')
+          )
+          "
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

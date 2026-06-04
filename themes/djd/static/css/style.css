@@ -12,6 +12,11 @@ body {
   min-height: 100vh;
 }
 
+a,
+a:visited {
+  text-decoration: underline dotted;
+}
+
 /* Sidebar */
 .sidebar {
   width: 300px;
@@ -257,17 +262,30 @@ strong {
   margin-bottom: 1rem;
 }
 
-.journal-url,
-.journal-url :visited {
-  color: black;
+.journal-url {
+  color: #212529;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 6px;
+  text-decoration-color: var(--journal-color-1);
+}
+
+.journal-url:visited {
+  color: #212529;
   font-size: 2.2rem;
   font-weight: 600;
-  text-decoration: underline dotted 6px var(--journal-color-1);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 6px;
+  text-decoration-color: var(--journal-color-1);
 }
 
 .journal-url:hover {
   color: var(--journal-color-6);
-  text-decoration: underline dotted 6px var(--journal-color-6);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 6px;
+  text-decoration-color: var(--journal-color-6);
 }
 
 .detail-section {
@@ -377,12 +395,6 @@ strong {
 }
 
 /* About Page */
-hr {
-  border: none;
-  border-top: 4px dotted var(--journal-color-4);
-  margin: 1.5rem 0;
-}
-
 .page-header {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -390,11 +402,12 @@ hr {
     "title logo"
     "date logo";
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .page-header h1 {
   grid-area: title;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.75rem;
 }
 
 .page-header a {
@@ -413,6 +426,11 @@ hr {
 
 .about-content {
   line-height: 1.8rem;
+}
+
+.about-content h2 {
+  border-bottom: 1px solid #dee2e6; 
+  padding-bottom: 0.5rem;
 }
 
 .about-content ul {

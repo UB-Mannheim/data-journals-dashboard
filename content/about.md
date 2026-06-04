@@ -21,8 +21,6 @@ logo:
 - [Use of AI](#use-of-ai)
 - [Citing the Dashboard](#citing-the-dashboard)
 
----
-
 ## Introduction
 
 The Data Journals Dashboard provides access to a collection of data journals first published by **Maxi Kindling & Dorothea Strecker** in 2022 [[Zenodo](https://doi.org/10.5281/zenodo.7082126)]. With additional metadata from the [Directory of Open Access Journals](https://doaj.org/) the dashboard enables researchers, research data management (RDM) professionals, librarians and all other interested parties to search and filter the collection and select a data journal that meets their publication needs.
@@ -31,9 +29,7 @@ The Data Journals Dashboard is maintained by the [Research Data Center](https://
 
 ### What are Data Journals?
 
-Data journals are scientific journals that primarily publish data papers, data reports, and similar article types. These articles describe datasets produced through research activities, but do not interpret the results. Instead, data journals focus on providing detailed documentation of how, when and with which methodology datasets were created, where they are accessible, and how they can be reused by others.
-
-As most data journals are peer-reviewed, data papers promote good research and RDM practices. They also benefit researchers who create and share high-quality datasets, as they follow established scientific communication practices and receive citations.
+Data journals are scientific journals that primarily or to a large extend publish data papers, data reports, and similar article types. These articles describe datasets produced through research activities, but do not interpret the results. Instead, data journals focus on providing detailed documentation of how, when and with which methodology datasets were created, where they are accessible, and how they can be reused by others. As most data journals are peer-reviewed, data papers promote good research and RDM practices; they also benefit researchers who create and share high-quality datasets, as they follow established scientific communication practices and receive citations.
 
 ## Journal Metadata
 
