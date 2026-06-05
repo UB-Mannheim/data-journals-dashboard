@@ -163,12 +163,12 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       if (isHomepage()) {
-        // Homepage: filter journal grid in place.
+        // Homepage: filter journal grid in place
         document.querySelectorAll('.filter-input').forEach(input => {
           input.addEventListener('input', filterJournals);
           input.addEventListener('change', filterJournals);
         });
-        // Apply any filters passed via URL; otherwise reset to a clean state.
+        // Apply any filters passed via URL; otherwise reset to a clean state
         if (applyFiltersFromUrl()) {
           filterJournals();
         } else {

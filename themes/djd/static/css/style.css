@@ -427,6 +427,8 @@ strong {
 
 .page-header-logo {
   width: 150px;
+  max-width: 100%;
+  height: auto;
 }
 
 .about-content {
@@ -503,5 +505,21 @@ strong {
   .site-header {
     margin: -1rem -1rem 1rem -1rem;
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 490px) {
+  .page-header {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "title"
+      "date";
+    margin-bottom: 1.5rem;
+  }
+
+  .page-header-logo {
+    margin-bottom: 1.5rem;
+    ;
   }
 }
