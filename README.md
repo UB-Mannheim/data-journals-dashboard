@@ -1,6 +1,6 @@
 <img src="assets/djd_logo.png" width="26%">
 
-The **Data Journals Dashboard** (DJD) is a browser app for searching and filtering a curated and regularly updated collection of [data journals](https://libguides.wmich.edu/datasci/datajournals), enabling researchers, research data management professionals, librarians, and all other interested parties to find data journals that meet their publication needs.
+The **[Data Journals Dashboard](https://ub-mannheim.github.io/data-journals-dashboard/)** (DJD) is a browser app for searching and filtering a curated and regularly updated collection of data journals, enabling researchers, research data management professionals, librarians, and all other interested parties to find data journals that meet their publication needs.
 
 > The dashboard encourages [community contributions](#contributing-)! 🌱
 
