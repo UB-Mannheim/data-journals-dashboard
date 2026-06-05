@@ -9,6 +9,7 @@ The **Data Journals Dashboard** (DJD) is a browser app for searching and filteri
 - [Journal Metadata](#journal-metadata)
   - [Primary Dataset](#primary-dataset)
   - [DJD Metadata Collection](#djd-metadata-collection)
+  - [Metadata Schema](#metadata-schema)
   - [Metadata Dumps](#metadata-dumps)
   - [Licenses](#licenses)
 - [Python and Hugo App](#python-and-hugo-app)
@@ -47,7 +48,7 @@ Metadata dumps (`csv` and `json`) of the [DJD metadata collection](/data/data_jo
 | Kindling & Strecker (2022) primary dataset | `CC0 1.0 Universal` | [[Zenodo](https://doi.org/10.5281/zenodo.7082126)], [[GitHub](https://github.com/MaxiKi/data-journals)] |
 | DOAJ API metadata | `CC0 1.0 Universal` | [[DOAJ Docs](https://doaj.org/terms/#metadata)] |
 | [DJD metadata collection](/data/data_journals.yaml) | `CC0 1.0 Universal` | [[rf. Metadata Schema](/metadata_schema/schema.yaml)] |
-| [Metadata dumps](/data/dumps/) | `CC0 1.0 Universal` |  |
+| [DJD metadata dumps](/data/dumps/) | `CC0 1.0 Universal` | - |
 | [DJD metadata schema](/metadata_schema/schema.yaml) | `CC0 1.0 Universal` | [[rf. Metadata Schema](https://github.com/UB-Mannheim/data-journals-dashboard/blob/main/metadata_schema/schema.yaml)] |
 
 ## Python and Hugo App
