@@ -21,6 +21,50 @@
       'license-filter':         'License',
       'status-filter':          'Journal Status',
     };
+    const FILTER_IDS = ['search-input', 'type-filter', 'status-filter', 'reasearch-field-filter', 'publisher-filter', 'license-filter'];
+    const HOME_URL = '{{ "" | relURL }}';
+    const HOME_PATH = new URL(HOME_URL, window.location.origin).pathname;
+
+    function isHomepage() {
+      const path = window.location.pathname.replace(/index\.html$/, '');
+      const home = HOME_PATH.replace(/index\.html$/, '');
+      return path === home || path === home.replace(/\/$/, '') || path + '/' === home;
+    }
+
+    // Collect all currently-set filter values into URLSearchParams
+    function collectFilterParams() {
+      const params = new URLSearchParams();
+      FILTER_IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el?.value) params.set(id, el.value);
+      });
+      return params;
+    }
+
+    // Build a homepage URL carrying all currently-set filter values
+    function buildHomeUrl() {
+      const qs = collectFilterParams().toString();
+      return qs ? `${HOME_URL}?${qs}` : HOME_URL;
+    }
+
+    // Apply filter values from the current URL query params to the controls.
+    function applyFiltersFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      let any = false;
+      FILTER_IDS.forEach(id => {
+        if (params.has(id)) {
+          const el = document.getElementById(id);
+          if (el) { el.value = params.get(id); any = true; }
+        }
+      });
+      return any;
+    }
+
+    // Homepage: Reflect the current filter values into the URL
+    function syncUrlToFilters() {
+      const qs = collectFilterParams().toString();
+      history.replaceState(null, '', qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
+    }
 
     function parseAttr(val) {
       try { return JSON.parse(val).map(v => String(v).toLowerCase()); } catch { return val ? [val.toLowerCase()] : []; }
@@ -32,7 +76,7 @@
       const tags = [];
       for (const [id, label] of Object.entries(FILTER_LABELS)) {
         const el = document.getElementById(id);
-        if (el && el.value) {
+        if (el?.value) {
           tags.push(`<span class="filter-tag" onclick="removeFilter('${id}')" role="button" aria-label="Remove ${label} filter">${label}: ${el.value}</span>`);
         }
       }
@@ -46,21 +90,17 @@
     }
 
     function filterJournals() {
-      const searchInput = document.getElementById('search-input');
-      const dataJournalTypeSelect = document.getElementById('type-filter');
-      const publisherSelect = document.getElementById('publisher-filter');
-      const researchFieldSelect = document.getElementById('reasearch-field-filter');
-      const licenseTypeSelect = document.getElementById('license-filter');
+      const val = id => (document.getElementById(id)?.value || '').toLowerCase();
+      const searchTerm = val('search-input');
+      const selectedDataJournalType = val('type-filter');
+      const selectedPublisher = val('publisher-filter');
+      const selectedResearchField = val('reasearch-field-filter');
+      const selectedLicenseType = val('license-filter');
+      const selectedStatus = val('status-filter');
 
-      const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-      const selectedDataJournalType = dataJournalTypeSelect ? dataJournalTypeSelect.value.toLowerCase() : '';
-      const selectedPublisher = publisherSelect ? publisherSelect.value.toLowerCase() : '';
-      const selectedResearchField = researchFieldSelect ? researchFieldSelect.value.toLowerCase() : '';
-      const selectedLicenseType = licenseTypeSelect ? licenseTypeSelect.value.toLowerCase() : '';
-      const statusSelect = document.getElementById('status-filter');
-      const selectedStatus = statusSelect ? statusSelect.value.toLowerCase() : '';
-
-      document.querySelectorAll('.journal-card').forEach(card => {
+      const cards = document.querySelectorAll('.journal-card');
+      let visible = 0;
+      cards.forEach(card => {
         const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
         const keywords = card.dataset.keywords ? card.dataset.keywords.toLowerCase() : '';
         const issn = card.dataset.issn ? card.dataset.issn.toLowerCase() : '';
@@ -86,12 +126,13 @@
         const matchesLicenseType = !selectedLicenseType || licenseTypesArr.includes(selectedLicenseType);
         const matchesStatus = !selectedStatus || card.dataset.isActive === selectedStatus;
 
-        card.style.display = (matchesSearch && matchesDataJournalType && matchesPublisher && matchesResearchField && matchesLicenseType && matchesStatus) ? '' : 'none';
+        const show = matchesSearch && matchesDataJournalType && matchesPublisher && matchesResearchField && matchesLicenseType && matchesStatus;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
       });
 
-      // Update journal count on index.html if filters are applied
-      const total = document.querySelectorAll('.journal-card').length;
-      const visible = document.querySelectorAll('.journal-card:not([style*="display: none"])').length;
+      // Update journal count
+      const total = cards.length;
       const countEl = document.getElementById('journal-count');
       if (countEl) {
         countEl.textContent = visible < total ? `${visible}` : total;
@@ -99,6 +140,7 @@
 
       renderFilterTags();
       updateRowShadows();
+      if (isHomepage()) syncUrlToFilters();
     }
 
     function updateRowShadows() {
@@ -112,8 +154,7 @@
     }
 
     function resetFilters() {
-      const ids = ['search-input', 'type-filter', 'publisher-filter', 'reasearch-field-filter', 'license-filter', 'status-filter'];
-      ids.forEach(id => {
+      FILTER_IDS.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';
       });
@@ -121,14 +162,29 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.filter-input').forEach(input => {
-        input.addEventListener('input', filterJournals);
-        input.addEventListener('change', filterJournals);
-      });
-      // Reset filters when landing on homepage
-      const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html';
-      if (isHomepage) {
-        resetFilters();
+      if (isHomepage()) {
+        // Homepage: filter journal grid in place.
+        document.querySelectorAll('.filter-input').forEach(input => {
+          input.addEventListener('input', filterJournals);
+          input.addEventListener('change', filterJournals);
+        });
+        // Apply any filters passed via URL; otherwise reset to a clean state.
+        if (applyFiltersFromUrl()) {
+          filterJournals();
+        } else {
+          resetFilters();
+        }
+      } else {
+        // On other pages go back to Homepage
+        const goHome = () => { window.location.href = buildHomeUrl(); };
+        document.querySelectorAll('select.filter-input').forEach(select => {
+          select.addEventListener('change', goHome);
+        });
+        const search = document.getElementById('search-input');
+        if (search) {
+          search.addEventListener('change', goHome);
+          search.addEventListener('keydown', e => { if (e.key === 'Enter') goHome(); });
+        }
       }
       updateRowShadows();
       window.addEventListener('resize', updateRowShadows);
