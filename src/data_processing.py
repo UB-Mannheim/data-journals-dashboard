@@ -32,7 +32,7 @@ def get_journal_data_from_github() -> list[list[str]] | None:
         response.raise_for_status()
         return list(csv.reader(io.StringIO(response.text.strip())))
     except Exception as e:
-        click.secho(f"Error during data crawl: {e}", fg="red")
+        click.secho(f"Error retrieving journal metadata from GitHub: {e}", fg="red")
         return None
 
 
