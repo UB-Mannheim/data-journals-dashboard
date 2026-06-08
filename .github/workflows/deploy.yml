@@ -70,16 +70,10 @@ jobs:
 
       # Commit data dumps back to the repository
       - name: Commit Data Dumps
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/dumps/
-          if git diff --cached --quiet; then
-            echo "No changes to data dumps, skipping commit."
-          else
-            git commit -m "chore: update data dumps"
-            git push
-          fi
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "Update data dumps"
+          file_pattern: "data/dumps/"
 
       # Generate Hugo website
       - name: Generate Hugo content
