@@ -1230,10 +1230,10 @@ journals:
   review_url: https://academic.oup.com/pcp/pages/author-guidelines#section-4
   board_url: https://academic.oup.com/pcp/pages/Editorial_Board
   license_types:
-  - Restricted Access
   - CC BY
   - CC BY-NC
   - CC BY-NC-ND
+  - Restricted Access
   apc_has: true
   apc_max:
   - price: 3178
