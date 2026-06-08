@@ -1596,7 +1596,7 @@ journals:
     currency: USD
   - price: 2150
     currency: GBP
-  apc_url: https://www.nature.com/sdata/about/oa
+  apc_url: https://www.nature.com/sdata/open-access
   other_charges: false
   waiver_has: true
   waiver_url: https://www.springernature.com/gp/open-research/policies/journal-policies/apc-waiver-countries
@@ -1619,8 +1619,8 @@ journals:
   - Embed
   article_license_example_url: https://www.nature.com/articles/sdata201448
   ref_journal: https://www.nature.com/sdata/
-  ref_aims_scope: https://www.nature.com/sdata/publish/for-authors#aims-scope
-  ref_oa_statement: https://www.nature.com/sdata/about/oa
+  ref_aims_scope: https://www.nature.com/sdata/aims-and-scope
+  ref_oa_statement: https://www.nature.com/sdata/open-access
   ref_author_instructions: https://www.nature.com/sdata/publish/submission-guidelines
   ref_license_terms: https://www.nature.com/sdata/open-access
 - id: 27
