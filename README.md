@@ -43,7 +43,7 @@ Metadata dumps (`csv` and `json`) of the [DJD metadata collection](/data/data_jo
 
 ### Licenses
 
-| Source | License | Source |
+| Source | License | Link |
 | --- | --- | --- |
 | Kindling & Strecker (2022) primary dataset | `CC0 1.0 Universal` | [[Zenodo](https://doi.org/10.5281/zenodo.7082126)], [[GitHub](https://github.com/MaxiKi/data-journals)] |
 | DOAJ API metadata | `CC0 1.0 Universal` | [[DOAJ Docs](https://doaj.org/terms/#metadata)] |
