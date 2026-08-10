@@ -1,26 +1,34 @@
-import click
 import json
 import tempfile
-import yaml
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
+import click
+import yaml
+
 from data_processing import (
-    get_journal_data_from_github,
-    write_csv_to_disk,
-    process_all_journals,
-    process_single_journal,
+    JOURNAL_COLLECTION_PATH,
     METADATA_SCHEMA_PATH,
     RAW_JOURNAL_METADATA_PATH,
-    JOURNAL_COLLECTION_PATH,
+    get_journal_data_from_github,
+    process_all_journals,
+    process_single_journal,
+    write_csv_to_disk,
 )
-from utils import ensure_dir, ensure_output_fpath, to_csv, to_yaml, to_json, get_journal_by_issn
+from utils import (
+    ensure_dir,
+    ensure_output_fpath,
+    get_journal_by_issn,
+    to_csv,
+    to_json,
+    to_yaml,
+)
 from validate import run_validation
 
 
 class OrderedGroup(click.Group):
     def list_commands(self, ctx: click.Context) -> list[str]:
-        return list(["collect", "process", "hugo", "export", "validate"])
+        return ["collect", "process", "hugo", "export", "validate"]
 
 
 @click.group(cls=OrderedGroup, no_args_is_help=True)
@@ -28,7 +36,6 @@ def cli():
     """
     Data Journal Dashboard CLI Helper.
     """
-    pass
 
 
 @cli.command("collect", no_args_is_help=False)
@@ -39,15 +46,12 @@ def cli():
     show_default=True,
     help="Path to save the raw journal metadata from Github",
 )
-def collect(output_fpath: Path = None):
+def collect(output_fpath: Path = Path | None):
     """
     Fetch or parse raw journal metadata from GitHub or a local
     CSV containing data journal metadata.
     """
-    try:
-        rows = get_journal_data_from_github()
-    except Exception as e:
-        click.secho(f"Error fetching journal metadata from Github: {e}", fg="red")
+    rows = get_journal_data_from_github()
 
     if rows:
         output_fpath = ensure_output_fpath(output_fpath, RAW_JOURNAL_METADATA_PATH, ".csv")
@@ -61,7 +65,6 @@ def process():
     Process raw journal metadata by validating it against the
     journal_metadata_schema and enriching it with DOAJ.org metadata.
     """
-    pass
 
 
 @process.command("all", no_args_is_help=False)
@@ -86,10 +89,24 @@ def process():
     show_default=True,
     help="Path to save the processed journal collection YAML file.",
 )
+@click.option(
+    "--dry-run",
+    is_flag=True,
+    default=False,
+    help="Report what would change without calling DOAJ or writing the YAML.",
+)
+@click.option(
+    "--force-doaj",
+    is_flag=True,
+    default=False,
+    help="Refresh every matched journal from DOAJ, ignoring enrichment_source.",
+)
 def process_all(
     input_fpath: Path,
     schema_path: Path,
     output_fpath: Path,
+    dry_run: bool,
+    force_doaj: bool,
 ):
     """
     Process all journals in one go.
@@ -100,7 +117,13 @@ def process_all(
 
     output_fpath = ensure_output_fpath(output_fpath, input_fpath, ".yaml")
     ensure_dir(output_fpath.parent)
-    process_all_journals(input_fpath, schema_path, output_fpath)
+    process_all_journals(
+        input_fpath,
+        schema_path,
+        output_fpath,
+        dry_run=dry_run,
+        force_doaj=force_doaj,
+    )
 
 
 @process.command("single", no_args_is_help=True)
@@ -148,7 +171,6 @@ def hugo():
     """
     Generate Hugo static site content from processed journal data.
     """
-    pass
 
 
 @hugo.command("generate", no_args_is_help=False)
@@ -179,7 +201,7 @@ def hugo_generate(input_fpath: Path, output_dir: Path, schema_path: Path):
     """
     from hugo_transform import (
         create_journal_content_for_hugo,
-        generate_field_descriptions_data
+        generate_field_descriptions_data,
     )
 
     if not input_fpath.exists():
@@ -210,12 +232,9 @@ def hugo_init(output_dir: Path):
     """
     Initialize Hugo site configuration and templates.
     """
-    from hugo_transform import (
-        generate_hugo_site_config,
-        generate_hugo_archetype
-    )
+    from hugo_transform import generate_hugo_archetype, generate_hugo_site_config
 
-    timestamp = f"v{datetime.now().strftime("%Y-%m-%d")}"
+    timestamp = f"v{datetime.now(UTC).strftime("%Y-%m-%d")}"
     generate_hugo_site_config(
         output_dir,
         base_url="https://ub-mannheim.github.io/data-journals-dashboard/",
@@ -230,7 +249,6 @@ def export():
     """
     Export data journal metadata to different file types.
     """
-    pass
 
 
 @export.command("csv", no_args_is_help=True)

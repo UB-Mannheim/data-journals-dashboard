@@ -103,10 +103,16 @@ def load_journal_data_from_csv(fpath: Path) -> list[list[str]] | None:
 def parse_csv_rows_with_schema(
     rows: list[list[str]],
     schema_fields: list[dict],
+    assign_djd_defaults: bool = True,
 ) -> list[dict]:
     """
     Convert CSV rows to list of dicts, only including fields defined in
     schema with source "csv" or "djd".
+
+    With assign_djd_defaults=False no "djd" field is added at all — neither the
+    row index as "id" nor schema defaults such as is_active=True. The
+    processing pipelines need this: those values are managed by the collection,
+    and injecting them here would let them overwrite curated data on a merge.
     """
     if not rows:
         return []
@@ -122,11 +128,12 @@ def parse_csv_rows_with_schema(
     journals = []
     for idx, row in enumerate(rows[1:], start=1):
         record = {}
-        for field in djd_fields:
-            if field["name"] == "id":
-                record["id"] = idx
-            else:
-                record[field["name"]] = field.get("default")
+        if assign_djd_defaults:
+            for field in djd_fields:
+                if field["name"] == "id":
+                    record["id"] = idx
+                else:
+                    record[field["name"]] = field.get("default")
 
         # Map CSV columns
         for col, val in zip(header, row):
