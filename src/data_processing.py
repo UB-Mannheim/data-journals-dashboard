@@ -145,7 +145,7 @@ def extract_doaj_value(bibjson: dict, source_path: str):
                 return
 
             obj = obj.get(part)
-            if obj is None:
+            if obj is None or obj == "":
                 return
         return obj
 
@@ -511,8 +511,7 @@ def process_all_journals(
                     fg="red")
         return False
 
-    # Step 2: parse rows → list of dicts. Ids come from the collection only,
-    # never from the position of a row in the CSV.
+    # Step 2: parse rows → list of dicts.
     journals = parse_csv_rows_with_schema(
         rows, schema_fields, assign_djd_defaults=False
     )
@@ -538,9 +537,7 @@ def process_all_journals(
             continue
 
         # Merge existing journal (same ISSN) with new core fields; the merged
-        # copy replaces the existing entry under its unchanged id. Several
-        # input rows may point at the same entry, so keep stacking on the
-        # merge result instead of starting over from the collection.
+        # copy replaces the existing entry under its unchanged id.
         base = updated_by_id.get(matched["id"], matched)
         merged, _ = merge_journal_update(base, journal, schema_fields)
         updated_by_id[matched["id"]] = merged
