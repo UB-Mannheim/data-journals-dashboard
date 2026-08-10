@@ -12,6 +12,7 @@ on:
       - 'content/**'
       - 'src/hugo_transform.py'
       - 'src/utils.py'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 permissions:
