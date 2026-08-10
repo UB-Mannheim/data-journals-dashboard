@@ -1712,7 +1712,7 @@ journals:
   - EN
   oa_start: 2022
   boai: true
-  publication_time_weeks: 26
+  publication_time_weeks: 14
   keywords:
   - astronomy
   - astrophysics
@@ -2045,7 +2045,7 @@ journals:
   - EN
   oa_start: 2016
   boai: true
-  publication_time_weeks: 1
+  publication_time_weeks: 5
   keywords:
   - translational research
   - clinical research
