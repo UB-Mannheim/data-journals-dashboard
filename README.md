@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22939585.svg)](https://doi.org/10.5281/zenodo.22939585)
+
 <img src="assets/djd_logo.png" width="26%">
 
 The **[Data Journals Dashboard](https://ub-mannheim.github.io/data-journals-dashboard/)** (DJD) is a browser application that enables researchers, research data management professionals, librarians and other interested parties to search and filter a curated collection of data journals, helping them to find the right publication for their needs.
