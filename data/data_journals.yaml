@@ -36,7 +36,7 @@ journals:
   institution_name: The International Society for Digital Earth
   institution_country: CN
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://www.tandfonline.com/action/authorSubmission?journalCode=TBED&page=instructions
   board_url: https://www.tandfonline.com/action/journalInformation?show=editorialBoard&journalCode=TBED
   license_types:
@@ -110,7 +110,7 @@ journals:
   institution_name: International Society of Sports Nutrition
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=rssn20
   board_url: https://www.tandfonline.com/action/journalInformation?show=editorialBoard&journalCode=rssn20
   license_types:
@@ -186,7 +186,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://mbmg.pensoft.net/about#PeerReview
   board_url: https://mbmg.pensoft.net/board/
   license_types:
@@ -322,7 +322,7 @@ journals:
   institution_name: ISMPMI
   institution_country: US
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: http://apsjournals.apsnet.org/page/authorinformation#submitting
   board_url: https://apsjournals.apsnet.org/page/mpmi/editorial-board
   license_types:
@@ -392,7 +392,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://movementecologyjournal.biomedcentral.com/about
   board_url: https://movementecologyjournal.biomedcentral.com/about/editorial-board
   license_types:
@@ -462,7 +462,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: http://mycokeys.pensoft.net/about
   board_url: http://mycokeys.pensoft.net/board
   license_types:
@@ -533,7 +533,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: http://natureconservation.pensoft.net/about
   board_url: http://natureconservation.pensoft.net/browse_journal_groups.php?journal_id=10&grp_id=117
   license_types:
@@ -596,7 +596,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: http://neobiota.pensoft.net/about#Editorial-Policies
   board_url: http://neobiota.pensoft.net/board
   license_types:
@@ -804,7 +804,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://academic.oup.com/nar/pages/referee_info
   board_url: https://academic.oup.com/nar/pages/Editorial_Board
   license_types:
@@ -877,7 +877,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://oneecosystem.pensoft.net/about#PeerReview
   board_url: https://oneecosystem.pensoft.net/board/
   license_types:
@@ -1019,7 +1019,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://apsjournals.apsnet.org/page/authorinformation#submitting
   board_url: https://apsjournals.apsnet.org/page/aboutphytobiomes#edboard
   license_types:
@@ -1087,7 +1087,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: http://phytokeys.pensoft.net/about
   board_url: http://phytokeys.pensoft.net/board
   license_types:
@@ -1366,7 +1366,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://plantmethods.biomedcentral.com/about
   board_url: https://plantmethods.biomedcentral.com/about/editorial-board
   license_types:
@@ -1429,14 +1429,14 @@ journals:
   - economic history
   - language and literature
   - audio-visual media
-  - archaeology
+  - archeology
   research_fields:
   - Social Sciences
-  - Archaeology
+  - Archeology
   - Philology. Linguistics
   - Literature
   subject_codes:
-  - code: H1-99
+  - code: H
     scheme: LCC
     term: Social Sciences (General)
   - code: CC1-960
@@ -1582,7 +1582,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://www.nature.com/sdata/policies/editorial-and-publishing-policies#publication-criteria
   board_url: https://www.nature.com/sdata/about/editorial-board
   license_types:
@@ -1655,7 +1655,7 @@ journals:
   institution_name: Iowa Consortium for Substance Abuse Research and Evaluation
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://substanceabusepolicy.biomedcentral.com/about
   board_url: https://substanceabusepolicy.biomedcentral.com/about/editorial-board
   license_types:
@@ -1727,16 +1727,20 @@ journals:
   institution_name: American Astronomical Society
   institution_country: US
   review_process:
-  - Peer review
-  - Anonymous peer review
   - Double anonymous peer review
+  - Single anonymous peer review
+  - Unspecified peer review
   review_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#peer
   board_url: https://journals.aas.org/editorial/
   license_types:
   - CC BY
   apc_has: true
   apc_max:
-  - price: 4681
+  - price: 2356
+    currency: GBP
+  - price: 2727
+    currency: EUR
+  - price: 3162
     currency: USD
   apc_url: https://iopscience.iop.org/journal/0067-0049/page/about-the-journal#charges
   other_charges: true
@@ -1924,7 +1928,7 @@ journals:
   institution_name: American Society of Agronomy; Crop Science Society of America
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://www.agronomy.org/publications/journals/author-resources/tppj-instructions
   board_url: https://acsess.onlinelibrary.wiley.com/journal/25782703/editorial-board/editorial-board
   license_types:
@@ -2093,7 +2097,7 @@ journals:
   deposit_policy_has: true
   deposit_policy_services:
   - Open Policy Finder
-  deposit_policy_url: null
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/31845
   article_license_display:
   - Embed
   article_license_example_url: https://wellcomeopenresearch.org/articles/1-1
@@ -2137,7 +2141,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: http://amz.museucienciesjournals.cat/editorial-policy/?lang=en
   board_url: http://amz.museucienciesjournals.cat/editorial-pannel/?lang=en
   license_types:
@@ -2173,7 +2177,7 @@ journals:
 - id: 35
   issn: 1941-4927
   journal_title: NCHS Data Briefs
-  publisher: Centers for Disease Control and Prevention (CDC)
+  publisher: Centers for Disease Control and Preventions (CDC)
   url: https://www.cdc.gov/nchs/products/databriefs.htm
   data_journal_type: pure
   is_active: true
@@ -2264,7 +2268,7 @@ journals:
   institution_name: The International Society for Biocuration
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://academic.oup.com/database/pages/instructions_for_authors
   board_url: https://academic.oup.com/database/pages/Editorial_Board
   license_types:
@@ -2384,7 +2388,7 @@ journals:
   - EN
   oa_start: 2017
   boai: true
-  publication_time_weeks: 2
+  publication_time_weeks: 1
   keywords:
   - translational research
   - clinical research
@@ -2400,6 +2404,7 @@ journals:
   institution_name: Bill and Melinda Gates Foundation
   institution_country: null
   review_process:
+  - Post-publication peer review
   - Open peer review
   review_url: https://gatesopenresearch.org/about/policies#post-pub-peer-review
   board_url: https://gatesopenresearch.org/advisors
@@ -2407,7 +2412,7 @@ journals:
   - CC BY
   apc_has: true
   apc_max:
-  - price: 1242
+  - price: 1807
     currency: USD
   apc_url: https://gatesopenresearch.org/for-authors/article-processing-charges
   other_charges: false
@@ -2450,7 +2455,7 @@ journals:
   - EN
   oa_start: 2021
   boai: true
-  publication_time_weeks: 2
+  publication_time_weeks: 7
   keywords:
   - natural sciences
   - engineering and technology
@@ -2487,6 +2492,7 @@ journals:
   waiver_url: null
   preservation_has: true
   preservation_services:
+  - PMC
   - Portico
   preservation_url: https://open-research-europe.ec.europa.eu/about/policies/#permcontent
   pid_schemes:
@@ -2687,7 +2693,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://www.frontiersin.org/about/peer-review
   board_url: https://www.frontiersin.org/journals/marine-science/editors
   license_types:
@@ -2757,7 +2763,7 @@ journals:
   institution_name: The Japan Society of Human Genetics
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://www.nature.com/authorguide/hgv/hgv-gta.pdf
   board_url: https://www.nature.com/hgv/about/editorial-board
   license_types:
@@ -2984,7 +2990,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: http://bdj.pensoft.net/about#Peer-review
   board_url: http://bdj.pensoft.net/browse_journal_groups.php?journal_id=1&grp_id=93
   license_types:
@@ -3058,7 +3064,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: http://www.reabic.net/journals/bir/Submission.aspx
   board_url: http://www.reabic.net/journals/bir/Editors.aspx
   license_types:
@@ -3124,7 +3130,7 @@ journals:
   institution_name: Society for Women's Health Research
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bsd.biomedcentral.com/about
   board_url: https://bsd.biomedcentral.com/about/editorial-board
   license_types:
@@ -3271,7 +3277,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcbioinformatics.biomedcentral.com/about
   board_url: https://bmcbioinformatics.biomedcentral.com/about/editorial-board
   license_types:
@@ -3340,7 +3346,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: https://bmcbiol.biomedcentral.com/about
   board_url: https://bmcbiol.biomedcentral.com/about/editorial-board
   license_types:
@@ -3410,7 +3416,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcbiotechnol.biomedcentral.com/about
   board_url: https://bmcbiotechnol.biomedcentral.com/about/editorial-board
   license_types:
@@ -3619,7 +3625,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcchem.biomedcentral.com/about
   board_url: https://bmcchem.biomedcentral.com/about/editorial-board
   license_types:
@@ -3762,7 +3768,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcecolevol.biomedcentral.com/about
   board_url: https://bmcecolevol.biomedcentral.com/about/editorial-board
   license_types:
@@ -3981,7 +3987,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcevolbiol.biomedcentral.com/about
   board_url: https://bmcevolbiol.biomedcentral.com/about/editorial-board
   license_types:
@@ -4122,7 +4128,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcgenomdata.biomedcentral.com/about
   board_url: https://bmcgenomdata.biomedcentral.com/about/editorial-board
   license_types:
@@ -4200,7 +4206,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcgenomics.biomedcentral.com/about
   board_url: https://bmcgenomics.biomedcentral.com/about/editorial-board
   license_types:
@@ -4334,11 +4340,7 @@ journals:
   - healthcare systems
   research_fields:
   - Public aspects of medicine
-  - Public health
   subject_codes:
-  - code: RA1-1270
-    scheme: LCC
-    term: Public health
   - code: RA1-1270
     scheme: LCC
     term: Public aspects of medicine
@@ -4981,14 +4983,10 @@ journals:
   - clinical practice
   research_fields:
   - Medicine
-  - Public health
   subject_codes:
   - code: R
     scheme: LCC
     term: Medicine
-  - code: RA1-1270
-    scheme: LCC
-    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -5065,7 +5063,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcmicrobiol.biomedcentral.com/about
   board_url: https://bmcmicrobiol.biomedcentral.com/about/editorial-board
   license_types:
@@ -5137,7 +5135,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcmolcellbiol.biomedcentral.com/about
   board_url: https://bmcmolcellbiol.biomedcentral.com/about/editorial-board
   license_types:
@@ -5418,7 +5416,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcneurosci.biomedcentral.com/about
   board_url: https://bmcneurosci.biomedcentral.com/about/editorial-board
   license_types:
@@ -5919,7 +5917,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcplantbiol.biomedcentral.com/about
   board_url: https://bmcplantbiol.biomedcentral.com/about/editorial-board
   license_types:
@@ -6263,17 +6261,14 @@ journals:
   boai: true
   publication_time_weeks: 18
   keywords:
+  - public health
   - health policy
   research_fields:
   - Public aspects of medicine
-  - Public health
   subject_codes:
   - code: RA1-1270
     scheme: LCC
     term: Public aspects of medicine
-  - code: RA421-790.95
-    scheme: LCC
-    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -6427,7 +6422,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcresnotes.biomedcentral.com/about
   board_url: https://bmcresnotes.biomedcentral.com/about/editorial-board
   license_types:
@@ -6710,7 +6705,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmcvetres.biomedcentral.com/about
   board_url: https://bmcvetres.biomedcentral.com/about/editorial-board
   license_types:
@@ -6770,13 +6765,13 @@ journals:
   publication_time_weeks: 24
   keywords:
   - women's health
+  - public health
   - breast cancer
   - gynaecology
   - mental health
   research_fields:
   - Gynecology and obstetrics
   - Public aspects of medicine
-  - Public health
   subject_codes:
   - code: RG1-991
     scheme: LCC
@@ -6784,9 +6779,6 @@ journals:
   - code: RA1-1270
     scheme: LCC
     term: Public aspects of medicine
-  - code: RA421-790.95
-    schema: LCC
-    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -6865,7 +6857,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://bmczool.biomedcentral.com/about
   board_url: https://bmczool.biomedcentral.com/about/editorial-board
   license_types:
@@ -6938,7 +6930,7 @@ journals:
   institution_name: Institute of Plant and Microbial Biology, Academia Sinica, Taiwan
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://as-botanicalstudies.springeropen.com/about
   board_url: https://as-botanicalstudies.springeropen.com/about/editorial-board
   license_types:
@@ -7019,7 +7011,7 @@ journals:
   institution_name: Society of Chinese Bioscientists in America
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://cellandbioscience.biomedcentral.com/about
   board_url: https://cellandbioscience.biomedcentral.com/about/editorial-board
   license_types:
@@ -7152,7 +7144,7 @@ journals:
     & Osteopathic College of Australasia (COCA)
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://chiromt.biomedcentral.com/about
   board_url: https://chiromt.biomedcentral.com/about/editorial-board
   license_types:
@@ -7206,14 +7198,14 @@ journals:
   eissn: 1278-3366
   pissn: null
   language:
-  - EN
-  - FR
-  - DE
-  - IT
   - PT
+  - IT
+  - DE
+  - FR
+  - EN
   oa_start: 1996
   boai: true
-  publication_time_weeks: 17
+  publication_time_weeks: 30
   keywords:
   - geography
   - environmental studies
@@ -7244,13 +7236,16 @@ journals:
   preservation_has: false
   preservation_services: []
   preservation_url: null
-  pid_schemes: []
+  pid_schemes:
+  - DOI
+  - Handles
   plagiarism_detection: false
   plagiarism_url: null
   copyright_author_retains: true
   copyright_url: https://journals.openedition.org/cybergeo/?page=informations
   deposit_policy_has: true
   deposit_policy_services:
+  - Mir@bel
   - Open Policy Finder
   deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/id/publication/14330
   article_license_display:
@@ -7293,7 +7288,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: http://www.mdpi.com/journal/data/instructions#editorial_procedure
   board_url: http://www.mdpi.com/journal/data/editors
   license_types:
@@ -7363,7 +7358,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://www.sciencedirect.com/journal/data-in-brief/publish/guide-for-authors
   board_url: https://www.sciencedirect.com/journal/data-in-brief/about/editorial-board
   license_types:
@@ -7429,7 +7424,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://datascience.codata.org/about/editorialpolicies
   board_url: https://datascience.codata.org/about/editorialteam
   license_types:
@@ -7759,7 +7754,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://elife-rp.msubmit.net/cgi-bin/main.plex?form_type=display_rev_instructions#policies
   board_url: https://elifesciences.org/about/people
   license_types:
@@ -7767,7 +7762,7 @@ journals:
   - CC0
   apc_has: true
   apc_max:
-  - price: 3000
+  - price: 3750
     currency: USD
   apc_url: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html#fees
   other_charges: false
@@ -7794,7 +7789,7 @@ journals:
   article_license_example_url: https://elifesciences.org/articles/73155
   ref_journal: https://elifesciences.org
   ref_aims_scope: https://elifesciences.org/about/aims-scope
-  ref_oa_statement: https://elifesciences.org/terms
+  ref_oa_statement: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html#policies
   ref_author_instructions: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html
   ref_license_terms: https://elife-rp.msubmit.net/html/elife-rp_author_instructions.html#policies
 - id: 115
@@ -7826,7 +7821,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://evodevojournal.biomedcentral.com/about
   board_url: https://evodevojournal.biomedcentral.com/about/editorial-board
   license_types:
@@ -7883,7 +7878,7 @@ journals:
   - EN
   oa_start: 2012
   boai: true
-  publication_time_weeks: 1
+  publication_time_weeks: 7
   keywords:
   - life sciences
   - physical sciences
@@ -7924,7 +7919,6 @@ journals:
   preservation_services:
   - PMC
   - Portico
-  - Scholars Portal
   preservation_url: https://f1000research.com/about/policies
   pid_schemes:
   - DOI
@@ -7935,7 +7929,7 @@ journals:
   deposit_policy_has: true
   deposit_policy_services:
   - Open Policy Finder
-  deposit_policy_url: null
+  deposit_policy_url: https://openpolicyfinder.jisc.ac.uk/publication/24620
   article_license_display:
   - Embed
   article_license_example_url: https://f1000research.com/articles/4-32/v2
@@ -8099,7 +8093,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://genomemedicine.biomedcentral.com/about
   board_url: https://genomemedicine.biomedcentral.com/about/editorial-board
   license_types:
@@ -8179,7 +8173,7 @@ journals:
   institution_name: Royal Meteorological Society
   institution_country: GB
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/guidelines-for-reviewers
   board_url: https://rmets.onlinelibrary.wiley.com/hub/journal/20496060/editorial-board/editorial-board
   license_types:
@@ -8373,14 +8367,14 @@ journals:
   boai: true
   publication_time_weeks: 13
   keywords:
+  - public health
   - social policy
   - criminology
   - criminal justice
   - psychology
   research_fields:
   - Public aspects of medicine
-  - Social pathology
-  - Public health
+  - Social pathology. Social and public welfare. Criminology
   subject_codes:
   - code: RA1-1270
     scheme: LCC
@@ -8388,9 +8382,6 @@ journals:
   - code: HV1-9960
     scheme: LCC
     term: Social pathology. Social and public welfare. Criminology
-  - code: RA421-790.95
-    schema: LCC
-    term: Public health
   publisher_name: BMC
   publisher_country: GB
   institution_name: null
@@ -8472,7 +8463,7 @@ journals:
   institution_name: Human Genome Organisation (HUGO)
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://humgenomics.biomedcentral.com/about
   board_url: https://humgenomics.biomedcentral.com/about/editorial-board
   license_types:
@@ -8629,7 +8620,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://foodsafetyandrisk.biomedcentral.com/about
   board_url: https://foodsafetyandrisk.biomedcentral.com/about/editorial-board
   license_types:
@@ -8764,7 +8755,7 @@ journals:
   institution_name: Veterinary Ireland
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://irishvetjournal.biomedcentral.com/about
   board_url: https://irishvetjournal.biomedcentral.com/about/editorial-board
   license_types:
@@ -8836,7 +8827,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://iucrdata.iucr.org/x/services/peerreview.html
   board_url: https://iucrdata.iucr.org/x/services/editors.html
   license_types:
@@ -8907,7 +8898,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://appliedvolc.biomedcentral.com/about
   board_url: https://appliedvolc.biomedcentral.com/about/editorial-board
   license_types:
@@ -8980,7 +8971,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://jbiomedsem.biomedcentral.com/about
   board_url: https://jbiomedsem.biomedcentral.com/about/editorial-board
   license_types:
@@ -9127,7 +9118,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://jcheminf.biomedcentral.com/about
   board_url: https://jcheminf.biomedcentral.com/about/editorial-board
   license_types:
@@ -9275,7 +9266,7 @@ journals:
   institution_name: European Society for Environmental and Occupational Medicine (EOM)
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://occup-med.biomedcentral.com/about
   board_url: https://occup-med.biomedcentral.com/about/editorial-board
   license_types:
@@ -9347,7 +9338,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Anonymous peer review
+  - Single anonymous peer review
   review_url: https://openarchaeologydata.metajnl.com/about/editorialpolicies
   board_url: https://openarchaeologydata.metajnl.com/about/editorialteam
   license_types:
@@ -9479,7 +9470,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: http://openresearchsoftware.metajnl.com/about/editorialPolicies#peerReviewProcess
   board_url: http://openresearchsoftware.metajnl.com/about/editorialTeam
   license_types:
@@ -9518,8 +9509,8 @@ journals:
 - id: 140
   issn: 1529-7845
   journal_title: Journal of Physical and Chemical Reference Data
-  publisher: AIP Publishing
-  url: https://pubs.aip.org/aip/jpr
+  publisher: American Institute of Physics
+  url: https://aip.scitation.org/jpr/info/focus
   data_journal_type: pure
   is_active: true
   enrichment_source: journal homepage
@@ -9590,8 +9581,6 @@ journals:
   publication_time_weeks: 12
   keywords:
   - taxonomy
-  - biogeography
-  - biodiversity
   research_fields:
   - Biology (General)
   subject_codes:
@@ -9603,7 +9592,7 @@ journals:
   institution_name: null
   institution_country: null
   review_process:
-  - Peer review
+  - Unspecified peer review
   review_url: https://checklist.pensoft.net/about#PeerReviewProcess
   board_url: https://checklist.pensoft.net/board/
   license_types:
@@ -9619,9 +9608,6 @@ journals:
   preservation_has: true
   preservation_services:
   - CLOCKSS
-  - Zenodo
-  - Portico
-  - Zendy
   preservation_url: https://portal.issn.org/resource/ISSN/1809-127X#
   pid_schemes:
   - DOI
